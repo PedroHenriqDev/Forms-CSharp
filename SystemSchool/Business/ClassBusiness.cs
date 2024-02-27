@@ -5,5 +5,6 @@ namespace Business
 {
     public class ClassBusiness
     {
+
     }
 }
