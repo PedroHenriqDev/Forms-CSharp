@@ -13,7 +13,7 @@ using Business;
 
 namespace SystemSchool
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
         BusinessClass businessCls = new BusinessClass();
         EntityClass entitiesCls = new EntityClass();
@@ -23,7 +23,7 @@ namespace SystemSchool
         public static string UserId;
 
         MainForm mainForm = new MainForm();
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }

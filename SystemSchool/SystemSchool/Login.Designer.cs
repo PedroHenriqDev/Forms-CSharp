@@ -1,6 +1,6 @@
 ﻿namespace SystemSchool
 {
-    partial class Form1
+    partial class Login
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.TextPassword = new System.Windows.Forms.TextBox();
-            this.Login = new System.Windows.Forms.Label();
+            this.LoginText = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TextUsername = new System.Windows.Forms.TextBox();
@@ -84,14 +84,14 @@
             // 
             // Login
             // 
-            this.Login.Font = new System.Drawing.Font("Lucida Sans Unicode", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Login.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Login.Location = new System.Drawing.Point(504, 19);
-            this.Login.Name = "Login";
-            this.Login.Size = new System.Drawing.Size(218, 68);
-            this.Login.TabIndex = 8;
-            this.Login.Text = "Login";
-            this.Login.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LoginText.Font = new System.Drawing.Font("Lucida Sans Unicode", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginText.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.LoginText.Location = new System.Drawing.Point(504, 19);
+            this.LoginText.Name = "Login";
+            this.LoginText.Size = new System.Drawing.Size(218, 68);
+            this.LoginText.TabIndex = 8;
+            this.LoginText.Text = "Login";
+            this.LoginText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox2
             // 
@@ -130,7 +130,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.TextUsername);
-            this.Controls.Add(this.Login);
+            this.Controls.Add(this.LoginText);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.TextPassword);
@@ -156,7 +156,7 @@
         private System.Windows.Forms.TextBox TextPassword;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label Login;
+        private System.Windows.Forms.Label LoginText;
         private System.Windows.Forms.TextBox TextUsername;
     }
 }
