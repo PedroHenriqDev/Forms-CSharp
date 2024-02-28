@@ -52,6 +52,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
@@ -81,22 +87,24 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\user.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\user %281%29.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-user-60.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-user-24.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icons8-user-64.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icons8-password-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\icons8-user-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{6de696f4-3b1e-4da9-8822-3006366de8bc}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Datas\Datas.csproj">
+      <Project>{bd438a1a-0dbe-4927-a410-332555a89321}</Project>
+      <Name>Datas</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{18bd685b-8390-4edb-90df-361728fd0263}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
