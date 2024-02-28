@@ -9,6 +9,6 @@ namespace Entities
     public class EntityClass
     {
         public String User {  get; set; }
-        public String Password { get; set; }
+        public String KeyPassword { get; set; }
     }
 }

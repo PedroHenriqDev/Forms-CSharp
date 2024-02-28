@@ -1,12 +1,12 @@
 ﻿namespace SystemSchool
-{
+{    
     partial class Login
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
+     
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -19,7 +19,7 @@
             }
             base.Dispose(disposing);
         }
-
+      
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.ButtonCancel = new System.Windows.Forms.Button();
+            this.ButtonLogin = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.TextPassword = new System.Windows.Forms.TextBox();
             this.LoginText = new System.Windows.Forms.Label();
@@ -40,31 +40,32 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // ButtonCancel
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Lucida Sans Unicode", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.Location = new System.Drawing.Point(509, 303);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 33);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Cancel\r\n";
-            this.button1.UseVisualStyleBackColor = false;
+            this.ButtonCancel.BackColor = System.Drawing.Color.White;
+            this.ButtonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonCancel.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.ButtonCancel.Location = new System.Drawing.Point(485, 303);
+            this.ButtonCancel.Name = "ButtonCancel";
+            this.ButtonCancel.Size = new System.Drawing.Size(94, 33);
+            this.ButtonCancel.TabIndex = 2;
+            this.ButtonCancel.Text = "Cancel\r\n";
+            this.ButtonCancel.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // ButtonLogin
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Lucida Sans Unicode", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button2.Location = new System.Drawing.Point(647, 303);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 33);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Login";
-            this.button2.UseVisualStyleBackColor = false;
+            this.ButtonLogin.BackColor = System.Drawing.Color.White;
+            this.ButtonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonLogin.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonLogin.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.ButtonLogin.Location = new System.Drawing.Point(645, 303);
+            this.ButtonLogin.Name = "ButtonLogin";
+            this.ButtonLogin.Size = new System.Drawing.Size(87, 33);
+            this.ButtonLogin.TabIndex = 2;
+            this.ButtonLogin.Text = "Login";
+            this.ButtonLogin.UseVisualStyleBackColor = false;
+            this.ButtonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
             // 
             // panel1
             // 
@@ -76,18 +77,18 @@
             // 
             // TextPassword
             // 
-            this.TextPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextPassword.Location = new System.Drawing.Point(509, 220);
+            this.TextPassword.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextPassword.Location = new System.Drawing.Point(485, 220);
             this.TextPassword.Name = "TextPassword";
-            this.TextPassword.Size = new System.Drawing.Size(213, 26);
+            this.TextPassword.Size = new System.Drawing.Size(247, 29);
             this.TextPassword.TabIndex = 5;
             // 
-            // Login
+            // LoginText
             // 
-            this.LoginText.Font = new System.Drawing.Font("Lucida Sans Unicode", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginText.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.LoginText.Location = new System.Drawing.Point(504, 19);
-            this.LoginText.Name = "Login";
+            this.LoginText.Font = new System.Drawing.Font("Malgun Gothic", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginText.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.LoginText.Location = new System.Drawing.Point(501, 9);
+            this.LoginText.Name = "LoginText";
             this.LoginText.Size = new System.Drawing.Size(218, 68);
             this.LoginText.TabIndex = 8;
             this.LoginText.Text = "Login";
@@ -117,13 +118,13 @@
             // 
             // TextUsername
             // 
-            this.TextUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextUsername.Location = new System.Drawing.Point(509, 141);
+            this.TextUsername.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextUsername.Location = new System.Drawing.Point(485, 137);
             this.TextUsername.Name = "TextUsername";
-            this.TextUsername.Size = new System.Drawing.Size(213, 26);
+            this.TextUsername.Size = new System.Drawing.Size(247, 29);
             this.TextUsername.TabIndex = 9;
             // 
-            // Form1
+            // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -135,10 +136,11 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.TextPassword);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ButtonLogin);
+            this.Controls.Add(this.ButtonCancel);
+            this.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -150,8 +152,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ButtonCancel;
+        private System.Windows.Forms.Button ButtonLogin;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox TextPassword;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -160,4 +162,3 @@
         private System.Windows.Forms.TextBox TextUsername;
     }
 }
-

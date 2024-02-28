@@ -16,7 +16,7 @@ namespace SystemSchool
     public partial class Login : Form
     {
         BusinessClass businessCls = new BusinessClass();
-        EntityClass entitiesCls = new EntityClass();
+        EntityClass userCls = new EntityClass();
         public static string Username;
         public static string IdType;
         public static string User;
@@ -37,6 +37,14 @@ namespace SystemSchool
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void ButtonLogin_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            userCls.Username = TextUsername.Text;
+            userCls.KeyPassword = TextPassword.Text;
+            dt = userCls.N_Login(userCls);
         }
     }
 }
