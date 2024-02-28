@@ -18,7 +18,7 @@ namespace Datas
         {
             SqlCommand cmd = new SqlCommand("sp_logInto", _connection);
             cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@user", obj.User);
+            cmd.Parameters.AddWithValue("@username", obj.User);
             cmd.Parameters.AddWithValue("@keyPassword", obj.KeyPassword);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();

@@ -18,10 +18,9 @@ namespace SystemSchool
         BusinessClass businessCls = new BusinessClass();
         EntityClass userCls = new EntityClass();
         public static string Username;
-        public static string IdType;
+        public static string IdClass;
         public static string User;
         public static string UserId;
-
         MainForm mainForm = new MainForm();
         public Login()
         {
@@ -42,9 +41,25 @@ namespace SystemSchool
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            userCls.Username = TextUsername.Text;
+            userCls.User = TextUsername.Text;
             userCls.KeyPassword = TextPassword.Text;
-            dt = userCls.N_Login(userCls);
+            dt = businessCls.N_Login(userCls);
+            if (dt.Rows.Count > 0)
+            {
+                MessageBox.Show("Welcome " + dt.Rows[0][0].ToString(), "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Username = dt.Rows[0][0].ToString();
+                IdClass = dt.Rows[0][1].ToString();
+                User = dt.Rows[0][2].ToString();
+                UserId = dt.Rows[0][3].ToString();
+                this.Hide();
+                mainForm.ShowDialog();
+                Clean();
+            }
+            else 
+            {
+                MessageBox.Show("Incorrect username or password", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Clean();            
+            }
         }
-    }
+   }
 }
