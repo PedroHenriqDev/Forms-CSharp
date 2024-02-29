@@ -15,8 +15,8 @@ namespace SystemSchool
 {
     public partial class Login : Form
     {
-        BusinessClass businessCls = new BusinessClass();
-        EntityClass userCls = new EntityClass();
+        BusinessClass BusinessCls = new BusinessClass();
+        EntityClass UserCls = new EntityClass();
         public static string Username;
         public static string IdClass;
         public static string User;
@@ -41,9 +41,9 @@ namespace SystemSchool
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            userCls.User = TextUsername.Text;
-            userCls.KeyPassword = TextPassword.Text;
-            dt = businessCls.N_Login(userCls);
+            UserCls.User = TextUsername.Text;
+            UserCls.KeyPassword = TextPassword.Text;
+            dt = BusinessCls.N_Login(UserCls);
             if (dt.Rows.Count > 0)
             {
                 MessageBox.Show("Welcome " + dt.Rows[0][0].ToString(), "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -64,7 +64,7 @@ namespace SystemSchool
 
         private void ButtonCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
     }
 }

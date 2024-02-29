@@ -54,7 +54,7 @@
             this.pictureClassroom = new System.Windows.Forms.PictureBox();
             this.pictureStudent = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureClose = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.labelManagerSchool = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -69,7 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureClassroom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).BeginInit();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,14 +120,14 @@
             // 
             // LabelUsername
             // 
-            this.LabelUsername.AutoSize = true;
             this.LabelUsername.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelUsername.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.LabelUsername.Location = new System.Drawing.Point(479, 12);
+            this.LabelUsername.Location = new System.Drawing.Point(426, 9);
             this.LabelUsername.Name = "LabelUsername";
-            this.LabelUsername.Size = new System.Drawing.Size(122, 21);
+            this.LabelUsername.Size = new System.Drawing.Size(243, 34);
             this.LabelUsername.TabIndex = 16;
             this.LabelUsername.Text = "LabelUsername";
+            this.LabelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LabelTextDate
             // 
@@ -352,7 +352,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Black;
-            this.panel3.Controls.Add(this.pictureBox1);
+            this.panel3.Controls.Add(this.pictureClose);
             this.panel3.Controls.Add(this.LabelUsername);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -360,15 +360,17 @@
             this.panel3.Size = new System.Drawing.Size(1042, 54);
             this.panel3.TabIndex = 12;
             // 
-            // pictureBox1
+            // pictureClose
             // 
-            this.pictureBox1.Image = global::SystemSchool.Properties.Resources.icons8_close_48__2_;
-            this.pictureBox1.Location = new System.Drawing.Point(1007, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(23, 22);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
+            this.pictureClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureClose.Image = global::SystemSchool.Properties.Resources.icons8_close_48__2_;
+            this.pictureClose.Location = new System.Drawing.Point(1007, 12);
+            this.pictureClose.Name = "pictureClose";
+            this.pictureClose.Size = new System.Drawing.Size(23, 22);
+            this.pictureClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureClose.TabIndex = 11;
+            this.pictureClose.TabStop = false;
+            this.pictureClose.Click += new System.EventHandler(this.pictureClose_Click);
             // 
             // panel4
             // 
@@ -422,6 +424,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -435,8 +438,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureClassroom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).EndInit();
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.ResumeLayout(false);
@@ -472,7 +474,7 @@
         private System.Windows.Forms.Label LabelChangePassword;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureClose;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label labelManagerSchool;
     }
