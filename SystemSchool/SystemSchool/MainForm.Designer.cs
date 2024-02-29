@@ -113,7 +113,7 @@
             // 
             this.LabelUsername.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelUsername.ForeColor = System.Drawing.Color.White;
-            this.LabelUsername.Location = new System.Drawing.Point(426, 9);
+            this.LabelUsername.Location = new System.Drawing.Point(422, 9);
             this.LabelUsername.Name = "LabelUsername";
             this.LabelUsername.Size = new System.Drawing.Size(243, 34);
             this.LabelUsername.TabIndex = 16;

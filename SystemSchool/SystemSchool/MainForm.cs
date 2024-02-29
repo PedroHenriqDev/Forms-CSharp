@@ -49,11 +49,11 @@ namespace SystemSchool
             }
             TimerDate.Start();
         }
-
+        
         private void TimerDate_Tick(object sender, EventArgs e)
         {
             LabelHour.Text = DateTime.Now.ToString("HH:mm:ss");
             LabelDate.Text = DateTime.Now.ToString("dd-MM-yyyy");
         }
-    }
+    } 
 }

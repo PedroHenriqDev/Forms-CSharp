@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class EntityClass
+    internal class Course
     {
-        public String User {  get; set; }
-        public String KeyPassword { get; set; }
     }
 }

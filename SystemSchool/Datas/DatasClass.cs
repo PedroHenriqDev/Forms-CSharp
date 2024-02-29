@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using Entities;
+using Dapper;
 
 namespace Datas
 {
     public class DatasClass
     {
+        private readonly string SqlQueryToLogin = ""
+
         public DataTable DLogin(EntityClass obj)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
