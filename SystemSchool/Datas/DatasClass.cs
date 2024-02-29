@@ -13,17 +13,19 @@ namespace Datas
 {
     public class DatasClass
     {
-        SqlConnection _connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString);
-        public DataTable DLogin(EntityClass obj) 
+        public DataTable DLogin(EntityClass obj)
         {
-            SqlCommand cmd = new SqlCommand("sp_logInto", _connection);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@username", obj.User);
-            cmd.Parameters.AddWithValue("@keyPassword", obj.KeyPassword);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            return dt;
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
+            {
+                SqlCommand cmd = new SqlCommand("sp_logInto", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@username", obj.User);
+                cmd.Parameters.AddWithValue("@keyPassword", obj.KeyPassword);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
         }
     }
 }

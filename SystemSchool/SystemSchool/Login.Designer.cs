@@ -33,11 +33,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.TextPassword = new System.Windows.Forms.TextBox();
             this.LoginText = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picturePassword = new System.Windows.Forms.PictureBox();
+            this.pictureUser = new System.Windows.Forms.PictureBox();
             this.TextUsername = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picturePassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonCancel
@@ -52,6 +52,7 @@
             this.ButtonCancel.TabIndex = 2;
             this.ButtonCancel.Text = "Cancel\r\n";
             this.ButtonCancel.UseVisualStyleBackColor = false;
+            this.ButtonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
             // ButtonLogin
             // 
@@ -87,34 +88,34 @@
             // 
             this.LoginText.Font = new System.Drawing.Font("Malgun Gothic", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginText.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.LoginText.Location = new System.Drawing.Point(501, 9);
+            this.LoginText.Location = new System.Drawing.Point(498, 21);
             this.LoginText.Name = "LoginText";
             this.LoginText.Size = new System.Drawing.Size(218, 68);
             this.LoginText.TabIndex = 8;
             this.LoginText.Text = "Login";
             this.LoginText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox2
+            // picturePassword
             // 
-            this.pictureBox2.ErrorImage = global::SystemSchool.Properties.Resources.icons8_password_100;
-            this.pictureBox2.Image = global::SystemSchool.Properties.Resources.icons8_password_100;
-            this.pictureBox2.Location = new System.Drawing.Point(412, 196);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(67, 62);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
+            this.picturePassword.ErrorImage = global::SystemSchool.Properties.Resources.icons8_password_100;
+            this.picturePassword.Image = global::SystemSchool.Properties.Resources.icons8_password_100;
+            this.picturePassword.Location = new System.Drawing.Point(412, 196);
+            this.picturePassword.Name = "picturePassword";
+            this.picturePassword.Size = new System.Drawing.Size(67, 62);
+            this.picturePassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picturePassword.TabIndex = 7;
+            this.picturePassword.TabStop = false;
             // 
-            // pictureBox1
+            // pictureUser
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBox1.Image = global::SystemSchool.Properties.Resources.icons8_user_64;
-            this.pictureBox1.Location = new System.Drawing.Point(412, 113);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(67, 65);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.pictureUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pictureUser.Image = global::SystemSchool.Properties.Resources.icons8_user_100;
+            this.pictureUser.Location = new System.Drawing.Point(412, 113);
+            this.pictureUser.Name = "pictureUser";
+            this.pictureUser.Size = new System.Drawing.Size(67, 65);
+            this.pictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureUser.TabIndex = 6;
+            this.pictureUser.TabStop = false;
             // 
             // TextUsername
             // 
@@ -132,8 +133,8 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.TextUsername);
             this.Controls.Add(this.LoginText);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picturePassword);
+            this.Controls.Add(this.pictureUser);
             this.Controls.Add(this.TextPassword);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ButtonLogin);
@@ -144,8 +145,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picturePassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,8 +157,8 @@
         private System.Windows.Forms.Button ButtonLogin;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox TextPassword;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureUser;
+        private System.Windows.Forms.PictureBox picturePassword;
         private System.Windows.Forms.Label LoginText;
         private System.Windows.Forms.TextBox TextUsername;
     }

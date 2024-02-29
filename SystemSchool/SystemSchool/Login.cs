@@ -61,5 +61,10 @@ namespace SystemSchool
                 Clean();            
             }
         }
-   }
+
+        private void ButtonCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
 }
