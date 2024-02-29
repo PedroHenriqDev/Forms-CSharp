@@ -19,7 +19,7 @@ namespace SystemSchool
         EntityClass UserCls = new EntityClass();
         public static string Username;
         public static string IdClass;
-        public static string User;
+        public static string Password;
         public static string UserId;
         MainForm mainForm = new MainForm();
         public Login()
@@ -46,11 +46,11 @@ namespace SystemSchool
             dt = BusinessCls.N_Login(UserCls);
             if (dt.Rows.Count > 0)
             {
-                MessageBox.Show("Welcome " + dt.Rows[0][0].ToString(), "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Username = dt.Rows[0][0].ToString();
-                IdClass = dt.Rows[0][1].ToString();
-                User = dt.Rows[0][2].ToString();
-                UserId = dt.Rows[0][3].ToString();
+                MessageBox.Show("Welcome " + dt.Rows[0][1].ToString(), "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                UserId = dt.Rows[0][0].ToString();
+                Username = dt.Rows[0][1].ToString();
+                Password = dt.Rows[0][2].ToString();
+                IdClass = dt.Rows[0][3].ToString();
                 this.Hide();
                 mainForm.ShowDialog();
                 Clean();

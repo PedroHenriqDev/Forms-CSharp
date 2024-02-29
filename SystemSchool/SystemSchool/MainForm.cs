@@ -31,10 +31,29 @@ namespace SystemSchool
         private void MainForm_Load(object sender, EventArgs e)
         {
             LabelUsername.Text = Login.Username;
-            if (Login.UserId == "T0002") 
+            if (Login.UserId == "T0002") // Secretary
             {
                 pictureUser.Enabled = false;
+                LabelUserRegistration.ForeColor = Color.Gray;
             }
+            else if (Login.UserId == "T0003") // Teachers
+            {
+                pictureClassroom.Enabled = false;
+                LabelClassroomRegistration.ForeColor = Color.Gray;
+                pictureUser.Enabled = false;
+                LabelUserRegistration.ForeColor = Color.Gray;
+                pictureStudent.Enabled = false;
+                LabelStudentRegistration.ForeColor = Color.Gray;
+                pictureCourse.Enabled = false;
+                LabelCourseRegistration.ForeColor = Color.Gray;
+            }
+            TimerDate.Start();
+        }
+
+        private void TimerDate_Tick(object sender, EventArgs e)
+        {
+            LabelHour.Text = DateTime.Now.ToString("HH:mm:ss");
+            LabelDate.Text = DateTime.Now.ToString("dd-MM-yyyy");
         }
     }
 }
