@@ -10,7 +10,7 @@ namespace Entities
     {
         public int UserId { get; set; } 
         public string Username { get; set; }
-        public string Password { get; set; }
+        public string PasswordHash { get; set; }
         public int ClassId { get; set; }
         public Class Class { get; set; }
     }

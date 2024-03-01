@@ -8,15 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
-using Business;
 
 namespace SystemSchool
 {
     public partial class MainForm : Form
     {
-
-        BusinessClass BusinessObj = new BusinessClass();
-
         public MainForm()
         {
             InitializeComponent();

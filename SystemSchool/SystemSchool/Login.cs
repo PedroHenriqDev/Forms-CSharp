@@ -10,14 +10,18 @@ using System.Windows.Forms;
 using Datas;
 using Entities;
 using Business;
+using SystemSchool.Helpers;
+using Business.BusinessComponents;
+using Business.BusinessComponents.ConcreteClasses;
 
 namespace SystemSchool
 {
     public partial class Login : Form
     {
-        BusinessClass BusinessCls = new BusinessClass();
+        LoginBusiness BusinessCls = new LoginBusiness();
         static public User UserCls = new User();
         MainForm MainForm = new MainForm();
+        DataAccess dataAccess = new DataAccess();
         public Login()
         {
             InitializeComponent();
@@ -42,20 +46,20 @@ namespace SystemSchool
         private async Task ButtonLogin_ClickAsync(object sender, EventArgs e)
         {
             UserCls.Username = TextUsername.Text;
-            UserCls.Password = TextPassword.Text;
-            User User = await BusinessCls.LoginAsync(UserCls);
-            if (User != null)
+            UserCls.PasswordHash = TextPassword.Text;
+            LoginQuery query = await BusinessCls.LoginAsync(UserCls);
+            if (query.Result)
             {
-                MessageBox.Show("Welcome " + User.Username, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                UserCls = User;
+                MessageBox.Show("Welcome " + query.User.Username, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                UserCls = query.User;
+                dataAccess.MainFormAccess(MainForm, UserCls);
                 this.Hide();
                 MainForm.ShowDialog();
-                Clean();
             }
-            else 
+            else
             {
                 MessageBox.Show("Incorrect username or password", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Clean();            
+                Clean();
             }
         }
 

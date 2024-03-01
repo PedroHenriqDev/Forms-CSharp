@@ -21,8 +21,20 @@ namespace Datas
                 await connection.OpenAsync();
                 string SqlQuery = @"SELECT * FROM Users 
                                     WHERE Username = @username COLLATE SQL_Latin1_General_CP1_CS_AS 
-                                    AND PasswordHash = HASHBYTES('SHA2_512', @password)";
-                return connection.QueryFirstOrDefault<User>(SqlQuery, new { username = user.Username, password = user.Password });
+                                    AND PasswordHash = HASHBYTES('SHA2_512', @passwordHash)";
+                 return await connection.QueryFirstOrDefaultAsync<User>(SqlQuery, new { username = user.Username, passwordHash = user.PasswordHash });
+            }
+        }
+
+        public async Task<Class> FindClassByUserAsync(User user) 
+        {
+            using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
+            {
+                await connection.OpenAsync();
+                int ClassId = user.ClassId;
+                string SqlQuery = @"SELECT * FROM Classes WHERE ClassId = @ClassId";
+                Class classDb = await connection.QueryFirstOrDefaultAsync<Class>(SqlQuery, new { ClassId = ClassId });
+                return classDb;
             }
         }
     }

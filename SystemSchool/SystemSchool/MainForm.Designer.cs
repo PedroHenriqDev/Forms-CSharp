@@ -454,29 +454,29 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureStudent;
-        private System.Windows.Forms.PictureBox pictureClassroom;
-        private System.Windows.Forms.PictureBox pictureCourse;
-        private System.Windows.Forms.PictureBox pictureUser;
-        private System.Windows.Forms.PictureBox pictureLogout;
-        private System.Windows.Forms.PictureBox pictureStatistics;
-        private System.Windows.Forms.PictureBox pictureReports;
-        private System.Windows.Forms.PictureBox pictureChangePassword;
+        public System.Windows.Forms.PictureBox pictureStudent;
+        public System.Windows.Forms.PictureBox pictureClassroom;
+        public System.Windows.Forms.PictureBox pictureCourse;
+        public System.Windows.Forms.PictureBox pictureUser;
+        public System.Windows.Forms.PictureBox pictureLogout;
+        public System.Windows.Forms.PictureBox pictureStatistics;
+        public System.Windows.Forms.PictureBox pictureReports;
+        public System.Windows.Forms.PictureBox pictureChangePassword;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label LabelSchoolManager;
+        public System.Windows.Forms.Label LabelSchoolManager;
         private System.Windows.Forms.Label LabelDate;
-        private System.Windows.Forms.Label LabelUsername;
+        public System.Windows.Forms.Label LabelUsername;
         private System.Windows.Forms.Label LabelTextDate;
         private System.Windows.Forms.Label LabelTextHour;
         private System.Windows.Forms.Label LabelHour;
-        private System.Windows.Forms.Label LabelStatistics;
-        private System.Windows.Forms.Label LabelClassroomRegistration;
-        private System.Windows.Forms.Label LabelReports;
+        public System.Windows.Forms.Label LabelStatistics;
+        public System.Windows.Forms.Label LabelClassroomRegistration;
+        public System.Windows.Forms.Label LabelReports;
         private System.Windows.Forms.Label LabelLogout;
-        private System.Windows.Forms.Label LabelUserRegistration;
-        private System.Windows.Forms.Label LabelCourseRegistration;
-        private System.Windows.Forms.Label LabelStudentRegistration;
+        public System.Windows.Forms.Label LabelUserRegistration;
+        public System.Windows.Forms.Label LabelCourseRegistration;
+        public System.Windows.Forms.Label LabelStudentRegistration;
         private System.Windows.Forms.Label LabelChangePassword;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Panel panel3;
