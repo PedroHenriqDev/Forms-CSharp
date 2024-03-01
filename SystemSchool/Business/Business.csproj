@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogic\LoginBusiness.cs" />
+    <Compile Include="BusinessLogic\SearchEntitiesBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

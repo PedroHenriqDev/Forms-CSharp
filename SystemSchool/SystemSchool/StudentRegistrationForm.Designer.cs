@@ -28,41 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBoxClassroom = new System.Windows.Forms.ComboBox();
+            this.ComboBoxClassroom = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBoxBack = new System.Windows.Forms.PictureBox();
             this.pictureStudent = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.linkLabelDelete = new System.Windows.Forms.LinkLabel();
+            this.linkLabelEdit = new System.Windows.Forms.LinkLabel();
             this.LabelClassroom = new System.Windows.Forms.Label();
             this.LabelStudentName = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBoxCourse = new System.Windows.Forms.ComboBox();
+            this.ComboBoxCourse = new System.Windows.Forms.ComboBox();
             this.labelStudentCourse = new System.Windows.Forms.Label();
             this.buttonRegister = new System.Windows.Forms.Button();
-            this.linkLabelEdit = new System.Windows.Forms.LinkLabel();
-            this.linkLabelDelete = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // comboBoxClassroom
+            // ComboBoxClassroom
             // 
-            this.comboBoxClassroom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.comboBoxClassroom.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.comboBoxClassroom.FormattingEnabled = true;
-            this.comboBoxClassroom.Location = new System.Drawing.Point(297, 313);
-            this.comboBoxClassroom.Name = "comboBoxClassroom";
-            this.comboBoxClassroom.Size = new System.Drawing.Size(287, 29);
-            this.comboBoxClassroom.TabIndex = 0;
+            this.ComboBoxClassroom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ComboBoxClassroom.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ComboBoxClassroom.FormattingEnabled = true;
+            this.ComboBoxClassroom.Location = new System.Drawing.Point(297, 313);
+            this.ComboBoxClassroom.Name = "ComboBoxClassroom";
+            this.ComboBoxClassroom.Size = new System.Drawing.Size(287, 29);
+            this.ComboBoxClassroom.TabIndex = 0;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Controls.Add(this.pictureBoxBack);
             this.panel1.Controls.Add(this.pictureStudent);
             this.panel1.Location = new System.Drawing.Point(-7, -1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(886, 87);
             this.panel1.TabIndex = 1;
+            // 
+            // pictureBoxBack
+            // 
+            this.pictureBoxBack.Image = global::SystemSchool.Properties.Resources.icons8_back_48;
+            this.pictureBoxBack.Location = new System.Drawing.Point(840, 13);
+            this.pictureBoxBack.Name = "pictureBoxBack";
+            this.pictureBoxBack.Size = new System.Drawing.Size(28, 25);
+            this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxBack.TabIndex = 1;
+            this.pictureBoxBack.TabStop = false;
+            this.pictureBoxBack.Click += new System.EventHandler(this.pictureBoxBack_Click);
+            // 
+            // pictureStudent
+            // 
+            this.pictureStudent.Image = global::SystemSchool.Properties.Resources.icons8_student_male_100;
+            this.pictureStudent.Location = new System.Drawing.Point(364, 3);
+            this.pictureStudent.Name = "pictureStudent";
+            this.pictureStudent.Size = new System.Drawing.Size(158, 73);
+            this.pictureStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureStudent.TabIndex = 0;
+            this.pictureStudent.TabStop = false;
             // 
             // panel2
             // 
@@ -74,15 +98,29 @@
             this.panel2.Size = new System.Drawing.Size(894, 91);
             this.panel2.TabIndex = 2;
             // 
-            // pictureStudent
+            // linkLabelDelete
             // 
-            this.pictureStudent.Image = global::SystemSchool.Properties.Resources.icons8_student_male_100;
-            this.pictureStudent.Location = new System.Drawing.Point(364, 3);
-            this.pictureStudent.Name = "pictureStudent";
-            this.pictureStudent.Size = new System.Drawing.Size(158, 73);
-            this.pictureStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureStudent.TabIndex = 0;
-            this.pictureStudent.TabStop = false;
+            this.linkLabelDelete.AutoSize = true;
+            this.linkLabelDelete.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
+            this.linkLabelDelete.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.linkLabelDelete.Location = new System.Drawing.Point(58, 33);
+            this.linkLabelDelete.Name = "linkLabelDelete";
+            this.linkLabelDelete.Size = new System.Drawing.Size(58, 21);
+            this.linkLabelDelete.TabIndex = 1;
+            this.linkLabelDelete.TabStop = true;
+            this.linkLabelDelete.Text = "Delete\r\n";
+            // 
+            // linkLabelEdit
+            // 
+            this.linkLabelEdit.AutoSize = true;
+            this.linkLabelEdit.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
+            this.linkLabelEdit.LinkColor = System.Drawing.Color.Yellow;
+            this.linkLabelEdit.Location = new System.Drawing.Point(771, 33);
+            this.linkLabelEdit.Name = "linkLabelEdit";
+            this.linkLabelEdit.Size = new System.Drawing.Size(38, 21);
+            this.linkLabelEdit.TabIndex = 0;
+            this.linkLabelEdit.TabStop = true;
+            this.linkLabelEdit.Text = "Edit";
             // 
             // LabelClassroom
             // 
@@ -115,15 +153,16 @@
             this.textBox1.Size = new System.Drawing.Size(287, 29);
             this.textBox1.TabIndex = 5;
             // 
-            // comboBoxCourse
+            // ComboBoxCourse
             // 
-            this.comboBoxCourse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.comboBoxCourse.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.comboBoxCourse.FormattingEnabled = true;
-            this.comboBoxCourse.Location = new System.Drawing.Point(297, 225);
-            this.comboBoxCourse.Name = "comboBoxCourse";
-            this.comboBoxCourse.Size = new System.Drawing.Size(287, 29);
-            this.comboBoxCourse.TabIndex = 6;
+            this.ComboBoxCourse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.ComboBoxCourse.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ComboBoxCourse.FormattingEnabled = true;
+            this.ComboBoxCourse.Location = new System.Drawing.Point(297, 225);
+            this.ComboBoxCourse.Name = "ComboBoxCourse";
+            this.ComboBoxCourse.Size = new System.Drawing.Size(287, 29);
+            this.ComboBoxCourse.TabIndex = 6;
+            this.ComboBoxCourse.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCourse_SelectedIndexChanged);
             // 
             // labelStudentCourse
             // 
@@ -143,36 +182,12 @@
             this.buttonRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonRegister.Location = new System.Drawing.Point(384, 406);
-            this.buttonRegister.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.buttonRegister.Margin = new System.Windows.Forms.Padding(0);
             this.buttonRegister.Name = "buttonRegister";
-            this.buttonRegister.Size = new System.Drawing.Size(104, 36);
+            this.buttonRegister.Size = new System.Drawing.Size(104, 32);
             this.buttonRegister.TabIndex = 8;
             this.buttonRegister.Text = "Register";
             this.buttonRegister.UseVisualStyleBackColor = false;
-            // 
-            // linkLabelEdit
-            // 
-            this.linkLabelEdit.AutoSize = true;
-            this.linkLabelEdit.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
-            this.linkLabelEdit.LinkColor = System.Drawing.Color.Yellow;
-            this.linkLabelEdit.Location = new System.Drawing.Point(771, 33);
-            this.linkLabelEdit.Name = "linkLabelEdit";
-            this.linkLabelEdit.Size = new System.Drawing.Size(38, 21);
-            this.linkLabelEdit.TabIndex = 0;
-            this.linkLabelEdit.TabStop = true;
-            this.linkLabelEdit.Text = "Edit";
-            // 
-            // linkLabelDelete
-            // 
-            this.linkLabelDelete.AutoSize = true;
-            this.linkLabelDelete.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
-            this.linkLabelDelete.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.linkLabelDelete.Location = new System.Drawing.Point(58, 33);
-            this.linkLabelDelete.Name = "linkLabelDelete";
-            this.linkLabelDelete.Size = new System.Drawing.Size(58, 21);
-            this.linkLabelDelete.TabIndex = 1;
-            this.linkLabelDelete.TabStop = true;
-            this.linkLabelDelete.Text = "Delete\r\n";
             // 
             // StudentRegistrationForm
             // 
@@ -181,24 +196,26 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(873, 571);
             this.Controls.Add(this.labelStudentCourse);
-            this.Controls.Add(this.comboBoxCourse);
+            this.Controls.Add(this.ComboBoxCourse);
             this.Controls.Add(this.buttonRegister);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.LabelStudentName);
             this.Controls.Add(this.LabelClassroom);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.comboBoxClassroom);
+            this.Controls.Add(this.ComboBoxClassroom);
             this.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "StudentRegistrationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentRegistrationForm";
+            this.Load += new System.EventHandler(this.StudentRegistrationForm_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,17 +223,18 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBoxClassroom;
+        private System.Windows.Forms.ComboBox ComboBoxClassroom;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureStudent;
         private System.Windows.Forms.Label LabelClassroom;
         private System.Windows.Forms.Label LabelStudentName;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBoxCourse;
+        private System.Windows.Forms.ComboBox ComboBoxCourse;
         private System.Windows.Forms.Label labelStudentCourse;
         private System.Windows.Forms.Button buttonRegister;
         private System.Windows.Forms.LinkLabel linkLabelDelete;
         private System.Windows.Forms.LinkLabel linkLabelEdit;
+        private System.Windows.Forms.PictureBox pictureBoxBack;
     }
 }

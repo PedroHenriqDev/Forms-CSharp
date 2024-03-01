@@ -113,6 +113,7 @@
     <None Include="Resources\icons8-reports-58.png" />
     <None Include="Resources\icons8-statistics-100.png" />
     <None Include="Resources\icons8-logout-100.png" />
+    <None Include="Resources\icons8-back-48.png" />
     <Content Include="Resources\icons8-user-64.png" />
   </ItemGroup>
   <ItemGroup>

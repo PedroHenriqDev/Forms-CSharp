@@ -17,7 +17,7 @@ namespace Business
         {
             LoginQuery query = new LoginQuery();
             User userDb = await Datas.VerifyCredentialsAsync(user);
-            userDb.Class = await Datas.FindClassByUserAsync(userDb);
+            userDb.Class = await Datas.FindClassByUserAsync(userDb.ClassId);
 
             if(userDb.Class != null)
             {
