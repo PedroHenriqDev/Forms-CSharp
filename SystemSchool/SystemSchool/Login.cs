@@ -16,12 +16,8 @@ namespace SystemSchool
     public partial class Login : Form
     {
         BusinessClass BusinessCls = new BusinessClass();
-        EntityClass UserCls = new EntityClass();
-        public static string Username;
-        public static string IdClass;
-        public static string Password;
-        public static string UserId;
-        MainForm mainForm = new MainForm();
+        static public User UserCls = new User();
+        MainForm MainForm = new MainForm();
         public Login()
         {
             InitializeComponent();
@@ -38,21 +34,22 @@ namespace SystemSchool
 
         }
 
-        private void ButtonLogin_Click(object sender, EventArgs e)
+        private async void ButtonLogin_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
-            UserCls.User = TextUsername.Text;
-            UserCls.KeyPassword = TextPassword.Text;
-            dt = BusinessCls.N_Login(UserCls);
-            if (dt.Rows.Count > 0)
+            await ButtonLogin_ClickAsync(sender, e);
+        }
+
+        private async Task ButtonLogin_ClickAsync(object sender, EventArgs e)
+        {
+            UserCls.Username = TextUsername.Text;
+            UserCls.Password = TextPassword.Text;
+            User User = await BusinessCls.LoginAsync(UserCls);
+            if (User != null)
             {
-                MessageBox.Show("Welcome " + dt.Rows[0][1].ToString(), "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                UserId = dt.Rows[0][0].ToString();
-                Username = dt.Rows[0][1].ToString();
-                Password = dt.Rows[0][2].ToString();
-                IdClass = dt.Rows[0][3].ToString();
+                MessageBox.Show("Welcome " + User.Username, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                UserCls = User;
                 this.Hide();
-                mainForm.ShowDialog();
+                MainForm.ShowDialog();
                 Clean();
             }
             else 

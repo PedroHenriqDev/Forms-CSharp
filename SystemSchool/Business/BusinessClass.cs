@@ -11,10 +11,10 @@ namespace Business
 {
     public class BusinessClass
     {
-        DatasClass datasCls = new DatasClass();
-        public DataTable N_Login(EntityClass obj) 
+        DatasClass Datas = new DatasClass();
+        public async Task<User> LoginAsync(User user) 
         {
-            return datasCls.DLogin(obj);
+            return await Datas.VerifyCredentialsAsync(user);
         }
     }
 }

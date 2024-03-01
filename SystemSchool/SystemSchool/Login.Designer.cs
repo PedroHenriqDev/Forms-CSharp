@@ -1,4 +1,6 @@
-﻿namespace SystemSchool
+﻿using System.Threading.Tasks;
+
+namespace SystemSchool
 {    
     partial class Login
     {

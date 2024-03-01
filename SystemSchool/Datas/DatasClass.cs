@@ -12,22 +12,17 @@ using Dapper;
 
 namespace Datas
 {
-    public class DatasClass
+    public class DatasClass 
     {
-        private readonly string SqlQueryToLogin = ""
-
-        public DataTable DLogin(EntityClass obj)
+        public async Task<User> VerifyCredentialsAsync(User user)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
-                SqlCommand cmd = new SqlCommand("sp_logInto", connection);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@username", obj.User);
-                cmd.Parameters.AddWithValue("@keyPassword", obj.KeyPassword);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                return dt;
+                await connection.OpenAsync();
+                string SqlQuery = @"SELECT * FROM Users 
+                                    WHERE Username = @username COLLATE SQL_Latin1_General_CP1_CS_AS 
+                                    AND PasswordHash = HASHBYTES('SHA2_512', @password)";
+                return connection.QueryFirstOrDefault<User>(SqlQuery, new { username = user.Username, password = user.Password });
             }
         }
     }

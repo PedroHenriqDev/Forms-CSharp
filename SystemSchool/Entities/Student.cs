@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    internal class Students
+    public class Student
     {
         public int StudentId { get; set; }
         public string ClassroomId {  get; set; }
+        public Classroom Classroom { get; set; }
         public string CompleteName {  get; set; }
     }
 }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    internal class Course
+    public class Course
     {
+        public int CourseId {  get; set; }
+        public string CourseName { get; set; }
+        public List<Classroom> Classrooms { get; set; }
     }
 }

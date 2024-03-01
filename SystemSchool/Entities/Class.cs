@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    internal class Class
+    public class Class
     {
         public int ClassId { get; set; }
         public List<User> Users { get; set; }
