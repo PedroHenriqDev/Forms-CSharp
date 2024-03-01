@@ -12,7 +12,7 @@ namespace Business
 {
     public class LoginBusiness
     {
-        DatasClass Datas = new DatasClass();
+        ConnectionDb Datas = new ConnectionDb();
         public async Task<LoginQuery> LoginAsync(User user) 
         {
             LoginQuery query = new LoginQuery();

@@ -12,7 +12,7 @@ using Dapper;
 
 namespace Datas
 {
-    public class DatasClass 
+    public class ConnectionDb 
     {
         public async Task<User> VerifyCredentialsAsync(User user)
         {

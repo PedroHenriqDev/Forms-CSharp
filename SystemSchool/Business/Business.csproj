@@ -45,9 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessComponents\ConcreteClasses\LoginQuery.cs" />
     <Compile Include="BusinessLogic\LoginBusiness.cs" />
-    <Compile Include="BusinessComponents\Interfaces\ResultOfQueries.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

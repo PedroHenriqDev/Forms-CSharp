@@ -11,23 +11,23 @@ namespace SystemSchool.Helpers
 {
     public class DataAccess
     {
-        public void MainFormAccess(MainForm mainForm, User user) 
+        public void MainFormAccess(MainForm mainForm, User user)
         {
-            if(mainForm == null) 
+            if (mainForm == null)
             {
                 throw new MainFormException("An brutal error while the main form was trying to run");
             }
 
-           if(user.Class.AccessLevel == 3) 
-           {
-           }
-           else if(user.Class.AccessLevel == 2) 
-           {
+            if (user.Class.AccessLevel == 3)
+            {
+            }
+            else if (user.Class.AccessLevel == 2)
+            {
                 mainForm.pictureUser.Enabled = false;
                 mainForm.LabelUserRegistration.Enabled = false;
-           }
-           else if(user.Class.AccessLevel == 1) 
-           {
+            }
+            else if (user.Class.AccessLevel == 1)
+            {
                 mainForm.pictureUser.Enabled = false;
                 mainForm.LabelUserRegistration.Enabled = false;
                 mainForm.pictureStudent.Enabled = false;
@@ -36,11 +36,11 @@ namespace SystemSchool.Helpers
                 mainForm.LabelClassroomRegistration.Enabled = false;
                 mainForm.pictureCourse.Enabled = false;
                 mainForm.LabelCourseRegistration.Enabled = false;
-           }
-           else 
-           {
+            }
+            else
+            {
                 throw new MainFormException("An brutal error ocurred in user authorization");
-           }
+            }
         }
     }
 }

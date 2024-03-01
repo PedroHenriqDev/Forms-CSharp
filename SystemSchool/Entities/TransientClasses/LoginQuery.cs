@@ -8,7 +8,7 @@ using Entities;
 
 namespace Business.BusinessComponents.ConcreteClasses
 {
-    public class LoginQuery : ResultOfQueries
+    public class LoginQuery : IResultOfQueries
     {
         public bool Result { get; set; }
         public DateTime Moment { get; set; }
