@@ -58,6 +58,26 @@ namespace Datas
             }
         }
 
+        public async Task<IEnumerable<Classroom>> ReturnAllClassromsAsync() 
+        {
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
+            {
+                await connection.OpenAsync();
+                string SqlQuery = @"SELECT * FROM Classroom";
+                return await connection.QueryAsync<Classroom>(SqlQuery);
+            }
+        }
+
+        public async Task<IEnumerable<Student>> ReturnAllStudentsAsync() 
+        {
+            using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
+            {
+                await connection.OpenAsync();
+                string SqlQuery = @"SELECT * FROM Students";
+                return await connection.QueryAsync<Student>(SqlQuery);
+            }
+        }
+
         public async Task<IEnumerable<Classroom>> ReturnClassroomsByCourseNameAsync(string courseName) 
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 

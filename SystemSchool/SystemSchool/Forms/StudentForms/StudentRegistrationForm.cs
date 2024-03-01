@@ -9,15 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.BusinessLogic;
 using Entities;
+using SystemSchool.Forms.StudentForms;
 
 namespace SystemSchool
 {
-    public partial class StudentForm : Form
+    public partial class StudentRegistrationForm : Form
     { 
         SearchEntitiesBusiness searchEntitiesBusiness = new SearchEntitiesBusiness();
         MainForm mainForm = new MainForm();
+        StudentDeleteForm studentDeleteForm = new StudentDeleteForm();
 
-        public StudentForm()
+        public StudentRegistrationForm()
         {
             InitializeComponent();
         }
@@ -34,10 +36,10 @@ namespace SystemSchool
 
         private async Task LoadComboBoxClassroomAsync(string courseName) 
         {
-            IEnumerable<Classroom> classroms = await searchEntitiesBusiness.FindClassroomByCourseNameAsync(courseName);
+            IEnumerable<Classroom> classroms = await searchEntitiesBusiness.FindClassroomsByCourseNameAsync(courseName);
             foreach(Classroom classroom in classroms)
             {
-                ComboBoxClassroom.Items.Add(classroom);
+                ComboBoxClassroom.Items.Add(classroom.ClassroomName);
             }
         }
 
@@ -54,6 +56,12 @@ namespace SystemSchool
         {
             this.Hide();
             mainForm.ShowDialog();
+        }
+
+        private void LabelDelete_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            studentDeleteForm.ShowDialog();
         }
     }
 }
