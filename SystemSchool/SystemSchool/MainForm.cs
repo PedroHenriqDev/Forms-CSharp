@@ -34,5 +34,10 @@ namespace SystemSchool
             LabelHour.Text = DateTime.Now.ToString("HH:mm:ss");
             LabelDate.Text = DateTime.Now.ToString("dd-MM-yyyy");
         }
+
+        private void pictureStudent_Click(object sender, EventArgs e)
+        {
+
+        }
     } 
 }

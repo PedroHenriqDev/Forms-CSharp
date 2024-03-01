@@ -13,6 +13,7 @@ using Business;
 using SystemSchool.Helpers;
 using Business.BusinessComponents;
 using Business.BusinessComponents.ConcreteClasses;
+using SystemSchool.Expections;
 
 namespace SystemSchool
 {
@@ -27,7 +28,7 @@ namespace SystemSchool
             InitializeComponent();
         }
 
-        private void Clean() 
+        private void Clean()
         {
             TextUsername.Text = string.Empty;
             TextPassword.Text = string.Empty;
@@ -45,21 +46,34 @@ namespace SystemSchool
 
         private async Task ButtonLogin_ClickAsync(object sender, EventArgs e)
         {
-            UserCls.Username = TextUsername.Text;
-            UserCls.PasswordHash = TextPassword.Text;
-            LoginQuery query = await BusinessCls.LoginAsync(UserCls);
-            if (query.Result)
+            try
             {
-                MessageBox.Show("Welcome " + query.User.Username, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                UserCls = query.User;
-                dataAccess.MainFormAccess(MainForm, UserCls);
-                this.Hide();
-                MainForm.ShowDialog();
+                UserCls.Username = TextUsername.Text;
+                UserCls.PasswordHash = TextPassword.Text;
+                LoginQuery query = await BusinessCls.LoginAsync(UserCls);
+                if (query.Result)
+                {
+                    MessageBox.Show("Welcome " + query.User.Username, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    UserCls = query.User;
+                    dataAccess.MainFormAccess(MainForm, UserCls);
+                    this.Hide();
+                    MainForm.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect username or password", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Clean();
+                }
             }
-            else
+            catch (MainFormException ex)
             {
-                MessageBox.Show("Incorrect username or password", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Clean();
+                MessageBox.Show("Error in data access ", ex.Message, (MessageBoxButtons)MessageBoxIcon.Error);
+                Application.Exit();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Brutal error", ex.Message, (MessageBoxButtons)MessageBoxIcon.Error);
+                Application.Exit();
             }
         }
 

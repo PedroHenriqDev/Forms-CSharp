@@ -373,6 +373,7 @@
             this.pictureStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureStudent.TabIndex = 0;
             this.pictureStudent.TabStop = false;
+            this.pictureStudent.Click += new System.EventHandler(this.pictureStudent_Click);
             // 
             // panel4
             // 
