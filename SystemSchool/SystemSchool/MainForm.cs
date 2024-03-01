@@ -13,6 +13,8 @@ namespace SystemSchool
 {
     public partial class MainForm : Form
     {
+        StudentRegistrationForm StudentRegistrationForm = new StudentRegistrationForm();
+
         public MainForm()
         {
             InitializeComponent();
@@ -37,7 +39,8 @@ namespace SystemSchool
 
         private void pictureStudent_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            StudentRegistrationForm.ShowDialog();
         }
     } 
 }

@@ -35,16 +35,16 @@ namespace SystemSchool
             this.panel1 = new System.Windows.Forms.Panel();
             this.TextPassword = new System.Windows.Forms.TextBox();
             this.LoginText = new System.Windows.Forms.Label();
+            this.TextUsername = new System.Windows.Forms.TextBox();
             this.picturePassword = new System.Windows.Forms.PictureBox();
             this.pictureUser = new System.Windows.Forms.PictureBox();
-            this.TextUsername = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picturePassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonCancel
             // 
-            this.ButtonCancel.BackColor = System.Drawing.Color.White;
+            this.ButtonCancel.BackColor = System.Drawing.Color.Black;
             this.ButtonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonCancel.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -58,7 +58,7 @@ namespace SystemSchool
             // 
             // ButtonLogin
             // 
-            this.ButtonLogin.BackColor = System.Drawing.Color.White;
+            this.ButtonLogin.BackColor = System.Drawing.Color.Black;
             this.ButtonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonLogin.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonLogin.ForeColor = System.Drawing.SystemColors.HotTrack;
@@ -80,7 +80,9 @@ namespace SystemSchool
             // 
             // TextPassword
             // 
+            this.TextPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TextPassword.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextPassword.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.TextPassword.Location = new System.Drawing.Point(485, 220);
             this.TextPassword.Name = "TextPassword";
             this.TextPassword.Size = new System.Drawing.Size(247, 29);
@@ -96,6 +98,16 @@ namespace SystemSchool
             this.LoginText.TabIndex = 8;
             this.LoginText.Text = "Login";
             this.LoginText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TextUsername
+            // 
+            this.TextUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TextUsername.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TextUsername.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.TextUsername.Location = new System.Drawing.Point(485, 137);
+            this.TextUsername.Name = "TextUsername";
+            this.TextUsername.Size = new System.Drawing.Size(247, 29);
+            this.TextUsername.TabIndex = 9;
             // 
             // picturePassword
             // 
@@ -118,14 +130,6 @@ namespace SystemSchool
             this.pictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureUser.TabIndex = 6;
             this.pictureUser.TabStop = false;
-            // 
-            // TextUsername
-            // 
-            this.TextUsername.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextUsername.Location = new System.Drawing.Point(485, 137);
-            this.TextUsername.Name = "TextUsername";
-            this.TextUsername.Size = new System.Drawing.Size(247, 29);
-            this.TextUsername.TabIndex = 9;
             // 
             // Login
             // 
