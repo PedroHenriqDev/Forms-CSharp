@@ -1,6 +1,6 @@
 ﻿namespace SystemSchool
 {
-    partial class StudentRegistrationForm
+    partial class StudentForm
     {
         /// <summary>
         /// Required designer variable.
@@ -69,6 +69,7 @@
             // 
             // pictureBoxBack
             // 
+            this.pictureBoxBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxBack.Image = global::SystemSchool.Properties.Resources.icons8_back_48;
             this.pictureBoxBack.Location = new System.Drawing.Point(840, 13);
             this.pictureBoxBack.Name = "pictureBoxBack";

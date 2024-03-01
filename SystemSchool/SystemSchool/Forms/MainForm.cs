@@ -38,7 +38,7 @@ namespace SystemSchool
         private void pictureStudent_Click(object sender, EventArgs e)
         {
             this.Hide();
-            StudentRegistrationForm studentform = new StudentRegistrationForm();
+            StudentForm studentform = new StudentForm();
             studentform.ShowDialog();
         }
     } 

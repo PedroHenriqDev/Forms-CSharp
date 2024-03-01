@@ -12,12 +12,12 @@ using Entities;
 
 namespace SystemSchool
 {
-    public partial class StudentRegistrationForm : Form
+    public partial class StudentForm : Form
     { 
         SearchEntitiesBusiness searchEntitiesBusiness = new SearchEntitiesBusiness();
         MainForm mainForm = new MainForm();
 
-        public StudentRegistrationForm()
+        public StudentForm()
         {
             InitializeComponent();
         }
@@ -29,7 +29,7 @@ namespace SystemSchool
 
         private async void ComboBoxCourse_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            await LoadComboBoxClassroomAsync(ComboBoxCourse.SelectedItem.ToString());
         }
 
         private async Task LoadComboBoxClassroomAsync(string courseName) 
