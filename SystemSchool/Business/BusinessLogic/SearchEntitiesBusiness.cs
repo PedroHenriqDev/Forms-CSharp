@@ -32,5 +32,11 @@ namespace Business.BusinessLogic
         {
             return await ConnectionDb.ReturnAllStudentsAsync();
         }
+
+        public async Task<IEnumerable<Student>> FindStudentsByClassroomNameAsync(string ClassroomName) 
+        {
+            Classroom classroom = await ConnectionDb.FindClassroomByNameAsync(ClassroomName);
+            return await ConnectionDb.ReturnStudentsByClassroomIdAsync(classroom.ClassroomId);
+        }
     }
 }
