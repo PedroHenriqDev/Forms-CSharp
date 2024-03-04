@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SystemSchool.Forms.StudentForms;
 using Entities;
+using SystemSchool.Forms.ClassroomForms;
 
 namespace SystemSchool
 {
@@ -41,6 +42,13 @@ namespace SystemSchool
             this.Hide();
             RegistrationStudentForm formStudent = new RegistrationStudentForm();
             formStudent.ShowDialog();
+        }
+
+        private void pictureClassroom_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegistrationClassroomForm formClassroom = new RegistrationClassroomForm();
+            formClassroom.ShowDialog();
         }
     } 
 }

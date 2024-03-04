@@ -38,5 +38,17 @@ namespace Business.BusinessLogic
             Classroom classroom = await ConnectionDb.FindClassroomByNameAsync(ClassroomName);
             return await ConnectionDb.ReturnStudentsByClassroomIdAsync(classroom.ClassroomId);
         }
+
+        public async Task<IEnumerable<char>> FindLettersAvailableBySchoolYearAsync(string schoolYear) 
+        {
+            IEnumerable<Classroom> classrooms = await ConnectionDb.ReturnAllClassromsAsync();
+
+            IEnumerable<char> existingLetters = classrooms.Select(c => c.ClassroomName[1])
+                .Where(letter => char.IsLetter(letter) && letter < 'E');
+
+            return Enumerable.Range('A', 'D' - 'A' + 1)
+                .Select(letter => (char)letter)
+                .Except(existingLetters);
+        }
     }
 }

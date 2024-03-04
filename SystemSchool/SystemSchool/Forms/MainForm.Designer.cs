@@ -400,6 +400,7 @@ namespace SystemSchool
             this.pictureClassroom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureClassroom.TabIndex = 1;
             this.pictureClassroom.TabStop = false;
+            this.pictureClassroom.Click += new System.EventHandler(this.pictureClassroom_Click);
             // 
             // MainForm
             // 
@@ -429,6 +430,7 @@ namespace SystemSchool
             this.Controls.Add(this.pictureCourse);
             this.Controls.Add(this.pictureClassroom);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "x";

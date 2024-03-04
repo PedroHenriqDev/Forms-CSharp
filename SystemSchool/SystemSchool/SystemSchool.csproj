@@ -47,11 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exception\MainFormException.cs" />
-    <Compile Include="Forms\ClassroomForms\RegistrationClassroom.cs">
+    <Compile Include="Forms\ClassroomForms\RegistrationClassroomForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\ClassroomForms\RegistrationClassroom.Designer.cs">
-      <DependentUpon>RegistrationClassroom.cs</DependentUpon>
+    <Compile Include="Forms\ClassroomForms\RegistrationClassroomForm.Designer.cs">
+      <DependentUpon>RegistrationClassroomForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\StudentForms\DeleteStudentForm.cs">
       <SubType>Form</SubType>
@@ -80,8 +80,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\ClassroomForms\RegistrationClassroom.resx">
-      <DependentUpon>RegistrationClassroom.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ClassroomForms\RegistrationClassroomForm.resx">
+      <DependentUpon>RegistrationClassroomForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
