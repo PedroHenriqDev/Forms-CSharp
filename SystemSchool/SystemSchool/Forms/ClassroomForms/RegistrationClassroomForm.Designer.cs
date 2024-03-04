@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBoxBack = new System.Windows.Forms.PictureBox();
+            this.pictureBoxClassroom = new System.Windows.Forms.PictureBox();
             this.LabelRegistrationClassroom = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.LabelDelete = new System.Windows.Forms.Label();
@@ -42,12 +44,10 @@
             this.ComboBoxCourse = new System.Windows.Forms.ComboBox();
             this.LabelClassroomNameShow = new System.Windows.Forms.Label();
             this.buttonCreate = new System.Windows.Forms.Button();
-            this.pictureBoxBack = new System.Windows.Forms.PictureBox();
-            this.pictureBoxClassroom = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClassroom)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -60,6 +60,29 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1101, 86);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBoxBack
+            // 
+            this.pictureBoxBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxBack.Image = global::SystemSchool.Properties.Resources.icons8_back_48;
+            this.pictureBoxBack.Location = new System.Drawing.Point(1032, 26);
+            this.pictureBoxBack.Name = "pictureBoxBack";
+            this.pictureBoxBack.Size = new System.Drawing.Size(22, 19);
+            this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxBack.TabIndex = 2;
+            this.pictureBoxBack.TabStop = false;
+            this.pictureBoxBack.Click += new System.EventHandler(this.pictureBoxBack_Click);
+            // 
+            // pictureBoxClassroom
+            // 
+            this.pictureBoxClassroom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxClassroom.Image = global::SystemSchool.Properties.Resources.icons8_classroom_100;
+            this.pictureBoxClassroom.Location = new System.Drawing.Point(9, 0);
+            this.pictureBoxClassroom.Name = "pictureBoxClassroom";
+            this.pictureBoxClassroom.Size = new System.Drawing.Size(75, 72);
+            this.pictureBoxClassroom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxClassroom.TabIndex = 1;
+            this.pictureBoxClassroom.TabStop = false;
             // 
             // LabelRegistrationClassroom
             // 
@@ -205,35 +228,14 @@
             this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreate.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCreate.ForeColor = System.Drawing.Color.Green;
-            this.buttonCreate.Location = new System.Drawing.Point(459, 553);
+            this.buttonCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCreate.ImageKey = "(none)";
+            this.buttonCreate.Location = new System.Drawing.Point(467, 541);
             this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(149, 32);
+            this.buttonCreate.Size = new System.Drawing.Size(124, 44);
             this.buttonCreate.TabIndex = 10;
             this.buttonCreate.Text = "Create";
             this.buttonCreate.UseVisualStyleBackColor = false;
-            // 
-            // pictureBoxBack
-            // 
-            this.pictureBoxBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxBack.Image = global::SystemSchool.Properties.Resources.icons8_back_48;
-            this.pictureBoxBack.Location = new System.Drawing.Point(1032, 26);
-            this.pictureBoxBack.Name = "pictureBoxBack";
-            this.pictureBoxBack.Size = new System.Drawing.Size(22, 19);
-            this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxBack.TabIndex = 2;
-            this.pictureBoxBack.TabStop = false;
-            this.pictureBoxBack.Click += new System.EventHandler(this.pictureBoxBack_Click);
-            // 
-            // pictureBoxClassroom
-            // 
-            this.pictureBoxClassroom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxClassroom.Image = global::SystemSchool.Properties.Resources.icons8_classroom_100;
-            this.pictureBoxClassroom.Location = new System.Drawing.Point(9, 0);
-            this.pictureBoxClassroom.Name = "pictureBoxClassroom";
-            this.pictureBoxClassroom.Size = new System.Drawing.Size(75, 72);
-            this.pictureBoxClassroom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxClassroom.TabIndex = 1;
-            this.pictureBoxClassroom.TabStop = false;
             // 
             // RegistrationClassroomForm
             // 
@@ -258,10 +260,10 @@
             this.Text = "RegistrationClassroom";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClassroom)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

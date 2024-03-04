@@ -44,6 +44,7 @@
     <Compile Include="PersistentClasses\Class.cs" />
     <Compile Include="PersistentClasses\Classroom.cs" />
     <Compile Include="PersistentClasses\Course.cs" />
+    <Compile Include="TransientClasses\CreateCourseQuery.cs" />
     <Compile Include="TransientClasses\LoginQuery.cs" />
     <Compile Include="Interfaces\IResultOfQueries.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

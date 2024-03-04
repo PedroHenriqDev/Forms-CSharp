@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLogic\CreateEntitiesBusiness.cs" />
     <Compile Include="BusinessLogic\LoginBusiness.cs" />
     <Compile Include="BusinessLogic\SearchEntitiesBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

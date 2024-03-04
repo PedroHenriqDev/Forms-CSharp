@@ -19,10 +19,11 @@ namespace SystemSchool
 {
     public partial class Login : Form
     {
-        LoginBusiness BusinessCls = new LoginBusiness();
+        Business.LoginBusiness BusinessCls = new Business.LoginBusiness();
         static public User UserCls = new User();
         MainForm MainForm = new MainForm();
         DataAccess dataAccess = new DataAccess();
+
         public Login()
         {
             InitializeComponent();
@@ -50,19 +51,18 @@ namespace SystemSchool
             {
                 UserCls.Username = TextUsername.Text;
                 UserCls.PasswordHash = TextPassword.Text;
-                LoginQuery query = await BusinessCls.LoginAsync(UserCls);
-                if (query.Result)
+                LoginQuery loginQuery = await BusinessCls.LoginAsync(UserCls);
+                if (loginQuery.Result)
                 {
-                    MessageBox.Show("Welcome " + query.User.Username, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    UserCls = query.User;
+                    UserCls = loginQuery.User;
+                    MessageBox.Show(loginQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
                     dataAccess.MainFormAccess(MainForm, UserCls);
                     MainForm.Show();
                 }
                 else
                 {
-                    MessageBox.Show("Incorrect username or password", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Clean();
+                    MessageBox.Show(loginQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (MainFormException ex)

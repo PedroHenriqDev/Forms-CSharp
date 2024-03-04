@@ -11,7 +11,7 @@ namespace Business.BusinessLogic
 {
     public class SearchEntitiesBusiness
     {
-        ConnectionDb ConnectionDb { get; set; } = new ConnectionDb();
+        private readonly ConnectionDb ConnectionDb = new ConnectionDb();
 
         public async Task<IEnumerable<Course>> FindAllCoursesAsync() 
         {

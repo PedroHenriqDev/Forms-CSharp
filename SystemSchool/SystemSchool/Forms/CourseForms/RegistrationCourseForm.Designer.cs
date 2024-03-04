@@ -34,7 +34,7 @@
             this.pictureStudent = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.LabelDelete = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxCourseName = new System.Windows.Forms.TextBox();
             this.LabelCouseName = new System.Windows.Forms.Label();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
@@ -68,11 +68,12 @@
             // 
             // LabelRegistrationCourse
             // 
-            this.LabelRegistrationCourse.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelRegistrationCourse.AutoSize = true;
+            this.LabelRegistrationCourse.Font = new System.Drawing.Font("Malgun Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelRegistrationCourse.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LabelRegistrationCourse.Location = new System.Drawing.Point(473, 26);
+            this.LabelRegistrationCourse.Location = new System.Drawing.Point(420, 26);
             this.LabelRegistrationCourse.Name = "LabelRegistrationCourse";
-            this.LabelRegistrationCourse.Size = new System.Drawing.Size(156, 51);
+            this.LabelRegistrationCourse.Size = new System.Drawing.Size(211, 30);
             this.LabelRegistrationCourse.TabIndex = 17;
             this.LabelRegistrationCourse.Text = "Registration Course";
             this.LabelRegistrationCourse.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -107,21 +108,21 @@
             this.LabelDelete.TabIndex = 17;
             this.LabelDelete.Text = "Delete";
             // 
-            // textBox1
+            // textBoxCourseName
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBox1.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Location = new System.Drawing.Point(348, 316);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(346, 27);
-            this.textBox1.TabIndex = 15;
+            this.textBoxCourseName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textBoxCourseName.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCourseName.ForeColor = System.Drawing.SystemColors.Window;
+            this.textBoxCourseName.Location = new System.Drawing.Point(348, 316);
+            this.textBoxCourseName.Name = "textBoxCourseName";
+            this.textBoxCourseName.Size = new System.Drawing.Size(346, 27);
+            this.textBoxCourseName.TabIndex = 15;
             // 
             // LabelCouseName
             // 
-            this.LabelCouseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelCouseName.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelCouseName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LabelCouseName.Location = new System.Drawing.Point(448, 262);
+            this.LabelCouseName.Location = new System.Drawing.Point(443, 262);
             this.LabelCouseName.Name = "LabelCouseName";
             this.LabelCouseName.Size = new System.Drawing.Size(156, 51);
             this.LabelCouseName.TabIndex = 16;
@@ -140,6 +141,7 @@
             this.buttonCreate.TabIndex = 17;
             this.buttonCreate.Text = "Create";
             this.buttonCreate.UseVisualStyleBackColor = false;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // RegistrationCourseForm
             // 
@@ -150,13 +152,14 @@
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.LabelCouseName);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxCourseName);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegistrationCourseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegistrationCourseForm";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -170,7 +173,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxCourseName;
         private System.Windows.Forms.PictureBox pictureStudent;
         private System.Windows.Forms.Label LabelRegistrationCourse;
         private System.Windows.Forms.Label LabelCouseName;

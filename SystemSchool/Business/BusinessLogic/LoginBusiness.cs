@@ -12,22 +12,20 @@ namespace Business
 {
     public class LoginBusiness
     {
-        ConnectionDb Datas = new ConnectionDb();
+        private readonly ConnectionDb ConnectionDb = new ConnectionDb();
         public async Task<LoginQuery> LoginAsync(User user) 
         {
-            LoginQuery query = new LoginQuery();
-            User userDb = await Datas.VerifyCredentialsAsync(user);
+            LoginQuery query;
+            User userDb = await ConnectionDb.VerifyCredentialsAsync(user);
 
             if (userDb == null)
             {
-                query.Moment = DateTime.Now;
+                query = new LoginQuery(false, "Incorrect username or password", DateTime.Now, user);
             }
             else 
             {
-                userDb.Class = await Datas.FindClassByUserAsync(userDb.ClassId);
-                query.User = userDb;
-                query.Moment = DateTime.Now;
-                query.Result = true;
+                userDb.Class = await ConnectionDb.FindClassByIdAsync(userDb.ClassId);
+                query = new LoginQuery(true, "Welcome " + user.Username + "!", DateTime.Now, userDb);
             }
 
             return query;
