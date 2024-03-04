@@ -13,13 +13,11 @@ using SystemSchool.Forms.StudentForms;
 
 namespace SystemSchool
 {
-    public partial class StudentRegistrationForm : Form
-    { 
+    public partial class RegistrationStudentForm : Form
+    {
         SearchEntitiesBusiness searchEntitiesBusiness = new SearchEntitiesBusiness();
-        MainForm mainForm = new MainForm();
-        StudentDeleteForm studentDeleteForm = new StudentDeleteForm();
 
-        public StudentRegistrationForm()
+        public RegistrationStudentForm()
         {
             InitializeComponent();
         }
@@ -34,19 +32,19 @@ namespace SystemSchool
             await LoadComboBoxClassroomAsync(ComboBoxCourse.SelectedItem.ToString());
         }
 
-        private async Task LoadComboBoxClassroomAsync(string courseName) 
+        private async Task LoadComboBoxClassroomAsync(string courseName)
         {
             IEnumerable<Classroom> classroms = await searchEntitiesBusiness.FindClassroomsByCourseNameAsync(courseName);
-            foreach(Classroom classroom in classroms)
+            foreach (Classroom classroom in classroms)
             {
                 ComboBoxClassroom.Items.Add(classroom.ClassroomName);
             }
         }
 
-        private async Task LoadComboBoxCoursesAsync() 
+        private async Task LoadComboBoxCoursesAsync()
         {
             IEnumerable<Course> courses = await searchEntitiesBusiness.FindAllCoursesAsync();
-            foreach(Course course in courses) 
+            foreach (Course course in courses)
             {
                 ComboBoxCourse.Items.Add(course.CourseName);
             }
@@ -55,12 +53,14 @@ namespace SystemSchool
         private void pictureBoxBack_Click(object sender, EventArgs e)
         {
             this.Hide();
+            MainForm mainForm = new MainForm();
             mainForm.ShowDialog();
         }
 
         private void LabelDelete_Click(object sender, EventArgs e)
         {
             this.Hide();
+            DeleteStudentForm studentDeleteForm = new DeleteStudentForm();
             studentDeleteForm.ShowDialog();
         }
     }

@@ -55,9 +55,9 @@ namespace SystemSchool
                 {
                     MessageBox.Show("Welcome " + query.User.Username, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     UserCls = query.User;
-                    dataAccess.MainFormAccess(MainForm, UserCls);
                     this.Hide();
-                    MainForm.ShowDialog();
+                    dataAccess.MainFormAccess(MainForm, UserCls);
+                    MainForm.Show();
                 }
                 else
                 {

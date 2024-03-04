@@ -1,4 +1,6 @@
-﻿namespace SystemSchool
+﻿using System.Windows.Forms;
+
+namespace SystemSchool
 {
     partial class MainForm
     {
@@ -46,8 +48,12 @@
             this.LabelLogout = new System.Windows.Forms.Label();
             this.LabelUserRegistration = new System.Windows.Forms.Label();
             this.LabelCourseRegistration = new System.Windows.Forms.Label();
-            this.LabelStudentRegistration = new System.Windows.Forms.Label();
             this.LabelChangePassword = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.labelManagerSchool = new System.Windows.Forms.Label();
+            this.TimerDate = new System.Windows.Forms.Timer(this.components);
+            this.LabelStudentRegistration = new System.Windows.Forms.Label();
+            this.pictureStudent = new System.Windows.Forms.PictureBox();
             this.pictureChangePassword = new System.Windows.Forms.PictureBox();
             this.pictureReports = new System.Windows.Forms.PictureBox();
             this.pictureStatistics = new System.Windows.Forms.PictureBox();
@@ -55,15 +61,13 @@
             this.pictureUser = new System.Windows.Forms.PictureBox();
             this.pictureCourse = new System.Windows.Forms.PictureBox();
             this.pictureClassroom = new System.Windows.Forms.PictureBox();
-            this.pictureStudent = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.labelManagerSchool = new System.Windows.Forms.Label();
-            this.TimerDate = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureChangePassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureReports)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureStatistics)).BeginInit();
@@ -71,8 +75,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCourse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClassroom)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).BeginInit();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -122,12 +124,10 @@
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Image = global::SystemSchool.Properties.Resources.icons8_close_48__2_;
-            this.pictureBox9.Location = new System.Drawing.Point(1007, 12);
+            this.pictureBox9.Location = new System.Drawing.Point(0, 0);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(23, 22);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 11;
+            this.pictureBox9.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox9.TabIndex = 13;
             this.pictureBox9.TabStop = false;
             // 
             // LabelSchoolManager
@@ -263,17 +263,6 @@
             this.LabelCourseRegistration.TabIndex = 19;
             this.LabelCourseRegistration.Text = "Course Registration";
             // 
-            // LabelStudentRegistration
-            // 
-            this.LabelStudentRegistration.AutoSize = true;
-            this.LabelStudentRegistration.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelStudentRegistration.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.LabelStudentRegistration.Location = new System.Drawing.Point(69, 209);
-            this.LabelStudentRegistration.Name = "LabelStudentRegistration";
-            this.LabelStudentRegistration.Size = new System.Drawing.Size(163, 21);
-            this.LabelStudentRegistration.TabIndex = 20;
-            this.LabelStudentRegistration.Text = "Student Registration";
-            // 
             // LabelChangePassword
             // 
             this.LabelChangePassword.AutoSize = true;
@@ -284,6 +273,55 @@
             this.LabelChangePassword.Size = new System.Drawing.Size(140, 21);
             this.LabelChangePassword.TabIndex = 21;
             this.LabelChangePassword.Text = "Change Password";
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Black;
+            this.panel4.Controls.Add(this.labelManagerSchool);
+            this.panel4.Location = new System.Drawing.Point(0, 268);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1042, 107);
+            this.panel4.TabIndex = 22;
+            // 
+            // labelManagerSchool
+            // 
+            this.labelManagerSchool.AutoSize = true;
+            this.labelManagerSchool.BackColor = System.Drawing.Color.Transparent;
+            this.labelManagerSchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelManagerSchool.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelManagerSchool.Location = new System.Drawing.Point(419, 38);
+            this.labelManagerSchool.Name = "labelManagerSchool";
+            this.labelManagerSchool.Size = new System.Drawing.Size(250, 37);
+            this.labelManagerSchool.TabIndex = 0;
+            this.labelManagerSchool.Text = "Manager School";
+            // 
+            // TimerDate
+            // 
+            this.TimerDate.Tick += new System.EventHandler(this.TimerDate_Tick);
+            // 
+            // LabelStudentRegistration
+            // 
+            this.LabelStudentRegistration.AutoSize = true;
+            this.LabelStudentRegistration.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelStudentRegistration.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.LabelStudentRegistration.Location = new System.Drawing.Point(79, 209);
+            this.LabelStudentRegistration.Name = "LabelStudentRegistration";
+            this.LabelStudentRegistration.Size = new System.Drawing.Size(163, 21);
+            this.LabelStudentRegistration.TabIndex = 24;
+            this.LabelStudentRegistration.Text = "Student Registration";
+            // 
+            // pictureStudent
+            // 
+            this.pictureStudent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.pictureStudent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureStudent.Image = global::SystemSchool.Properties.Resources.icons8_student_male_100;
+            this.pictureStudent.Location = new System.Drawing.Point(89, 115);
+            this.pictureStudent.Name = "pictureStudent";
+            this.pictureStudent.Size = new System.Drawing.Size(136, 115);
+            this.pictureStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureStudent.TabIndex = 23;
+            this.pictureStudent.TabStop = false;
+            this.pictureStudent.Click += new System.EventHandler(this.pictureStudent_Click);
             // 
             // pictureChangePassword
             // 
@@ -363,49 +401,15 @@
             this.pictureClassroom.TabIndex = 1;
             this.pictureClassroom.TabStop = false;
             // 
-            // pictureStudent
-            // 
-            this.pictureStudent.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureStudent.Image = global::SystemSchool.Properties.Resources.icons8_student_male_100;
-            this.pictureStudent.Location = new System.Drawing.Point(83, 115);
-            this.pictureStudent.Name = "pictureStudent";
-            this.pictureStudent.Size = new System.Drawing.Size(136, 115);
-            this.pictureStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureStudent.TabIndex = 0;
-            this.pictureStudent.TabStop = false;
-            this.pictureStudent.Click += new System.EventHandler(this.pictureStudent_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Black;
-            this.panel4.Controls.Add(this.labelManagerSchool);
-            this.panel4.Location = new System.Drawing.Point(0, 268);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1042, 107);
-            this.panel4.TabIndex = 22;
-            // 
-            // labelManagerSchool
-            // 
-            this.labelManagerSchool.AutoSize = true;
-            this.labelManagerSchool.BackColor = System.Drawing.Color.Transparent;
-            this.labelManagerSchool.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelManagerSchool.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.labelManagerSchool.Location = new System.Drawing.Point(419, 38);
-            this.labelManagerSchool.Name = "labelManagerSchool";
-            this.labelManagerSchool.Size = new System.Drawing.Size(250, 37);
-            this.labelManagerSchool.TabIndex = 0;
-            this.labelManagerSchool.Text = "Manager School";
-            // 
-            // TimerDate
-            // 
-            this.TimerDate.Tick += new System.EventHandler(this.TimerDate_Tick);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1042, 681);
+            this.Controls.Add(this.LabelStudentRegistration);
+            this.Controls.Add(this.pictureStudent);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.LabelChangePassword);
             this.Controls.Add(this.LabelSchoolManager);
@@ -414,7 +418,6 @@
             this.Controls.Add(this.LabelUserRegistration);
             this.Controls.Add(this.LabelStatistics);
             this.Controls.Add(this.LabelCourseRegistration);
-            this.Controls.Add(this.LabelStudentRegistration);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureChangePassword);
@@ -425,9 +428,7 @@
             this.Controls.Add(this.LabelClassroomRegistration);
             this.Controls.Add(this.pictureCourse);
             this.Controls.Add(this.pictureClassroom);
-            this.Controls.Add(this.pictureStudent);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "x";
@@ -438,6 +439,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureChangePassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureReports)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureStatistics)).EndInit();
@@ -445,17 +449,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCourse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClassroom)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).EndInit();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        public System.Windows.Forms.PictureBox pictureStudent;
         public System.Windows.Forms.PictureBox pictureClassroom;
         public System.Windows.Forms.PictureBox pictureCourse;
         public System.Windows.Forms.PictureBox pictureUser;
@@ -477,7 +476,6 @@
         private System.Windows.Forms.Label LabelLogout;
         public System.Windows.Forms.Label LabelUserRegistration;
         public System.Windows.Forms.Label LabelCourseRegistration;
-        public System.Windows.Forms.Label LabelStudentRegistration;
         private System.Windows.Forms.Label LabelChangePassword;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Panel panel3;
@@ -485,5 +483,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label labelManagerSchool;
         private System.Windows.Forms.Timer TimerDate;
+        public System.Windows.Forms.PictureBox pictureStudent;
+        public System.Windows.Forms.Label LabelStudentRegistration;
     }
 }

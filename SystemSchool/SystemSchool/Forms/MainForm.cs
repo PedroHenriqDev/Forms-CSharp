@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SystemSchool.Forms.StudentForms;
 using Entities;
 
 namespace SystemSchool
@@ -38,8 +39,8 @@ namespace SystemSchool
         private void pictureStudent_Click(object sender, EventArgs e)
         {
             this.Hide();
-            StudentRegistrationForm studentform = new StudentRegistrationForm();
-            studentform.ShowDialog();
+            RegistrationStudentForm formStudent = new RegistrationStudentForm();
+            formStudent.ShowDialog();
         }
     } 
 }

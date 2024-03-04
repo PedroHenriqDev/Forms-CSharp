@@ -47,11 +47,23 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exception\MainFormException.cs" />
-    <Compile Include="Forms\StudentForms\StudentDeleteForm.cs">
+    <Compile Include="Forms\ClassroomForms\RegistrationClassroom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\StudentForms\StudentDeleteForm.Designer.cs">
-      <DependentUpon>StudentDeleteForm.cs</DependentUpon>
+    <Compile Include="Forms\ClassroomForms\RegistrationClassroom.Designer.cs">
+      <DependentUpon>RegistrationClassroom.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StudentForms\DeleteStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StudentForms\DeleteStudentForm.Designer.cs">
+      <DependentUpon>DeleteStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StudentForms\RegistrationStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StudentForms\RegistrationStudentForm.Designer.cs">
+      <DependentUpon>RegistrationStudentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DataAccess.cs" />
     <Compile Include="Forms\Login.cs">
@@ -68,28 +80,25 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\StudentForms\StudentRegistrationForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\StudentForms\StudentRegistrationForm.Designer.cs">
-      <DependentUpon>StudentRegistrationForm.cs</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="Forms\ClassroomForms\RegistrationClassroom.resx">
+      <DependentUpon>RegistrationClassroom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\StudentForms\StudentDeleteForm.resx">
-      <DependentUpon>StudentDeleteForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\StudentForms\DeleteStudentForm.resx">
+      <DependentUpon>DeleteStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StudentForms\RegistrationStudentForm.resx">
+      <DependentUpon>RegistrationStudentForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\StudentForms\StudentRegistrationForm.resx">
-      <DependentUpon>StudentRegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

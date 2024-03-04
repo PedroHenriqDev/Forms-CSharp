@@ -13,11 +13,11 @@ using Entities;
 
 namespace SystemSchool.Forms.StudentForms
 {
-    public partial class StudentDeleteForm : Form
+    public partial class DeleteStudentForm : Form
     {
         SearchEntitiesBusiness SearchEntitiesBusiness = new SearchEntitiesBusiness();
 
-        public StudentDeleteForm()
+        public DeleteStudentForm()
         {
             InitializeComponent();
         }
@@ -28,7 +28,7 @@ namespace SystemSchool.Forms.StudentForms
             await LoadListBoxStudentsAsync();
         }
 
-        private async Task LoadComboBoxClassroomsAsync() 
+        private async Task LoadComboBoxClassroomsAsync()
         {
             IEnumerable<Classroom> classrooms = await SearchEntitiesBusiness.FindAllClassroomsAsync();
             foreach (Classroom classroom in classrooms)
@@ -37,10 +37,10 @@ namespace SystemSchool.Forms.StudentForms
             }
         }
 
-        private async Task LoadListBoxStudentsAsync() 
+        private async Task LoadListBoxStudentsAsync()
         {
             IEnumerable<Student> students = await SearchEntitiesBusiness.FindAllStudentsAsync();
-            foreach (Student student in students) 
+            foreach (Student student in students)
             {
                 listBoxStudents.Items.Add(student);
             }
@@ -59,6 +59,12 @@ namespace SystemSchool.Forms.StudentForms
                 listBoxStudents.Items.Add(student);
             }
         }
-      
+
+        private void pictureBoxBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegistrationStudentForm StudentRegistrationForm = new RegistrationStudentForm();
+            StudentRegistrationForm.ShowDialog();
+        }
     }
 }

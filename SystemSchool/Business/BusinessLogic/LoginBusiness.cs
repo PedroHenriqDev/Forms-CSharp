@@ -17,16 +17,19 @@ namespace Business
         {
             LoginQuery query = new LoginQuery();
             User userDb = await Datas.VerifyCredentialsAsync(user);
-            userDb.Class = await Datas.FindClassByUserAsync(userDb.ClassId);
 
-            if(userDb.Class != null)
+            if (userDb == null)
             {
+                query.Moment = DateTime.Now;
+            }
+            else 
+            {
+                userDb.Class = await Datas.FindClassByUserAsync(userDb.ClassId);
                 query.User = userDb;
                 query.Moment = DateTime.Now;
                 query.Result = true;
             }
 
-            query.Moment = DateTime.Now;
             return query;
         }
     }
