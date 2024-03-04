@@ -90,13 +90,6 @@ namespace Datas
             }
         }
 
-        public async Task<IEnumerable<Classroom>> ReturnClassroomBySchoolYearAsync(char schoolYear) 
-        {
-            using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
-            {
-                await connection.OpenAsync();
-            }
-        }
         public async Task<IEnumerable<Student>> ReturnAllStudentsAsync() 
         {
             using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 

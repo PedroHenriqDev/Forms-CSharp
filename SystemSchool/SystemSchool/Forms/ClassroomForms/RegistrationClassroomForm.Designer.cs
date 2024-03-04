@@ -42,7 +42,7 @@
             this.ComboBoxSchoolYear = new System.Windows.Forms.ComboBox();
             this.ComboBoxLetter = new System.Windows.Forms.ComboBox();
             this.ComboBoxCourse = new System.Windows.Forms.ComboBox();
-            this.LabelClassroomShow = new System.Windows.Forms.Label();
+            this.LabelClassroomNameShow = new System.Windows.Forms.Label();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
@@ -56,16 +56,16 @@
             this.panel1.Controls.Add(this.pictureBoxBack);
             this.panel1.Controls.Add(this.pictureBoxClassroom);
             this.panel1.Controls.Add(this.LabelRegistrationClassroom);
-            this.panel1.Location = new System.Drawing.Point(3, -2);
+            this.panel1.Location = new System.Drawing.Point(-8, -2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1053, 86);
+            this.panel1.Size = new System.Drawing.Size(1101, 86);
             this.panel1.TabIndex = 0;
             // 
             // pictureBoxBack
             // 
             this.pictureBoxBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxBack.Image = global::SystemSchool.Properties.Resources.icons8_back_48;
-            this.pictureBoxBack.Location = new System.Drawing.Point(1021, 14);
+            this.pictureBoxBack.Location = new System.Drawing.Point(1032, 26);
             this.pictureBoxBack.Name = "pictureBoxBack";
             this.pictureBoxBack.Size = new System.Drawing.Size(22, 19);
             this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -89,7 +89,7 @@
             this.LabelRegistrationClassroom.AutoSize = true;
             this.LabelRegistrationClassroom.Font = new System.Drawing.Font("Malgun Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelRegistrationClassroom.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LabelRegistrationClassroom.Location = new System.Drawing.Point(407, 26);
+            this.LabelRegistrationClassroom.Location = new System.Drawing.Point(428, 26);
             this.LabelRegistrationClassroom.Name = "LabelRegistrationClassroom";
             this.LabelRegistrationClassroom.Size = new System.Drawing.Size(245, 30);
             this.LabelRegistrationClassroom.TabIndex = 0;
@@ -102,7 +102,7 @@
             this.panel2.Controls.Add(this.LabelEdit);
             this.panel2.Location = new System.Drawing.Point(-8, 639);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1064, 108);
+            this.panel2.Size = new System.Drawing.Size(1077, 108);
             this.panel2.TabIndex = 1;
             // 
             // LabelDelete
@@ -142,7 +142,7 @@
             this.LabelCourse.AutoSize = true;
             this.LabelCourse.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelCourse.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LabelCourse.Location = new System.Drawing.Point(129, 205);
+            this.LabelCourse.Location = new System.Drawing.Point(137, 205);
             this.LabelCourse.Name = "LabelCourse";
             this.LabelCourse.Size = new System.Drawing.Size(62, 21);
             this.LabelCourse.TabIndex = 3;
@@ -153,7 +153,7 @@
             this.LabelSchoolYear.AutoSize = true;
             this.LabelSchoolYear.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelSchoolYear.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LabelSchoolYear.Location = new System.Drawing.Point(816, 205);
+            this.LabelSchoolYear.Location = new System.Drawing.Point(821, 205);
             this.LabelSchoolYear.Name = "LabelSchoolYear";
             this.LabelSchoolYear.Size = new System.Drawing.Size(101, 21);
             this.LabelSchoolYear.TabIndex = 4;
@@ -172,7 +172,7 @@
             // 
             // ComboBoxSchoolYear
             // 
-            this.ComboBoxSchoolYear.BackColor = System.Drawing.Color.Gray;
+            this.ComboBoxSchoolYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ComboBoxSchoolYear.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboBoxSchoolYear.ForeColor = System.Drawing.SystemColors.Window;
             this.ComboBoxSchoolYear.FormattingEnabled = true;
@@ -189,7 +189,7 @@
             // 
             // ComboBoxLetter
             // 
-            this.ComboBoxLetter.BackColor = System.Drawing.Color.Gray;
+            this.ComboBoxLetter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ComboBoxLetter.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboBoxLetter.ForeColor = System.Drawing.SystemColors.Window;
             this.ComboBoxLetter.FormattingEnabled = true;
@@ -197,10 +197,11 @@
             this.ComboBoxLetter.Name = "ComboBoxLetter";
             this.ComboBoxLetter.Size = new System.Drawing.Size(290, 29);
             this.ComboBoxLetter.TabIndex = 7;
+            this.ComboBoxLetter.SelectedIndexChanged += new System.EventHandler(this.ComboBoxLetter_SelectedIndexChanged);
             // 
             // ComboBoxCourse
             // 
-            this.ComboBoxCourse.BackColor = System.Drawing.Color.Gray;
+            this.ComboBoxCourse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ComboBoxCourse.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboBoxCourse.ForeColor = System.Drawing.SystemColors.Window;
             this.ComboBoxCourse.FormattingEnabled = true;
@@ -209,24 +210,25 @@
             this.ComboBoxCourse.Size = new System.Drawing.Size(290, 29);
             this.ComboBoxCourse.TabIndex = 8;
             // 
-            // LabelClassroomShow
+            // LabelClassroomNameShow
             // 
-            this.LabelClassroomShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LabelClassroomShow.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelClassroomShow.ForeColor = System.Drawing.Color.White;
-            this.LabelClassroomShow.Location = new System.Drawing.Point(383, 364);
-            this.LabelClassroomShow.Name = "LabelClassroomShow";
-            this.LabelClassroomShow.Size = new System.Drawing.Size(299, 111);
-            this.LabelClassroomShow.TabIndex = 9;
-            this.LabelClassroomShow.Text = "Classroom";
-            this.LabelClassroomShow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelClassroomNameShow.Enabled = false;
+            this.LabelClassroomNameShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LabelClassroomNameShow.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelClassroomNameShow.ForeColor = System.Drawing.Color.White;
+            this.LabelClassroomNameShow.Location = new System.Drawing.Point(383, 364);
+            this.LabelClassroomNameShow.Name = "LabelClassroomNameShow";
+            this.LabelClassroomNameShow.Size = new System.Drawing.Size(299, 111);
+            this.LabelClassroomNameShow.TabIndex = 9;
+            this.LabelClassroomNameShow.Text = "Classroom";
+            this.LabelClassroomNameShow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonCreate
             // 
             this.buttonCreate.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreate.ForeColor = System.Drawing.Color.Green;
-            this.buttonCreate.Location = new System.Drawing.Point(483, 532);
+            this.buttonCreate.Location = new System.Drawing.Point(487, 532);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(84, 32);
             this.buttonCreate.TabIndex = 10;
@@ -240,7 +242,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1058, 720);
             this.Controls.Add(this.buttonCreate);
-            this.Controls.Add(this.LabelClassroomShow);
+            this.Controls.Add(this.LabelClassroomNameShow);
             this.Controls.Add(this.ComboBoxCourse);
             this.Controls.Add(this.ComboBoxLetter);
             this.Controls.Add(this.ComboBoxSchoolYear);
@@ -281,7 +283,7 @@
         private System.Windows.Forms.Label LabelEdit;
         private System.Windows.Forms.ComboBox ComboBoxLetter;
         private System.Windows.Forms.ComboBox ComboBoxCourse;
-        private System.Windows.Forms.Label LabelClassroomShow;
+        private System.Windows.Forms.Label LabelClassroomNameShow;
         private System.Windows.Forms.Button buttonCreate;
     }
 }

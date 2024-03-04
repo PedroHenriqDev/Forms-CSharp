@@ -25,22 +25,31 @@ namespace SystemSchool.Forms.ClassroomForms
         {
             this.Hide();
             MainForm mainForm = new MainForm();
-        }
-
-        private async void ComboBoxLetter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            mainForm.ShowDialog();
         }
 
         private async void ComboBoxSchoolYear_SelectedIndexChanged(object sender, EventArgs e)
         {
-            await LoadComboBoxLetterAsnyc(ComboBoxSchoolYear.SelectedIndex.ToString().Substring(0, 1));
+            string schoolYear = ComboBoxSchoolYear.SelectedItem.ToString().Substring(0, 1);
+            await LoadComboBoxLetterAsnyc(schoolYear);
+            LabelClassroomNameShow.Enabled = true;
+            LabelClassroomNameShow.Text = schoolYear + "º";
         }
 
         private async Task LoadComboBoxLetterAsnyc(string schoolYear) 
         {
-            await SearchEntities.FindLettersAvailableBySchoolYearAsync(schoolYear);
+            IEnumerable<char> availableLetters = await SearchEntities.FindLettersAvailableBySchoolYearAsync(schoolYear);
+            foreach(var letter in availableLetters) 
+            {
+                ComboBoxLetter.Items.Add(letter);
+            }
         }
 
+        private void ComboBoxLetter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string labelClassroomName = LabelClassroomNameShow.Text.Substring(0, 2);
+            labelClassroomName += ComboBoxLetter.Text.ToString().Substring(0, 1);
+            LabelClassroomNameShow.Text = labelClassroomName;
+        }
     }
 }
