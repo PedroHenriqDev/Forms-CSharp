@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using SystemSchool.Forms.StudentForms;
 using Entities;
 using SystemSchool.Forms.ClassroomForms;
+using SystemSchool.Forms.CourseForms;
 
 namespace SystemSchool
 {
@@ -49,6 +50,13 @@ namespace SystemSchool
             this.Hide();
             RegistrationClassroomForm formClassroom = new RegistrationClassroomForm();
             formClassroom.ShowDialog();
+        }
+
+        private void pictureCourse_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegistrationCourseForm formCourse = new RegistrationCourseForm();
+            formCourse.ShowDialog();
         }
     } 
 }

@@ -13,14 +13,13 @@ namespace SystemSchool.Forms.ClassroomForms
 {
     public partial class RegistrationClassroomForm : Form
     {
-
         private readonly SearchEntitiesBusiness SearchEntities = new SearchEntitiesBusiness();
 
         public RegistrationClassroomForm()
         {
             InitializeComponent();
         }
-
+        
         private void pictureBoxBack_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -32,7 +31,7 @@ namespace SystemSchool.Forms.ClassroomForms
         {
             string schoolYear = ComboBoxSchoolYear.SelectedItem.ToString().Substring(0, 1);
             await LoadComboBoxLetterAsnyc(schoolYear);
-            LabelClassroomNameShow.Enabled = true;
+            LabelClassroomNameShow.ForeColor = Color.White;
             LabelClassroomNameShow.Text = schoolYear + "º";
         }
 

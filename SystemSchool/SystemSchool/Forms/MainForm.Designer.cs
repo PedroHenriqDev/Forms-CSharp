@@ -389,6 +389,7 @@ namespace SystemSchool
             this.pictureCourse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureCourse.TabIndex = 2;
             this.pictureCourse.TabStop = false;
+            this.pictureCourse.Click += new System.EventHandler(this.pictureCourse_Click);
             // 
             // pictureClassroom
             // 
