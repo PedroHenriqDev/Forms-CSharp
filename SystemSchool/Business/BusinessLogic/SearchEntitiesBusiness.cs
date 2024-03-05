@@ -20,7 +20,8 @@ namespace Business.BusinessLogic
 
         public async Task<IEnumerable<Classroom>> FindClassroomsByCourseNameAsync(string courseName) 
         {
-            return await ConnectionDb.ReturnClassroomsByCourseNameAsync(await FindCourseByNameAsync(courseName));
+            Course course = await FindCourseByNameAsync(courseName);
+            return await ConnectionDb.ReturnClassroomsByCourseIdAsync(course.CourseId);
         }
 
         public async Task<IEnumerable<Classroom>> FindAllClassroomsAsync() 

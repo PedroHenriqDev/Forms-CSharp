@@ -10,12 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
 using Datas;
+using Entities.TransientClasses;
 
 namespace SystemSchool.Forms.ClassroomForms
 {
     public partial class RegistrationClassroomForm : Form
     {
         private readonly SearchEntitiesBusiness SearchEntities = new SearchEntitiesBusiness();
+        private readonly CreateEntitiesBusiness<Classroom> CreateEntities = new CreateEntitiesBusiness<Classroom>();
 
         public RegistrationClassroomForm()
         {
@@ -75,10 +77,30 @@ namespace SystemSchool.Forms.ClassroomForms
 
         private async void buttonCreate_Click(object sender, EventArgs e)
         {
-            string classroomName = ComboBoxSchoolYear.SelectedItem.ToString() + ComboBoxLetter.SelectedItem.ToString();
-            Course course = await SearchEntities.FindCourseByNameAsync(ComboBoxCourse.SelectedItem.ToString());
-            Random random = new Random();
-            Classroom classroom = new Classroom(random.Next(), classroomName, course.CourseId);
+            try
+            {
+                string classroomName = ComboBoxSchoolYear.SelectedItem.ToString().Substring(0, 1) + ComboBoxLetter.SelectedItem.ToString();
+                Course course = await SearchEntities.FindCourseByNameAsync(ComboBoxCourse.SelectedItem.ToString());
+                Random random = new Random();
+                Classroom classroom = new Classroom(random.Next(), classroomName, course.CourseId);
+                CreateClassroomQuery createClassroomQuery = await CreateEntities.CreateClassroomAsync(classroom);
+                if (createClassroomQuery.Result)
+                {
+                    MessageBox.Show(createClassroomQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(createClassroomQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch(ArgumentException ex) 
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

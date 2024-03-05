@@ -25,6 +25,16 @@ namespace Business.BusinessLogic
             }
             return new CreateCourseQuery(false, course.CourseName + " course already exists", DateTime.Now, course);
         }
+
+        public async Task<CreateClassroomQuery> CreateClassroomAsync(Classroom classroom) 
+        {
+            if (validationEntities.IsValidClassroomName(classroom.ClassroomName, await ConnectionDb.ReturnAllClassromsAsync()))
+            {
+                await ConnectionDb.CreateClassroomInDbAsync(classroom);
+                return new CreateClassroomQuery(true, "Classroom " + classroom.ClassroomName + " created successfully!", DateTime.Now, classroom);
+            }
+            return new CreateClassroomQuery(false, "Classroom " + classroom.ClassroomName + " classroom already exist!", DateTime.Now, classroom);
+        }
     }
 }
  

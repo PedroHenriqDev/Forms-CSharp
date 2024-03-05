@@ -79,14 +79,13 @@ namespace Datas
             }
         }
 
-        public async Task<IEnumerable<Classroom>> ReturnClassroomsByCourseNameAsync(string courseName)
+        public async Task<IEnumerable<Classroom>> ReturnClassroomsByCourseIdAsync(int courseId)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
-                Course course = await FindCourseByNameAsync(courseName);
                 await connection.OpenAsync();
                 string sqlQuery = @"SELECT * FROM Classrooms WHERE CourseId = @courseId";
-                return await connection.QueryAsync<Classroom>(sqlQuery, new { courseId = course.CourseId });
+                return await connection.QueryAsync<Classroom>(sqlQuery, new { courseId = courseId });
             }
         }
 
@@ -121,6 +120,24 @@ namespace Datas
                 {
                     cmd.Parameters.AddWithValue("@CourseId", course.CourseId);
                     cmd.Parameters.AddWithValue("@CourseName", course.CourseName);
+
+                    await cmd.ExecuteNonQueryAsync();
+                }
+            }
+        }
+
+        public async Task CreateClassroomInDbAsync(Classroom classroom) 
+        {
+            using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
+            {
+                await connection.OpenAsync();
+                string sqlQuery = @"INSERT INTO Classrooms (ClassroomId, ClassroomName, CourseId) 
+                                    VALUES (@ClassroomId, @ClassroomName, @CourseId)";
+                using(SqlCommand cmd = new SqlCommand(sqlQuery, connection)) 
+                {
+                    cmd.Parameters.AddWithValue("@ClassroomId", classroom.ClassroomId);
+                    cmd.Parameters.AddWithValue("@ClassroomName", classroom.ClassroomName);
+                    cmd.Parameters.AddWithValue("@CourseId", classroom.CourseId);
 
                     await cmd.ExecuteNonQueryAsync();
                 }

@@ -34,8 +34,8 @@ namespace SystemSchool
 
         private async Task LoadComboBoxClassroomAsync(string courseName)
         {
-            IEnumerable<Classroom> classroms = await searchEntitiesBusiness.FindClassroomsByCourseNameAsync(courseName);
-            foreach (Classroom classroom in classroms)
+            IEnumerable<Classroom> classrooms = await searchEntitiesBusiness.FindClassroomsByCourseNameAsync(courseName);
+            foreach (Classroom classroom in classrooms)
             {
                 ComboBoxClassroom.Items.Add(classroom.ClassroomName);
             }
