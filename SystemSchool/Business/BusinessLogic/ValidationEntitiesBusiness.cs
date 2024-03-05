@@ -12,21 +12,21 @@ namespace Business.BusinessLogic
     {
         public bool IsValidNameCourse(string courseName, IEnumerable<Course> courses)
         {
-            if (string.IsNullOrWhiteSpace(courseName))
-            {
-                throw new NullReferenceException("Course name cannot be null or empty.");
-            }
+            return !EqualEntityInSet(courses.Select(c => c.CourseName).ToList(), courseName) 
+                && !HasNumbersInString(courseName) 
+                && !string.IsNullOrWhiteSpace(courseName);
+        }
 
-            for (int i = 0; i < courseName.Length; i++)
+        public bool HasNumbersInString(string entity)
+        {
+            for (int i = 0; i < entity.Length; i++)
             {
-                if (!char.IsLetter(courseName[i]))
+                if (!char.IsLetter(entity[i]))
                 {
-                    return false;
+                    return true;
                 }
             }
-
-            List<string> courseNames = courses.Select(c => c.CourseName).ToList();
-            return !EqualEntityInSet(courseNames, courseName);
+            return false;
         }
 
         public bool EqualEntityInSet<T>(IEnumerable<T> entities, T entity) 
