@@ -39,19 +39,17 @@ namespace SystemSchool.Forms.ClassroomForms
         private async Task LoadComboBoxLetterAsnyc(string schoolYear)
         {
             IEnumerable<char> availableLetters = await SearchEntities.FindLettersAvailableBySchoolYearAsync(schoolYear);
+            ComboBoxLetter.Items.Clear();
             foreach (var letter in availableLetters)
             {
-                if (!ComboBoxLetter.Items.Contains(letter))
-                {
-                    ComboBoxLetter.Items.Add(letter);
-                }
+                ComboBoxLetter.Items.Add(letter);
             }
         }
 
         private async Task LoadComboBoxCourseAsync()
         {
             IEnumerable<Course> courses = await SearchEntities.FindAllCoursesAsync();
-            foreach (var course in courses) 
+            foreach (var course in courses)
             {
                 ComboBoxCourse.Items.Add(course.CourseName);
             }
@@ -96,11 +94,11 @@ namespace SystemSchool.Forms.ClassroomForms
                     MessageBox.Show(createClassroomQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch(ArgumentException ex) 
+            catch (ArgumentException ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
