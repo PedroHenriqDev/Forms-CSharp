@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
+using Datas;
 
 namespace SystemSchool.Forms.ClassroomForms
 {
@@ -71,5 +72,14 @@ namespace SystemSchool.Forms.ClassroomForms
             LabelCourseNameShow.ForeColor = Color.White;
             LabelCourseNameShow.Text = ComboBoxCourse.SelectedItem.ToString();
         }
+
+        private async void buttonCreate_Click(object sender, EventArgs e)
+        {
+            string classroomName = ComboBoxSchoolYear.SelectedItem.ToString() + ComboBoxLetter.SelectedItem.ToString();
+            Course course = await SearchEntities.FindCourseByNameAsync(ComboBoxCourse.SelectedItem.ToString());
+            Random random = new Random();
+            Classroom classroom = new Classroom(random.Next(), classroomName, course.CourseId);
+        }
     }
 }
+

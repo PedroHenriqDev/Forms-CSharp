@@ -237,6 +237,7 @@
             this.buttonCreate.TabIndex = 10;
             this.buttonCreate.Text = "Create";
             this.buttonCreate.UseVisualStyleBackColor = false;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // LabelCourseNameShow
             // 

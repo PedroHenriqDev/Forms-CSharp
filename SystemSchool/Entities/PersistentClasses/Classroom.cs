@@ -11,7 +11,12 @@ namespace Entities
         public int ClassroomId { get; set; }
         public string ClassroomName { get; set; }
         public int CourseId { get; set; }
-        public Course Course { get; set; }
-        public List<Student> Students { get; set; }
+
+        public Classroom(int classroomId, string classroomName, int courseId)
+        {
+            ClassroomId = classroomId;
+            ClassroomName = classroomName;
+            CourseId = courseId;
+        }
     }
 }
