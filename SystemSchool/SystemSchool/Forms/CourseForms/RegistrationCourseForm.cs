@@ -34,16 +34,27 @@ namespace SystemSchool.Forms.CourseForms
 
         private async void buttonCreate_Click(object sender, EventArgs e)
         {
-            Random random = new Random();
-            Course course = new Course(textBoxCourseName.Text, random.Next());
-            CreateCourseQuery courseQuery = await createEntities.CreateCourseAsync(course);
-            if(courseQuery.Result)
+            try
             {
-                MessageBox.Show(courseQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Random random = new Random();
+                Course course = new Course(textBoxCourseName.Text, random.Next());
+                CreateCourseQuery courseQuery = await createEntities.CreateCourseAsync(course);
+                if (courseQuery.Result)
+                {
+                    MessageBox.Show(courseQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(courseQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            else 
+            catch (ArgumentException ex) 
             {
-                MessageBox.Show(courseQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

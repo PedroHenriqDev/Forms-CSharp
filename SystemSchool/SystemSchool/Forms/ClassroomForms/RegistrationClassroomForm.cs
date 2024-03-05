@@ -28,12 +28,9 @@ namespace SystemSchool.Forms.ClassroomForms
             mainForm.ShowDialog();
         }
 
-        private async void ComboBoxSchoolYear_SelectedIndexChanged(object sender, EventArgs e)
+        private async void RegistrationClassroomForm_Load(object sender, EventArgs e)
         {
-            string schoolYear = ComboBoxSchoolYear.SelectedItem.ToString().Substring(0, 1);
-            await LoadComboBoxLetterAsnyc(schoolYear);
-            LabelClassroomNameShow.ForeColor = Color.White;
-            LabelClassroomNameShow.Text = schoolYear + "º";
+            await LoadComboBoxCourseAsync();
         }
 
         private async Task LoadComboBoxLetterAsnyc(string schoolYear)
@@ -45,18 +42,6 @@ namespace SystemSchool.Forms.ClassroomForms
             }
         }
 
-        private void ComboBoxLetter_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string labelClassroomName = LabelClassroomNameShow.Text.Substring(0, 2);
-            labelClassroomName += ComboBoxLetter.Text.ToString().Substring(0, 1);
-            LabelClassroomNameShow.Text = labelClassroomName;
-        }
-
-        private async void RegistrationClassroomForm_Load(object sender, EventArgs e)
-        {
-            await LoadComboBoxCourseAsync();
-        }
-
         private async Task LoadComboBoxCourseAsync()
         {
             IEnumerable<Course> courses = await SearchEntities.FindAllCoursesAsync();
@@ -64,6 +49,27 @@ namespace SystemSchool.Forms.ClassroomForms
             {
                 ComboBoxCourse.Items.Add(course.CourseName);
             }
+        }
+
+        private async void ComboBoxSchoolYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string schoolYear = ComboBoxSchoolYear.SelectedItem.ToString().Substring(0, 1);
+            await LoadComboBoxLetterAsnyc(schoolYear);
+            LabelClassroomNameShow.ForeColor = Color.White;
+            LabelClassroomNameShow.Text = schoolYear + "º";
+        }
+
+        private void ComboBoxLetter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string labelClassroomName = LabelClassroomNameShow.Text.Substring(0, 2);
+            labelClassroomName += ComboBoxLetter.Text.ToString().Substring(0, 1);
+            LabelClassroomNameShow.Text = labelClassroomName;
+        }
+
+        private void ComboBoxCourse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LabelCourseNameShow.ForeColor = Color.White;
+            LabelCourseNameShow.Text = ComboBoxCourse.SelectedItem.ToString();
         }
     }
 }
