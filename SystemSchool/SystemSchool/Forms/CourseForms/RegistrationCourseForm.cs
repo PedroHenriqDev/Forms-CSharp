@@ -18,7 +18,7 @@ namespace SystemSchool.Forms.CourseForms
     public partial class RegistrationCourseForm : Form
     {
 
-        CreateEntitiesBusiness createEntities = new CreateEntitiesBusiness();
+        CreateEntitiesBusiness<Course> createEntities = new CreateEntitiesBusiness<Course>();
 
         public RegistrationCourseForm()
         {

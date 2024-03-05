@@ -11,11 +11,11 @@ using System.Threading.Tasks;
 
 namespace Business.BusinessLogic
 {
-    public class CreateEntitiesBusiness
+    public class CreateEntitiesBusiness<T>
     {
         private readonly ConnectionDb ConnectionDb = new ConnectionDb();
-        private readonly ValidationEntitiesBusiness validationEntities = new ValidationEntitiesBusiness();
-
+        private readonly ValidationEntitiesBusiness<T> validationEntities = new ValidationEntitiesBusiness<T>();
+        
         public async Task<CreateCourseQuery> CreateCourseAsync(Course course)
         {
             if (validationEntities.IsValidNameCourse(course.CourseName, await ConnectionDb.ReturnAllCoursesAsync()))
@@ -25,6 +25,5 @@ namespace Business.BusinessLogic
             }
             return new CreateCourseQuery(false, course.CourseName + " course already exists", DateTime.Now, course);
         }
-
     }
 }
