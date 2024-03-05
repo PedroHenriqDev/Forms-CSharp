@@ -13,6 +13,10 @@ namespace Entities
         public string CourseName { get; set; }
         public List<Classroom> Classrooms { get; set; }
 
+        public Course() 
+        {
+        }
+
         public Course(string courseName, int courseId)
         {
             CourseName = courseName;

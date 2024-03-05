@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entities;
 
 namespace SystemSchool.Forms.ClassroomForms
 {
@@ -19,7 +20,7 @@ namespace SystemSchool.Forms.ClassroomForms
         {
             InitializeComponent();
         }
-        
+
         private void pictureBoxBack_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -35,10 +36,10 @@ namespace SystemSchool.Forms.ClassroomForms
             LabelClassroomNameShow.Text = schoolYear + "º";
         }
 
-        private async Task LoadComboBoxLetterAsnyc(string schoolYear) 
+        private async Task LoadComboBoxLetterAsnyc(string schoolYear)
         {
             IEnumerable<char> availableLetters = await SearchEntities.FindLettersAvailableBySchoolYearAsync(schoolYear);
-            foreach(var letter in availableLetters) 
+            foreach (var letter in availableLetters)
             {
                 ComboBoxLetter.Items.Add(letter);
             }
@@ -49,6 +50,20 @@ namespace SystemSchool.Forms.ClassroomForms
             string labelClassroomName = LabelClassroomNameShow.Text.Substring(0, 2);
             labelClassroomName += ComboBoxLetter.Text.ToString().Substring(0, 1);
             LabelClassroomNameShow.Text = labelClassroomName;
+        }
+
+        private async void RegistrationClassroomForm_Load(object sender, EventArgs e)
+        {
+            await LoadComboBoxCourseAsync();
+        }
+
+        private async Task LoadComboBoxCourseAsync()
+        {
+            IEnumerable<Course> courses = await SearchEntities.FindAllCoursesAsync();
+            foreach (var course in courses) 
+            {
+                ComboBoxCourse.Items.Add(course.CourseName);
+            }
         }
     }
 }

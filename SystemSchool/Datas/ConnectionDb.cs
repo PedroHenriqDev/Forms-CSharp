@@ -110,17 +110,6 @@ namespace Datas
             }
         }
 
-        public async Task<bool> ExistThatCourseAsync(string courseName)
-        {
-            string sqlQuery = @"SELECT COUNT(*) FROM Courses WHERE @CourseName = @courseName";
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
-            {
-                await connection.OpenAsync();
-                int count = await connection.ExecuteScalarAsync<int>(sqlQuery, new { courseName });
-                return count > 0;
-            }
-        }
-
         public async Task CreateCourseInDbAsync(Course course)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))

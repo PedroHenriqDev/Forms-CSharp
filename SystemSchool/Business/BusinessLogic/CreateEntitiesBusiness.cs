@@ -4,6 +4,7 @@ using Entities.TransientClasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,16 +16,18 @@ namespace Business.BusinessLogic
 
         public async Task<CreateCourseQuery> CreateCourseAsync(Course course)
         {
-            if (await ConnectionDb.ExistThatCourseAsync(course.CourseName))
+            IEnumerable<Course> courses = await ConnectionDb.ReturnAllCoursesAsync();
+
+            if (courses.Any(c => c.CourseName == course.CourseName))
             {
                 return new CreateCourseQuery(false, course.CourseName + " course already exists", DateTime.Now, course);
             }
             else
             {
                 await ConnectionDb.CreateCourseInDbAsync(course);
-                CreateCourseQuery courseQuery = new CreateCourseQuery(true, "Course " + course.CourseName + " created successfully!", DateTime.Now, course);
-                return courseQuery;
+                return new CreateCourseQuery(true, "Course " + course.CourseName + " created successfully!", DateTime.Now, course);
             }
         }
+
     }
 }
