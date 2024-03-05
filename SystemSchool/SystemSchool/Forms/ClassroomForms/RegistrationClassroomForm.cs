@@ -41,7 +41,10 @@ namespace SystemSchool.Forms.ClassroomForms
             IEnumerable<char> availableLetters = await SearchEntities.FindLettersAvailableBySchoolYearAsync(schoolYear);
             foreach (var letter in availableLetters)
             {
-                ComboBoxLetter.Items.Add(letter);
+                if (!ComboBoxLetter.Items.Contains(letter))
+                {
+                    ComboBoxLetter.Items.Add(letter);
+                }
             }
         }
 

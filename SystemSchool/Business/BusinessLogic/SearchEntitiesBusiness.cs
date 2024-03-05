@@ -48,8 +48,8 @@ namespace Business.BusinessLogic
         public async Task<IEnumerable<char>> FindLettersAvailableBySchoolYearAsync(string schoolYear) 
         {
             IEnumerable<Classroom> classrooms = await ConnectionDb.ReturnAllClassromsAsync();
-
-            IEnumerable<char> existingLetters = classrooms.Select(c => c.ClassroomName[1])
+            
+            IEnumerable<char> existingLetters = classrooms.Where(c => c.ClassroomName[0] == schoolYear[0]).Select(c => c.ClassroomName[1])
                 .Where(letter => char.IsLetter(letter) && letter < 'E');
 
             return Enumerable.Range('A', 'D' - 'A' + 1)
