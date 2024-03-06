@@ -122,5 +122,29 @@ namespace SystemSchool.Forms.StudentForms
                 student.Classroom.ClassroomName = ComboBoxClassroom.SelectedItem.ToString();
             }
         }
+
+        private void pictureBoxDelete_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DeleteStudentForm deleteForm = new DeleteStudentForm();
+            deleteForm.ShowDialog();
+        }
+
+        private void pictureBoxStudent_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegistrationStudentForm registerForm = new RegistrationStudentForm();
+            registerForm.ShowDialog();
+        }
+
+        private void LabelDeleteStudent_Click(object sender, EventArgs e)
+        {
+            pictureBoxDelete_Click(sender, e);
+        }
+
+        private void LabelStudent_Click(object sender, EventArgs e)
+        {
+            pictureBoxStudent_Click(sender, e);
+        }
     }
 }

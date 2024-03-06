@@ -123,7 +123,7 @@
             this.pictureBoxBack.Image = global::SystemSchool.Properties.Resources.icons8_back_48;
             this.pictureBoxBack.Location = new System.Drawing.Point(1006, 12);
             this.pictureBoxBack.Name = "pictureBoxBack";
-            this.pictureBoxBack.Size = new System.Drawing.Size(24, 23);
+            this.pictureBoxBack.Size = new System.Drawing.Size(23, 23);
             this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxBack.TabIndex = 18;
             this.pictureBoxBack.TabStop = false;

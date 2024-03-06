@@ -83,5 +83,29 @@ namespace SystemSchool.Forms.StudentForms
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void pictureBoxEdit_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            EditStudentForm editForm = new EditStudentForm();
+            editForm.ShowDialog();
+        }
+
+        private void LabelEditStudent_Click(object sender, EventArgs e)
+        {
+            pictureBoxEdit_Click(sender, e);
+        }
+
+        private void pictureBoxStudent_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegistrationStudentForm registerForm = new RegistrationStudentForm();
+            registerForm.ShowDialog();
+        }
+
+        private void LabelRegisterStudent_Click(object sender, EventArgs e)
+        {
+            pictureBoxStudent_Click(sender, e);
+        }
     }
 }
