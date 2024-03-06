@@ -109,6 +109,16 @@ namespace Datas
             }
         }
 
+        public async Task<Student> ReturnStudentByIdAsync(int studentId) 
+        {
+            using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
+            {
+                await connection.OpenAsync();
+                string sqlQuery = @"SELECT * FROM Students WHERE StudentId = @studentId";
+                return await connection.QueryFirstOrDefaultAsync<Student>(sqlQuery, new {studentId= studentId});
+            }
+        }
+
         public async Task CreateCourseInDbAsync(Course course)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
@@ -161,6 +171,16 @@ namespace Datas
 
                     await cmd.ExecuteNonQueryAsync();
                 }
+            }
+        }
+
+        public async Task DeleteStudentByIdAsync(int studentId) 
+        {
+            using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
+            {
+                await connection.OpenAsync();
+                string sqlQuery = @"DELETE FROM Students WHERE StudentId = @studentId";
+                await connection.ExecuteAsync(sqlQuery, new {studentId = studentId});
             }
         }
     }

@@ -7,19 +7,19 @@ using System.Threading.Tasks;
 
 namespace Entities.TransientClasses
 {
-    public class CreateClassroomQuery : IResultOfQueries
+    public class CourseQuery : IResultOfQueries
     {
         public bool Result { get; set; }
-        public string Message { get; set; }
+        public string Message {  get; set; }
         public DateTime Moment { get; set; }
-        public Classroom Classroom { get; set; }
+        public  Course Course { get; set; }
 
-        public CreateClassroomQuery(bool result, string message, DateTime moment, Classroom classroom)
+        public CourseQuery(bool result, string message, DateTime moment, Course course) 
         {
             Result = result;
             Message = message;
             Moment = moment;
-            Classroom = classroom;
+            Course = course;
         }
     }
 }

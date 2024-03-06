@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Entities.TransientClasses
 {
-    public class CreateStudentQuery : IResultOfQueries
+    public class StudentQuery : IResultOfQueries
     {
         public bool Result { get; set; }
         public string Message { get; set; }
         public DateTime Moment { get; set; }
         public Student Student { get; set; }
 
-        public CreateStudentQuery(bool result, string message, DateTime moment, Student student)
+        public StudentQuery(bool result, string message, DateTime moment, Student student)
         {
             Result = result;
             Message = message;

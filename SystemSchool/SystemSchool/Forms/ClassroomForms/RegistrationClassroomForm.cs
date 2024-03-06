@@ -84,7 +84,7 @@ namespace SystemSchool.Forms.ClassroomForms
                 Course course = await SearchEntities.FindCourseByNameAsync(ComboBoxCourse.SelectedItem.ToString());
                 Random random = new Random();
                 Classroom classroom = new Classroom(random.Next(), classroomName, course.CourseId);
-                CreateClassroomQuery createClassroomQuery = await CreateEntities.CreateClassroomAsync(classroom);
+                ClassroomQuery createClassroomQuery = await CreateEntities.CreateClassroomAsync(classroom);
                 if (createClassroomQuery.Result)
                 {
                     MessageBox.Show(createClassroomQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);

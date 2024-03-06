@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.BusinessLogic;
 using Entities;
+using Entities.TransientClasses;
 using SystemSchool.Controls;
 
 namespace SystemSchool.Forms.StudentForms
@@ -17,6 +18,7 @@ namespace SystemSchool.Forms.StudentForms
     public partial class DeleteStudentForm : Form
     {
         SearchEntitiesBusiness SearchEntitiesBusiness = new SearchEntitiesBusiness();
+        DeleteEntitiesBusiness<Student> DeleteEntities = new DeleteEntitiesBusiness<Student>();
 
         public DeleteStudentForm()
         {
@@ -57,16 +59,33 @@ namespace SystemSchool.Forms.StudentForms
             }
         }
 
-        private void listBoxStudents_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ListBoxItem<Student> student = (ListBoxItem<Student>)listBoxStudents.SelectedItem;
-        }
-
         private void pictureBoxBack_Click(object sender, EventArgs e)
         {
             this.Hide();
             RegistrationStudentForm StudentRegistrationForm = new RegistrationStudentForm();
             StudentRegistrationForm.ShowDialog();
+        }
+
+        private async void buttonDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ListBoxItem<Student> student = (ListBoxItem<Student>)listBoxStudents.SelectedItem;
+                StudentQuery studentQuery = await DeleteEntities.DeleteStudentAsync(student.Value);
+                if (studentQuery.Result)
+                {
+                    MessageBox.Show(studentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    await LoadListBoxByIndexAsync(ComboBoxClassroom.SelectedItem.ToString()));
+                }
+                else
+                {
+                    MessageBox.Show(studentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -38,7 +38,7 @@ namespace SystemSchool.Forms.CourseForms
             {
                 Random random = new Random();
                 Course course = new Course(textBoxCourseName.Text, random.Next());
-                CreateCourseQuery courseQuery = await createEntities.CreateCourseAsync(course);
+                CourseQuery courseQuery = await createEntities.CreateCourseAsync(course);
                 if (courseQuery.Result)
                 {
                     MessageBox.Show(courseQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);

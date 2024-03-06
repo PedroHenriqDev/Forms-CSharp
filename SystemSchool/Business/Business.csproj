@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogic\CreateEntitiesBusiness.cs" />
+    <Compile Include="BusinessLogic\DeleteEntitiesBusiness.cs" />
     <Compile Include="BusinessLogic\LoginBusiness.cs" />
     <Compile Include="BusinessLogic\SearchEntitiesBusiness.cs" />
     <Compile Include="BusinessLogic\ValidationEntitiesBusiness.cs" />
