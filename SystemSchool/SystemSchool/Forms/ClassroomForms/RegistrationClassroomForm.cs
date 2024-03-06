@@ -60,7 +60,7 @@ namespace SystemSchool.Forms.ClassroomForms
         {
             string schoolYear = ComboBoxSchoolYear.SelectedItem.ToString().Substring(0, 1);
             await LoadComboBoxLetterAsnyc(schoolYear);
-            LabelClassroomNameShow.ForeColor = Color.Black;
+            LabelClassroomNameShow.ForeColor = Color.White;
             LabelClassroomNameShow.Text = schoolYear + "º";
         }
 
@@ -73,7 +73,8 @@ namespace SystemSchool.Forms.ClassroomForms
 
         private void ComboBoxCourse_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LabelCourseNameShow.ForeColor = Color.Black;
+            LabelCourseNameShow.ForeColor = Color.White;
+            LabelPreview.ForeColor = Color.White;
             LabelCourseNameShow.Text = ComboBoxCourse.SelectedItem.ToString();
         }
 

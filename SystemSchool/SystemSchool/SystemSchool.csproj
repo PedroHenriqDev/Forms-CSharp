@@ -149,6 +149,12 @@
     <None Include="Resources\icons8-edit-40.png" />
     <None Include="Resources\icons8-delete-1001.png" />
     <None Include="Resources\icons8-delete-48.png" />
+    <None Include="Resources\icons8-student-48.png" />
+    <None Include="Resources\icons8-password-48.png" />
+    <None Include="Resources\icons8-classroom-48.png" />
+    <None Include="Resources\icons8-graph-report-64.png" />
+    <None Include="Resources\icons8-course-64.png" />
+    <None Include="Resources\icons8-user-40.png" />
     <Content Include="Resources\icons8-user-64.png" />
   </ItemGroup>
   <ItemGroup>

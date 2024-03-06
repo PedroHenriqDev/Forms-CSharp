@@ -24,18 +24,18 @@ namespace SystemSchool.Helpers
             else if (user.Class.AccessLevel == 2)
             {
                 mainForm.pictureUser.Enabled = false;
-                mainForm.LabelUserRegistration.Enabled = false;
+                mainForm.LabelUser.Enabled = false;
             }
             else if (user.Class.AccessLevel == 1)
             {
                 mainForm.pictureUser.Enabled = false;
-                mainForm.LabelUserRegistration.Enabled = false;
+                mainForm.LabelUser.Enabled = false;
                 mainForm.pictureStudent.Enabled = false;
-                mainForm.LabelStudentRegistration.Enabled = false;
+                mainForm.LabelStudent.Enabled = false;
                 mainForm.pictureClassroom.Enabled = false;
-                mainForm.LabelClassroomRegistration.Enabled = false;
+                mainForm.LabelClassroom.Enabled = false;
                 mainForm.pictureCourse.Enabled = false;
-                mainForm.LabelCourseRegistration.Enabled = false;
+                mainForm.LabelCourse.Enabled = false;
             }
             else
             {

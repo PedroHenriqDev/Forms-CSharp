@@ -29,61 +29,28 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.LabelDeleteStudent = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureDelete = new System.Windows.Forms.PictureBox();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.LabelClassroom = new System.Windows.Forms.Label();
             this.ComboBoxClassroom = new System.Windows.Forms.ComboBox();
             this.listBoxStudents = new System.Windows.Forms.ListBox();
             this.LabelStudent = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureDelete = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureDelete)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Controls.Add(this.pictureDelete);
+            this.panel1.Controls.Add(this.pictureBox4);
             this.panel1.Location = new System.Drawing.Point(0, -4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(198, 646);
             this.panel1.TabIndex = 0;
-            // 
-            // LabelDeleteStudent
-            // 
-            this.LabelDeleteStudent.AutoSize = true;
-            this.LabelDeleteStudent.BackColor = System.Drawing.Color.Transparent;
-            this.LabelDeleteStudent.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelDeleteStudent.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LabelDeleteStudent.Location = new System.Drawing.Point(553, 12);
-            this.LabelDeleteStudent.Name = "LabelDeleteStudent";
-            this.LabelDeleteStudent.Size = new System.Drawing.Size(146, 25);
-            this.LabelDeleteStudent.TabIndex = 5;
-            this.LabelDeleteStudent.Text = "Delete Student";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::SystemSchool.Properties.Resources.icons8_back_48;
-            this.pictureBox1.Location = new System.Drawing.Point(984, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 27);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBoxBack_Click);
-            // 
-            // pictureDelete
-            // 
-            this.pictureDelete.Image = global::SystemSchool.Properties.Resources.icons8_delete_48;
-            this.pictureDelete.Location = new System.Drawing.Point(49, 259);
-            this.pictureDelete.Name = "pictureDelete";
-            this.pictureDelete.Size = new System.Drawing.Size(88, 81);
-            this.pictureDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureDelete.TabIndex = 7;
-            this.pictureDelete.TabStop = false;
             // 
             // buttonDelete
             // 
@@ -103,7 +70,7 @@
             // 
             this.LabelClassroom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelClassroom.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LabelClassroom.Location = new System.Drawing.Point(542, 58);
+            this.LabelClassroom.Location = new System.Drawing.Point(552, 58);
             this.LabelClassroom.Name = "LabelClassroom";
             this.LabelClassroom.Size = new System.Drawing.Size(156, 51);
             this.LabelClassroom.TabIndex = 11;
@@ -116,7 +83,7 @@
             this.ComboBoxClassroom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboBoxClassroom.ForeColor = System.Drawing.Color.Black;
             this.ComboBoxClassroom.FormattingEnabled = true;
-            this.ComboBoxClassroom.Location = new System.Drawing.Point(491, 112);
+            this.ComboBoxClassroom.Location = new System.Drawing.Point(500, 112);
             this.ComboBoxClassroom.Name = "ComboBoxClassroom";
             this.ComboBoxClassroom.Size = new System.Drawing.Size(249, 28);
             this.ComboBoxClassroom.TabIndex = 10;
@@ -145,6 +112,38 @@
             this.LabelStudent.Text = "Students:";
             this.LabelStudent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::SystemSchool.Properties.Resources.icons8_back_48;
+            this.pictureBox1.Location = new System.Drawing.Point(984, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(30, 27);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBoxBack_Click);
+            // 
+            // pictureDelete
+            // 
+            this.pictureDelete.Image = global::SystemSchool.Properties.Resources.icons8_delete_48;
+            this.pictureDelete.Location = new System.Drawing.Point(585, -4);
+            this.pictureDelete.Name = "pictureDelete";
+            this.pictureDelete.Size = new System.Drawing.Size(88, 72);
+            this.pictureDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureDelete.TabIndex = 7;
+            this.pictureDelete.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::SystemSchool.Properties.Resources.icons8_school_96__1_;
+            this.pictureBox4.Location = new System.Drawing.Point(57, 264);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(88, 81);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox4.TabIndex = 19;
+            this.pictureBox4.TabStop = false;
+            // 
             // DeleteStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,7 +151,7 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1026, 642);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.LabelDeleteStudent);
+            this.Controls.Add(this.pictureDelete);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.LabelClassroom);
             this.Controls.Add(this.ComboBoxClassroom);
@@ -167,15 +166,14 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureDelete)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label LabelDeleteStudent;
         private System.Windows.Forms.PictureBox pictureDelete;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonDelete;
@@ -183,5 +181,6 @@
         private System.Windows.Forms.ComboBox ComboBoxClassroom;
         private System.Windows.Forms.ListBox listBoxStudents;
         private System.Windows.Forms.Label LabelStudent;
+        private System.Windows.Forms.PictureBox pictureBox4;
     }
 }

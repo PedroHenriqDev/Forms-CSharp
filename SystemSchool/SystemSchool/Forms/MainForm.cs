@@ -58,5 +58,30 @@ namespace SystemSchool
             RegistrationCourseForm formCourse = new RegistrationCourseForm();
             formCourse.ShowDialog();
         }
+
+        private void LabelStudentRegistration_Click(object sender, EventArgs e)
+        {
+            pictureStudent_Click(sender, e);
+        }
+
+        private void LabelClassroomRegistration_Click(object sender, EventArgs e)
+        {
+            pictureClassroom_Click(sender, e);
+        }
+
+        private void LabelCourseRegistration_Click(object sender, EventArgs e)
+        {
+            pictureClassroom_Click(sender, e);
+        }
+
+        private void LabelClassroom_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabelCourse_Click(object sender, EventArgs e)
+        {
+
+        }
     } 
 }
