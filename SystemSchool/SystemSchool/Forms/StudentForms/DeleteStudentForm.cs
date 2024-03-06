@@ -75,7 +75,7 @@ namespace SystemSchool.Forms.StudentForms
                 if (studentQuery.Result)
                 {
                     MessageBox.Show(studentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    await LoadListBoxByIndexAsync(ComboBoxClassroom.SelectedItem.ToString()));
+                    await LoadListBoxByIndexAsync(ComboBoxClassroom.SelectedItem.ToString());
                 }
                 else
                 {

@@ -66,10 +66,11 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Image = global::SystemSchool.Properties.Resources.icons8_back_48;
-            this.pictureBox1.Location = new System.Drawing.Point(984, 16);
+            this.pictureBox1.Location = new System.Drawing.Point(989, 16);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(30, 23);
+            this.pictureBox1.Size = new System.Drawing.Size(25, 23);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
