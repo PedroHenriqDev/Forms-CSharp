@@ -43,12 +43,13 @@
             this.pictureBoxStudent = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxSchool = new System.Windows.Forms.PictureBox();
-            this.ComboBoxSchoolYear = new System.Windows.Forms.ComboBox();
+            this.ComboBoxClassroom = new System.Windows.Forms.ComboBox();
             this.textBoxStudentName = new System.Windows.Forms.TextBox();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.LabelClassroom = new System.Windows.Forms.Label();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.pictureBoxBack = new System.Windows.Forms.PictureBox();
+            this.LabelStudent = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -78,7 +79,7 @@
             this.LabelDeleteStudent.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LabelDeleteStudent.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelDeleteStudent.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.LabelDeleteStudent.Location = new System.Drawing.Point(116, 228);
+            this.LabelDeleteStudent.Location = new System.Drawing.Point(52, 245);
             this.LabelDeleteStudent.Name = "LabelDeleteStudent";
             this.LabelDeleteStudent.Size = new System.Drawing.Size(111, 20);
             this.LabelDeleteStudent.TabIndex = 23;
@@ -91,7 +92,7 @@
             this.LabelRegisterStudent.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LabelRegisterStudent.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelRegisterStudent.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.LabelRegisterStudent.Location = new System.Drawing.Point(116, 428);
+            this.LabelRegisterStudent.Location = new System.Drawing.Point(42, 467);
             this.LabelRegisterStudent.Name = "LabelRegisterStudent";
             this.LabelRegisterStudent.Size = new System.Drawing.Size(121, 20);
             this.LabelRegisterStudent.TabIndex = 24;
@@ -144,6 +145,7 @@
             this.listBoxSearch.Name = "listBoxSearch";
             this.listBoxSearch.Size = new System.Drawing.Size(187, 225);
             this.listBoxSearch.TabIndex = 28;
+            this.listBoxSearch.SelectedIndexChanged += new System.EventHandler(this.listBoxSearch_SelectedIndexChanged);
             // 
             // LabelSearchResult
             // 
@@ -160,7 +162,7 @@
             // 
             this.LabelStudentName.AutoSize = true;
             this.LabelStudentName.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelStudentName.Location = new System.Drawing.Point(450, 237);
+            this.LabelStudentName.Location = new System.Drawing.Point(446, 260);
             this.LabelStudentName.Name = "LabelStudentName";
             this.LabelStudentName.Size = new System.Drawing.Size(126, 21);
             this.LabelStudentName.TabIndex = 31;
@@ -203,9 +205,9 @@
             // pictureBoxStudent
             // 
             this.pictureBoxStudent.Image = global::SystemSchool.Properties.Resources.icons8_student_48;
-            this.pictureBoxStudent.Location = new System.Drawing.Point(15, 383);
+            this.pictureBoxStudent.Location = new System.Drawing.Point(56, 413);
             this.pictureBoxStudent.Name = "pictureBoxStudent";
-            this.pictureBoxStudent.Size = new System.Drawing.Size(100, 97);
+            this.pictureBoxStudent.Size = new System.Drawing.Size(100, 51);
             this.pictureBoxStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxStudent.TabIndex = 2;
             this.pictureBoxStudent.TabStop = false;
@@ -213,9 +215,9 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::SystemSchool.Properties.Resources.icons8_delete_48;
-            this.pictureBox2.Location = new System.Drawing.Point(15, 191);
+            this.pictureBox2.Location = new System.Drawing.Point(56, 191);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 97);
+            this.pictureBox2.Size = new System.Drawing.Size(100, 51);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
@@ -230,27 +232,23 @@
             this.pictureBoxSchool.TabIndex = 0;
             this.pictureBoxSchool.TabStop = false;
             // 
-            // ComboBoxSchoolYear
+            // ComboBoxClassroom
             // 
-            this.ComboBoxSchoolYear.BackColor = System.Drawing.Color.White;
-            this.ComboBoxSchoolYear.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ComboBoxSchoolYear.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.ComboBoxSchoolYear.FormattingEnabled = true;
-            this.ComboBoxSchoolYear.Items.AddRange(new object[] {
-            "1º",
-            "2º",
-            "3º"});
-            this.ComboBoxSchoolYear.Location = new System.Drawing.Point(405, 444);
-            this.ComboBoxSchoolYear.Name = "ComboBoxSchoolYear";
-            this.ComboBoxSchoolYear.Size = new System.Drawing.Size(216, 29);
-            this.ComboBoxSchoolYear.TabIndex = 30;
+            this.ComboBoxClassroom.BackColor = System.Drawing.Color.White;
+            this.ComboBoxClassroom.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboBoxClassroom.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.ComboBoxClassroom.FormattingEnabled = true;
+            this.ComboBoxClassroom.Location = new System.Drawing.Point(405, 444);
+            this.ComboBoxClassroom.Name = "ComboBoxClassroom";
+            this.ComboBoxClassroom.Size = new System.Drawing.Size(216, 29);
+            this.ComboBoxClassroom.TabIndex = 30;
             // 
             // textBoxStudentName
             // 
             this.textBoxStudentName.BackColor = System.Drawing.SystemColors.HighlightText;
             this.textBoxStudentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxStudentName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBoxStudentName.Location = new System.Drawing.Point(405, 271);
+            this.textBoxStudentName.Location = new System.Drawing.Point(405, 296);
             this.textBoxStudentName.Name = "textBoxStudentName";
             this.textBoxStudentName.Size = new System.Drawing.Size(216, 26);
             this.textBoxStudentName.TabIndex = 30;
@@ -290,16 +288,29 @@
             this.pictureBoxBack.TabStop = false;
             this.pictureBoxBack.Click += new System.EventHandler(this.pictureBoxBack_Click);
             // 
+            // LabelStudent
+            // 
+            this.LabelStudent.BackColor = System.Drawing.Color.Transparent;
+            this.LabelStudent.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelStudent.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.LabelStudent.Location = new System.Drawing.Point(405, 168);
+            this.LabelStudent.Name = "LabelStudent";
+            this.LabelStudent.Size = new System.Drawing.Size(216, 65);
+            this.LabelStudent.TabIndex = 34;
+            this.LabelStudent.Text = "Student";
+            this.LabelStudent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // EditStudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1026, 642);
+            this.Controls.Add(this.LabelStudent);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.LabelClassroom);
             this.Controls.Add(this.textBoxStudentName);
-            this.Controls.Add(this.ComboBoxSchoolYear);
+            this.Controls.Add(this.ComboBoxClassroom);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.LabelStudentName);
             this.Controls.Add(this.LabelEditStudent);
@@ -341,11 +352,12 @@
         private System.Windows.Forms.Label LabelStudentName;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.ComboBox ComboBoxSchoolYear;
+        private System.Windows.Forms.ComboBox ComboBoxClassroom;
         private System.Windows.Forms.TextBox textBoxStudentName;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label LabelClassroom;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.PictureBox pictureBoxBack;
+        private System.Windows.Forms.Label LabelStudent;
     }
 }

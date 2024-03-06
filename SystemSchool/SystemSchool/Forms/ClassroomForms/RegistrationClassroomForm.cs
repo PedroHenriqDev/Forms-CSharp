@@ -41,7 +41,7 @@ namespace SystemSchool.Forms.ClassroomForms
         {
             IEnumerable<char> availableLetters = await SearchEntities.FindLettersAvailableBySchoolYearAsync(schoolYear);
             ComboBoxLetter.Items.Clear();
-            foreach (var letter in availableLetters)
+            foreach(char letter in availableLetters) 
             {
                 ComboBoxLetter.Items.Add(letter);
             }
@@ -50,10 +50,7 @@ namespace SystemSchool.Forms.ClassroomForms
         private async Task LoadComboBoxCourseAsync()
         {
             IEnumerable<Course> courses = await SearchEntities.FindAllCoursesAsync();
-            foreach (var course in courses)
-            {
-                ComboBoxCourse.Items.Add(course.CourseName);
-            }
+            ComboBoxCourse.Items.AddRange(courses.Select(c => c.CourseName).ToArray());
         }
 
         private async void ComboBoxSchoolYear_SelectedIndexChanged(object sender, EventArgs e)

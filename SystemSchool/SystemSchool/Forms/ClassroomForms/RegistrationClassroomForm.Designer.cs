@@ -197,7 +197,7 @@
             this.LabelClassroomNameShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LabelClassroomNameShow.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelClassroomNameShow.ForeColor = System.Drawing.Color.Black;
-            this.LabelClassroomNameShow.Location = new System.Drawing.Point(145, 634);
+            this.LabelClassroomNameShow.Location = new System.Drawing.Point(153, 634);
             this.LabelClassroomNameShow.Name = "LabelClassroomNameShow";
             this.LabelClassroomNameShow.Size = new System.Drawing.Size(88, 21);
             this.LabelClassroomNameShow.TabIndex = 9;
@@ -227,7 +227,7 @@
             this.LabelCourseNameShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LabelCourseNameShow.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelCourseNameShow.ForeColor = System.Drawing.Color.Black;
-            this.LabelCourseNameShow.Location = new System.Drawing.Point(33, 634);
+            this.LabelCourseNameShow.Location = new System.Drawing.Point(16, 634);
             this.LabelCourseNameShow.Name = "LabelCourseNameShow";
             this.LabelCourseNameShow.Size = new System.Drawing.Size(62, 21);
             this.LabelCourseNameShow.TabIndex = 11;

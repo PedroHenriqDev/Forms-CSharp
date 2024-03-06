@@ -48,5 +48,33 @@ namespace SystemSchool.Forms.StudentForms
                 await LoadListBoxSearchAsync();
             }
         }
+
+        private async void listBoxSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FillLabelStudent();
+            FillTextBoxStudentName();
+            await LoadComboBoxClassroom();
+        }
+
+        private void FillTextBoxStudentName() 
+        {
+            DisplayItem<Student> student = listBoxSearch.SelectedItem as DisplayItem<Student>;
+            textBoxStudentName.Text = student.Value.CompleteName;
+        }
+
+        private async Task LoadComboBoxClassroom() 
+        {
+            DisplayItem<Student> student = listBoxSearch.SelectedItem as DisplayItem<Student>;
+            ComboBoxClassroom.Text = student.Value.Classroom.ClassroomName;
+            IEnumerable<Classroom> classrooms = await SearchEntities.FindAllClassroomsAsync();
+            ComboBoxClassroom.Items.AddRange(classrooms.Select(c => c.ClassroomName).ToArray());
+        }
+
+        private void FillLabelStudent() 
+        {
+            DisplayItem<Student> student = listBoxSearch.SelectedItem as DisplayItem<Student>;
+            LabelStudent.ForeColor = Color.Black;
+            LabelStudent.Text = student.Value.CompleteName;
+        }
     }
 }

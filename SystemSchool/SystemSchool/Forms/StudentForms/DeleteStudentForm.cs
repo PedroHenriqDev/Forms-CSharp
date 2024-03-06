@@ -33,10 +33,7 @@ namespace SystemSchool.Forms.StudentForms
         private async Task LoadComboBoxClassroomsAsync()
         {
             IEnumerable<Classroom> classrooms = await SearchEntitiesBusiness.FindAllClassroomsAsync();
-            foreach (Classroom classroom in classrooms)
-            {
-                ComboBoxClassroom.Items.Add(classroom.ClassroomName);
-            }
+            ComboBoxClassroom.Items.AddRange(classrooms.Select(c => c.ClassroomName).ToArray());
         }
 
         private async void ComboBoxClassroom_SelectedIndexChanged(object sender, EventArgs e)

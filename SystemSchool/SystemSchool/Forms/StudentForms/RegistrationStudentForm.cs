@@ -16,7 +16,7 @@ namespace SystemSchool
 {
     public partial class RegistrationStudentForm : Form
     {
-        SearchEntitiesBusiness searchEntities = new SearchEntitiesBusiness();
+        SearchEntitiesBusiness SearchEntities = new SearchEntitiesBusiness();
         CreateEntitiesBusiness<Student> CreateEntities = new CreateEntitiesBusiness<Student>();
 
         public RegistrationStudentForm()
@@ -36,21 +36,15 @@ namespace SystemSchool
 
         private async Task LoadComboBoxClassroomAsync(string courseName)
         {
-            IEnumerable<Classroom> classrooms = await searchEntities.FindClassroomsByCourseNameAsync(courseName);
+            IEnumerable<Classroom> classrooms = await SearchEntities.FindClassroomsByCourseNameAsync(courseName);
             ComboBoxClassroom.Items.Clear();
-            foreach (Classroom classroom in classrooms)
-            {
-                ComboBoxClassroom.Items.Add(classroom.ClassroomName);
-            }
+            ComboBoxClassroom.Items.AddRange(classrooms.Select(c => c.ClassroomName).ToArray());
         }
 
         private async Task LoadComboBoxCoursesAsync()
         {
-            IEnumerable<Course> courses = await searchEntities.FindAllCoursesAsync();
-            foreach (Course course in courses)
-            {
-                ComboBoxCourse.Items.Add(course.CourseName);
-            }
+            IEnumerable<Course> courses = await SearchEntities.FindAllCoursesAsync();
+            ComboBoxCourse.Items.AddRange(courses.Select(c => c.CourseName).ToArray());
         }
 
         private void pictureBoxBack_Click(object sender, EventArgs e)
@@ -89,7 +83,7 @@ namespace SystemSchool
             try
             {
                 Random random = new Random();
-                Classroom classroom = await searchEntities.FindClassroomByNameAsync(ComboBoxClassroom.SelectedItem.ToString());
+                Classroom classroom = await SearchEntities.FindClassroomByNameAsync(ComboBoxClassroom.SelectedItem.ToString());
                 Student student = new Student(random.Next(), classroom.ClassroomId, textBoxCompleteName.Text);
                 StudentQuery createStudentQuery = await CreateEntities.CreateStudentAsync(student);
                 if (createStudentQuery.Result)
