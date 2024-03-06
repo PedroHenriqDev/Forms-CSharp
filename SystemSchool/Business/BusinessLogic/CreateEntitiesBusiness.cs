@@ -1,4 +1,5 @@
-﻿using Datas;
+﻿using Business.Extensions;
+using Datas;
 using Entities;
 using Entities.TransientClasses;
 using System;
@@ -24,6 +25,16 @@ namespace Business.BusinessLogic
                 return new CreateCourseQuery(true, "Course " + course.CourseName + " created successfully!", DateTime.Now, course);
             }
             return new CreateCourseQuery(false, course.CourseName + " course already exists", DateTime.Now, course);
+        }
+
+        public async Task<CreateStudentQuery> CreateStudentAsync(Student student) 
+        {
+            if (validationEntities.IsValidStudent(student, await ConnectionDb.ReturnAllStudentsAsync())) 
+            {
+                await ConnectionDb.CreateStudentInDbAsync(student);
+                return new CreateStudentQuery(true, "Student " + student.CompleteName.CutCompleteName() + " created successfully!", DateTime.Now, student);
+            }
+                return new CreateStudentQuery(false, "Student " + student.CompleteName.CutCompleteName() + " student already exists!", DateTime.Now, student);
         }
 
         public async Task<CreateClassroomQuery> CreateClassroomAsync(Classroom classroom) 

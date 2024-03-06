@@ -133,11 +133,31 @@ namespace Datas
                 await connection.OpenAsync();
                 string sqlQuery = @"INSERT INTO Classrooms (ClassroomId, ClassroomName, CourseId) 
                                     VALUES (@ClassroomId, @ClassroomName, @CourseId)";
+
                 using(SqlCommand cmd = new SqlCommand(sqlQuery, connection)) 
                 {
                     cmd.Parameters.AddWithValue("@ClassroomId", classroom.ClassroomId);
                     cmd.Parameters.AddWithValue("@ClassroomName", classroom.ClassroomName);
                     cmd.Parameters.AddWithValue("@CourseId", classroom.CourseId);
+
+                    await cmd.ExecuteNonQueryAsync();
+                }
+            }
+        }
+
+        public async Task CreateStudentInDbAsync(Student student) 
+        {
+            using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
+            {
+                await connection.OpenAsync();
+                string sqlQuery = @"INSERT INTO Students (StudentId, ClassroomId, CompleteName) 
+                                    VALUES (@StudentId, @ClassroomId, @CompleteName)";
+
+                using(SqlCommand cmd = new SqlCommand(sqlQuery, connection)) 
+                {
+                    cmd.Parameters.AddWithValue("@StudentId", student.StudentId);
+                    cmd.Parameters.AddWithValue("@ClassroomId", student.ClassroomId);
+                    cmd.Parameters.AddWithValue("@CompleteName", student.CompleteName);
 
                     await cmd.ExecuteNonQueryAsync();
                 }

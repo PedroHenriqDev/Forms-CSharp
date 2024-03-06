@@ -49,6 +49,7 @@
     <Compile Include="BusinessLogic\LoginBusiness.cs" />
     <Compile Include="BusinessLogic\SearchEntitiesBusiness.cs" />
     <Compile Include="BusinessLogic\ValidationEntitiesBusiness.cs" />
+    <Compile Include="Extensions\StringExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

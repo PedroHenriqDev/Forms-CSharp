@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.BusinessLogic;
 using Entities;
+using Entities.TransientClasses;
 using SystemSchool.Forms.StudentForms;
 
 namespace SystemSchool
@@ -16,6 +17,7 @@ namespace SystemSchool
     public partial class RegistrationStudentForm : Form
     {
         SearchEntitiesBusiness searchEntities = new SearchEntitiesBusiness();
+        CreateEntitiesBusiness<Student> createEntities = new CreateEntitiesBusiness<Student>();
 
         public RegistrationStudentForm()
         {
@@ -67,9 +69,29 @@ namespace SystemSchool
 
         private async void buttonCreate_Click(object sender, EventArgs e)
         {
-            Random random = new Random();
-            Classroom classroom = await searchEntities.FindClassroomByNameAsync(ComboBoxClassroom.SelectedItem.ToString());
-            Student student = new Student(random.Next(), classroom.ClassroomId, textBoxCompleteName.Text);
+            try
+            {
+                Random random = new Random();
+                Classroom classroom = await searchEntities.FindClassroomByNameAsync(ComboBoxClassroom.SelectedItem.ToString());
+                Student student = new Student(random.Next(), classroom.ClassroomId, textBoxCompleteName.Text);
+                CreateStudentQuery createStudentQuery = await createEntities.CreateStudentAsync(student);
+                if (createStudentQuery.Result) 
+                {
+                    MessageBox.Show(createStudentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(createStudentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch(ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

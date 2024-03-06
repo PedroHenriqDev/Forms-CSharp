@@ -80,16 +80,25 @@ namespace Business.BusinessLogic
 
         public bool EqualEntityInSet<T>(IEnumerable<T> entities, T entity) 
         {
-            List<string> entitiesToLower = new List<string>();
-
-            foreach(var ent in entities) 
+            if (entity is string) 
             {
-                entitiesToLower.Add(ent.ToString().ToLower());
+                List<string> entitiesToLower = new List<string>();
+                foreach (var ent in entities)
+                {
+                    entitiesToLower.Add(ent.ToString().ToLower());
+                }
+
+                if (entity == null || entitiesToLower.Any(e => e.Equals(entity.ToString().ToLower())))
+                {
+                    return true;
+                }
             }
-
-            if(entity == null || entitiesToLower.Any(t => t.Equals(entity.ToString().ToLower())))
+            else if(entity is int)
             {
-                return true;
+                if (entity == null || entities.Any(e => e.Equals(entity)))
+                {
+                    return true;
+                }
             }
             return false;
         }
