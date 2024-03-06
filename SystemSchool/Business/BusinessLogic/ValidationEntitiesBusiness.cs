@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.Serialization.Formatters;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,21 +12,44 @@ namespace Business.BusinessLogic
 {
     public class ValidationEntitiesBusiness<T>
     {
-        public bool IsValidNameCourse(string courseName, IEnumerable<Course> courses)
+        public bool IsValidNameCourse(Course course, IEnumerable<Course> courses)
         {
-            if(string.IsNullOrWhiteSpace(courseName)) 
+            if(string.IsNullOrWhiteSpace(course.CourseName)) 
             {
                 throw new ArgumentNullException("The course name cannot be empty!");
             }
 
-            return !EqualEntityInSet(courses.Select(c => c.CourseName).ToList(), courseName)
-                && !HasNumbersInString(courseName);
+            return !EqualEntityInSet(courses.Select(c => c.CourseName).ToList(), course.CourseName)
+                && !HasNumbersInString(course.CourseName)
+                && EntityHasId(course.CourseId);
         }
 
-        public bool IsValidClassroomName(string classroomName, IEnumerable<Classroom> classroom)
+        public bool IsValidStudent(Student student, IEnumerable<Student> students) 
         {
-            return !EqualEntityInSet(classroom.Select(c => c.ClassroomName).ToList(), classroomName)
-                && ClassroomNameIsInCorrectOrder(classroomName);
+            if (student == null || string.IsNullOrEmpty(student.CompleteName)) 
+            {
+                throw new ArgumentNullException("The student cannot be empty!");
+            }
+
+            return !EqualEntityInSet(students.Select(s => s.StudentId).ToList(), student.StudentId)
+                && HasNumbersInString(student.CompleteName)
+                && EntityHasId(student.StudentId);
+        }
+
+        public bool IsValidClassroomName(Classroom classroom, IEnumerable<Classroom> classrooms)
+        {
+            return !EqualEntityInSet(classrooms.Select(c => c.ClassroomName).ToList(), classroom.ClassroomName)
+                && ClassroomNameIsInCorrectOrder(classroom.ClassroomName)
+                && EntityHasId(classroom.ClassroomId);
+        }
+
+        public bool EntityHasId(int id) 
+        {
+            if(id == 0 || id <= 0) 
+            {
+                return false;
+            }
+            return true;
         }
 
         public bool ClassroomNameIsInCorrectOrder(string entity) 

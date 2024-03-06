@@ -18,7 +18,7 @@ namespace Business.BusinessLogic
         
         public async Task<CreateCourseQuery> CreateCourseAsync(Course course)
         {
-            if (validationEntities.IsValidNameCourse(course.CourseName, await ConnectionDb.ReturnAllCoursesAsync()))
+            if (validationEntities.IsValidNameCourse(course, await ConnectionDb.ReturnAllCoursesAsync()))
             {
                 await ConnectionDb.CreateCourseInDbAsync(course);
                 return new CreateCourseQuery(true, "Course " + course.CourseName + " created successfully!", DateTime.Now, course);
@@ -28,7 +28,7 @@ namespace Business.BusinessLogic
 
         public async Task<CreateClassroomQuery> CreateClassroomAsync(Classroom classroom) 
         {
-            if (validationEntities.IsValidClassroomName(classroom.ClassroomName, await ConnectionDb.ReturnAllClassromsAsync()))
+            if (validationEntities.IsValidClassroomName(classroom, await ConnectionDb.ReturnAllClassromsAsync()))
             {
                 await ConnectionDb.CreateClassroomInDbAsync(classroom);
                 return new CreateClassroomQuery(true, "Classroom " + classroom.ClassroomName + " created successfully!", DateTime.Now, classroom);
