@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Datas;
 using Entities;
-using Business;
 using SystemSchool.Helpers;
-using Business.BusinessComponents;
 using Business.BusinessComponents.ConcreteClasses;
 using SystemSchool.Expections;
 
@@ -27,12 +18,6 @@ namespace SystemSchool
         public Login()
         {
             InitializeComponent();
-        }
-
-        private void Clean()
-        {
-            TextUsername.Text = string.Empty;
-            TextPassword.Text = string.Empty;
         }
 
         private void Form1_Load(object sender, EventArgs e)
