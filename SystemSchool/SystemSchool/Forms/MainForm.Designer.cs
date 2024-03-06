@@ -300,7 +300,7 @@ namespace SystemSchool
             // 
             // pictureBoxSchool
             // 
-            this.pictureBoxSchool.Image = global::SystemSchool.Properties.Resources.icons8_school_96__1_;
+            this.pictureBoxSchool.Image = global::SystemSchool.Properties.Resources.icons8_school_80;
             this.pictureBoxSchool.Location = new System.Drawing.Point(440, 264);
             this.pictureBoxSchool.Name = "pictureBoxSchool";
             this.pictureBoxSchool.Size = new System.Drawing.Size(170, 153);

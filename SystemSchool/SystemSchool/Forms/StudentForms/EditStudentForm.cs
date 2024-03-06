@@ -11,12 +11,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.Extensions;
 using SystemSchool.Controls;
+using Entities.TransientClasses;
 
 namespace SystemSchool.Forms.StudentForms
 {
     public partial class EditStudentForm : Form
     {
         SearchEntitiesBusiness SearchEntities = new SearchEntitiesBusiness();
+        EditEntitiesBusiness<Student> EditEntities = new EditEntitiesBusiness<Student>();
 
         public EditStudentForm()
         {
@@ -30,20 +32,20 @@ namespace SystemSchool.Forms.StudentForms
             mainForm.ShowDialog();
         }
 
-        private async Task LoadListBoxSearchAsync() 
+        private async Task LoadListBoxSearchAsync()
         {
-           IEnumerable<Student> students = await SearchEntities.FindStudentByQueryAsync(textBoxSearch.Text);
-           listBoxSearch.Items.Clear();
-           foreach(Student student in students) 
-           {
+            IEnumerable<Student> students = await SearchEntities.FindStudentByQueryAsync(textBoxSearch.Text);
+            listBoxSearch.Items.Clear();
+            foreach (Student student in students)
+            {
                 string displayName = $"{student.CompleteName.CutCompleteName()} - ({student.Classroom.ClassroomName})";
-                listBoxSearch.Items.Add(new DisplayItem<Student>(student, displayName)); 
-           }
+                listBoxSearch.Items.Add(new DisplayItem<Student>(student, displayName));
+            }
         }
 
         private async void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter) 
+            if (e.KeyCode == Keys.Enter)
             {
                 await LoadListBoxSearchAsync();
             }
@@ -51,30 +53,74 @@ namespace SystemSchool.Forms.StudentForms
 
         private async void listBoxSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FillLabelStudent();
-            FillTextBoxStudentName();
-            await LoadComboBoxClassroom();
+            if (listBoxSearch.SelectedItem != null)
+            {
+                FillLabelStudent();
+                FillTextBoxStudentName();
+                await LoadComboBoxClassroom();
+            }
         }
 
-        private void FillTextBoxStudentName() 
+        private void FillTextBoxStudentName()
         {
             DisplayItem<Student> student = listBoxSearch.SelectedItem as DisplayItem<Student>;
             textBoxStudentName.Text = student.Value.CompleteName;
         }
 
-        private async Task LoadComboBoxClassroom() 
+        private async Task LoadComboBoxClassroom()
         {
             DisplayItem<Student> student = listBoxSearch.SelectedItem as DisplayItem<Student>;
             ComboBoxClassroom.Text = student.Value.Classroom.ClassroomName;
+            ComboBoxClassroom.Items.Clear();
             IEnumerable<Classroom> classrooms = await SearchEntities.FindAllClassroomsAsync();
             ComboBoxClassroom.Items.AddRange(classrooms.Select(c => c.ClassroomName).ToArray());
         }
 
-        private void FillLabelStudent() 
+        private void FillLabelStudent()
         {
             DisplayItem<Student> student = listBoxSearch.SelectedItem as DisplayItem<Student>;
             LabelStudent.ForeColor = Color.Black;
             LabelStudent.Text = student.Value.CompleteName;
+        }
+
+        private async void buttonEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DisplayItem<Student> student = listBoxSearch.SelectedItem as DisplayItem<Student>;
+                student.Value.CompleteName = textBoxStudentName.Text;
+                FillStudent(student.Value);
+                StudentQuery studentQuery = await EditEntities.EditStudentAsync(student.Value);
+                if (studentQuery.Result)
+                {
+                    MessageBox.Show(studentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show(studentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private async Task FillStudent(Student student) 
+        {
+            IEnumerable<Classroom> classrooms = await SearchEntities.FindAllClassroomsAsync();
+            if (ComboBoxClassroom.SelectedItem == null && classrooms.Select(c => c.ClassroomName).Any(c => c == student.Classroom.ClassroomName))
+            {
+                student.Classroom.ClassroomName = ComboBoxClassroom.Text;
+            }
+            else
+            {
+                student.Classroom.ClassroomName = ComboBoxClassroom.SelectedItem.ToString();
+            }
         }
     }
 }

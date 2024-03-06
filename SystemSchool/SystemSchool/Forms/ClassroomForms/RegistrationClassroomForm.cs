@@ -40,7 +40,7 @@ namespace SystemSchool.Forms.ClassroomForms
         private async Task LoadComboBoxLetterAsnyc(string schoolYear)
         {
             IEnumerable<char> availableLetters = await SearchEntities.FindLettersAvailableBySchoolYearAsync(schoolYear);
-            ComboBoxLetter.Items.Clear();
+            ComboBoxLetter.Items.Clear(); 
             foreach(char letter in availableLetters) 
             {
                 ComboBoxLetter.Items.Add(letter);

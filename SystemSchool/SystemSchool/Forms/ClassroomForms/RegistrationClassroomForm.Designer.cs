@@ -78,7 +78,7 @@
             this.LabelEditClassroom.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LabelEditClassroom.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelEditClassroom.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.LabelEditClassroom.Location = new System.Drawing.Point(101, 222);
+            this.LabelEditClassroom.Location = new System.Drawing.Point(66, 268);
             this.LabelEditClassroom.Name = "LabelEditClassroom";
             this.LabelEditClassroom.Size = new System.Drawing.Size(120, 21);
             this.LabelEditClassroom.TabIndex = 9;
@@ -101,7 +101,7 @@
             this.LabelDeleteClassroom.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LabelDeleteClassroom.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelDeleteClassroom.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.LabelDeleteClassroom.Location = new System.Drawing.Point(101, 474);
+            this.LabelDeleteClassroom.Location = new System.Drawing.Point(57, 517);
             this.LabelDeleteClassroom.Name = "LabelDeleteClassroom";
             this.LabelDeleteClassroom.Size = new System.Drawing.Size(140, 21);
             this.LabelDeleteClassroom.TabIndex = 0;
@@ -272,10 +272,10 @@
             // pictureBoxSchool
             // 
             this.pictureBoxSchool.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxSchool.Image = global::SystemSchool.Properties.Resources.icons8_school_96__1_;
-            this.pictureBoxSchool.Location = new System.Drawing.Point(83, 14);
+            this.pictureBoxSchool.Image = global::SystemSchool.Properties.Resources.icons8_school_80;
+            this.pictureBoxSchool.Location = new System.Drawing.Point(70, 14);
             this.pictureBoxSchool.Name = "pictureBoxSchool";
-            this.pictureBoxSchool.Size = new System.Drawing.Size(75, 72);
+            this.pictureBoxSchool.Size = new System.Drawing.Size(107, 91);
             this.pictureBoxSchool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxSchool.TabIndex = 10;
             this.pictureBoxSchool.TabStop = false;
@@ -284,9 +284,9 @@
             // 
             this.pictureBoxDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxDelete.Image = global::SystemSchool.Properties.Resources.icons8_delete_48;
-            this.pictureBoxDelete.Location = new System.Drawing.Point(20, 442);
+            this.pictureBoxDelete.Location = new System.Drawing.Point(70, 442);
             this.pictureBoxDelete.Name = "pictureBoxDelete";
-            this.pictureBoxDelete.Size = new System.Drawing.Size(75, 72);
+            this.pictureBoxDelete.Size = new System.Drawing.Size(107, 72);
             this.pictureBoxDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxDelete.TabIndex = 3;
             this.pictureBoxDelete.TabStop = false;
@@ -295,9 +295,9 @@
             // 
             this.pictureBoxEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxEdit.Image = global::SystemSchool.Properties.Resources.icons8_edit_40;
-            this.pictureBoxEdit.Location = new System.Drawing.Point(20, 193);
+            this.pictureBoxEdit.Location = new System.Drawing.Point(70, 193);
             this.pictureBoxEdit.Name = "pictureBoxEdit";
-            this.pictureBoxEdit.Size = new System.Drawing.Size(75, 72);
+            this.pictureBoxEdit.Size = new System.Drawing.Size(107, 72);
             this.pictureBoxEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxEdit.TabIndex = 2;
             this.pictureBoxEdit.TabStop = false;

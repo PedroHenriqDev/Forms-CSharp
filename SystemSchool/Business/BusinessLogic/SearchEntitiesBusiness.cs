@@ -40,6 +40,11 @@ namespace Business.BusinessLogic
             return students.Where(s => s.CompleteName.ToLower().Contains(query.ToLower())).ToList();
         }
 
+        public async Task<Student> FindStudentByIdAsync(int id) 
+        {
+            return await ConnectionDb.ReturnStudentByIdAsync(id);
+        }
+
         public async Task<IEnumerable<Classroom>> FindClassroomsByCourseNameAsync(string courseName) 
         {
             Course course = await FindCourseByNameAsync(courseName);

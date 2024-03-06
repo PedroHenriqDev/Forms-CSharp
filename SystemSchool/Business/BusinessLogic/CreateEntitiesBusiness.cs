@@ -29,7 +29,7 @@ namespace Business.BusinessLogic
 
         public async Task<StudentQuery> CreateStudentAsync(Student student) 
         {
-            if (ValidationEntities.IsValidStudent(student, await ConnectionDb.ReturnAllStudentsAsync())) 
+            if (ValidationEntities.IsValidStudent(student)) 
             {
                 await ConnectionDb.CreateStudentInDbAsync(student);
                 return new StudentQuery(true, "Student " + student.CompleteName.CutCompleteName() + " created successfully!", DateTime.Now, student);

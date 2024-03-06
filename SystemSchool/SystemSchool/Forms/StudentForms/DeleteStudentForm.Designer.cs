@@ -34,13 +34,13 @@
             this.ComboBoxClassroom = new System.Windows.Forms.ComboBox();
             this.listBoxStudents = new System.Windows.Forms.ListBox();
             this.LabelStudent = new System.Windows.Forms.Label();
+            this.LabelRegisterStudent = new System.Windows.Forms.Label();
+            this.LabelEditStudent = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureDelete = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxSchool = new System.Windows.Forms.PictureBox();
-            this.LabelRegisterStudent = new System.Windows.Forms.Label();
-            this.LabelEditStudent = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureDelete)).BeginInit();
@@ -123,6 +123,32 @@
             this.LabelStudent.Text = "Students:";
             this.LabelStudent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // LabelRegisterStudent
+            // 
+            this.LabelRegisterStudent.AutoSize = true;
+            this.LabelRegisterStudent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LabelRegisterStudent.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelRegisterStudent.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.LabelRegisterStudent.Location = new System.Drawing.Point(35, 493);
+            this.LabelRegisterStudent.Name = "LabelRegisterStudent";
+            this.LabelRegisterStudent.Size = new System.Drawing.Size(121, 20);
+            this.LabelRegisterStudent.TabIndex = 12;
+            this.LabelRegisterStudent.Text = "Register Student";
+            this.LabelRegisterStudent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabelEditStudent
+            // 
+            this.LabelEditStudent.AutoSize = true;
+            this.LabelEditStudent.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LabelEditStudent.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelEditStudent.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.LabelEditStudent.Location = new System.Drawing.Point(48, 316);
+            this.LabelEditStudent.Name = "LabelEditStudent";
+            this.LabelEditStudent.Size = new System.Drawing.Size(93, 20);
+            this.LabelEditStudent.TabIndex = 22;
+            this.LabelEditStudent.Text = "Edit Student";
+            this.LabelEditStudent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -148,9 +174,9 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::SystemSchool.Properties.Resources.icons8_edit_40;
-            this.pictureBox3.Location = new System.Drawing.Point(0, 236);
+            this.pictureBox3.Location = new System.Drawing.Point(52, 236);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 77);
+            this.pictureBox3.Size = new System.Drawing.Size(88, 77);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox3.TabIndex = 21;
             this.pictureBox3.TabStop = false;
@@ -158,48 +184,22 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::SystemSchool.Properties.Resources.icons8_student_48;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 417);
+            this.pictureBox2.Location = new System.Drawing.Point(52, 417);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 73);
+            this.pictureBox2.Size = new System.Drawing.Size(88, 73);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 20;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBoxSchool
             // 
-            this.pictureBoxSchool.Image = global::SystemSchool.Properties.Resources.icons8_school_96__1_;
+            this.pictureBoxSchool.Image = global::SystemSchool.Properties.Resources.icons8_school_80;
             this.pictureBoxSchool.Location = new System.Drawing.Point(52, 16);
             this.pictureBoxSchool.Name = "pictureBoxSchool";
             this.pictureBoxSchool.Size = new System.Drawing.Size(88, 81);
             this.pictureBoxSchool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxSchool.TabIndex = 19;
             this.pictureBoxSchool.TabStop = false;
-            // 
-            // LabelRegisterStudent
-            // 
-            this.LabelRegisterStudent.AutoSize = true;
-            this.LabelRegisterStudent.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LabelRegisterStudent.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelRegisterStudent.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.LabelRegisterStudent.Location = new System.Drawing.Point(103, 448);
-            this.LabelRegisterStudent.Name = "LabelRegisterStudent";
-            this.LabelRegisterStudent.Size = new System.Drawing.Size(121, 20);
-            this.LabelRegisterStudent.TabIndex = 12;
-            this.LabelRegisterStudent.Text = "Register Student";
-            this.LabelRegisterStudent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LabelEditStudent
-            // 
-            this.LabelEditStudent.AutoSize = true;
-            this.LabelEditStudent.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LabelEditStudent.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelEditStudent.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.LabelEditStudent.Location = new System.Drawing.Point(106, 272);
-            this.LabelEditStudent.Name = "LabelEditStudent";
-            this.LabelEditStudent.Size = new System.Drawing.Size(93, 20);
-            this.LabelEditStudent.TabIndex = 22;
-            this.LabelEditStudent.Text = "Edit Student";
-            this.LabelEditStudent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DeleteStudentForm
             // 

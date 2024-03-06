@@ -62,7 +62,7 @@
             this.LabelDeleteCourse.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LabelDeleteCourse.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelDeleteCourse.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.LabelDeleteCourse.Location = new System.Drawing.Point(117, 363);
+            this.LabelDeleteCourse.Location = new System.Drawing.Point(76, 407);
             this.LabelDeleteCourse.Name = "LabelDeleteCourse";
             this.LabelDeleteCourse.Size = new System.Drawing.Size(115, 21);
             this.LabelDeleteCourse.TabIndex = 17;
@@ -141,18 +141,18 @@
             // 
             // pictureBoxSchool
             // 
-            this.pictureBoxSchool.Image = global::SystemSchool.Properties.Resources.icons8_school_96__1_;
+            this.pictureBoxSchool.Image = global::SystemSchool.Properties.Resources.icons8_school_80;
             this.pictureBoxSchool.Location = new System.Drawing.Point(89, 9);
             this.pictureBoxSchool.Name = "pictureBoxSchool";
             this.pictureBoxSchool.Size = new System.Drawing.Size(88, 81);
-            this.pictureBoxSchool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxSchool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxSchool.TabIndex = 19;
             this.pictureBoxSchool.TabStop = false;
             // 
             // pictureBoxDelete
             // 
             this.pictureBoxDelete.Image = global::SystemSchool.Properties.Resources.icons8_delete_48;
-            this.pictureBoxDelete.Location = new System.Drawing.Point(23, 323);
+            this.pictureBoxDelete.Location = new System.Drawing.Point(89, 323);
             this.pictureBoxDelete.Name = "pictureBoxDelete";
             this.pictureBoxDelete.Size = new System.Drawing.Size(88, 81);
             this.pictureBoxDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;

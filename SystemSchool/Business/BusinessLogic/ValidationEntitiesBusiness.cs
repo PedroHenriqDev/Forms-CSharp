@@ -24,15 +24,14 @@ namespace Business.BusinessLogic
                 && EntityHasId(course.CourseId);
         }
 
-        public bool IsValidStudent(Student student, IEnumerable<Student> students) 
+        public bool IsValidStudent(Student student) 
         {
             if (student == null || string.IsNullOrEmpty(student.CompleteName)) 
             {
                 throw new ArgumentNullException("The student cannot be empty!");
             }
 
-            return !EqualEntityInSet(students.Select(s => s.StudentId).ToList(), student.StudentId)
-                && HasNumbersInString(student.CompleteName)
+            return HasNumbersInString(student.CompleteName)
                 && EntityHasId(student.StudentId);
         }
 

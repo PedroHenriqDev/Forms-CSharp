@@ -119,7 +119,7 @@ namespace SystemSchool
             // LabelManagerSchool
             // 
             this.LabelManagerSchool.Font = new System.Drawing.Font("Malgun Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelManagerSchool.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LabelManagerSchool.ForeColor = System.Drawing.Color.LightBlue;
             this.LabelManagerSchool.Location = new System.Drawing.Point(87, 28);
             this.LabelManagerSchool.Name = "LabelManagerSchool";
             this.LabelManagerSchool.Size = new System.Drawing.Size(230, 61);
@@ -150,7 +150,7 @@ namespace SystemSchool
             // 
             // pictureBoxSchool
             // 
-            this.pictureBoxSchool.Image = global::SystemSchool.Properties.Resources.icons8_school_96__1_;
+            this.pictureBoxSchool.Image = global::SystemSchool.Properties.Resources.icons8_school_80;
             this.pictureBoxSchool.Location = new System.Drawing.Point(119, 137);
             this.pictureBoxSchool.Name = "pictureBoxSchool";
             this.pictureBoxSchool.Size = new System.Drawing.Size(156, 146);
