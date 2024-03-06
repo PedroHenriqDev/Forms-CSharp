@@ -33,11 +33,14 @@ namespace SystemSchool
             this.ButtonCancel = new System.Windows.Forms.Button();
             this.ButtonLogin = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.TextPassword = new System.Windows.Forms.TextBox();
             this.LoginText = new System.Windows.Forms.Label();
             this.TextUsername = new System.Windows.Forms.TextBox();
             this.picturePassword = new System.Windows.Forms.PictureBox();
             this.pictureUser = new System.Windows.Forms.PictureBox();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
             this.SuspendLayout();
@@ -73,10 +76,21 @@ namespace SystemSchool
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(-3, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(394, 458);
             this.panel1.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SystemSchool.Properties.Resources.icons8_school_96__1_;
+            this.pictureBox1.Location = new System.Drawing.Point(119, 137);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(156, 146);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // TextPassword
             // 
@@ -91,8 +105,8 @@ namespace SystemSchool
             // LoginText
             // 
             this.LoginText.Font = new System.Drawing.Font("Malgun Gothic", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginText.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.LoginText.Location = new System.Drawing.Point(498, 21);
+            this.LoginText.ForeColor = System.Drawing.SystemColors.InactiveBorder;
+            this.LoginText.Location = new System.Drawing.Point(487, 27);
             this.LoginText.Name = "LoginText";
             this.LoginText.Size = new System.Drawing.Size(218, 68);
             this.LoginText.TabIndex = 8;
@@ -111,7 +125,6 @@ namespace SystemSchool
             // 
             // picturePassword
             // 
-            this.picturePassword.ErrorImage = global::SystemSchool.Properties.Resources.icons8_password_100;
             this.picturePassword.Image = global::SystemSchool.Properties.Resources.icons8_password_100;
             this.picturePassword.Location = new System.Drawing.Point(412, 196);
             this.picturePassword.Name = "picturePassword";
@@ -150,6 +163,8 @@ namespace SystemSchool
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
             this.ResumeLayout(false);
@@ -166,5 +181,6 @@ namespace SystemSchool
         private System.Windows.Forms.PictureBox picturePassword;
         private System.Windows.Forms.Label LoginText;
         private System.Windows.Forms.TextBox TextUsername;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

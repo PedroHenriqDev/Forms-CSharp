@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace SystemSchool.Controls
 {
-    public class ListBoxItem<T>
+    public class DisplayItem<T>
     {
         public T Value { get; set; }
         public string DisplayName { get; set; }
 
-        public ListBoxItem(T value, string displayName) 
+        public DisplayItem(T value, string displayName) 
         {
             Value = value;
             DisplayName = displayName;

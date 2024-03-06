@@ -47,14 +47,13 @@ namespace SystemSchool.Forms.StudentForms
         private async Task LoadListBoxByIndexAsync(string classroomName)
         {
             IEnumerable<Student> students = await SearchEntitiesBusiness.FindStudentsByClassroomNameAsync(classroomName);
-            listBoxStudents.DisplayMember = "CompleteName";
             listBoxStudents.Items.Clear();
             foreach (Student student in students)
             {
                 string displayName = $"{student.CompleteName} - ({classroomName})";
                 if (!listBoxStudents.Items.Contains(student))
                 {
-                    listBoxStudents.Items.Add(new ListBoxItem<Student>(student, displayName));
+                    listBoxStudents.Items.Add(new DisplayItem<Student>(student, displayName));
                 }
             }
         }
@@ -70,7 +69,7 @@ namespace SystemSchool.Forms.StudentForms
         {
             try
             {
-                ListBoxItem<Student> student = (ListBoxItem<Student>)listBoxStudents.SelectedItem;
+                DisplayItem<Student> student = (DisplayItem<Student>)listBoxStudents.SelectedItem;
                 StudentQuery studentQuery = await DeleteEntities.DeleteStudentAsync(student.Value);
                 if (studentQuery.Result)
                 {

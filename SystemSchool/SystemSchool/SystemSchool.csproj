@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\ListBoxItem.cs" />
+    <Compile Include="Controls\DisplayItem.cs" />
     <Compile Include="Exception\MainFormException.cs" />
     <Compile Include="Forms\ClassroomForms\RegistrationClassroomForm.cs">
       <SubType>Form</SubType>
@@ -144,6 +144,8 @@
     <None Include="Resources\icons8-back-48.png" />
     <None Include="Resources\icons8-delete-100.png" />
     <None Include="Resources\icons8-create-48.png" />
+    <None Include="Resources\icons8-school-96.png" />
+    <None Include="Resources\icons8-school-96 %281%29.png" />
     <Content Include="Resources\icons8-user-64.png" />
   </ItemGroup>
   <ItemGroup>

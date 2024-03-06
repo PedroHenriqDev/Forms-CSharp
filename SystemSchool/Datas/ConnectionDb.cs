@@ -115,7 +115,7 @@ namespace Datas
             {
                 await connection.OpenAsync();
                 string sqlQuery = @"SELECT * FROM Students WHERE StudentId = @studentId";
-                return await connection.QueryFirstOrDefaultAsync<Student>(sqlQuery, new {studentId= studentId});
+                return await connection.QueryFirstOrDefaultAsync<Student>(sqlQuery, new { studentId= studentId });
             }
         }
 
@@ -126,7 +126,11 @@ namespace Datas
                 await connection.OpenAsync();
                 string sqlQuery = @"INSERT INTO Courses (CourseId, CourseName) VALUES (@CourseId, @CourseName)";
 
-                await connection.ExecuteAsync(sqlQuery, new { CourseId = course.CourseId, CourseName = course.CourseName });
+                await connection.ExecuteAsync(sqlQuery, new 
+                {
+                    CourseId = course.CourseId,
+                    CourseName = course.CourseName 
+                });
             }
         }
 
