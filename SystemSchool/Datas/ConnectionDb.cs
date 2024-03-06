@@ -74,8 +74,8 @@ namespace Datas
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"SELECT * FRIM Classrooms WHERE ClassroomId = @classroomId";
-                return await connection.QueryFirstOrDefaultAsync(sqlQuery, new { classroomId = classroomId });
+                string sqlQuery = @"SELECT * FROM Classrooms WHERE ClassroomId = @classroomId";
+                return await connection.QueryFirstOrDefaultAsync<Classroom>(sqlQuery, new { classroomId = classroomId });
             }
         }
 

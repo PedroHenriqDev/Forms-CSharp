@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Business.Extensions
 {
-    static class StringExtension
+    public static class StringExtension
     {
         static public string CutCompleteName(this string thisObj) 
         {
