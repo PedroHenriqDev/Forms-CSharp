@@ -51,7 +51,7 @@ namespace SystemSchool
             this.ButtonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonCancel.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ButtonCancel.Location = new System.Drawing.Point(485, 303);
+            this.ButtonCancel.Location = new System.Drawing.Point(485, 344);
             this.ButtonCancel.Name = "ButtonCancel";
             this.ButtonCancel.Size = new System.Drawing.Size(94, 33);
             this.ButtonCancel.TabIndex = 2;
@@ -65,7 +65,7 @@ namespace SystemSchool
             this.ButtonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonLogin.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonLogin.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.ButtonLogin.Location = new System.Drawing.Point(645, 303);
+            this.ButtonLogin.Location = new System.Drawing.Point(645, 344);
             this.ButtonLogin.Name = "ButtonLogin";
             this.ButtonLogin.Size = new System.Drawing.Size(87, 33);
             this.ButtonLogin.TabIndex = 2;
@@ -94,31 +94,32 @@ namespace SystemSchool
             // 
             // TextPassword
             // 
-            this.TextPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TextPassword.BackColor = System.Drawing.Color.White;
             this.TextPassword.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextPassword.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.TextPassword.Location = new System.Drawing.Point(485, 220);
+            this.TextPassword.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.TextPassword.Location = new System.Drawing.Point(485, 292);
             this.TextPassword.Name = "TextPassword";
             this.TextPassword.Size = new System.Drawing.Size(247, 29);
             this.TextPassword.TabIndex = 5;
             // 
             // LoginText
             // 
+            this.LoginText.BackColor = System.Drawing.Color.Transparent;
             this.LoginText.Font = new System.Drawing.Font("Malgun Gothic", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginText.ForeColor = System.Drawing.SystemColors.InactiveBorder;
-            this.LoginText.Location = new System.Drawing.Point(487, 27);
+            this.LoginText.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LoginText.Location = new System.Drawing.Point(404, 9);
             this.LoginText.Name = "LoginText";
-            this.LoginText.Size = new System.Drawing.Size(218, 68);
+            this.LoginText.Size = new System.Drawing.Size(376, 95);
             this.LoginText.TabIndex = 8;
             this.LoginText.Text = "Login";
             this.LoginText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TextUsername
             // 
-            this.TextUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.TextUsername.BackColor = System.Drawing.Color.White;
             this.TextUsername.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TextUsername.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.TextUsername.Location = new System.Drawing.Point(485, 137);
+            this.TextUsername.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.TextUsername.Location = new System.Drawing.Point(485, 173);
             this.TextUsername.Name = "TextUsername";
             this.TextUsername.Size = new System.Drawing.Size(247, 29);
             this.TextUsername.TabIndex = 9;
@@ -126,7 +127,7 @@ namespace SystemSchool
             // picturePassword
             // 
             this.picturePassword.Image = global::SystemSchool.Properties.Resources.icons8_password_100;
-            this.picturePassword.Location = new System.Drawing.Point(412, 196);
+            this.picturePassword.Location = new System.Drawing.Point(412, 259);
             this.picturePassword.Name = "picturePassword";
             this.picturePassword.Size = new System.Drawing.Size(67, 62);
             this.picturePassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -137,7 +138,7 @@ namespace SystemSchool
             // 
             this.pictureUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureUser.Image = global::SystemSchool.Properties.Resources.icons8_user_100;
-            this.pictureUser.Location = new System.Drawing.Point(412, 113);
+            this.pictureUser.Location = new System.Drawing.Point(412, 137);
             this.pictureUser.Name = "pictureUser";
             this.pictureUser.Size = new System.Drawing.Size(67, 65);
             this.pictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -148,7 +149,7 @@ namespace SystemSchool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.TextUsername);
             this.Controls.Add(this.LoginText);

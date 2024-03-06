@@ -146,6 +146,9 @@
     <None Include="Resources\icons8-create-48.png" />
     <None Include="Resources\icons8-school-96.png" />
     <None Include="Resources\icons8-school-96 %281%29.png" />
+    <None Include="Resources\icons8-edit-40.png" />
+    <None Include="Resources\icons8-delete-1001.png" />
+    <None Include="Resources\icons8-delete-48.png" />
     <Content Include="Resources\icons8-user-64.png" />
   </ItemGroup>
   <ItemGroup>
