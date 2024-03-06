@@ -15,7 +15,7 @@ namespace SystemSchool
 {
     public partial class RegistrationStudentForm : Form
     {
-        SearchEntitiesBusiness searchEntitiesBusiness = new SearchEntitiesBusiness();
+        SearchEntitiesBusiness searchEntities = new SearchEntitiesBusiness();
 
         public RegistrationStudentForm()
         {
@@ -34,7 +34,7 @@ namespace SystemSchool
 
         private async Task LoadComboBoxClassroomAsync(string courseName)
         {
-            IEnumerable<Classroom> classrooms = await searchEntitiesBusiness.FindClassroomsByCourseNameAsync(courseName);
+            IEnumerable<Classroom> classrooms = await searchEntities.FindClassroomsByCourseNameAsync(courseName);
             ComboBoxClassroom.Items.Clear();
             foreach (Classroom classroom in classrooms)
             {
@@ -44,7 +44,7 @@ namespace SystemSchool
 
         private async Task LoadComboBoxCoursesAsync()
         {
-            IEnumerable<Course> courses = await searchEntitiesBusiness.FindAllCoursesAsync();
+            IEnumerable<Course> courses = await searchEntities.FindAllCoursesAsync();
             foreach (Course course in courses)
             {
                 ComboBoxCourse.Items.Add(course.CourseName);
@@ -63,6 +63,13 @@ namespace SystemSchool
             this.Hide();
             DeleteStudentForm studentDeleteForm = new DeleteStudentForm();
             studentDeleteForm.ShowDialog();
+        }
+
+        private async void buttonCreate_Click(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            Classroom classroom = await searchEntities.FindClassroomByNameAsync(ComboBoxClassroom.SelectedItem.ToString());
+            Student student = new Student(random.Next(), classroom.ClassroomId, textBoxCompleteName.Text);
         }
     }
 }

@@ -37,10 +37,11 @@
             this.LabelDelete = new System.Windows.Forms.Label();
             this.ComboBoxClassroom = new System.Windows.Forms.ComboBox();
             this.ComboBoxCourse = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxCompleteName = new System.Windows.Forms.TextBox();
             this.LabelStudentName = new System.Windows.Forms.Label();
             this.LabelCourse = new System.Windows.Forms.Label();
             this.LabelClassroom = new System.Windows.Forms.Label();
+            this.buttonCreate = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).BeginInit();
@@ -133,7 +134,7 @@
             this.ComboBoxClassroom.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboBoxClassroom.ForeColor = System.Drawing.SystemColors.Window;
             this.ComboBoxClassroom.FormattingEnabled = true;
-            this.ComboBoxClassroom.Location = new System.Drawing.Point(348, 476);
+            this.ComboBoxClassroom.Location = new System.Drawing.Point(348, 435);
             this.ComboBoxClassroom.Name = "ComboBoxClassroom";
             this.ComboBoxClassroom.Size = new System.Drawing.Size(346, 28);
             this.ComboBoxClassroom.TabIndex = 16;
@@ -144,28 +145,28 @@
             this.ComboBoxCourse.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboBoxCourse.ForeColor = System.Drawing.SystemColors.Window;
             this.ComboBoxCourse.FormattingEnabled = true;
-            this.ComboBoxCourse.Location = new System.Drawing.Point(348, 335);
+            this.ComboBoxCourse.Location = new System.Drawing.Point(348, 309);
             this.ComboBoxCourse.Name = "ComboBoxCourse";
             this.ComboBoxCourse.Size = new System.Drawing.Size(346, 28);
             this.ComboBoxCourse.TabIndex = 15;
             this.ComboBoxCourse.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCourse_SelectedIndexChanged);
             // 
-            // textBox1
+            // textBoxCompleteName
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.textBox1.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Location = new System.Drawing.Point(348, 211);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(346, 27);
-            this.textBox1.TabIndex = 14;
+            this.textBoxCompleteName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.textBoxCompleteName.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCompleteName.ForeColor = System.Drawing.SystemColors.Window;
+            this.textBoxCompleteName.Location = new System.Drawing.Point(348, 182);
+            this.textBoxCompleteName.Name = "textBoxCompleteName";
+            this.textBoxCompleteName.Size = new System.Drawing.Size(346, 27);
+            this.textBoxCompleteName.TabIndex = 14;
             // 
             // LabelStudentName
             // 
             this.LabelStudentName.AutoSize = true;
             this.LabelStudentName.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelStudentName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LabelStudentName.Location = new System.Drawing.Point(452, 164);
+            this.LabelStudentName.Location = new System.Drawing.Point(457, 143);
             this.LabelStudentName.Name = "LabelStudentName";
             this.LabelStudentName.Size = new System.Drawing.Size(139, 21);
             this.LabelStudentName.TabIndex = 13;
@@ -176,7 +177,7 @@
             this.LabelCourse.AutoSize = true;
             this.LabelCourse.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelCourse.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LabelCourse.Location = new System.Drawing.Point(490, 300);
+            this.LabelCourse.Location = new System.Drawing.Point(487, 263);
             this.LabelCourse.Name = "LabelCourse";
             this.LabelCourse.Size = new System.Drawing.Size(62, 21);
             this.LabelCourse.TabIndex = 12;
@@ -187,11 +188,25 @@
             this.LabelClassroom.AutoSize = true;
             this.LabelClassroom.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelClassroom.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LabelClassroom.Location = new System.Drawing.Point(474, 452);
+            this.LabelClassroom.Location = new System.Drawing.Point(487, 389);
             this.LabelClassroom.Name = "LabelClassroom";
             this.LabelClassroom.Size = new System.Drawing.Size(88, 21);
             this.LabelClassroom.TabIndex = 11;
             this.LabelClassroom.Text = "Classroom";
+            // 
+            // buttonCreate
+            // 
+            this.buttonCreate.BackColor = System.Drawing.Color.Black;
+            this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCreate.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCreate.ForeColor = System.Drawing.Color.Green;
+            this.buttonCreate.Location = new System.Drawing.Point(461, 527);
+            this.buttonCreate.Name = "buttonCreate";
+            this.buttonCreate.Size = new System.Drawing.Size(121, 35);
+            this.buttonCreate.TabIndex = 17;
+            this.buttonCreate.Text = "Create";
+            this.buttonCreate.UseVisualStyleBackColor = false;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // RegistrationStudentForm
             // 
@@ -199,9 +214,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1042, 681);
+            this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.ComboBoxClassroom);
             this.Controls.Add(this.ComboBoxCourse);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxCompleteName);
             this.Controls.Add(this.LabelStudentName);
             this.Controls.Add(this.LabelCourse);
             this.Controls.Add(this.LabelClassroom);
@@ -229,7 +245,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ComboBox ComboBoxClassroom;
         private System.Windows.Forms.ComboBox ComboBoxCourse;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxCompleteName;
         private System.Windows.Forms.Label LabelStudentName;
         private System.Windows.Forms.Label LabelCourse;
         private System.Windows.Forms.Label LabelClassroom;
@@ -238,5 +254,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label LabelEdit;
         private System.Windows.Forms.Label LabelDelete;
+        private System.Windows.Forms.Button buttonCreate;
     }
 }

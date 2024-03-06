@@ -48,7 +48,7 @@ namespace SystemSchool.Forms.CourseForms
                     MessageBox.Show(courseQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (ArgumentException ex) 
+            catch (ArgumentNullException ex) 
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

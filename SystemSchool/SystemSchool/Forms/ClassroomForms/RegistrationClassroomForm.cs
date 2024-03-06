@@ -94,7 +94,7 @@ namespace SystemSchool.Forms.ClassroomForms
                     MessageBox.Show(createClassroomQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch (ArgumentException ex)
+            catch (ArgumentNullException ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

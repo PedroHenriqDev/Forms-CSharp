@@ -13,23 +13,26 @@ namespace Business.BusinessLogic
     {
         public bool IsValidNameCourse(string courseName, IEnumerable<Course> courses)
         {
-            return !EqualEntityInSet(courses.Select(c => c.CourseName).ToList(), courseName) 
-                && !HasNumbersInString(courseName) 
-                && !string.IsNullOrWhiteSpace(courseName);
+            if(string.IsNullOrWhiteSpace(courseName)) 
+            {
+                throw new ArgumentNullException("The course name cannot be empty!");
+            }
+
+            return !EqualEntityInSet(courses.Select(c => c.CourseName).ToList(), courseName)
+                && !HasNumbersInString(courseName);
         }
 
         public bool IsValidClassroomName(string classroomName, IEnumerable<Classroom> classroom)
         {
             return !EqualEntityInSet(classroom.Select(c => c.ClassroomName).ToList(), classroomName)
-                && ClassroomNameIsInCorrectOrder(classroomName)
-                && !string.IsNullOrWhiteSpace(classroomName);
+                && ClassroomNameIsInCorrectOrder(classroomName);
         }
 
         public bool ClassroomNameIsInCorrectOrder(string entity) 
         {
             if(entity == null || entity.Length > 2) 
             {
-                throw new ArgumentException("The classroom name cannot be null, and must be 2 characters long");
+                throw new ArgumentNullException("The classroom name cannot be null, and must be 2 characters long");
             }
 
             if (!char.IsNumber(entity[0]) || !char.IsLetter(entity[1]))

@@ -28,7 +28,7 @@ namespace Datas
             }
         }
 
-        public async Task<Class> FindClassByIdAsync(int classId)
+        public async Task<Class> ReturnClassByIdAsync(int classId)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
@@ -39,7 +39,7 @@ namespace Datas
             }
         }
 
-        public async Task<Course> FindCourseByNameAsync(string courseName)
+        public async Task<Course> ReturnCourseByNameAsync(string courseName)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
@@ -49,7 +49,7 @@ namespace Datas
             }
         }
 
-        public async Task<Classroom> FindClassroomByNameAsync(string classroomName)
+        public async Task<Classroom> ReturnClassroomByNameAsync(string classroomName)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {

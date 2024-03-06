@@ -24,7 +24,7 @@ namespace Business
             }
             else 
             {
-                userDb.Class = await ConnectionDb.FindClassByIdAsync(userDb.ClassId);
+                userDb.Class = await ConnectionDb.ReturnClassByIdAsync(userDb.ClassId);
                 query = new LoginQuery(true, "Welcome " + user.Username + "!", DateTime.Now, userDb);
             }
 

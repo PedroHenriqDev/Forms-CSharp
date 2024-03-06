@@ -18,6 +18,11 @@ namespace Business.BusinessLogic
             return await ConnectionDb.ReturnAllCoursesAsync();
         }
 
+        public async Task<Classroom> FindClassroomByNameAsync(string classroomName) 
+        {
+            return await ConnectionDb.ReturnClassroomByNameAsync(classroomName);
+        }
+
         public async Task<IEnumerable<Classroom>> FindClassroomsByCourseNameAsync(string courseName) 
         {
             Course course = await FindCourseByNameAsync(courseName);
@@ -36,12 +41,12 @@ namespace Business.BusinessLogic
 
         public async Task<Course> FindCourseByNameAsync(string courseName) 
         {
-            return await ConnectionDb.FindCourseByNameAsync(courseName);
+            return await ConnectionDb.ReturnCourseByNameAsync(courseName);
         }
 
         public async Task<IEnumerable<Student>> FindStudentsByClassroomNameAsync(string ClassroomName) 
         {
-            Classroom classroom = await ConnectionDb.FindClassroomByNameAsync(ClassroomName);
+            Classroom classroom = await ConnectionDb.ReturnClassroomByNameAsync(ClassroomName);
             return await ConnectionDb.ReturnStudentsByClassroomIdAsync(classroom.ClassroomId);
         }
 
