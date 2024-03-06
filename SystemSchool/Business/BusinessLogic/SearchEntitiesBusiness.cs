@@ -23,6 +23,23 @@ namespace Business.BusinessLogic
             return await ConnectionDb.ReturnClassroomByNameAsync(classroomName);
         }
 
+        public async Task<IEnumerable<Student>> FindStudentByQueryAsync(string query) 
+        {
+            IEnumerable<Student> students =  await ConnectionDb.ReturnAllStudentsAsync();
+
+            if (query == null) 
+            {
+                return students;
+            }
+
+            foreach (Student student in students)
+            {
+                student.Classroom = await ConnectionDb.ReturnClassroomByIdAsync(student.ClassroomId);
+            }
+
+            return students.Where(s => s.CompleteName.Contains(query)).ToList();
+        }
+
         public async Task<IEnumerable<Classroom>> FindClassroomsByCourseNameAsync(string courseName) 
         {
             Course course = await FindCourseByNameAsync(courseName);

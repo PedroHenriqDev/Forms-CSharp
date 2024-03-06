@@ -131,6 +131,7 @@
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(187, 25);
             this.textBoxSearch.TabIndex = 27;
+            this.textBoxSearch.Enter += new System.EventHandler(this.textBoxSearch_Enter);
             // 
             // listBoxSearch
             // 

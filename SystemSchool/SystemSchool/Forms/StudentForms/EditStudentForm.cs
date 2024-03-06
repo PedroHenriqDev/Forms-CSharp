@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Business.BusinessLogic;
+using Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +14,8 @@ namespace SystemSchool.Forms.StudentForms
 {
     public partial class EditStudentForm : Form
     {
+        SearchEntitiesBusiness SearchEntities = new SearchEntitiesBusiness();
+
         public EditStudentForm()
         {
             InitializeComponent();
@@ -23,5 +27,7 @@ namespace SystemSchool.Forms.StudentForms
             MainForm mainForm = new MainForm();
             mainForm.ShowDialog();
         }
+
+     
     }
 }

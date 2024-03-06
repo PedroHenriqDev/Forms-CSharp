@@ -49,6 +49,16 @@ namespace Datas
             }
         }
 
+        public async Task<IEnumerable<Course>> ReturnAllCoursesAsync()
+        {
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
+            {
+                await connection.OpenAsync();
+                string sqlQuery = @"SELECT * FROM Courses";
+                return await connection.QueryAsync<Course>(sqlQuery);
+            }
+        }
+
         public async Task<Classroom> ReturnClassroomByNameAsync(string classroomName)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
@@ -59,13 +69,13 @@ namespace Datas
             }
         }
 
-        public async Task<IEnumerable<Course>> ReturnAllCoursesAsync()
+        public async Task<Classroom> ReturnClassroomByIdAsync(int classroomId) 
         {
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"SELECT * FROM Courses";
-                return await connection.QueryAsync<Course>(sqlQuery);
+                string sqlQuery = @"SELECT * FRIM Classrooms WHERE ClassroomId = @classroomId";
+                return await connection.QueryFirstOrDefaultAsync(sqlQuery, new { classroomId = classroomId });
             }
         }
 
@@ -178,6 +188,5 @@ namespace Datas
             }
         }
     }
-
 }
 
