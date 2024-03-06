@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.LabelEdit = new System.Windows.Forms.Label();
+            this.LabelEditClassroom = new System.Windows.Forms.Label();
             this.LabelRegistrationClassroom = new System.Windows.Forms.Label();
-            this.LabelDelete = new System.Windows.Forms.Label();
+            this.LabelDeleteClassroom = new System.Windows.Forms.Label();
             this.LabelClassroomName = new System.Windows.Forms.Label();
             this.LabelCourse = new System.Windows.Forms.Label();
             this.LabelSchoolYear = new System.Windows.Forms.Label();
@@ -42,46 +42,47 @@
             this.LabelClassroomNameShow = new System.Windows.Forms.Label();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.LabelCourseNameShow = new System.Windows.Forms.Label();
-            this.pictureBoxBack = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.LabelPreview = new System.Windows.Forms.Label();
+            this.pictureBoxClassroom = new System.Windows.Forms.PictureBox();
+            this.pictureBoxBack = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSchool = new System.Windows.Forms.PictureBox();
+            this.pictureBoxDelete = new System.Windows.Forms.PictureBox();
+            this.pictureBoxEdit = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClassroom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSchool)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDelete)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEdit)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel1.Controls.Add(this.LabelPreview);
-            this.panel1.Controls.Add(this.pictureBox3);
-            this.panel1.Controls.Add(this.LabelDelete);
+            this.panel1.Controls.Add(this.pictureBoxSchool);
+            this.panel1.Controls.Add(this.LabelDeleteClassroom);
             this.panel1.Controls.Add(this.LabelCourseNameShow);
-            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.pictureBoxDelete);
             this.panel1.Controls.Add(this.LabelClassroomNameShow);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.LabelEdit);
+            this.panel1.Controls.Add(this.pictureBoxEdit);
+            this.panel1.Controls.Add(this.LabelEditClassroom);
             this.panel1.Location = new System.Drawing.Point(-8, -2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(254, 734);
             this.panel1.TabIndex = 0;
             // 
-            // LabelEdit
+            // LabelEditClassroom
             // 
-            this.LabelEdit.AutoSize = true;
-            this.LabelEdit.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelEdit.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.LabelEdit.Location = new System.Drawing.Point(135, 222);
-            this.LabelEdit.Name = "LabelEdit";
-            this.LabelEdit.Size = new System.Drawing.Size(39, 21);
-            this.LabelEdit.TabIndex = 9;
-            this.LabelEdit.Text = "Edit";
+            this.LabelEditClassroom.AutoSize = true;
+            this.LabelEditClassroom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LabelEditClassroom.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelEditClassroom.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.LabelEditClassroom.Location = new System.Drawing.Point(101, 222);
+            this.LabelEditClassroom.Name = "LabelEditClassroom";
+            this.LabelEditClassroom.Size = new System.Drawing.Size(120, 21);
+            this.LabelEditClassroom.TabIndex = 9;
+            this.LabelEditClassroom.Text = "Edit Classroom";
             // 
             // LabelRegistrationClassroom
             // 
@@ -94,16 +95,17 @@
             this.LabelRegistrationClassroom.TabIndex = 0;
             this.LabelRegistrationClassroom.Text = "Registration Classroom";
             // 
-            // LabelDelete
+            // LabelDeleteClassroom
             // 
-            this.LabelDelete.AutoSize = true;
-            this.LabelDelete.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelDelete.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.LabelDelete.Location = new System.Drawing.Point(135, 472);
-            this.LabelDelete.Name = "LabelDelete";
-            this.LabelDelete.Size = new System.Drawing.Size(59, 21);
-            this.LabelDelete.TabIndex = 0;
-            this.LabelDelete.Text = "Delete";
+            this.LabelDeleteClassroom.AutoSize = true;
+            this.LabelDeleteClassroom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LabelDeleteClassroom.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelDeleteClassroom.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.LabelDeleteClassroom.Location = new System.Drawing.Point(101, 474);
+            this.LabelDeleteClassroom.Name = "LabelDeleteClassroom";
+            this.LabelDeleteClassroom.Size = new System.Drawing.Size(140, 21);
+            this.LabelDeleteClassroom.TabIndex = 0;
+            this.LabelDeleteClassroom.Text = "Delete Classroom";
             // 
             // LabelClassroomName
             // 
@@ -210,9 +212,9 @@
             this.buttonCreate.ForeColor = System.Drawing.Color.Green;
             this.buttonCreate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonCreate.ImageKey = "(none)";
-            this.buttonCreate.Location = new System.Drawing.Point(580, 572);
+            this.buttonCreate.Location = new System.Drawing.Point(580, 582);
             this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(124, 44);
+            this.buttonCreate.Size = new System.Drawing.Size(124, 34);
             this.buttonCreate.TabIndex = 10;
             this.buttonCreate.Text = "Create";
             this.buttonCreate.UseVisualStyleBackColor = false;
@@ -232,62 +234,6 @@
             this.LabelCourseNameShow.Text = "Course";
             this.LabelCourseNameShow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBoxBack
-            // 
-            this.pictureBoxBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxBack.Image = global::SystemSchool.Properties.Resources.icons8_back_48;
-            this.pictureBoxBack.Location = new System.Drawing.Point(1021, 12);
-            this.pictureBoxBack.Name = "pictureBoxBack";
-            this.pictureBoxBack.Size = new System.Drawing.Size(25, 27);
-            this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxBack.TabIndex = 2;
-            this.pictureBoxBack.TabStop = false;
-            this.pictureBoxBack.Click += new System.EventHandler(this.pictureBoxBack_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::SystemSchool.Properties.Resources.icons8_delete_48;
-            this.pictureBox2.Location = new System.Drawing.Point(20, 442);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(75, 72);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::SystemSchool.Properties.Resources.icons8_edit_40;
-            this.pictureBox1.Location = new System.Drawing.Point(20, 193);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(75, 72);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Image = global::SystemSchool.Properties.Resources.icons8_school_96__1_;
-            this.pictureBox3.Location = new System.Drawing.Point(83, 14);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(75, 72);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox3.TabIndex = 10;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Image = global::SystemSchool.Properties.Resources.icons8_classroom_48;
-            this.pictureBox4.Location = new System.Drawing.Point(619, 12);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(75, 58);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox4.TabIndex = 11;
-            this.pictureBox4.TabStop = false;
-            // 
             // LabelPreview
             // 
             this.LabelPreview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -300,13 +246,69 @@
             this.LabelPreview.Text = "Preview:";
             this.LabelPreview.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pictureBoxClassroom
+            // 
+            this.pictureBoxClassroom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxClassroom.Image = global::SystemSchool.Properties.Resources.icons8_classroom_48;
+            this.pictureBoxClassroom.Location = new System.Drawing.Point(619, 12);
+            this.pictureBoxClassroom.Name = "pictureBoxClassroom";
+            this.pictureBoxClassroom.Size = new System.Drawing.Size(75, 58);
+            this.pictureBoxClassroom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxClassroom.TabIndex = 11;
+            this.pictureBoxClassroom.TabStop = false;
+            // 
+            // pictureBoxBack
+            // 
+            this.pictureBoxBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxBack.Image = global::SystemSchool.Properties.Resources.icons8_back_48;
+            this.pictureBoxBack.Location = new System.Drawing.Point(1021, 12);
+            this.pictureBoxBack.Name = "pictureBoxBack";
+            this.pictureBoxBack.Size = new System.Drawing.Size(25, 22);
+            this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxBack.TabIndex = 2;
+            this.pictureBoxBack.TabStop = false;
+            this.pictureBoxBack.Click += new System.EventHandler(this.pictureBoxBack_Click);
+            // 
+            // pictureBoxSchool
+            // 
+            this.pictureBoxSchool.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxSchool.Image = global::SystemSchool.Properties.Resources.icons8_school_96__1_;
+            this.pictureBoxSchool.Location = new System.Drawing.Point(83, 14);
+            this.pictureBoxSchool.Name = "pictureBoxSchool";
+            this.pictureBoxSchool.Size = new System.Drawing.Size(75, 72);
+            this.pictureBoxSchool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxSchool.TabIndex = 10;
+            this.pictureBoxSchool.TabStop = false;
+            // 
+            // pictureBoxDelete
+            // 
+            this.pictureBoxDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxDelete.Image = global::SystemSchool.Properties.Resources.icons8_delete_48;
+            this.pictureBoxDelete.Location = new System.Drawing.Point(20, 442);
+            this.pictureBoxDelete.Name = "pictureBoxDelete";
+            this.pictureBoxDelete.Size = new System.Drawing.Size(75, 72);
+            this.pictureBoxDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxDelete.TabIndex = 3;
+            this.pictureBoxDelete.TabStop = false;
+            // 
+            // pictureBoxEdit
+            // 
+            this.pictureBoxEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxEdit.Image = global::SystemSchool.Properties.Resources.icons8_edit_40;
+            this.pictureBoxEdit.Location = new System.Drawing.Point(20, 193);
+            this.pictureBoxEdit.Name = "pictureBoxEdit";
+            this.pictureBoxEdit.Size = new System.Drawing.Size(75, 72);
+            this.pictureBoxEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxEdit.TabIndex = 2;
+            this.pictureBoxEdit.TabStop = false;
+            // 
             // RegistrationClassroomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1058, 720);
-            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBoxClassroom);
             this.Controls.Add(this.pictureBoxBack);
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.LabelRegistrationClassroom);
@@ -325,11 +327,11 @@
             this.Load += new System.EventHandler(this.RegistrationClassroomForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClassroom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSchool)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDelete)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEdit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,17 +347,17 @@
         private System.Windows.Forms.Label LabelClassroomLetter;
         private System.Windows.Forms.ComboBox ComboBoxSchoolYear;
         private System.Windows.Forms.PictureBox pictureBoxBack;
-        private System.Windows.Forms.Label LabelDelete;
-        private System.Windows.Forms.Label LabelEdit;
+        private System.Windows.Forms.Label LabelDeleteClassroom;
+        private System.Windows.Forms.Label LabelEditClassroom;
         private System.Windows.Forms.ComboBox ComboBoxLetter;
         private System.Windows.Forms.ComboBox ComboBoxCourse;
         private System.Windows.Forms.Label LabelClassroomNameShow;
         private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.Label LabelCourseNameShow;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBoxDelete;
+        private System.Windows.Forms.PictureBox pictureBoxEdit;
+        private System.Windows.Forms.PictureBox pictureBoxSchool;
+        private System.Windows.Forms.PictureBox pictureBoxClassroom;
         private System.Windows.Forms.Label LabelPreview;
     }
 }

@@ -62,9 +62,26 @@ namespace SystemSchool
 
         private void LabelDelete_Click(object sender, EventArgs e)
         {
+            pictureBoxDelete_Click(sender, e);
+        }
+
+        private void LabelEditStudent_Click(object sender, EventArgs e)
+        {
+            pictureBoxEdit_Click(sender, e);
+        }
+
+        private void pictureBoxEdit_Click(object sender, EventArgs e)
+        {
             this.Hide();
-            DeleteStudentForm studentDeleteForm = new DeleteStudentForm();
-            studentDeleteForm.ShowDialog();
+            EditStudentForm editForm = new EditStudentForm();
+            editForm.ShowDialog();
+        }
+
+        private void pictureBoxDelete_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DeleteStudentForm deleteForm = new DeleteStudentForm();
+            deleteForm.ShowDialog();
         }
 
         private async void buttonCreate_Click(object sender, EventArgs e)
@@ -75,7 +92,7 @@ namespace SystemSchool
                 Classroom classroom = await searchEntities.FindClassroomByNameAsync(ComboBoxClassroom.SelectedItem.ToString());
                 Student student = new Student(random.Next(), classroom.ClassroomId, textBoxCompleteName.Text);
                 StudentQuery createStudentQuery = await CreateEntities.CreateStudentAsync(student);
-                if (createStudentQuery.Result) 
+                if (createStudentQuery.Result)
                 {
                     MessageBox.Show(createStudentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -84,14 +101,16 @@ namespace SystemSchool
                     MessageBox.Show(createStudentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
-            catch(ArgumentNullException ex)
+            catch (ArgumentNullException ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+     
     }
 }
