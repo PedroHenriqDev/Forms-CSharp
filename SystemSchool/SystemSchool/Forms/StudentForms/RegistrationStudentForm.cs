@@ -17,7 +17,7 @@ namespace SystemSchool
     public partial class RegistrationStudentForm : Form
     {
         SearchEntitiesBusiness searchEntities = new SearchEntitiesBusiness();
-        CreateEntitiesBusiness<Student> createEntities = new CreateEntitiesBusiness<Student>();
+        CreateEntitiesBusiness<Student> CreateEntities = new CreateEntitiesBusiness<Student>();
 
         public RegistrationStudentForm()
         {
@@ -74,7 +74,7 @@ namespace SystemSchool
                 Random random = new Random();
                 Classroom classroom = await searchEntities.FindClassroomByNameAsync(ComboBoxClassroom.SelectedItem.ToString());
                 Student student = new Student(random.Next(), classroom.ClassroomId, textBoxCompleteName.Text);
-                CreateStudentQuery createStudentQuery = await createEntities.CreateStudentAsync(student);
+                CreateStudentQuery createStudentQuery = await CreateEntities.CreateStudentAsync(student);
                 if (createStudentQuery.Result) 
                 {
                     MessageBox.Show(createStudentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);

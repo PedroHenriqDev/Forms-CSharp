@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\ListBoxItem.cs" />
     <Compile Include="Exception\MainFormException.cs" />
     <Compile Include="Forms\ClassroomForms\RegistrationClassroomForm.cs">
       <SubType>Form</SubType>
@@ -71,7 +72,7 @@
     <Compile Include="Forms\StudentForms\RegistrationStudentForm.Designer.cs">
       <DependentUpon>RegistrationStudentForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\DataAccess.cs" />
+    <Compile Include="Controls\DataAccess.cs" />
     <Compile Include="Forms\Login.cs">
       <SubType>Form</SubType>
     </Compile>

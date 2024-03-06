@@ -124,14 +124,15 @@
             // listBoxStudents
             // 
             this.listBoxStudents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.listBoxStudents.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxStudents.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxStudents.ForeColor = System.Drawing.SystemColors.Window;
             this.listBoxStudents.FormattingEnabled = true;
-            this.listBoxStudents.ItemHeight = 24;
+            this.listBoxStudents.ItemHeight = 21;
             this.listBoxStudents.Location = new System.Drawing.Point(94, 146);
             this.listBoxStudents.Name = "listBoxStudents";
-            this.listBoxStudents.Size = new System.Drawing.Size(333, 364);
+            this.listBoxStudents.Size = new System.Drawing.Size(333, 361);
             this.listBoxStudents.TabIndex = 9;
+            this.listBoxStudents.SelectedIndexChanged += new System.EventHandler(this.listBoxStudents_SelectedIndexChanged);
             // 
             // LabelStudent
             // 

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.BusinessLogic;
 using Entities;
+using SystemSchool.Controls;
 
 namespace SystemSchool.Forms.StudentForms
 {
@@ -25,7 +26,6 @@ namespace SystemSchool.Forms.StudentForms
         private async void StudentDeleteForm_Load(object sender, EventArgs e)
         {
             await LoadComboBoxClassroomsAsync();
-            await LoadListBoxStudentsAsync();
         }
 
         private async Task LoadComboBoxClassroomsAsync()
@@ -37,15 +37,6 @@ namespace SystemSchool.Forms.StudentForms
             }
         }
 
-        private async Task LoadListBoxStudentsAsync()
-        {
-            IEnumerable<Student> students = await SearchEntitiesBusiness.FindAllStudentsAsync();
-            foreach (Student student in students)
-            {
-                listBoxStudents.Items.Add(student);
-            }
-        }
-
         private async void ComboBoxClassroom_SelectedIndexChanged(object sender, EventArgs e)
         {
             await LoadListBoxByIndexAsync(ComboBoxClassroom.SelectedItem.ToString());
@@ -54,10 +45,21 @@ namespace SystemSchool.Forms.StudentForms
         private async Task LoadListBoxByIndexAsync(string classroomName)
         {
             IEnumerable<Student> students = await SearchEntitiesBusiness.FindStudentsByClassroomNameAsync(classroomName);
+            listBoxStudents.DisplayMember = "CompleteName";
+            listBoxStudents.Items.Clear();
             foreach (Student student in students)
             {
-                listBoxStudents.Items.Add(student);
+                string displayName = $"{student.CompleteName} - ({classroomName})";
+                if (!listBoxStudents.Items.Contains(student))
+                {
+                    listBoxStudents.Items.Add(new ListBoxItem<Student>(student, displayName));
+                }
             }
+        }
+
+        private void listBoxStudents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListBoxItem<Student> student = (ListBoxItem<Student>)listBoxStudents.SelectedItem;
         }
 
         private void pictureBoxBack_Click(object sender, EventArgs e)
