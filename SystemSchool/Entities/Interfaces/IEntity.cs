@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Entities.Interfaces
 {
-    public interface IResultOfQueries
+    public interface IEntity
     {
-        bool Result { get; set; }
-        DateTime Moment { get; set; }
+        int Id { get; set; }
     }
 }

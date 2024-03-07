@@ -21,7 +21,7 @@ namespace Business.BusinessLogic
 
             return !EqualEntityInSet(courses.Select(c => c.CourseName).ToList(), course.CourseName)
                 && !HasNumbersInString(course.CourseName)
-                && EntityHasId(course.CourseId);
+                && EntityHasId(course.Id);
         }
 
         public bool IsValidStudent(Student student) 
@@ -32,14 +32,14 @@ namespace Business.BusinessLogic
             }
 
             return HasNumbersInString(student.CompleteName)
-                && EntityHasId(student.StudentId);
+                && EntityHasId(student.Id);
         }
 
         public bool IsValidClassroomName(Classroom classroom, IEnumerable<Classroom> classrooms)
         {
             return !EqualEntityInSet(classrooms.Select(c => c.ClassroomName).ToList(), classroom.ClassroomName)
                 && ClassroomNameIsInCorrectOrder(classroom.ClassroomName)
-                && EntityHasId(classroom.ClassroomId);
+                && EntityHasId(classroom.Id);
         }
 
         public bool EntityHasId(int id) 

@@ -1,5 +1,5 @@
 ﻿using System;
-using Business.Interfaces;
+using Entities.Interfaces;
 using Entities;
 
 namespace Business.BusinessComponents.ConcreteClasses

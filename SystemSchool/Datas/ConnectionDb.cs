@@ -28,13 +28,13 @@ namespace Datas
             }
         }
 
-        public async Task<Class> ReturnClassByIdAsync(int classId)
+        public async Task<Class> ReturnClassByIdAsync(int Id)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
                 await connection.OpenAsync();
                 string sqlQuery = @"SELECT * FROM Classes WHERE ClassId = @classId";
-                Class classDb = await connection.QueryFirstOrDefaultAsync<Class>(sqlQuery, new { classId = classId });
+                Class classDb = await connection.QueryFirstOrDefaultAsync<Class>(sqlQuery, new { Id = Id });
                 return classDb;
             }
         }
@@ -69,13 +69,13 @@ namespace Datas
             }
         }
 
-        public async Task<Classroom> ReturnClassroomByIdAsync(int classroomId) 
+        public async Task<Classroom> ReturnClassroomByIdAsync(int Id) 
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"SELECT * FROM Classrooms WHERE ClassroomId = @classroomId";
-                return await connection.QueryFirstOrDefaultAsync<Classroom>(sqlQuery, new { classroomId = classroomId });
+                string sqlQuery = @"SELECT * FROM Classrooms WHERE Id = @Id";
+                return await connection.QueryFirstOrDefaultAsync<Classroom>(sqlQuery, new { Id = Id });
             }
         }
 
@@ -89,13 +89,13 @@ namespace Datas
             }
         }
 
-        public async Task<IEnumerable<Classroom>> ReturnClassroomsByCourseIdAsync(int courseId)
+        public async Task<IEnumerable<Classroom>> ReturnClassroomsByCourseIdAsync(int Id)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"SELECT * FROM Classrooms WHERE CourseId = @courseId";
-                return await connection.QueryAsync<Classroom>(sqlQuery, new { courseId = courseId });
+                string sqlQuery = @"SELECT * FROM Classrooms WHERE Id = @Id";
+                return await connection.QueryAsync<Classroom>(sqlQuery, new { Id = Id });
             }
         }
 
@@ -109,23 +109,23 @@ namespace Datas
             }
         }
 
-        public async Task<IEnumerable<Student>> ReturnStudentsByClassroomIdAsync(int classroomId)
+        public async Task<IEnumerable<Student>> ReturnStudentsByClassroomIdAsync(int Id)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"SELECT * FROM Students WHERE ClassroomId = @classroomId";
-                return await connection.QueryAsync<Student>(sqlQuery, new { classroomId = classroomId });
+                string sqlQuery = @"SELECT * FROM Students WHERE Id = @Id";
+                return await connection.QueryAsync<Student>(sqlQuery, new { Id = Id });
             }
         }
 
-        public async Task<Student> ReturnStudentByIdAsync(int studentId) 
+        public async Task<Student> ReturnStudentByIdAsync(int Id) 
         {
             using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"SELECT * FROM Students WHERE StudentId = @studentId";
-                return await connection.QueryFirstOrDefaultAsync<Student>(sqlQuery, new { studentId= studentId });
+                string sqlQuery = @"SELECT * FROM Students WHERE Id = @Id";
+                return await connection.QueryFirstOrDefaultAsync<Student>(sqlQuery, new { Id = Id });
             }
         }
 
@@ -134,11 +134,11 @@ namespace Datas
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"INSERT INTO Courses (CourseId, CourseName) VALUES (@CourseId, @CourseName)";
+                string sqlQuery = @"INSERT INTO Courses (Id, CourseName) VALUES (@Id, @CourseName)";
 
                 await connection.ExecuteAsync(sqlQuery, new 
                 {
-                    CourseId = course.CourseId,
+                    Id = course.Id,
                     CourseName = course.CourseName 
                 });
             }
@@ -149,12 +149,12 @@ namespace Datas
             using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"INSERT INTO Classrooms (ClassroomId, ClassroomName, CourseId) 
-                                    VALUES (@ClassroomId, @ClassroomName, @CourseId)";
+                string sqlQuery = @"INSERT INTO Classrooms (Id, ClassroomName, CourseId) 
+                                    VALUES (@Id, @ClassroomName, @CourseId)";
 
                 await connection.ExecuteAsync(sqlQuery, new
                 {
-                    ClassroomId = classroom.ClassroomId,
+                    Id = classroom.Id,
                     ClassroomName = classroom.ClassroomName,
                     CourseId = classroom.CourseId
                 });
@@ -166,45 +166,45 @@ namespace Datas
             using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"INSERT INTO Students (StudentId, ClassroomId, CompleteName) 
-                                    VALUES (@StudentId, @ClassroomId, @CompleteName)";
+                string sqlQuery = @"INSERT INTO Students (Id, ClassroomId, CompleteName) 
+                                    VALUES (@Id, @ClassroomId, @CompleteName)";
 
                 await connection.ExecuteAsync(sqlQuery, new 
                 {
-                    StudentId = student.StudentId,
+                    Id = student.Id,
                     ClassroomId = student.ClassroomId,
                     CompleteName = student.CompleteName
                 });
             }
         }
 
-        public async Task DeleteStudentByIdAsync(int studentId) 
+        public async Task DeleteStudentByIdAsync(int Id) 
         {
             using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"DELETE FROM Students WHERE StudentId = @studentId";
-                await connection.ExecuteAsync(sqlQuery, new {studentId = studentId});
+                string sqlQuery = @"DELETE FROM Students WHERE Id = @Id";
+                await connection.ExecuteAsync(sqlQuery, new {Id = Id});
             }
         }
 
-        public async Task DeleteCourseByIdAsync(int courseId) 
+        public async Task DeleteCourseByIdAsync(int Id) 
         {
             using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"DELETE FROM Courses WHERE CourseId = @courseId";
-                await connection.ExecuteAsync(sqlQuery, new { courseId = courseId });
+                string sqlQuery = @"DELETE FROM Courses WHERE Id = @Id";
+                await connection.ExecuteAsync(sqlQuery, new { Id = Id });
             }
         }
 
-        public async Task DeleteClassroomInSetAsync(IEnumerable<int> classroomsIds)
+        public async Task DeleteRecordsInTableAsync(IEnumerable<int> recordIds, string tableName)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
             {
                 await connection.OpenAsync();
-                string idsToDelete = string.Join(",", classroomsIds);
-                string sqlQuery = $"DELETE FROM Classrooms WHERE ClassroomId IN ({idsToDelete})";
+                string idsToDelete = string.Join(",", recordIds);
+                string sqlQuery = $"DELETE FROM {tableName} WHERE Id IN ({idsToDelete})";
                 await connection.ExecuteAsync(sqlQuery);
             }
         }
@@ -216,12 +216,12 @@ namespace Datas
                 await connection.OpenAsync();
                 string sqlQuery = @"UPDATE Students 
                                     SET CompleteName = @completeName, ClassroomId = @classroomId 
-                                    WHERE StudentId = @studentId";
+                                    WHERE Id = @Id";
                 await connection.ExecuteAsync(sqlQuery, new
                 {
                     completeName = student.CompleteName,
                     classroomId = student.ClassroomId,
-                    studentId = student.StudentId,
+                    Id = student.Id,
                 });
             }
         }

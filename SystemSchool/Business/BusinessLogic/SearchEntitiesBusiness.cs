@@ -48,7 +48,7 @@ namespace Business.BusinessLogic
         public async Task<IEnumerable<Classroom>> FindClassroomsByCourseNameAsync(string courseName) 
         {
             Course course = await FindCourseByNameAsync(courseName);
-            return await ConnectionDb.ReturnClassroomsByCourseIdAsync(course.CourseId);
+            return await ConnectionDb.ReturnClassroomsByCourseIdAsync(course.Id);
         }
 
         public async Task<IEnumerable<Classroom>> FindAllClassroomsAsync() 
@@ -69,7 +69,7 @@ namespace Business.BusinessLogic
         public async Task<IEnumerable<Student>> FindStudentsByClassroomNameAsync(string ClassroomName) 
         {
             Classroom classroom = await ConnectionDb.ReturnClassroomByNameAsync(ClassroomName);
-            return await ConnectionDb.ReturnStudentsByClassroomIdAsync(classroom.ClassroomId);
+            return await ConnectionDb.ReturnStudentsByClassroomIdAsync(classroom.Id);
         }
 
         public async Task<IEnumerable<char>> FindLettersAvailableBySchoolYearAsync(string schoolYear) 

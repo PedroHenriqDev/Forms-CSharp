@@ -95,6 +95,18 @@ namespace SystemSchool.Forms.ClassroomForms
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void pictureBoxDelete_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DeleteClassroomForm deleteForm = new DeleteClassroomForm();
+            deleteForm.ShowDialog();
+        }
+
+        private void LabelDeleteClassroom_Click(object sender, EventArgs e)
+        {
+            pictureBoxDelete_Click(sender, e);
+        }
     }
 }
 

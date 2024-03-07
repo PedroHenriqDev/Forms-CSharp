@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -7,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Course
+    public class Course : IEntity
     {
-        public int CourseId {  get; set; }
+        public int Id {  get; set; }
         public string CourseName { get; set; }
         public List<Classroom> Classrooms { get; set; }
 
@@ -17,10 +18,10 @@ namespace Entities
         {
         }
 
-        public Course(string courseName, int courseId)
+        public Course(string courseName, int Id)
         {
             CourseName = courseName;
-            CourseId = courseId;
+            Id = Id;
         }
     }
 }

@@ -84,7 +84,7 @@ namespace SystemSchool
             {
                 Random random = new Random();
                 Classroom classroom = await SearchEntities.FindClassroomByNameAsync(ComboBoxClassroom.SelectedItem.ToString());
-                Student student = new Student(random.Next(), classroom.ClassroomId, textBoxCompleteName.Text);
+                Student student = new Student(random.Next(), classroom.Id, textBoxCompleteName.Text);
                 StudentQuery createStudentQuery = await CreateEntities.CreateStudentAsync(student);
                 MessageBox.Show(createStudentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

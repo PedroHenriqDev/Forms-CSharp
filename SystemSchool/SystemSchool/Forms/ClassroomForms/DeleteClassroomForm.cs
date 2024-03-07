@@ -16,6 +16,7 @@ namespace SystemSchool.Forms.ClassroomForms
     public partial class DeleteClassroomForm : Form
     {
         SearchEntitiesBusiness SearchEntities = new SearchEntitiesBusiness();
+        DeleteEntitiesBusiness<Classroom> DeleteEntities = new DeleteEntitiesBusiness<Classroom>();
 
         public DeleteClassroomForm()
         {
@@ -31,6 +32,7 @@ namespace SystemSchool.Forms.ClassroomForms
         private async void ComboBoxCourse_SelectedIndexChanged(object sender, EventArgs e)
         {
             await LoadListBoxClassroomsAsync();
+            await LoadComboBoxCourseAsync();
         }
 
         private async Task LoadComboBoxCourseAsync()
@@ -43,11 +45,23 @@ namespace SystemSchool.Forms.ClassroomForms
         private async Task LoadListBoxClassroomsAsync()
         {
             IEnumerable<Classroom> classrooms = await SearchEntities.FindClassroomsByCourseNameAsync(ComboBoxCourse.SelectedItem.ToString());
-            ComboBoxCourse.Items.Clear();
+            listBoxClassrooms.Items.Clear();
             foreach (Classroom classroom in classrooms)
             {
-                ComboBoxCourse.Items.Add(new DisplayItem<Classroom>(classroom, classroom.ClassroomName));
+                listBoxClassrooms.Items.Add(new DisplayItem<Classroom>(classroom, classroom.ClassroomName));
             }
+        }
+
+        private void pictureBoxBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegistrationClassroomForm registrationForm = new RegistrationClassroomForm();
+            registrationForm.ShowDialog();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            DisplayItem<Course> course = DeleteEntities.
         }
     }
 }

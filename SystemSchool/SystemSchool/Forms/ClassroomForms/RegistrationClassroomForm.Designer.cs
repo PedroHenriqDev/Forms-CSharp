@@ -29,9 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LabelPreview = new System.Windows.Forms.Label();
+            this.LabelDeleteClassroom = new System.Windows.Forms.Label();
+            this.LabelCourseNameShow = new System.Windows.Forms.Label();
+            this.LabelClassroomNameShow = new System.Windows.Forms.Label();
             this.LabelEditClassroom = new System.Windows.Forms.Label();
             this.LabelRegistrationClassroom = new System.Windows.Forms.Label();
-            this.LabelDeleteClassroom = new System.Windows.Forms.Label();
             this.LabelClassroomName = new System.Windows.Forms.Label();
             this.LabelCourse = new System.Windows.Forms.Label();
             this.LabelSchoolYear = new System.Windows.Forms.Label();
@@ -39,10 +42,7 @@
             this.ComboBoxSchoolYear = new System.Windows.Forms.ComboBox();
             this.ComboBoxLetter = new System.Windows.Forms.ComboBox();
             this.ComboBoxCourse = new System.Windows.Forms.ComboBox();
-            this.LabelClassroomNameShow = new System.Windows.Forms.Label();
             this.buttonCreate = new System.Windows.Forms.Button();
-            this.LabelCourseNameShow = new System.Windows.Forms.Label();
-            this.LabelPreview = new System.Windows.Forms.Label();
             this.pictureBoxClassroom = new System.Windows.Forms.PictureBox();
             this.pictureBoxBack = new System.Windows.Forms.PictureBox();
             this.pictureBoxSchool = new System.Windows.Forms.PictureBox();
@@ -72,6 +72,58 @@
             this.panel1.Size = new System.Drawing.Size(254, 734);
             this.panel1.TabIndex = 0;
             // 
+            // LabelPreview
+            // 
+            this.LabelPreview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LabelPreview.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelPreview.ForeColor = System.Drawing.Color.Black;
+            this.LabelPreview.Location = new System.Drawing.Point(-5, 571);
+            this.LabelPreview.Name = "LabelPreview";
+            this.LabelPreview.Size = new System.Drawing.Size(264, 45);
+            this.LabelPreview.TabIndex = 12;
+            this.LabelPreview.Text = "Preview:";
+            this.LabelPreview.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabelDeleteClassroom
+            // 
+            this.LabelDeleteClassroom.AutoSize = true;
+            this.LabelDeleteClassroom.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LabelDeleteClassroom.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelDeleteClassroom.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.LabelDeleteClassroom.Location = new System.Drawing.Point(57, 517);
+            this.LabelDeleteClassroom.Name = "LabelDeleteClassroom";
+            this.LabelDeleteClassroom.Size = new System.Drawing.Size(140, 21);
+            this.LabelDeleteClassroom.TabIndex = 0;
+            this.LabelDeleteClassroom.Text = "Delete Classroom";
+            this.LabelDeleteClassroom.Click += new System.EventHandler(this.LabelDeleteClassroom_Click);
+            // 
+            // LabelCourseNameShow
+            // 
+            this.LabelCourseNameShow.AutoSize = true;
+            this.LabelCourseNameShow.BackColor = System.Drawing.Color.Transparent;
+            this.LabelCourseNameShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LabelCourseNameShow.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelCourseNameShow.ForeColor = System.Drawing.Color.Black;
+            this.LabelCourseNameShow.Location = new System.Drawing.Point(16, 634);
+            this.LabelCourseNameShow.Name = "LabelCourseNameShow";
+            this.LabelCourseNameShow.Size = new System.Drawing.Size(62, 21);
+            this.LabelCourseNameShow.TabIndex = 11;
+            this.LabelCourseNameShow.Text = "Course";
+            this.LabelCourseNameShow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LabelClassroomNameShow
+            // 
+            this.LabelClassroomNameShow.AutoSize = true;
+            this.LabelClassroomNameShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LabelClassroomNameShow.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelClassroomNameShow.ForeColor = System.Drawing.Color.Black;
+            this.LabelClassroomNameShow.Location = new System.Drawing.Point(153, 634);
+            this.LabelClassroomNameShow.Name = "LabelClassroomNameShow";
+            this.LabelClassroomNameShow.Size = new System.Drawing.Size(88, 21);
+            this.LabelClassroomNameShow.TabIndex = 9;
+            this.LabelClassroomNameShow.Text = "Classroom";
+            this.LabelClassroomNameShow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // LabelEditClassroom
             // 
             this.LabelEditClassroom.AutoSize = true;
@@ -94,18 +146,6 @@
             this.LabelRegistrationClassroom.Size = new System.Drawing.Size(245, 30);
             this.LabelRegistrationClassroom.TabIndex = 0;
             this.LabelRegistrationClassroom.Text = "Registration Classroom";
-            // 
-            // LabelDeleteClassroom
-            // 
-            this.LabelDeleteClassroom.AutoSize = true;
-            this.LabelDeleteClassroom.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LabelDeleteClassroom.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelDeleteClassroom.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.LabelDeleteClassroom.Location = new System.Drawing.Point(57, 517);
-            this.LabelDeleteClassroom.Name = "LabelDeleteClassroom";
-            this.LabelDeleteClassroom.Size = new System.Drawing.Size(140, 21);
-            this.LabelDeleteClassroom.TabIndex = 0;
-            this.LabelDeleteClassroom.Text = "Delete Classroom";
             // 
             // LabelClassroomName
             // 
@@ -191,19 +231,6 @@
             this.ComboBoxCourse.TabIndex = 8;
             this.ComboBoxCourse.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCourse_SelectedIndexChanged);
             // 
-            // LabelClassroomNameShow
-            // 
-            this.LabelClassroomNameShow.AutoSize = true;
-            this.LabelClassroomNameShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LabelClassroomNameShow.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelClassroomNameShow.ForeColor = System.Drawing.Color.Black;
-            this.LabelClassroomNameShow.Location = new System.Drawing.Point(153, 634);
-            this.LabelClassroomNameShow.Name = "LabelClassroomNameShow";
-            this.LabelClassroomNameShow.Size = new System.Drawing.Size(88, 21);
-            this.LabelClassroomNameShow.TabIndex = 9;
-            this.LabelClassroomNameShow.Text = "Classroom";
-            this.LabelClassroomNameShow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // buttonCreate
             // 
             this.buttonCreate.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -219,32 +246,6 @@
             this.buttonCreate.Text = "Create";
             this.buttonCreate.UseVisualStyleBackColor = false;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
-            // 
-            // LabelCourseNameShow
-            // 
-            this.LabelCourseNameShow.AutoSize = true;
-            this.LabelCourseNameShow.BackColor = System.Drawing.Color.Transparent;
-            this.LabelCourseNameShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LabelCourseNameShow.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelCourseNameShow.ForeColor = System.Drawing.Color.Black;
-            this.LabelCourseNameShow.Location = new System.Drawing.Point(16, 634);
-            this.LabelCourseNameShow.Name = "LabelCourseNameShow";
-            this.LabelCourseNameShow.Size = new System.Drawing.Size(62, 21);
-            this.LabelCourseNameShow.TabIndex = 11;
-            this.LabelCourseNameShow.Text = "Course";
-            this.LabelCourseNameShow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LabelPreview
-            // 
-            this.LabelPreview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LabelPreview.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelPreview.ForeColor = System.Drawing.Color.Black;
-            this.LabelPreview.Location = new System.Drawing.Point(-5, 571);
-            this.LabelPreview.Name = "LabelPreview";
-            this.LabelPreview.Size = new System.Drawing.Size(264, 45);
-            this.LabelPreview.TabIndex = 12;
-            this.LabelPreview.Text = "Preview:";
-            this.LabelPreview.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBoxClassroom
             // 
@@ -290,6 +291,7 @@
             this.pictureBoxDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxDelete.TabIndex = 3;
             this.pictureBoxDelete.TabStop = false;
+            this.pictureBoxDelete.Click += new System.EventHandler(this.pictureBoxDelete_Click);
             // 
             // pictureBoxEdit
             // 

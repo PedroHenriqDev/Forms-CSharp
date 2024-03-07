@@ -162,6 +162,7 @@
             this.Controls.Add(this.pictureBoxDelete);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DeleteCourseForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DeleteCourseForm";
             this.Load += new System.EventHandler(this.DeleteCourseForm_Load);
             this.panel1.ResumeLayout(false);
