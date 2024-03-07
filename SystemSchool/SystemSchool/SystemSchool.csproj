@@ -48,6 +48,12 @@
   <ItemGroup>
     <Compile Include="Controls\DisplayItem.cs" />
     <Compile Include="Exception\MainFormException.cs" />
+    <Compile Include="Forms\ClassroomForms\DeleteClassroomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ClassroomForms\DeleteClassroomForm.Designer.cs">
+      <DependentUpon>DeleteClassroomForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ClassroomForms\RegistrationClassroomForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\ClassroomForms\DeleteClassroomForm.resx">
+      <DependentUpon>DeleteClassroomForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ClassroomForms\RegistrationClassroomForm.resx">
       <DependentUpon>RegistrationClassroomForm.cs</DependentUpon>
     </EmbeddedResource>
