@@ -17,7 +17,7 @@ namespace Entities
 
         public Student(int id, int classroomId, string completeName )
         {
-            Id = Id;
+            Id = id;
             ClassroomId = classroomId;
             CompleteName = completeName;
         }

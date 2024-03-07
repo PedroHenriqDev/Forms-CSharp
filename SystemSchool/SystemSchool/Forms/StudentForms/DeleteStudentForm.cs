@@ -70,7 +70,6 @@ namespace SystemSchool.Forms.StudentForms
                 StudentQuery studentQuery = await DeleteEntities.DeleteStudentAsync(student.Value);
                 MessageBox.Show(studentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 await LoadListBoxByIndexAsync(ComboBoxClassroom.SelectedItem.ToString());
-                MessageBox.Show(studentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

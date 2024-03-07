@@ -18,10 +18,10 @@ namespace Entities
         {
         }
 
-        public Course(string courseName, int Id)
+        public Course(string courseName, int id)
         {
             CourseName = courseName;
-            Id = Id;
+            Id = id;
         }
     }
 }

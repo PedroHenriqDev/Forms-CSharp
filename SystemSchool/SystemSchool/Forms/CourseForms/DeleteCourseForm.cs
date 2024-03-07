@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using SystemSchool.Controls;
 using System.Windows.Forms;
 using Entities.TransientClasses;
+using System.Linq;
 
 namespace SystemSchool.Forms.CourseForms
 {
@@ -43,8 +44,17 @@ namespace SystemSchool.Forms.CourseForms
         {
             try
             {
-                DisplayItem<Course> Course = listBoxCourses.SelectedItem as DisplayItem<Course>;
-                CourseQuery courseQuery = await DeleteEntities.DeleteCourseAsync(Course.Value);
+                DisplayItem<Course> course = listBoxCourses.SelectedItem as DisplayItem<Course>;
+                course.Value.Classrooms = (await SearchEntities.FindClassroomsByCourseNameAsync(course.Value.CourseName)).ToList(); 
+                foreach (var classroom in course.Value.Classrooms) 
+                {
+                    IEnumerable<Student> students = await SearchEntities.FindStudentsByClassroomNameAsync(classroom.ClassroomName);
+                    await DeleteEntities.DeleteStudentsAsync(students);
+                }
+
+                await DeleteEntities.DeleteClassromsByCourseIdAsync(course.Value.Classrooms, course.Value.Id);
+
+                CourseQuery courseQuery = await DeleteEntities.DeleteCourseAsync(course.Value);
                 MessageBox.Show(courseQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 await LoadListBoxCoursesAsync();
             }
