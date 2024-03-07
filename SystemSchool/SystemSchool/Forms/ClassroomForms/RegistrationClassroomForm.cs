@@ -40,8 +40,8 @@ namespace SystemSchool.Forms.ClassroomForms
         private async Task LoadComboBoxLetterAsnyc(string schoolYear)
         {
             IEnumerable<char> availableLetters = await SearchEntities.FindLettersAvailableBySchoolYearAsync(schoolYear);
-            ComboBoxLetter.Items.Clear(); 
-            foreach(char letter in availableLetters) 
+            ComboBoxLetter.Items.Clear();
+            foreach (char letter in availableLetters)
             {
                 ComboBoxLetter.Items.Add(letter);
             }
@@ -84,14 +84,7 @@ namespace SystemSchool.Forms.ClassroomForms
                 Random random = new Random();
                 Classroom classroom = new Classroom(random.Next(), classroomName, course.CourseId);
                 ClassroomQuery createClassroomQuery = await CreateEntities.CreateClassroomAsync(classroom);
-                if (createClassroomQuery.Result)
-                {
-                    MessageBox.Show(createClassroomQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show(createClassroomQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                MessageBox.Show(createClassroomQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ArgumentNullException ex)
             {

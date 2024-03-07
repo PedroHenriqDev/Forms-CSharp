@@ -54,6 +54,12 @@
     <Compile Include="Forms\ClassroomForms\RegistrationClassroomForm.Designer.cs">
       <DependentUpon>RegistrationClassroomForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\CourseForms\DeleteCourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CourseForms\DeleteCourseForm.Designer.cs">
+      <DependentUpon>DeleteCourseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CourseForms\RegistrationCourseForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\ClassroomForms\RegistrationClassroomForm.resx">
       <DependentUpon>RegistrationClassroomForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CourseForms\DeleteCourseForm.resx">
+      <DependentUpon>DeleteCourseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CourseForms\RegistrationCourseForm.resx">
       <DependentUpon>RegistrationCourseForm.cs</DependentUpon>

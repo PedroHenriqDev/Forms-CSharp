@@ -91,26 +91,20 @@ namespace SystemSchool.Forms.StudentForms
                 student.Value.CompleteName = textBoxStudentName.Text;
                 FillStudent(student.Value);
                 StudentQuery studentQuery = await EditEntities.EditStudentAsync(student.Value);
-                if (studentQuery.Result)
-                {
-                    MessageBox.Show(studentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show(studentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                MessageBox.Show(studentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                await LoadListBoxSearchAsync();
             }
             catch (ArgumentNullException ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
-        private async Task FillStudent(Student student) 
+        private async Task FillStudent(Student student)
         {
             IEnumerable<Classroom> classrooms = await SearchEntities.FindAllClassroomsAsync();
             if (ComboBoxClassroom.SelectedItem == null && classrooms.Select(c => c.ClassroomName).Any(c => c == student.Classroom.ClassroomName))

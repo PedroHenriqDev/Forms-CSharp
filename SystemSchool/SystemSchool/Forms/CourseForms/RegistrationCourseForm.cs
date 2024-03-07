@@ -39,23 +39,23 @@ namespace SystemSchool.Forms.CourseForms
                 Random random = new Random();
                 Course course = new Course(textBoxCourseName.Text, random.Next());
                 CourseQuery courseQuery = await createEntities.CreateCourseAsync(course);
-                if (courseQuery.Result)
-                {
-                    MessageBox.Show(courseQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show(courseQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                MessageBox.Show(courseQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (ArgumentNullException ex) 
+            catch (ArgumentNullException ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void pictureBoxDelete_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DeleteCourseForm deleteForm = new DeleteCourseForm();
+            deleteForm.ShowDialog();
         }
     }
 }

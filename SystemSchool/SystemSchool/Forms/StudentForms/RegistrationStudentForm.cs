@@ -86,14 +86,7 @@ namespace SystemSchool
                 Classroom classroom = await SearchEntities.FindClassroomByNameAsync(ComboBoxClassroom.SelectedItem.ToString());
                 Student student = new Student(random.Next(), classroom.ClassroomId, textBoxCompleteName.Text);
                 StudentQuery createStudentQuery = await CreateEntities.CreateStudentAsync(student);
-                if (createStudentQuery.Result)
-                {
-                    MessageBox.Show(createStudentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show(createStudentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                MessageBox.Show(createStudentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ArgumentNullException ex)
             {
@@ -105,6 +98,6 @@ namespace SystemSchool
             }
         }
 
-     
+
     }
 }

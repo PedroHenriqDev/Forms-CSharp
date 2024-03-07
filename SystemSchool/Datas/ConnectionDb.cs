@@ -188,6 +188,27 @@ namespace Datas
             }
         }
 
+        public async Task DeleteCourseByIdAsync(int courseId) 
+        {
+            using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
+            {
+                await connection.OpenAsync();
+                string sqlQuery = @"DELETE FROM Courses WHERE CourseId = @courseId";
+                await connection.ExecuteAsync(sqlQuery, new { courseId = courseId });
+            }
+        }
+
+        public async Task DeleteClassroomInSetAsync(IEnumerable<int> classroomsIds)
+        {
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
+            {
+                await connection.OpenAsync();
+                string idsToDelete = string.Join(",", classroomsIds);
+                string sqlQuery = $"DELETE FROM Classrooms WHERE ClassroomId IN ({idsToDelete})";
+                await connection.ExecuteAsync(sqlQuery);
+            }
+        }
+
         public async Task EditStudentInDbAsync(Student student) 
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 

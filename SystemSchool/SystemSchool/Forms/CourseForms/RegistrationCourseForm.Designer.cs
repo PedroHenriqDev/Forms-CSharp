@@ -151,6 +151,7 @@
             // 
             // pictureBoxDelete
             // 
+            this.pictureBoxDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxDelete.Image = global::SystemSchool.Properties.Resources.icons8_delete_48;
             this.pictureBoxDelete.Location = new System.Drawing.Point(89, 323);
             this.pictureBoxDelete.Name = "pictureBoxDelete";
@@ -158,6 +159,7 @@
             this.pictureBoxDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxDelete.TabIndex = 18;
             this.pictureBoxDelete.TabStop = false;
+            this.pictureBoxDelete.Click += new System.EventHandler(this.pictureBoxDelete_Click);
             // 
             // RegistrationCourseForm
             // 

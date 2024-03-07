@@ -68,15 +68,9 @@ namespace SystemSchool.Forms.StudentForms
             {
                 DisplayItem<Student> student = (DisplayItem<Student>)listBoxStudents.SelectedItem;
                 StudentQuery studentQuery = await DeleteEntities.DeleteStudentAsync(student.Value);
-                if (studentQuery.Result)
-                {
-                    MessageBox.Show(studentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    await LoadListBoxByIndexAsync(ComboBoxClassroom.SelectedItem.ToString());
-                }
-                else
-                {
-                    MessageBox.Show(studentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                MessageBox.Show(studentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                await LoadListBoxByIndexAsync(ComboBoxClassroom.SelectedItem.ToString());
+                MessageBox.Show(studentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
