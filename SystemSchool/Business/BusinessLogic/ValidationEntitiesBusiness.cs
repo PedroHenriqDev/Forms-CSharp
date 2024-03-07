@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters;
 using System.Text;
 using System.Threading.Tasks;
+using Entities.Expections;
 
 namespace Business.BusinessLogic
 {
@@ -46,7 +47,7 @@ namespace Business.BusinessLogic
         {
             if(id == 0 || id <= 0) 
             {
-                return false;
+                throw new EntityException("The attempt to create an object failed, due to a lack of Identification (Id)!");
             }
             return true;
         }

@@ -13,23 +13,16 @@ namespace Business
     public class LoginBusiness
     {
         private readonly ConnectionDb ConnectionDb = new ConnectionDb();
-        public async Task<LoginQuery> LoginAsync(User user) 
+        public async Task<LoginQuery> LoginAsync(User user)
         {
-            LoginQuery query;
             User userDb = await ConnectionDb.VerifyCredentialsAsync(user);
 
             if (userDb == null)
             {
-                query = new LoginQuery(false, "Incorrect username or password", DateTime.Now, user);
+                return new LoginQuery(false, "Incorrect username or password", DateTime.Now, user);
             }
-            else 
-            {
-                userDb.Class = await ConnectionDb.ReturnClassByIdAsync(userDb.ClassId);
-                query = new LoginQuery(true, "Welcome " + user.Username + "!", DateTime.Now, userDb);
-            }
-
-            return query;
+            userDb.Class = await ConnectionDb.ReturnClassByIdAsync(userDb.ClassId);
+            return new LoginQuery(true, "Welcome " + user.Username + "!", DateTime.Now, userDb);
         }
     }
 }
-    

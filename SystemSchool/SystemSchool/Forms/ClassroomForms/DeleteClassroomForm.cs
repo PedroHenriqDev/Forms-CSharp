@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SystemSchool.Controls;
 using System.Windows.Forms;
+using Entities.TransientClasses;
 
 namespace SystemSchool.Forms.ClassroomForms
 {
@@ -59,9 +60,18 @@ namespace SystemSchool.Forms.ClassroomForms
             registrationForm.ShowDialog();
         }
 
-        private void buttonDelete_Click(object sender, EventArgs e)
+        private async void buttonDelete_Click(object sender, EventArgs e)
         {
-            DisplayItem<Course> course = DeleteEntities.
+            try
+            {
+                DisplayItem<Classroom> classroom = listBoxClassrooms.SelectedItem as DisplayItem<Classroom>;
+                ClassroomQuery classroomQuery = await DeleteEntities.DeleteClassroomAsync(classroom.Value);
+                MessageBox.Show(classroomQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

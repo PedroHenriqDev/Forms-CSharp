@@ -47,7 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\DisplayItem.cs" />
-    <Compile Include="Exception\MainFormException.cs" />
+    <Compile Include="Exceptions\EntityException.cs" />
+    <Compile Include="Exceptions\MainFormException.cs" />
     <Compile Include="Forms\ClassroomForms\DeleteClassroomForm.cs">
       <SubType>Form</SubType>
     </Compile>

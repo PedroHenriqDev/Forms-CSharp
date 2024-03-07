@@ -12,6 +12,7 @@ using Business.BusinessLogic;
 using Entities.TransientClasses;
 using System.Linq.Expressions;
 using Business.BusinessComponents.ConcreteClasses;
+using Entities.Expections;
 
 namespace SystemSchool.Forms.CourseForms
 {
@@ -44,6 +45,10 @@ namespace SystemSchool.Forms.CourseForms
             catch (ArgumentNullException ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (EntityException ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {

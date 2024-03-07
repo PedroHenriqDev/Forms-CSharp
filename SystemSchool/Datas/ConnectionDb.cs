@@ -28,13 +28,13 @@ namespace Datas
             }
         }
 
-        public async Task<Class> ReturnClassByIdAsync(int Id)
+        public async Task<Class> ReturnClassByIdAsync(int id)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"SELECT * FROM Classes WHERE ClassId = @classId";
-                Class classDb = await connection.QueryFirstOrDefaultAsync<Class>(sqlQuery, new { Id = Id });
+                string sqlQuery = @"SELECT * FROM Classes WHERE Id = @id";
+                Class classDb = await connection.QueryFirstOrDefaultAsync<Class>(sqlQuery, new { id = id });
                 return classDb;
             }
         }

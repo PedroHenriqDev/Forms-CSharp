@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Business.BusinessLogic;
 using Entities;
+using Entities.Expections;
 using Entities.TransientClasses;
 using SystemSchool.Forms.StudentForms;
 
@@ -91,6 +92,10 @@ namespace SystemSchool
             catch (ArgumentNullException ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (EntityException ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {

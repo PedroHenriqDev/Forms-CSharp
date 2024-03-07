@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Business.Extensions;
 using SystemSchool.Controls;
 using Entities.TransientClasses;
+using SystemSchool.Expections;
 
 namespace SystemSchool.Forms.StudentForms
 {
@@ -98,9 +99,13 @@ namespace SystemSchool.Forms.StudentForms
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            catch(EntityException ex) 
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

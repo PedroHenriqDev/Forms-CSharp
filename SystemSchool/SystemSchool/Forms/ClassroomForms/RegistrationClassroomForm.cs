@@ -12,6 +12,7 @@ using Entities;
 using Datas;
 using Entities.TransientClasses;
 using SystemSchool.Controls;
+using Entities.Expections;
 
 namespace SystemSchool.Forms.ClassroomForms
 {
@@ -82,11 +83,15 @@ namespace SystemSchool.Forms.ClassroomForms
                 string classroomName = ComboBoxSchoolYear.SelectedItem.ToString().Substring(0, 1) + ComboBoxLetter.SelectedItem.ToString();
                 Course course = await SearchEntities.FindCourseByNameAsync(ComboBoxCourse.SelectedItem.ToString());
                 Random random = new Random();
-                Classroom classroom = new Classroom(random.Next(), classroomName, course.CourseId);
+                Classroom classroom = new Classroom(random.Next(), classroomName, course.Id);
                 ClassroomQuery createClassroomQuery = await CreateEntities.CreateClassroomAsync(classroom);
                 MessageBox.Show(createClassroomQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (EntityException ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
