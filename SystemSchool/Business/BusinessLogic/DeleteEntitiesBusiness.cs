@@ -45,13 +45,8 @@ namespace Business.BusinessLogic
             {
                 return new ClassroomQuery(false, "An error occurred when recognizing the course " + classroom.ClassroomName, DateTime.Now, classroom);
             }
-            IEnumerable<Student> students = await ConnectionDb.ReturnAllStudentsAsync();
-            await ConnectionDb.DeleteRecordsInTableAsync(students
-                .Where(c => c.ClassroomId == classroom.Id)
-                .Select(c => c.ClassroomId)
-                .ToList(), "Classrooms", "Id");
 
-            await ConnectionDb.DeleteClassroomAsync(classroom.Id);
+            await ConnectionDb.DeleteClassroomByIdAsync(classroom.Id);
             return new ClassroomQuery(true, "Classroom " + classroom.ClassroomName + " deleted successfully", DateTime.Now, classroom);
         }
 

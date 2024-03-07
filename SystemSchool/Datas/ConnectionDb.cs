@@ -198,12 +198,12 @@ namespace Datas
             }
         }
 
-        public async Task DeleteClassroomAsync(int id) 
+        public async Task DeleteClassroomByIdAsync(int id) 
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"DELETE FROM Clasrooms WHERE Id = @id";
+                string sqlQuery = @"DELETE FROM Classrooms WHERE Id = @id";
                 await connection.ExecuteAsync(sqlQuery, new { id = id });
             }
         }
@@ -226,12 +226,12 @@ namespace Datas
                 await connection.OpenAsync();
                 string sqlQuery = @"UPDATE Students 
                                     SET CompleteName = @completeName, ClassroomId = @classroomId 
-                                    WHERE Id = @Id";
+                                    WHERE Id = @id";
                 await connection.ExecuteAsync(sqlQuery, new
                 {
                     completeName = student.CompleteName,
-                    classroomId = student.ClassroomId,
-                    Id = student.Id,
+                    classroomId = student.Classroom.Id,
+                    id = student.Id,
                 });
             }
         }

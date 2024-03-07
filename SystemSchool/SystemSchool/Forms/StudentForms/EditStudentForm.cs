@@ -112,13 +112,13 @@ namespace SystemSchool.Forms.StudentForms
         private async Task FillStudent(Student student)
         {
             IEnumerable<Classroom> classrooms = await SearchEntities.FindAllClassroomsAsync();
-            if (ComboBoxClassroom.SelectedItem == null && classrooms.Select(c => c.ClassroomName).Any(c => c == student.Classroom.ClassroomName))
+            if (ComboBoxClassroom.SelectedItem == null && classrooms.Select(c => c.ClassroomName).Any(c => c == ComboBoxClassroom.Text))
             {
-                student.Classroom.ClassroomName = ComboBoxClassroom.Text;
+                student.Classroom = await SearchEntities.FindClassroomByNameAsync(ComboBoxClassroom.Text);
             }
             else
             {
-                student.Classroom.ClassroomName = ComboBoxClassroom.SelectedItem.ToString();
+                student.Classroom = await SearchEntities.FindClassroomByNameAsync(ComboBoxClassroom.SelectedItem.ToString());
             }
         }
 

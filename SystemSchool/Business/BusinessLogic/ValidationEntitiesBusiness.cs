@@ -32,7 +32,7 @@ namespace Business.BusinessLogic
                 throw new ArgumentNullException("The student cannot be empty!");
             }
 
-            return HasNumbersInString(student.CompleteName)
+            return !HasNumbersInString(student.CompleteName)
                 && EntityHasId(student.Id);
         }
 
