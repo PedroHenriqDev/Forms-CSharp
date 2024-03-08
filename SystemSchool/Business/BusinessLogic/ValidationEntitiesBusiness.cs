@@ -8,6 +8,7 @@ using System.Runtime.Serialization.Formatters;
 using System.Text;
 using System.Threading.Tasks;
 using Entities.Expections;
+using System.Windows.Forms;
 
 namespace Business.BusinessLogic
 {
@@ -68,13 +69,14 @@ namespace Business.BusinessLogic
 
         public bool HasNumbersInString(string entity)
         {
-            for (int i = 0; i < entity.Length; i++)
-            {
-                if (!char.IsLetter(entity[i]))
-                {
-                    return true;
-                }
-            }
+           foreach(char c in entity) 
+           {
+               if(!char.IsLetter(c) && !char.IsWhiteSpace(c)) 
+               {
+                  return true;
+               }          
+           }
+
             return false;
         }
 

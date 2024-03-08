@@ -50,6 +50,9 @@ namespace SystemSchool.Forms.StudentForms
             {
                 await LoadListBoxSearchAsync();
             }
+
+            await LoadListBoxSearchAsync();
+            LabelSearchResult.Text = $"Result of search '{textBoxSearch.Text}'";
         }
 
         private async void listBoxSearch_SelectedIndexChanged(object sender, EventArgs e)
@@ -92,6 +95,10 @@ namespace SystemSchool.Forms.StudentForms
                 student.Value.CompleteName = textBoxStudentName.Text;
                 FillStudent(student.Value);
                 StudentQuery studentQuery = await EditEntities.EditStudentAsync(student.Value);
+                if (studentQuery.Result) 
+                {
+                    LabelStudent.Text = textBoxStudentName.Text;
+                }
                 MessageBox.Show(studentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 await LoadListBoxSearchAsync();
             }

@@ -185,14 +185,14 @@
             // 
             // LabelSearchResult
             // 
-            this.LabelSearchResult.AutoSize = true;
             this.LabelSearchResult.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelSearchResult.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.LabelSearchResult.Location = new System.Drawing.Point(60, 303);
+            this.LabelSearchResult.Location = new System.Drawing.Point(3, 267);
             this.LabelSearchResult.Name = "LabelSearchResult";
-            this.LabelSearchResult.Size = new System.Drawing.Size(113, 21);
+            this.LabelSearchResult.Size = new System.Drawing.Size(234, 68);
             this.LabelSearchResult.TabIndex = 29;
             this.LabelSearchResult.Text = "Result Search";
+            this.LabelSearchResult.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LabelStudentName
             // 
