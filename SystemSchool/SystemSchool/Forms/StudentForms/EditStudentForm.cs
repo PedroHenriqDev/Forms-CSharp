@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Business.Extensions;
 using SystemSchool.Controls;
 using Entities.TransientClasses;
+using SystemSchool.Controls;
 using SystemSchool.Expections;
 
 namespace SystemSchool.Forms.StudentForms
@@ -20,6 +21,7 @@ namespace SystemSchool.Forms.StudentForms
     {
         SearchEntitiesBusiness SearchEntities = new SearchEntitiesBusiness();
         EditEntitiesBusiness<Student> EditEntities = new EditEntitiesBusiness<Student>();
+        FillEntitiesBusiness FillEntities = new FillEntitiesBusiness();
 
         public EditStudentForm()
         {
@@ -46,11 +48,6 @@ namespace SystemSchool.Forms.StudentForms
 
         private async void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                await LoadListBoxSearchAsync();
-            }
-
             await LoadListBoxSearchAsync();
             LabelSearchResult.Text = $"Result of search '{textBoxSearch.Text}'";
         }
@@ -77,14 +74,17 @@ namespace SystemSchool.Forms.StudentForms
             ComboBoxClassroom.Text = student.Value.Classroom.ClassroomName;
             ComboBoxClassroom.Items.Clear();
             IEnumerable<Classroom> classrooms = await SearchEntities.FindAllClassroomsAsync();
-            ComboBoxClassroom.Items.AddRange(classrooms.Select(c => c.ClassroomName).ToArray());
+            await FillEntities.FillCourseInClassroomAsync(classrooms);
+            ComboBoxClassroom.Items.AddRange(classrooms.Select(c => new DisplayItem<Classroom>(c, $"{c.ClassroomName} - {c.Course.CourseName}")).ToArray());
         }
 
-        private void FillLabelStudent()
+        private async void FillLabelStudent()
         {
             DisplayItem<Student> student = listBoxSearch.SelectedItem as DisplayItem<Student>;
             LabelStudent.ForeColor = Color.Black;
-            LabelStudent.Text = student.Value.CompleteName;
+            student.Value.Classroom = await SearchEntities.FindClassroomByIdAsync(student.Value.ClassroomId);
+            student.Value.Classroom.Course = await SearchEntities.FindCourseByIdAsync(student.Value.Classroom.CourseId);
+            LabelStudent.Text = $"{student.Value.CompleteName} - {student.Value.Classroom.Course.CourseName} - {student.Value.Classroom.ClassroomName}";
         }
 
         private async void buttonEdit_Click(object sender, EventArgs e)
@@ -125,7 +125,8 @@ namespace SystemSchool.Forms.StudentForms
             }
             else
             {
-                student.Classroom = await SearchEntities.FindClassroomByNameAsync(ComboBoxClassroom.SelectedItem.ToString());
+                DisplayItem<Classroom> classroom = ComboBoxClassroom.SelectedItem as DisplayItem<Classroom>;
+                student.Classroom = await SearchEntities.FindClassroomByNameAsync(classroom.Value.ClassroomName);
             }
         }
 

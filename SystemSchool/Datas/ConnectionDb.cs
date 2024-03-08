@@ -11,6 +11,7 @@ using Dapper;
 using System.Runtime.InteropServices;
 using System.Globalization;
 using System.Collections;
+using System.Runtime.Remoting.Messaging;
 
 namespace Datas
 {
@@ -46,6 +47,16 @@ namespace Datas
                 await connection.OpenAsync();
                 string sqlQuery = @"SELECT * FROM Courses WHERE CourseName = @courseName";
                 return await connection.QueryFirstOrDefaultAsync<Course>(sqlQuery, new { courseName = courseName });
+            }
+        }
+
+        public async Task<Course> ReturnCourseByIdAsync(int id) 
+        {
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
+            {
+                await connection.OpenAsync();
+                string sqlQuery = @"SELECT * FROM Courses WHERE Id = @id";
+                return await connection.QueryFirstOrDefaultAsync<Course>(sqlQuery, new { id = id });
             }
         }
 
