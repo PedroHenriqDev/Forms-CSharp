@@ -182,12 +182,13 @@ namespace Datas
             }
         }
 
-        public async Task DeleteRecordsInTableByIdAsync(IEnumerable<int> recordIds, string tableName)
+        public async Task DeleteRecordsInTableByIdAsync<T>(IEnumerable<int> recordIds) where T : class
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
             {
                 await connection.OpenAsync();
                 string idsToDelete = string.Join(",", recordIds);
+                string tableName = typeof(T).Name + "s";
                 string sqlQuery = $"DELETE FROM {tableName} WHERE Id IN ({idsToDelete})";
                 await connection.ExecuteAsync(sqlQuery);
             }

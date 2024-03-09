@@ -61,9 +61,9 @@ namespace Services
         {
             if (students.Any())
             {
-                await _connectionDb.DeleteRecordsInTableByIdAsync(students
+                await _connectionDb.DeleteRecordsInTableByIdAsync<Student>(students
                     .Select(c => c.Id)
-                    .ToList(), "Students");
+                    .ToList());
             }
         }
 
@@ -71,10 +71,10 @@ namespace Services
         {
             if (classrooms.Any()) 
             {
-                await _connectionDb.DeleteRecordsInTableByIdAsync(classrooms
+                await _connectionDb.DeleteRecordsInTableByIdAsync<Classroom>(classrooms
                .Where(c => c.CourseId == courseId)
                .Select(c => c.Id)
-               .ToList(), "Classrooms");
+               .ToList());
             }
         }
     }
