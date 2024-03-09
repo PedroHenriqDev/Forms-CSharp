@@ -18,11 +18,11 @@ namespace Services
             _searchEntities = searchEntities;
         }
 
-        public async Task FillCourseInClassroomAsync(IEnumerable<Classroom> classrooms) 
+        public async Task FillCourseInClassroomAsync(IEnumerable<Classroom> classrooms)
         {
-            if (classrooms.Any()) 
+            if (classrooms.Any())
             {
-                foreach (var classroom in classrooms) 
+                foreach (var classroom in classrooms)
                 {
                     if (classroom.CourseId != null)
                     {
@@ -33,9 +33,9 @@ namespace Services
             }
         }
 
-        public async Task FillClassroomInStudentAsync(IEnumerable<Student> students) 
+        public async Task FillClassroomInStudentAsync(IEnumerable<Student> students)
         {
-            if(students != null) 
+            if (students != null)
             {
                 foreach (Student student in students)
                 {
@@ -43,5 +43,18 @@ namespace Services
                 }
             }
         }
+
+        public async Task FillCourseInClassroom(IEnumerable<Classroom> classrooms)
+        {
+            if (classrooms != null)
+            {
+                foreach (Classroom classroom in classrooms)
+                {
+                    Course course = await _searchEntities.FindCourseByIdAsync(classroom.CourseId);
+                    classroom.Course = course;
+                }
+            }
+        }
     }
 }
+

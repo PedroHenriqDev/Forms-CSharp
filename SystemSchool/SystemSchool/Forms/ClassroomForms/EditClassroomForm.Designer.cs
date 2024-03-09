@@ -67,14 +67,14 @@
             // 
             // LabelSearch
             // 
-            this.LabelSearch.AutoSize = true;
             this.LabelSearch.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelSearch.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.LabelSearch.Location = new System.Drawing.Point(57, 164);
+            this.LabelSearch.Location = new System.Drawing.Point(22, 149);
             this.LabelSearch.Name = "LabelSearch";
-            this.LabelSearch.Size = new System.Drawing.Size(148, 21);
+            this.LabelSearch.Size = new System.Drawing.Size(214, 45);
             this.LabelSearch.TabIndex = 31;
-            this.LabelSearch.Text = "Search by Course:";
+            this.LabelSearch.Text = "Search by Course or Classroom:";
+            this.LabelSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // listBoxSearch
             // 
@@ -108,6 +108,7 @@
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(187, 25);
             this.textBoxSearch.TabIndex = 32;
+            this.textBoxSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearch_KeyDown);
             // 
             // panel1
             // 
@@ -278,7 +279,7 @@
             this.Controls.Add(this.ComboBoxCourse);
             this.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EditClassroomForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditClassroomForm";

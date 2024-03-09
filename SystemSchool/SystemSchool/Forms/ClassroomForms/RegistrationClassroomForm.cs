@@ -118,6 +118,13 @@ namespace SystemSchool.Forms.ClassroomForms
         {
             pictureBoxDelete_Click(sender, e);
         }
+
+        private void pictureBoxEdit_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var classroomForm = Program.Container.Resolve<EditClassroomForm>();
+            classroomForm.ShowDialog();
+        }
     }
 }
 

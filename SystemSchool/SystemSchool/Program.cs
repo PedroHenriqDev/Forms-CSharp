@@ -48,7 +48,6 @@ namespace SystemSchool
 
             builder.RegisterType<CreateTransientEntities>().AsSelf();
 
-
             Container = builder.Build();
 
             var loginService = Container.Resolve<LoginService>();

@@ -71,7 +71,6 @@ namespace SystemSchool.Forms.StudentForms
             }
         }
 
-
         private async void buttonEdit_Click(object sender, EventArgs e)
         {
             try

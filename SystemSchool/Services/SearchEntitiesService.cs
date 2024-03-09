@@ -11,7 +11,7 @@ namespace Services
 {
     public class SearchEntitiesService
     {
-        private readonly ConnectionDb _connectionDb;
+       private readonly ConnectionDb _connectionDb;
 
        public SearchEntitiesService(ConnectionDb connectionDb) 
        {
@@ -59,6 +59,16 @@ namespace Services
         public async Task<IEnumerable<Classroom>> FindAllClassroomsAsync() 
         {
             return await _connectionDb.ReturnAllEntitiesAsync<Classroom>();
+        }
+
+        public async Task<IEnumerable<Classroom>> FindClassroomByQueryAsync(string query, IEnumerable<Classroom> classrooms)
+        {
+            if(classrooms == null) 
+            {
+                return classrooms;
+            }
+
+            return classrooms.Where(c => c.ClassroomName.ToLower().Contains(query.ToLower()) || c.Course.CourseName.ToLower().Contains(query.ToLower()));
         }
 
         public async Task<IEnumerable<Student>> FindAllStudentsAsync() 
