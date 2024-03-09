@@ -16,16 +16,18 @@ namespace Services
     {
         private readonly ConnectionDb _connectionDb;
         private readonly ValidationEntitiesService<T> _validationEntities;
+        private readonly SearchEntitiesService _searchEntities;
         
-        public CreateEntitiesService(ConnectionDb connectionDb, ValidationEntitiesService<T> validationEntities) 
+        public CreateEntitiesService(ConnectionDb connectionDb, ValidationEntitiesService<T> validationEntities, SearchEntitiesService searchEntities) 
         {
             _connectionDb = connectionDb;
             _validationEntities = validationEntities;
+            _searchEntities = searchEntities;
         }
 
         public async Task<CourseQuery> CreateCourseAsync(Course course)
         {
-            if (_validationEntities.IsValidNameCourse(course, await _connectionDb.ReturnAllCoursesAsync()))
+            if (_validationEntities.IsValidNameCourse(course, await _connectionDb.ReturnAllEntitiesAsync<Course>()))
             {
                 await _connectionDb.CreateCourseInDbAsync(course);
                 return new CourseQuery(true, "Course " + course.CourseName + " created successfully!", DateTime.Now, course);
@@ -45,7 +47,7 @@ namespace Services
 
         public async Task<ClassroomQuery> CreateClassroomAsync(Classroom classroom) 
         {
-            if (_validationEntities.IsValidClassroomName(classroom, await _connectionDb.ReturnAllClassromsAsync()))
+            if (_validationEntities.IsValidClassroomName(classroom, await _searchEntities.FindAllClassroomsAsync()))
             {
                 await _connectionDb.CreateClassroomInDbAsync(classroom);
                 return new ClassroomQuery(true, "Classroom " + classroom.ClassroomName + " created successfully!", DateTime.Now, classroom);

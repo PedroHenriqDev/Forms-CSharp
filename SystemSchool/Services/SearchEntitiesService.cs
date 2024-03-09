@@ -20,7 +20,7 @@ namespace Services
 
         public async Task<IEnumerable<Course>> FindAllCoursesAsync() 
         {
-            return await _connectionDb.ReturnAllCoursesAsync();
+            return await _connectionDb.ReturnAllEntitiesAsync<Course>();
         }
 
         public async Task<Classroom> FindClassroomByNameAsync(string classroomName) 
@@ -35,7 +35,7 @@ namespace Services
 
         public async Task<IEnumerable<Student>> FindStudentByQueryAsync(string query) 
         {
-            IEnumerable<Student> students =  await _connectionDb.ReturnAllStudentsAsync();
+            IEnumerable<Student> students =  await _connectionDb.ReturnAllEntitiesAsync<Student>();
 
             if (query == null) 
             {
@@ -58,12 +58,12 @@ namespace Services
 
         public async Task<IEnumerable<Classroom>> FindAllClassroomsAsync() 
         {
-            return await _connectionDb.ReturnAllClassromsAsync();
+            return await _connectionDb.ReturnAllEntitiesAsync<Classroom>();
         }
 
         public async Task<IEnumerable<Student>> FindAllStudentsAsync() 
         {
-            return await _connectionDb.ReturnAllStudentsAsync();
+            return await _connectionDb.ReturnAllEntitiesAsync<Student>();
         }
 
         public async Task<Course> FindCourseByNameAsync(string courseName) 
@@ -84,7 +84,7 @@ namespace Services
 
         public async Task<IEnumerable<char>> FindLettersAvailableBySchoolYearAsync(string schoolYear) 
         {
-            IEnumerable<Classroom> classrooms = await _connectionDb.ReturnAllClassromsAsync();
+            IEnumerable<Classroom> classrooms = await _connectionDb.ReturnAllEntitiesAsync<Classroom>();
             
             IEnumerable<char> existingLetters = classrooms.Where(c => c.ClassroomName[0] == schoolYear[0]).Select(c => c.ClassroomName[1])
                 .Where(letter => char.IsLetter(letter) && letter < 'E');

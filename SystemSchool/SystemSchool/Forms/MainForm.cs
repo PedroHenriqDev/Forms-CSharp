@@ -71,14 +71,14 @@ namespace SystemSchool
             pictureClassroom_Click(sender, e);
         }
 
-        private void LabelCourseRegistration_Click(object sender, EventArgs e)
-        {
-            pictureCourse_Click(sender, e);
-        }
-
         private void LabelClassroom_Click(object sender, EventArgs e)
         {
             pictureClassroom_Click(sender, e);
+        }
+
+        private void LabelCourseRegistration_Click(object sender, EventArgs e)
+        {
+            pictureCourse_Click(sender, e);
         }
 
         private void LabelCourse_Click(object sender, EventArgs e)

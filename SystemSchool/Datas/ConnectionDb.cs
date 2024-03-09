@@ -61,16 +61,6 @@ namespace Datas
             }
         }
 
-        public async Task<IEnumerable<Course>> ReturnAllCoursesAsync()
-        {
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
-            {
-                await connection.OpenAsync();
-                string sqlQuery = @"SELECT * FROM Courses";
-                return await connection.QueryAsync<Course>(sqlQuery);
-            }
-        }
-
         public async Task<Classroom> ReturnClassroomByNameAsync(string classroomName)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
@@ -82,13 +72,14 @@ namespace Datas
         }
 
 
-        public async Task<IEnumerable<Classroom>> ReturnAllClassromsAsync()
+        public async Task<IEnumerable<T>> ReturnAllEntitiesAsync<T> () where T : class
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"SELECT * FROM Classrooms";
-                return await connection.QueryAsync<Classroom>(sqlQuery);
+                string tableName = typeof(T).Name + "s";
+                string sqlQuery = $"SELECT * FROM {tableName}";
+                return await connection.QueryAsync<T>(sqlQuery);
             }
         }
 
@@ -102,15 +93,6 @@ namespace Datas
             }
         }
 
-        public async Task<IEnumerable<Student>> ReturnAllStudentsAsync()
-        {
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
-            {
-                await connection.OpenAsync();
-                string sqlQuery = @"SELECT * FROM Students";
-                return await connection.QueryAsync<Student>(sqlQuery);
-            }
-        }
 
         public async Task<IEnumerable<Student>> ReturnStudentsByClassroomIdAsync(int classroomId)
         {
