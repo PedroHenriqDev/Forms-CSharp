@@ -18,13 +18,13 @@ namespace SystemSchool
 {
     public partial class RegistrationStudentForm : Form
     {
-        private readonly SearchEntitiesService SearchEntities;
-        private readonly CreateEntitiesService<Student> CreateEntities;
+        private readonly SearchEntitiesService _searchEntities;
+        private readonly CreateEntitiesService<Student> _createEntities;
 
         public RegistrationStudentForm(SearchEntitiesService searchEntities, CreateEntitiesService<Student> createServices) 
         {
-            SearchEntities = searchEntities;
-            CreateEntities = createServices;
+            _searchEntities = searchEntities;
+            _createEntities = createServices;
             InitializeComponent();
         }
 
@@ -40,14 +40,14 @@ namespace SystemSchool
 
         private async Task LoadComboBoxClassroomAsync(string courseName)
         {
-            IEnumerable<Classroom> classrooms = await SearchEntities.FindClassroomsByCourseNameAsync(courseName);
+            IEnumerable<Classroom> classrooms = await _searchEntities.FindClassroomsByCourseNameAsync(courseName);
             ComboBoxClassroom.Items.Clear();
             ComboBoxClassroom.Items.AddRange(classrooms.Select(c => c.ClassroomName).ToArray());
         }
 
         private async Task LoadComboBoxCoursesAsync()
         {
-            IEnumerable<Course> courses = await SearchEntities.FindAllCoursesAsync();
+            IEnumerable<Course> courses = await _searchEntities.FindAllCoursesAsync();
             ComboBoxCourse.Items.AddRange(courses.Select(c => c.CourseName).ToArray());
         }
 
@@ -87,9 +87,9 @@ namespace SystemSchool
             try
             {
                 Random random = new Random();
-                Classroom classroom = await SearchEntities.FindClassroomByNameAsync(ComboBoxClassroom.SelectedItem.ToString());
+                Classroom classroom = await _searchEntities.FindClassroomByNameAsync(ComboBoxClassroom.SelectedItem.ToString());
                 Student student = new Student(random.Next(), classroom.Id, textBoxCompleteName.Text);
-                StudentQuery createStudentQuery = await CreateEntities.CreateStudentAsync(student);
+                StudentQuery createStudentQuery = await _createEntities.CreateStudentAsync(student);
                 MessageBox.Show(createStudentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ArgumentNullException ex)

@@ -122,7 +122,6 @@ namespace Datas
             }
         }
 
-
         public async Task CreateCourseInDbAsync(Course course)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
@@ -133,7 +132,7 @@ namespace Datas
                 await connection.ExecuteAsync(sqlQuery, new 
                 {
                     Id = course.Id,
-                    CourseName = course.CourseName 
+                    CourseName = course.CourseName  
                 });
             }
         }

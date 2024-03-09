@@ -6,6 +6,7 @@ using SystemSchool.Forms.ClassroomForms;
 using SystemSchool.Forms.CourseForms;
 using Entities;
 using SystemSchool.Forms.StudentForms;
+using Datas;
 
 namespace SystemSchool
 {
@@ -37,10 +38,12 @@ namespace SystemSchool
             builder.RegisterGeneric(typeof(CreateEntitiesService<>)).AsSelf();
             builder.RegisterGeneric(typeof(DeleteEntitiesService<>)).AsSelf();
             builder.RegisterGeneric(typeof(EditEntitiesService<>)).AsSelf();
+            builder.RegisterGeneric(typeof(ValidationEntitiesService<>)).AsSelf();
 
             builder.RegisterType<LoginService>().AsSelf();
             builder.RegisterType<FillEntitiesService>().AsSelf();
             builder.RegisterType<SearchEntitiesService>().AsSelf();
+            builder.RegisterType<ConnectionDb>().AsSelf();
 
 
             Container = builder.Build();

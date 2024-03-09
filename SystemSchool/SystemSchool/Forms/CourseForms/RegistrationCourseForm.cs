@@ -20,11 +20,11 @@ namespace SystemSchool.Forms.CourseForms
     public partial class RegistrationCourseForm : Form
     {
 
-        private readonly CreateEntitiesService<Course> CreateEntities;
+        private readonly CreateEntitiesService<Course> _createEntities;
 
         public RegistrationCourseForm(CreateEntitiesService<Course> createEntities)
         {
-            CreateEntities = createEntities;
+            _createEntities = createEntities;
             InitializeComponent();
         }
 
@@ -48,7 +48,7 @@ namespace SystemSchool.Forms.CourseForms
             {
                 Random random = new Random();
                 Course course = new Course(textBoxCourseName.Text, random.Next());
-                CourseQuery courseQuery = await CreateEntities.CreateCourseAsync(course);
+                CourseQuery courseQuery = await _createEntities.CreateCourseAsync(course);
                 MessageBox.Show(courseQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ArgumentNullException ex)

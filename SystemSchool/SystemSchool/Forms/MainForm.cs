@@ -50,8 +50,8 @@ namespace SystemSchool
         private void pictureClassroom_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var registerClassroomForm = Program.Container.Resolve<RegistrationClassroomForm>();
-            registerClassroomForm.ShowDialog();
+            var registrationClassroomForm = Program.Container.Resolve<RegistrationClassroomForm>();
+            registrationClassroomForm.ShowDialog();
         }
 
         private void pictureCourse_Click(object sender, EventArgs e)

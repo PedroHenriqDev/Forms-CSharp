@@ -11,26 +11,31 @@ namespace Services
 {
     public class SearchEntitiesService
     {
-        private readonly ConnectionDb ConnectionDb = new ConnectionDb();
+        private readonly ConnectionDb _connectionDb;
+
+       public SearchEntitiesService(ConnectionDb connectionDb) 
+       {
+            _connectionDb = connectionDb;
+       }
 
         public async Task<IEnumerable<Course>> FindAllCoursesAsync() 
         {
-            return await ConnectionDb.ReturnAllCoursesAsync();
+            return await _connectionDb.ReturnAllCoursesAsync();
         }
 
         public async Task<Classroom> FindClassroomByNameAsync(string classroomName) 
         {
-            return await ConnectionDb.ReturnClassroomByNameAsync(classroomName);
+            return await _connectionDb.ReturnClassroomByNameAsync(classroomName);
         }
 
         public async Task<Classroom> FindClassroomByIdAsync(int classroomId) 
         {
-            return await ConnectionDb.ReturnEntityByIdAsync<Classroom>(classroomId);
+            return await _connectionDb.ReturnEntityByIdAsync<Classroom>(classroomId);
         }
 
         public async Task<IEnumerable<Student>> FindStudentByQueryAsync(string query) 
         {
-            IEnumerable<Student> students =  await ConnectionDb.ReturnAllStudentsAsync();
+            IEnumerable<Student> students =  await _connectionDb.ReturnAllStudentsAsync();
 
             if (query == null) 
             {
@@ -42,44 +47,44 @@ namespace Services
 
         public async Task<Student> FindStudentByIdAsync(int id) 
         {
-            return await ConnectionDb.ReturnEntityByIdAsync<Student>(id);
+            return await _connectionDb.ReturnEntityByIdAsync<Student>(id);
         }
 
         public async Task<IEnumerable<Classroom>> FindClassroomsByCourseNameAsync(string courseName) 
         {
             Course course = await FindCourseByNameAsync(courseName);
-            return await ConnectionDb.ReturnClassroomsByCourseIdAsync(course.Id);
+            return await _connectionDb.ReturnClassroomsByCourseIdAsync(course.Id);
         }
 
         public async Task<IEnumerable<Classroom>> FindAllClassroomsAsync() 
         {
-            return await ConnectionDb.ReturnAllClassromsAsync();
+            return await _connectionDb.ReturnAllClassromsAsync();
         }
 
         public async Task<IEnumerable<Student>> FindAllStudentsAsync() 
         {
-            return await ConnectionDb.ReturnAllStudentsAsync();
+            return await _connectionDb.ReturnAllStudentsAsync();
         }
 
         public async Task<Course> FindCourseByNameAsync(string courseName) 
         {
-            return await ConnectionDb.ReturnCourseByNameAsync(courseName);
+            return await _connectionDb.ReturnCourseByNameAsync(courseName);
         }
 
         public async Task<Course> FindCourseByIdAsync(int courseId) 
         {
-            return await ConnectionDb.ReturnEntityByIdAsync<Course>(courseId);
+            return await _connectionDb.ReturnEntityByIdAsync<Course>(courseId);
         }
 
         public async Task<IEnumerable<Student>> FindStudentsByClassroomNameAsync(string ClassroomName) 
         {
-            Classroom classroom = await ConnectionDb.ReturnClassroomByNameAsync(ClassroomName);
-            return await ConnectionDb.ReturnStudentsByClassroomIdAsync(classroom.Id);
+            Classroom classroom = await _connectionDb.ReturnClassroomByNameAsync(ClassroomName);
+            return await _connectionDb.ReturnStudentsByClassroomIdAsync(classroom.Id);
         }
 
         public async Task<IEnumerable<char>> FindLettersAvailableBySchoolYearAsync(string schoolYear) 
         {
-            IEnumerable<Classroom> classrooms = await ConnectionDb.ReturnAllClassromsAsync();
+            IEnumerable<Classroom> classrooms = await _connectionDb.ReturnAllClassromsAsync();
             
             IEnumerable<char> existingLetters = classrooms.Where(c => c.ClassroomName[0] == schoolYear[0]).Select(c => c.ClassroomName[1])
                 .Where(letter => char.IsLetter(letter) && letter < 'E');

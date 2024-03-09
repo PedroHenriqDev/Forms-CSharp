@@ -11,8 +11,12 @@ namespace Services
     public class FillEntitiesService
     {
 
-        private readonly SearchEntitiesService SearchEntities = new SearchEntitiesService();
-        private readonly ConnectionDb ConnectionDb = new ConnectionDb();
+        private readonly SearchEntitiesService _searchEntities;
+
+        public FillEntitiesService(SearchEntitiesService searchEntities)
+        {
+            _searchEntities = searchEntities;
+        }
 
         public async Task FillCourseInClassroomAsync(IEnumerable<Classroom> classrooms) 
         {
@@ -22,7 +26,7 @@ namespace Services
                 {
                     if (classroom.CourseId != null)
                     {
-                        Course course = await SearchEntities.FindCourseByIdAsync(classroom.CourseId);
+                        Course course = await _searchEntities.FindCourseByIdAsync(classroom.CourseId);
                         classroom.Course = course;
                     }
                 }
@@ -35,7 +39,7 @@ namespace Services
             {
                 foreach (Student student in students)
                 {
-                    student.Classroom = await ConnectionDb.ReturnEntityByIdAsync<Classroom>(student.ClassroomId);
+                    student.Classroom = await _searchEntities.FindClassroomByIdAsync(student.ClassroomId);
                 }
             }
         }

@@ -11,14 +11,14 @@ namespace SystemSchool
 {
     public partial class Login : Form
     {
-        private readonly LoginService LoginService;
+        private readonly LoginService _loginService;
         static public User UserCls = new User();
         MainForm MainForm = new MainForm();
         DataAccess DataAccess = new DataAccess();
 
         public Login(LoginService loginService) 
         {
-            LoginService = loginService;
+            _loginService = loginService;
             InitializeComponent();
         }
 
@@ -33,7 +33,7 @@ namespace SystemSchool
             {
                 UserCls.Username = TextUsername.Text;
                 UserCls.PasswordHash = TextPassword.Text;
-                LoginQuery loginQuery = await LoginService.LoginAsync(UserCls);
+                LoginQuery loginQuery = await _loginService.LoginAsync(UserCls);
                 if (loginQuery.Result)
                 {
                     UserCls = loginQuery.User;

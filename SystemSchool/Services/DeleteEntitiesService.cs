@@ -13,40 +13,47 @@ namespace Services
 {
     public class DeleteEntitiesService<T>
     {
-        private readonly ConnectionDb ConnectionDb = new ConnectionDb();
-        private readonly ValidationEntitiesService<T> ValidationEntities = new ValidationEntitiesService<T>();
-        private readonly SearchEntitiesService SearchEntities = new SearchEntitiesService();
+        private readonly ConnectionDb _connectionDb;
+        private readonly ValidationEntitiesService<T> _validationEntities;
+        private readonly SearchEntitiesService _searchService;
+
+        public DeleteEntitiesService(ConnectionDb connectionDb, ValidationEntitiesService<T> validationEntities, SearchEntitiesService searchService)
+        {
+            _connectionDb = connectionDb;
+            _validationEntities = validationEntities;
+            _searchService = searchService;
+        }
 
         public async Task<StudentQuery> DeleteStudentAsync(Student student)
         {
-            Student studentDb = await ConnectionDb.ReturnEntityByIdAsync<Student>(student.Id);
-            if (studentDb == null || !ValidationEntities.EntityHasId(studentDb.Id))
+            Student studentDb = await _searchService.FindStudentByIdAsync(student.Id);
+            if (studentDb == null || !_validationEntities.EntityHasId(studentDb.Id))
             {
                 return new StudentQuery(false, "An error occurred when recognizing the student " + student.CompleteName.CutCompleteName(), DateTime.Now, student);
             }
-            await ConnectionDb.DeleteRecordInTableByIdAsync(student.Id, "Students");
+            await _connectionDb.DeleteRecordInTableByIdAsync(student.Id, "Students");
             return new StudentQuery(true, "Student " + student.CompleteName.CutCompleteName() + " deleted successfully", DateTime.Now, student);
         }
 
         public async Task<CourseQuery> DeleteCourseAsync(Course course)
         {
-            if (course == null || !ValidationEntities.EntityHasId(course.Id))
+            if (course == null || !_validationEntities.EntityHasId(course.Id))
             {
                 return new CourseQuery(false, "An error occurred when recognizing the course " + course.CourseName, DateTime.Now, course);
             }
 
-            await ConnectionDb.DeleteRecordInTableByIdAsync(course.Id, "Courses");
+            await _connectionDb.DeleteRecordInTableByIdAsync(course.Id, "Courses");
             return new CourseQuery(true, "Course " + course.CourseName + " deleted successfully", DateTime.Now, course);
         }
 
         public async Task<ClassroomQuery> DeleteClassroomAsync(Classroom classroom)
         {
-            if (classroom == null || !ValidationEntities.EntityHasId(classroom.Id))
+            if (classroom == null || !_validationEntities.EntityHasId(classroom.Id))
             {
                 return new ClassroomQuery(false, "An error occurred when recognizing the course " + classroom.ClassroomName, DateTime.Now, classroom);
             }
 
-            await ConnectionDb.DeleteRecordInTableByIdAsync(classroom.Id, "Classrooms");
+            await _connectionDb.DeleteRecordInTableByIdAsync(classroom.Id, "Classrooms");
             return new ClassroomQuery(true, "Classroom " + classroom.ClassroomName + " deleted successfully", DateTime.Now, classroom);
         }
 
@@ -54,7 +61,7 @@ namespace Services
         {
             if (students.Any())
             {
-                await ConnectionDb.DeleteRecordsInTableByIdAsync(students
+                await _connectionDb.DeleteRecordsInTableByIdAsync(students
                     .Select(c => c.Id)
                     .ToList(), "Students");
             }
@@ -64,7 +71,7 @@ namespace Services
         {
             if (classrooms.Any()) 
             {
-                await ConnectionDb.DeleteRecordsInTableByIdAsync(classrooms
+                await _connectionDb.DeleteRecordsInTableByIdAsync(classrooms
                .Where(c => c.CourseId == courseId)
                .Select(c => c.Id)
                .ToList(), "Classrooms");

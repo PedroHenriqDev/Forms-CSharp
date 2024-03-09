@@ -19,14 +19,14 @@ namespace SystemSchool.Forms.ClassroomForms
 {
     public partial class RegistrationClassroomForm : Form
     {
-        private readonly SearchEntitiesService SearchEntities;
-        private readonly CreateEntitiesService<Classroom> CreateEntities;
+        private readonly SearchEntitiesService _searchEntities;
+        private readonly CreateEntitiesService<Classroom> _createEntities;
 
         public RegistrationClassroomForm(SearchEntitiesService searchEntities, CreateEntitiesService<Classroom> createEntities)
         {
             InitializeComponent();
-            SearchEntities = searchEntities;
-            CreateEntities = createEntities;
+            _searchEntities = searchEntities;
+            _createEntities = createEntities;
         }
 
         private async void RegistrationClassroomForm_Load(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace SystemSchool.Forms.ClassroomForms
 
         private async Task LoadComboBoxLetterAsnyc(string schoolYear)
         {
-            IEnumerable<char> availableLetters = await SearchEntities.FindLettersAvailableBySchoolYearAsync(schoolYear);
+            IEnumerable<char> availableLetters = await _searchEntities.FindLettersAvailableBySchoolYearAsync(schoolYear);
             ComboBoxLetter.Items.Clear();
             foreach (char letter in availableLetters)
             {
@@ -46,7 +46,7 @@ namespace SystemSchool.Forms.ClassroomForms
 
         private async Task LoadComboBoxCourseAsync()
         {
-            IEnumerable<Course> courses = await SearchEntities.FindAllCoursesAsync();
+            IEnumerable<Course> courses = await _searchEntities.FindAllCoursesAsync();
             ComboBoxCourse.Items.AddRange(courses.Select(c => c.CourseName).ToArray());
         }
 
@@ -77,10 +77,10 @@ namespace SystemSchool.Forms.ClassroomForms
             try
             {
                 string classroomName = ComboBoxSchoolYear.SelectedItem.ToString().Substring(0, 1) + ComboBoxLetter.SelectedItem.ToString();
-                Course course = await SearchEntities.FindCourseByNameAsync(ComboBoxCourse.SelectedItem.ToString());
+                Course course = await _searchEntities.FindCourseByNameAsync(ComboBoxCourse.SelectedItem.ToString());
                 Random random = new Random();
                 Classroom classroom = new Classroom(random.Next(), classroomName, course.Id);
-                ClassroomQuery createClassroomQuery = await CreateEntities.CreateClassroomAsync(classroom);
+                ClassroomQuery createClassroomQuery = await _createEntities.CreateClassroomAsync(classroom);
                 MessageBox.Show(createClassroomQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ArgumentNullException ex)

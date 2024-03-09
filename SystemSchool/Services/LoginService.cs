@@ -13,17 +13,22 @@ namespace Services
 
     public class LoginService
     {
-        private readonly ConnectionDb ConnectionDb = new ConnectionDb();
+        private readonly ConnectionDb _connectionDb;
+
+        public LoginService(ConnectionDb connectionDb)
+        {
+            _connectionDb = connectionDb;
+        }
 
         public async Task<LoginQuery> LoginAsync(User user)
         {
-            User userDb = await ConnectionDb.VerifyCredentialsAsync(user);
+            User userDb = await _connectionDb.VerifyCredentialsAsync(user);
 
             if (userDb == null)
             {
                 return new LoginQuery(false, "Incorrect username or password", DateTime.Now, user);
             }
-            userDb.Class = await ConnectionDb.ReturnClassByIdAsync(userDb.ClassId);
+            userDb.Class = await _connectionDb.ReturnClassByIdAsync(userDb.ClassId);
             return new LoginQuery(true, "Welcome " + user.Username + "!", DateTime.Now, userDb);
         }
     }

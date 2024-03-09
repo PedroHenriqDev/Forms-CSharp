@@ -18,14 +18,14 @@ namespace SystemSchool.Forms.StudentForms
 {
     public partial class DeleteStudentForm : Form
     {
-        private readonly SearchEntitiesService SearchEntities;
-        private readonly DeleteEntitiesService<Student> DeleteEntities;
+        private readonly SearchEntitiesService _searchEntities;
+        private readonly DeleteEntitiesService<Student> _deleteEntities;
 
         public DeleteStudentForm(SearchEntitiesService searchEntities, DeleteEntitiesService<Student> deleteEntities)
         {
             InitializeComponent();
-            SearchEntities= searchEntities;
-            DeleteEntities = deleteEntities;
+            _searchEntities= searchEntities;
+            _deleteEntities = deleteEntities;
         }
 
         private async void StudentDeleteForm_Load(object sender, EventArgs e)
@@ -40,13 +40,13 @@ namespace SystemSchool.Forms.StudentForms
 
         private async Task LoadComboBoxClassroomsAsync()
         {
-            IEnumerable<Classroom> classrooms = await SearchEntities.FindAllClassroomsAsync();
+            IEnumerable<Classroom> classrooms = await _searchEntities.FindAllClassroomsAsync();
             ComboBoxClassroom.Items.AddRange(classrooms.Select(c => c.ClassroomName).ToArray());
         }
 
         private async Task LoadListBoxByIndexAsync(string classroomName)
         {
-            IEnumerable<Student> students = await SearchEntities.FindStudentsByClassroomNameAsync(classroomName);
+            IEnumerable<Student> students = await _searchEntities.FindStudentsByClassroomNameAsync(classroomName);
             listBoxStudents.Items.Clear();
             foreach (Student student in students)
             {
@@ -63,7 +63,7 @@ namespace SystemSchool.Forms.StudentForms
             try
             {
                 DisplayItem<Student> student = (DisplayItem<Student>)listBoxStudents.SelectedItem;
-                StudentQuery studentQuery = await DeleteEntities.DeleteStudentAsync(student.Value);
+                StudentQuery studentQuery = await _deleteEntities.DeleteStudentAsync(student.Value);
                 MessageBox.Show(studentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 await LoadListBoxByIndexAsync(ComboBoxClassroom.SelectedItem.ToString());
             }
