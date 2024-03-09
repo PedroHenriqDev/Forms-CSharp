@@ -31,7 +31,7 @@ namespace Services
             {
                 return new StudentQuery(false, "An error occurred when recognizing the student " + student.CompleteName.CutCompleteName(), DateTime.Now, student);
             }
-            await _connectionDb.DeleteRecordInTableByIdAsync(student.Id, "Students");
+            await _connectionDb.DeleteRecordInTableByIdAsync<Student>(student.Id);
             return new StudentQuery(true, "Student " + student.CompleteName.CutCompleteName() + " deleted successfully", DateTime.Now, student);
         }
 
@@ -42,7 +42,7 @@ namespace Services
                 return new CourseQuery(false, "An error occurred when recognizing the course " + course.CourseName, DateTime.Now, course);
             }
 
-            await _connectionDb.DeleteRecordInTableByIdAsync(course.Id, "Courses");
+            await _connectionDb.DeleteRecordInTableByIdAsync<Course>(course.Id);
             return new CourseQuery(true, "Course " + course.CourseName + " deleted successfully", DateTime.Now, course);
         }
 
@@ -53,7 +53,7 @@ namespace Services
                 return new ClassroomQuery(false, "An error occurred when recognizing the course " + classroom.ClassroomName, DateTime.Now, classroom);
             }
 
-            await _connectionDb.DeleteRecordInTableByIdAsync(classroom.Id, "Classrooms");
+            await _connectionDb.DeleteRecordInTableByIdAsync<Classroom>(classroom.Id);
             return new ClassroomQuery(true, "Classroom " + classroom.ClassroomName + " deleted successfully", DateTime.Now, classroom);
         }
 

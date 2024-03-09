@@ -171,12 +171,13 @@ namespace Datas
             }
         }
 
-        public async Task DeleteRecordInTableByIdAsync(int id, string table) 
+        public async Task DeleteRecordInTableByIdAsync<T>(int id) where T : class 
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
                 await connection.OpenAsync();
-                string sqlQuery = $"DELETE FROM {table} WHERE Id = @id";
+                string tableName = typeof(T).Name + "s";
+                string sqlQuery = $"DELETE FROM {tableName} WHERE Id = @id";
                 await connection.ExecuteAsync(sqlQuery, new { id = id });
             }
         }
