@@ -14,6 +14,7 @@ using Business.BusinessComponents.ConcreteClasses;
 using Entities.Expections;
 using Services;
 using Autofac;
+using SystemSchool.Controls;
 
 namespace SystemSchool.Forms.CourseForms
 {
@@ -21,10 +22,12 @@ namespace SystemSchool.Forms.CourseForms
     {
 
         private readonly CreateEntitiesService<Course> _createEntities;
+        private readonly CreateTransientEntities _createTransientEntities;
 
-        public RegistrationCourseForm(CreateEntitiesService<Course> createEntities)
+        public RegistrationCourseForm(CreateEntitiesService<Course> createEntities ,CreateTransientEntities createTransientEntities)
         {
             _createEntities = createEntities;
+            _createTransientEntities = createTransientEntities;
             InitializeComponent();
         }
 
@@ -46,8 +49,7 @@ namespace SystemSchool.Forms.CourseForms
         {
             try
             {
-                Random random = new Random();
-                Course course = new Course(textBoxCourseName.Text, random.Next());
+                Course course = _createTransientEntities.CreateCourseTransient(this);
                 CourseQuery courseQuery = await _createEntities.CreateCourseAsync(course);
                 MessageBox.Show(courseQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

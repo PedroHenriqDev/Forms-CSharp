@@ -13,6 +13,7 @@ using Entities.TransientClasses;
 using SystemSchool.Forms.StudentForms;
 using Services;
 using Autofac;
+using SystemSchool.Controls;
 
 namespace SystemSchool
 {
@@ -20,11 +21,16 @@ namespace SystemSchool
     {
         private readonly SearchEntitiesService _searchEntities;
         private readonly CreateEntitiesService<Student> _createEntities;
+        private readonly CreateTransientEntities _createTransientEntities;
 
-        public RegistrationStudentForm(SearchEntitiesService searchEntities, CreateEntitiesService<Student> createServices) 
+        public RegistrationStudentForm(
+            SearchEntitiesService searchEntities, 
+            CreateEntitiesService<Student> createServices, 
+            CreateTransientEntities createTransientEntities) 
         {
             _searchEntities = searchEntities;
             _createEntities = createServices;
+            _createTransientEntities = createTransientEntities;
             InitializeComponent();
         }
 
@@ -42,7 +48,7 @@ namespace SystemSchool
         {
             IEnumerable<Classroom> classrooms = await _searchEntities.FindClassroomsByCourseNameAsync(courseName);
             ComboBoxClassroom.Items.Clear();
-            ComboBoxClassroom.Items.AddRange(classrooms.Select(c => c.ClassroomName).ToArray());
+            ComboBoxClassroom.Items.AddRange(classrooms.Select(c => new DisplayItem<Classroom>(c, c.ClassroomName)).ToArray());
         }
 
         private async Task LoadComboBoxCoursesAsync()
@@ -86,9 +92,8 @@ namespace SystemSchool
         {
             try
             {
-                Random random = new Random();
+                Student student = _createTransientEntities.CreateStudentTransient(this);
                 Classroom classroom = await _searchEntities.FindClassroomByNameAsync(ComboBoxClassroom.SelectedItem.ToString());
-                Student student = new Student(random.Next(), classroom.Id, textBoxCompleteName.Text);
                 StudentQuery createStudentQuery = await _createEntities.CreateStudentAsync(student);
                 MessageBox.Show(createStudentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

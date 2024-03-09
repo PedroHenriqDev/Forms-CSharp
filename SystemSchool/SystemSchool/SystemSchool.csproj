@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\CreateTransientEntities.cs" />
     <Compile Include="Controls\DisplayItem.cs" />
     <Compile Include="Exceptions\EntityException.cs" />
     <Compile Include="Exceptions\MainFormException.cs" />

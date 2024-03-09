@@ -347,12 +347,12 @@
         private System.Windows.Forms.Label LabelCourse;
         private System.Windows.Forms.Label LabelSchoolYear;
         private System.Windows.Forms.Label LabelClassroomLetter;
-        private System.Windows.Forms.ComboBox ComboBoxSchoolYear;
+        public System.Windows.Forms.ComboBox ComboBoxSchoolYear;
         private System.Windows.Forms.PictureBox pictureBoxBack;
         private System.Windows.Forms.Label LabelDeleteClassroom;
         private System.Windows.Forms.Label LabelEditClassroom;
-        private System.Windows.Forms.ComboBox ComboBoxLetter;
-        private System.Windows.Forms.ComboBox ComboBoxCourse;
+        public System.Windows.Forms.ComboBox ComboBoxLetter;
+        public System.Windows.Forms.ComboBox ComboBoxCourse;
         private System.Windows.Forms.Label LabelClassroomNameShow;
         private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.Label LabelCourseNameShow;

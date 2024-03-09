@@ -278,9 +278,9 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox ComboBoxClassroom;
+        public System.Windows.Forms.ComboBox ComboBoxClassroom;
         private System.Windows.Forms.ComboBox ComboBoxCourse;
-        private System.Windows.Forms.TextBox textBoxCompleteName;
+        public System.Windows.Forms.TextBox textBoxCompleteName;
         private System.Windows.Forms.Label LabelStudentName;
         private System.Windows.Forms.Label LabelCourse;
         private System.Windows.Forms.Label LabelClassroom;

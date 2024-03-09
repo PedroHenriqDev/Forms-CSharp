@@ -7,6 +7,7 @@ using SystemSchool.Forms.CourseForms;
 using Entities;
 using SystemSchool.Forms.StudentForms;
 using Datas;
+using SystemSchool.Controls;
 
 namespace SystemSchool
 {
@@ -44,6 +45,8 @@ namespace SystemSchool
             builder.RegisterType<FillEntitiesService>().AsSelf();
             builder.RegisterType<SearchEntitiesService>().AsSelf();
             builder.RegisterType<ConnectionDb>().AsSelf();
+
+            builder.RegisterType<CreateTransientEntities>().AsSelf();
 
 
             Container = builder.Build();

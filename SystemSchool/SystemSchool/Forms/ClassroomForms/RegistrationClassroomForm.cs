@@ -21,12 +21,17 @@ namespace SystemSchool.Forms.ClassroomForms
     {
         private readonly SearchEntitiesService _searchEntities;
         private readonly CreateEntitiesService<Classroom> _createEntities;
+        private readonly CreateTransientEntities _createTransientEntities;
 
-        public RegistrationClassroomForm(SearchEntitiesService searchEntities, CreateEntitiesService<Classroom> createEntities)
+        public RegistrationClassroomForm(
+            SearchEntitiesService searchEntities, 
+            CreateEntitiesService<Classroom> createEntities,
+            CreateTransientEntities createTransientEntities)
         {
             InitializeComponent();
             _searchEntities = searchEntities;
             _createEntities = createEntities;
+            _createTransientEntities = createTransientEntities;
         }
 
         private async void RegistrationClassroomForm_Load(object sender, EventArgs e)
@@ -47,7 +52,7 @@ namespace SystemSchool.Forms.ClassroomForms
         private async Task LoadComboBoxCourseAsync()
         {
             IEnumerable<Course> courses = await _searchEntities.FindAllCoursesAsync();
-            ComboBoxCourse.Items.AddRange(courses.Select(c => c.CourseName).ToArray());
+            ComboBoxCourse.Items.AddRange(courses.Select(c => new DisplayItem<Course>(c, c.CourseName)).ToArray());
         }
 
         private async void ComboBoxSchoolYear_SelectedIndexChanged(object sender, EventArgs e)
@@ -76,10 +81,7 @@ namespace SystemSchool.Forms.ClassroomForms
         {
             try
             {
-                string classroomName = ComboBoxSchoolYear.SelectedItem.ToString().Substring(0, 1) + ComboBoxLetter.SelectedItem.ToString();
-                Course course = await _searchEntities.FindCourseByNameAsync(ComboBoxCourse.SelectedItem.ToString());
-                Random random = new Random();
-                Classroom classroom = new Classroom(random.Next(), classroomName, course.Id);
+                Classroom classroom = _createTransientEntities.CreateClassroomTransient(this);
                 ClassroomQuery createClassroomQuery = await _createEntities.CreateClassroomAsync(classroom);
                 MessageBox.Show(createClassroomQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
