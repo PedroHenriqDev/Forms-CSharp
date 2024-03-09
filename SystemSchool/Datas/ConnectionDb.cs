@@ -50,13 +50,14 @@ namespace Datas
             }
         }
 
-        public async Task<Course> ReturnCourseByIdAsync(int id) 
+        public async Task<T> ReturnEntityByIdAsync<T>(int id) where T : class
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"SELECT * FROM Courses WHERE Id = @id";
-                return await connection.QueryFirstOrDefaultAsync<Course>(sqlQuery, new { id = id });
+                string tableName = typeof(T).Name + "s";
+                string sqlQuery = $"SELECT * FROM {tableName} WHERE Id = @id";
+                return await connection.QueryFirstOrDefaultAsync<T>(sqlQuery, new { id = id });
             }
         }
 
@@ -80,15 +81,6 @@ namespace Datas
             }
         }
 
-        public async Task<Classroom> ReturnClassroomByIdAsync(int id) 
-        {
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
-            {
-                await connection.OpenAsync();
-                string sqlQuery = @"SELECT * FROM Classrooms WHERE Id = @id";
-                return await connection.QueryFirstOrDefaultAsync<Classroom>(sqlQuery, new { Id = id });
-            }
-        }
 
         public async Task<IEnumerable<Classroom>> ReturnAllClassromsAsync()
         {
@@ -130,15 +122,6 @@ namespace Datas
             }
         }
 
-        public async Task<Student> ReturnStudentByIdAsync(int id) 
-        {
-            using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
-            {
-                await connection.OpenAsync();
-                string sqlQuery = @"SELECT * FROM Students WHERE Id = @id";
-                return await connection.QueryFirstOrDefaultAsync<Student>(sqlQuery, new { id = id });
-            }
-        }
 
         public async Task CreateCourseInDbAsync(Course course)
         {
@@ -186,36 +169,6 @@ namespace Datas
                     ClassroomId = student.ClassroomId,
                     CompleteName = student.CompleteName
                 });
-            }
-        }
-
-        public async Task DeleteStudentByIdAsync(int Id) 
-        {
-            using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
-            {
-                await connection.OpenAsync();
-                string sqlQuery = @"DELETE FROM Students WHERE Id = @Id";
-                await connection.ExecuteAsync(sqlQuery, new {Id = Id});
-            }
-        }
-
-        public async Task DeleteCourseByIdAsync(int id) 
-        {
-            using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
-            {
-                await connection.OpenAsync();
-                string sqlQuery = @"DELETE FROM Courses WHERE Id = @id";
-                await connection.ExecuteAsync(sqlQuery, new { id = id });
-            }
-        }
-
-        public async Task DeleteClassroomByIdAsync(int id) 
-        {
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
-            {
-                await connection.OpenAsync();
-                string sqlQuery = @"DELETE FROM Classrooms WHERE Id = @id";
-                await connection.ExecuteAsync(sqlQuery, new { id = id });
             }
         }
 

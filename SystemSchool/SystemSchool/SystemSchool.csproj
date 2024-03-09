@@ -223,10 +223,6 @@
     <Content Include="Resources\icons8-user-64.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business\Services.csproj">
-      <Project>{6de696f4-3b1e-4da9-8822-3006366de8bc}</Project>
-      <Name>Services</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Datas\Datas.csproj">
       <Project>{bd438a1a-0dbe-4927-a410-332555a89321}</Project>
       <Name>Datas</Name>
@@ -234,6 +230,10 @@
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{18bd685b-8390-4edb-90df-361728fd0263}</Project>
       <Name>Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{0b11a345-0d29-47c7-89d7-09964d46dbe9}</Project>
+      <Name>Services</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

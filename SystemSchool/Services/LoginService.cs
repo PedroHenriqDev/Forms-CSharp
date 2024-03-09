@@ -14,6 +14,7 @@ namespace Services
     public class LoginService
     {
         private readonly ConnectionDb ConnectionDb = new ConnectionDb();
+
         public async Task<LoginQuery> LoginAsync(User user)
         {
             User userDb = await ConnectionDb.VerifyCredentialsAsync(user);

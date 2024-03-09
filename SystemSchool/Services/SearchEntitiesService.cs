@@ -25,7 +25,7 @@ namespace Services
 
         public async Task<Classroom> FindClassroomByIdAsync(int classroomId) 
         {
-            return await ConnectionDb.ReturnClassroomByIdAsync(classroomId);
+            return await ConnectionDb.ReturnEntityByIdAsync<Classroom>(classroomId);
         }
 
         public async Task<IEnumerable<Student>> FindStudentByQueryAsync(string query) 
@@ -37,17 +37,12 @@ namespace Services
                 return students;
             }
 
-            foreach (Student student in students)
-            {
-                student.Classroom = await ConnectionDb.ReturnClassroomByIdAsync(student.ClassroomId);
-            }
-
             return students.Where(s => s.CompleteName.ToLower().Contains(query.ToLower())).ToList();
         }
 
         public async Task<Student> FindStudentByIdAsync(int id) 
         {
-            return await ConnectionDb.ReturnStudentByIdAsync(id);
+            return await ConnectionDb.ReturnEntityByIdAsync<Student>(id);
         }
 
         public async Task<IEnumerable<Classroom>> FindClassroomsByCourseNameAsync(string courseName) 
@@ -73,7 +68,7 @@ namespace Services
 
         public async Task<Course> FindCourseByIdAsync(int courseId) 
         {
-            return await ConnectionDb.ReturnCourseByIdAsync(courseId);
+            return await ConnectionDb.ReturnEntityByIdAsync<Course>(courseId);
         }
 
         public async Task<IEnumerable<Student>> FindStudentsByClassroomNameAsync(string ClassroomName) 

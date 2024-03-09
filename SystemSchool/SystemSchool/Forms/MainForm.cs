@@ -41,6 +41,7 @@ namespace SystemSchool
             var studentForm = Program.Container.Resolve<RegistrationStudentForm>();
             studentForm.ShowDialog();
         }
+
         private void pictureClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -72,7 +73,7 @@ namespace SystemSchool
 
         private void LabelCourseRegistration_Click(object sender, EventArgs e)
         {
-            pictureClassroom_Click(sender, e);
+            pictureCourse_Click(sender, e);
         }
 
         private void LabelClassroom_Click(object sender, EventArgs e)

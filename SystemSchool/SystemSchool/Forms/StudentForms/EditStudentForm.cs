@@ -12,8 +12,8 @@ using Business.Extensions;
 using SystemSchool.Controls;
 using Entities.TransientClasses;
 using SystemSchool.Expections;
-using Services;
 using Autofac;
+using Services;
 
 namespace SystemSchool.Forms.StudentForms
 {
@@ -36,6 +36,7 @@ namespace SystemSchool.Forms.StudentForms
         private async Task LoadListBoxSearchAsync()
         {
             IEnumerable<Student> students = await SearchEntities.FindStudentByQueryAsync(textBoxSearch.Text);
+            await FillEntities.FillClassroomInStudentAsync(students);
             listBoxSearch.Items.Clear();
             foreach (Student student in students)
             {

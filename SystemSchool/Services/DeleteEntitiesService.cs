@@ -19,7 +19,7 @@ namespace Services
 
         public async Task<StudentQuery> DeleteStudentAsync(Student student)
         {
-            Student studentDb = await ConnectionDb.ReturnStudentByIdAsync(student.Id);
+            Student studentDb = await ConnectionDb.ReturnEntityByIdAsync<Student>(student.Id);
             if (studentDb == null || !ValidationEntities.EntityHasId(studentDb.Id))
             {
                 return new StudentQuery(false, "An error occurred when recognizing the student " + student.CompleteName.CutCompleteName(), DateTime.Now, student);

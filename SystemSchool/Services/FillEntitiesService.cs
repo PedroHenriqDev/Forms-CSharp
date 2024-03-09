@@ -1,4 +1,5 @@
-﻿using Entities;
+﻿using Datas;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,8 @@ namespace Services
     public class FillEntitiesService
     {
 
-        SearchEntitiesService SearchEntities = new SearchEntitiesService();
+        private readonly SearchEntitiesService SearchEntities = new SearchEntitiesService();
+        private readonly ConnectionDb ConnectionDb = new ConnectionDb();
 
         public async Task FillCourseInClassroomAsync(IEnumerable<Classroom> classrooms) 
         {
@@ -23,6 +25,17 @@ namespace Services
                         Course course = await SearchEntities.FindCourseByIdAsync(classroom.CourseId);
                         classroom.Course = course;
                     }
+                }
+            }
+        }
+
+        public async Task FillClassroomInStudentAsync(IEnumerable<Student> students) 
+        {
+            if(students != null) 
+            {
+                foreach (Student student in students)
+                {
+                    student.Classroom = await ConnectionDb.ReturnEntityByIdAsync<Classroom>(student.ClassroomId);
                 }
             }
         }
