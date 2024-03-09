@@ -1,13 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Autofac;
+using System;
 using System.Windows.Forms;
+using Services;
+using SystemSchool.Forms.ClassroomForms;
+using SystemSchool.Forms.CourseForms;
+using Entities;
+using SystemSchool.Forms.StudentForms;
 
 namespace SystemSchool
 {
     internal static class Program
     {
+        public static IContainer Container { get; private set; }
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,7 +21,32 @@ namespace SystemSchool
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+
+            var builder = new ContainerBuilder();
+            builder.RegisterType<MainForm>().AsSelf();
+            builder.RegisterType<RegistrationStudentForm>().AsSelf();
+            builder.RegisterType<RegistrationClassroomForm>().AsSelf();
+            builder.RegisterType<RegistrationCourseForm>().AsSelf();
+            builder.RegisterType<EditStudentForm>().AsSelf();
+            builder.RegisterType<EditClassroomForm>().AsSelf();
+            builder.RegisterType<DeleteCourseForm>().AsSelf();
+            builder.RegisterType<DeleteStudentForm>().AsSelf();
+            builder.RegisterType<DeleteClassroomForm>().AsSelf();
+
+            // Register generic services
+            builder.RegisterGeneric(typeof(CreateEntitiesService<>)).AsSelf();
+            builder.RegisterGeneric(typeof(DeleteEntitiesService<>)).AsSelf();
+            builder.RegisterGeneric(typeof(EditEntitiesService<>)).AsSelf();
+
+            builder.RegisterType<LoginService>().AsSelf();
+            builder.RegisterType<FillEntitiesService>().AsSelf();
+            builder.RegisterType<SearchEntitiesService>().AsSelf();
+
+
+            Container = builder.Build();
+
+            var loginService = Container.Resolve<LoginService>();
+            Application.Run(new Login(loginService));
         }
     }
 }

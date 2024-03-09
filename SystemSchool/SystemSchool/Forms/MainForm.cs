@@ -11,6 +11,8 @@ using SystemSchool.Forms.StudentForms;
 using Entities;
 using SystemSchool.Forms.ClassroomForms;
 using SystemSchool.Forms.CourseForms;
+using Autofac;
+using Services;
 
 namespace SystemSchool
 {
@@ -19,11 +21,6 @@ namespace SystemSchool
         public MainForm()
         {
             InitializeComponent();
-        }
-
-        private void pictureClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -41,22 +38,26 @@ namespace SystemSchool
         private void pictureStudent_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RegistrationStudentForm formStudent = new RegistrationStudentForm();
-            formStudent.ShowDialog();
+            var studentForm = Program.Container.Resolve<RegistrationStudentForm>();
+            studentForm.ShowDialog();
+        }
+        private void pictureClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private void pictureClassroom_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RegistrationClassroomForm formClassroom = new RegistrationClassroomForm();
-            formClassroom.ShowDialog();
+            var registerClassroomForm = Program.Container.Resolve<RegistrationClassroomForm>();
+            registerClassroomForm.ShowDialog();
         }
 
         private void pictureCourse_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RegistrationCourseForm formCourse = new RegistrationCourseForm();
-            formCourse.ShowDialog();
+            var registrationCourseForm = Program.Container.Resolve<RegistrationCourseForm>();
+            registrationCourseForm.ShowDialog();
         }
 
         private void LabelStudentRegistration_Click(object sender, EventArgs e)

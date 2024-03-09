@@ -219,13 +219,23 @@ namespace Datas
             }
         }
 
-        public async Task DeleteRecordsInTableAsync(IEnumerable<int> recordIds, string tableName, string where)
+        public async Task DeleteRecordInTableByIdAsync(int id, string table) 
+        {
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
+            {
+                await connection.OpenAsync();
+                string sqlQuery = $"DELETE FROM {table} WHERE Id = @id";
+                await connection.ExecuteAsync(sqlQuery, new { id = id });
+            }
+        }
+
+        public async Task DeleteRecordsInTableByIdAsync(IEnumerable<int> recordIds, string tableName)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
             {
                 await connection.OpenAsync();
                 string idsToDelete = string.Join(",", recordIds);
-                string sqlQuery = $"DELETE FROM {tableName} WHERE {where} IN ({idsToDelete})";
+                string sqlQuery = $"DELETE FROM {tableName} WHERE Id IN ({idsToDelete})";
                 await connection.ExecuteAsync(sqlQuery);
             }
         }

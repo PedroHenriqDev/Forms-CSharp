@@ -7,9 +7,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.BusinessLogic
+namespace Services
 {
-    public class SearchEntitiesBusiness
+    public class SearchEntitiesService
     {
         private readonly ConnectionDb ConnectionDb = new ConnectionDb();
 

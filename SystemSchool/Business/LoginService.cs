@@ -8,9 +8,10 @@ using Business.BusinessComponents.ConcreteClasses;
 using Datas;
 using Entities;
 
-namespace Business
+namespace Services
 {
-    public class LoginBusiness
+
+    public class LoginService
     {
         private readonly ConnectionDb ConnectionDb = new ConnectionDb();
         public async Task<LoginQuery> LoginAsync(User user)

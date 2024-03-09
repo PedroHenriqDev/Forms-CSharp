@@ -5,24 +5,21 @@ using Entities;
 using SystemSchool.Helpers;
 using Business.BusinessComponents.ConcreteClasses;
 using SystemSchool.Expections;
+using Services;
 
 namespace SystemSchool
 {
     public partial class Login : Form
     {
-        Business.LoginBusiness BusinessCls = new Business.LoginBusiness();
+        private readonly LoginService LoginService;
         static public User UserCls = new User();
         MainForm MainForm = new MainForm();
-        DataAccess dataAccess = new DataAccess();
+        DataAccess DataAccess = new DataAccess();
 
-        public Login()
+        public Login(LoginService loginService) 
         {
+            LoginService = loginService;
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
         }
 
         private async void ButtonLogin_Click(object sender, EventArgs e)
@@ -36,14 +33,14 @@ namespace SystemSchool
             {
                 UserCls.Username = TextUsername.Text;
                 UserCls.PasswordHash = TextPassword.Text;
-                LoginQuery loginQuery = await BusinessCls.LoginAsync(UserCls);
+                LoginQuery loginQuery = await LoginService.LoginAsync(UserCls);
                 if (loginQuery.Result)
                 {
                     UserCls = loginQuery.User;
                     MessageBox.Show(loginQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
-                    dataAccess.MainFormAccess(MainForm, UserCls);
-                    MainForm.Show();
+                    DataAccess.MainFormAccess(MainForm, UserCls);
+                    MainForm.ShowDialog();
                 }
                 else
                 {

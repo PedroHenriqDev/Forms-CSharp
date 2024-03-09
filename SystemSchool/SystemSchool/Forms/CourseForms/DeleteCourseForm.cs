@@ -1,5 +1,4 @@
-﻿using Business.BusinessLogic;
-using Entities;
+﻿using Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,17 +10,22 @@ using SystemSchool.Controls;
 using System.Windows.Forms;
 using Entities.TransientClasses;
 using System.Linq;
+using Services;
+using Autofac;
+
 
 namespace SystemSchool.Forms.CourseForms
 {
     public partial class DeleteCourseForm : Form
     {
 
-        SearchEntitiesBusiness SearchEntities = new SearchEntitiesBusiness();
-        DeleteEntitiesBusiness<Course> DeleteEntities = new DeleteEntitiesBusiness<Course>();
+        private readonly SearchEntitiesService SearchEntities;
+        private readonly DeleteEntitiesService<Course> DeleteEntities;
 
-        public DeleteCourseForm()
+        public DeleteCourseForm(SearchEntitiesService searchEntities, DeleteEntitiesService<Course> deleteEntities)
         {
+            SearchEntities = searchEntities;
+            DeleteEntities = deleteEntities;
             InitializeComponent();
         }
 
@@ -67,8 +71,8 @@ namespace SystemSchool.Forms.CourseForms
         private void pictureBoxBack_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RegistrationCourseForm registrationForm = new RegistrationCourseForm();
-            registrationForm.ShowDialog();
+            var formCourse = Program.Container.Resolve<RegistrationCourseForm>();
+            formCourse.ShowDialog();
         }
     }
 }

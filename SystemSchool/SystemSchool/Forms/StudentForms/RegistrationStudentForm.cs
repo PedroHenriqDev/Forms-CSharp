@@ -7,21 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business.BusinessLogic;
 using Entities;
 using Entities.Expections;
 using Entities.TransientClasses;
 using SystemSchool.Forms.StudentForms;
+using Services;
+using Autofac;
 
 namespace SystemSchool
 {
     public partial class RegistrationStudentForm : Form
     {
-        SearchEntitiesBusiness SearchEntities = new SearchEntitiesBusiness();
-        CreateEntitiesBusiness<Student> CreateEntities = new CreateEntitiesBusiness<Student>();
+        private readonly SearchEntitiesService SearchEntities;
+        private readonly CreateEntitiesService<Student> CreateEntities;
 
-        public RegistrationStudentForm()
+        public RegistrationStudentForm(SearchEntitiesService searchEntities, CreateEntitiesService<Student> createServices) 
         {
+            SearchEntities = searchEntities;
+            CreateEntities = createServices;
             InitializeComponent();
         }
 
@@ -68,15 +71,15 @@ namespace SystemSchool
         private void pictureBoxEdit_Click(object sender, EventArgs e)
         {
             this.Hide();
-            EditStudentForm editForm = new EditStudentForm();
-            editForm.ShowDialog();
+            var studentForm = Program.Container.Resolve<EditStudentForm>();
+            studentForm.ShowDialog();
         }
 
         private void pictureBoxDelete_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DeleteStudentForm deleteForm = new DeleteStudentForm();
-            deleteForm.ShowDialog();
+            var studentForm = Program.Container.Resolve<DeleteStudentForm>();
+            studentForm.ShowDialog();
         }
 
         private async void buttonCreate_Click(object sender, EventArgs e)
@@ -102,7 +105,5 @@ namespace SystemSchool
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
     }
 }

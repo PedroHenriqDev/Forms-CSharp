@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.BusinessLogic
+namespace Services
 {
-    public class FillEntitiesBusiness
+    public class FillEntitiesService
     {
 
-        SearchEntitiesBusiness SearchEntities = new SearchEntitiesBusiness();
+        SearchEntitiesService SearchEntities = new SearchEntitiesService();
 
         public async Task FillCourseInClassroomAsync(IEnumerable<Classroom> classrooms) 
         {

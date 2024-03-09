@@ -1,5 +1,4 @@
-﻿using Business.BusinessLogic;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,24 +12,21 @@ using Datas;
 using Entities.TransientClasses;
 using SystemSchool.Controls;
 using Entities.Expections;
+using Services;
+using Autofac;
 
 namespace SystemSchool.Forms.ClassroomForms
 {
     public partial class RegistrationClassroomForm : Form
     {
-        private readonly SearchEntitiesBusiness SearchEntities = new SearchEntitiesBusiness();
-        private readonly CreateEntitiesBusiness<Classroom> CreateEntities = new CreateEntitiesBusiness<Classroom>();
+        private readonly SearchEntitiesService SearchEntities;
+        private readonly CreateEntitiesService<Classroom> CreateEntities;
 
-        public RegistrationClassroomForm()
+        public RegistrationClassroomForm(SearchEntitiesService searchEntities, CreateEntitiesService<Classroom> createEntities)
         {
             InitializeComponent();
-        }
-
-        private void pictureBoxBack_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            MainForm mainForm = new MainForm();
-            mainForm.ShowDialog();
+            SearchEntities = searchEntities;
+            CreateEntities = createEntities;
         }
 
         private async void RegistrationClassroomForm_Load(object sender, EventArgs e)
@@ -104,8 +100,16 @@ namespace SystemSchool.Forms.ClassroomForms
         private void pictureBoxDelete_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DeleteClassroomForm deleteForm = new DeleteClassroomForm();
+            var deleteForm = Program.Container.Resolve<DeleteClassroomForm>();
             deleteForm.ShowDialog();
+        }
+
+
+        private void pictureBoxBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainForm mainForm = new MainForm();
+            mainForm.ShowDialog();
         }
 
         private void LabelDeleteClassroom_Click(object sender, EventArgs e)

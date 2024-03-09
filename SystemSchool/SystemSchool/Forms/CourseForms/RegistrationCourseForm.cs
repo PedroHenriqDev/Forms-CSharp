@@ -8,21 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
-using Business.BusinessLogic;
 using Entities.TransientClasses;
 using System.Linq.Expressions;
 using Business.BusinessComponents.ConcreteClasses;
 using Entities.Expections;
+using Services;
+using Autofac;
 
 namespace SystemSchool.Forms.CourseForms
 {
     public partial class RegistrationCourseForm : Form
     {
 
-        CreateEntitiesBusiness<Course> createEntities = new CreateEntitiesBusiness<Course>();
+        private readonly CreateEntitiesService<Course> CreateEntities;
 
-        public RegistrationCourseForm()
+        public RegistrationCourseForm(CreateEntitiesService<Course> createEntities)
         {
+            CreateEntities = createEntities;
             InitializeComponent();
         }
 
@@ -33,13 +35,20 @@ namespace SystemSchool.Forms.CourseForms
             mainForm.ShowDialog();
         }
 
+        private void pictureBoxDelete_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var deleteForm = Program.Container.Resolve<DeleteCourseForm>();
+            deleteForm.ShowDialog();
+        }
+
         private async void buttonCreate_Click(object sender, EventArgs e)
         {
             try
             {
                 Random random = new Random();
                 Course course = new Course(textBoxCourseName.Text, random.Next());
-                CourseQuery courseQuery = await createEntities.CreateCourseAsync(course);
+                CourseQuery courseQuery = await CreateEntities.CreateCourseAsync(course);
                 MessageBox.Show(courseQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ArgumentNullException ex)
@@ -54,13 +63,6 @@ namespace SystemSchool.Forms.CourseForms
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void pictureBoxDelete_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            DeleteCourseForm deleteForm = new DeleteCourseForm();
-            deleteForm.ShowDialog();
         }
     }
 }

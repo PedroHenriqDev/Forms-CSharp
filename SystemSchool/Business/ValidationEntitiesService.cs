@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 using Entities.Expections;
 using System.Windows.Forms;
 
-namespace Business.BusinessLogic
+namespace Services
 {
-    public class ValidationEntitiesBusiness<T>
+    public class ValidationEntitiesService<T>
     {
         public bool IsValidNameCourse(Course course, IEnumerable<Course> courses)
         {

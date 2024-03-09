@@ -45,13 +45,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessLogic\CreateEntitiesBusiness.cs" />
-    <Compile Include="BusinessLogic\DeleteEntitiesBusiness.cs" />
-    <Compile Include="BusinessLogic\FillEntitiesBusiness.cs" />
-    <Compile Include="BusinessLogic\LoginBusiness.cs" />
-    <Compile Include="BusinessLogic\SearchEntitiesBusiness.cs" />
-    <Compile Include="BusinessLogic\EditEntitiesBusiness.cs" />
-    <Compile Include="BusinessLogic\ValidationEntitiesBusiness.cs" />
+    <Compile Include="CreateEntitiesService.cs" />
+    <Compile Include="DeleteEntitiesService.cs" />
+    <Compile Include="FillEntitiesService.cs" />
+    <Compile Include="LoginService.cs" />
+    <Compile Include="SearchEntitiesService.cs" />
+    <Compile Include="EditEntitiesService.cs" />
+    <Compile Include="ValidationEntitiesService.cs" />
     <Compile Include="Extensions\StringExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

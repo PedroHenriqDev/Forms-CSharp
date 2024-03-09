@@ -10,12 +10,12 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.BusinessLogic
+namespace Services
 {
-    public class CreateEntitiesBusiness<T>
+    public class CreateEntitiesService<T>
     {
         private readonly ConnectionDb ConnectionDb = new ConnectionDb();
-        private readonly ValidationEntitiesBusiness<T> ValidationEntities = new ValidationEntitiesBusiness<T>();
+        private readonly ValidationEntitiesService<T> ValidationEntities = new ValidationEntitiesService<T>();
         
         public async Task<CourseQuery> CreateCourseAsync(Course course)
         {

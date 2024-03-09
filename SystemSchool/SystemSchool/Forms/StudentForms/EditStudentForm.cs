@@ -1,5 +1,4 @@
-﻿using Business.BusinessLogic;
-using Entities;
+﻿using Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,27 +11,26 @@ using System.Windows.Forms;
 using Business.Extensions;
 using SystemSchool.Controls;
 using Entities.TransientClasses;
-using SystemSchool.Controls;
 using SystemSchool.Expections;
+using Services;
+using Autofac;
 
 namespace SystemSchool.Forms.StudentForms
 {
     public partial class EditStudentForm : Form
     {
-        SearchEntitiesBusiness SearchEntities = new SearchEntitiesBusiness();
-        EditEntitiesBusiness<Student> EditEntities = new EditEntitiesBusiness<Student>();
-        FillEntitiesBusiness FillEntities = new FillEntitiesBusiness();
+        private readonly SearchEntitiesService SearchEntities;
+        private readonly EditEntitiesService<Student> EditEntities; 
+        private readonly FillEntitiesService FillEntities;
 
-        public EditStudentForm()
+        public EditStudentForm(SearchEntitiesService searchEntities,
+            EditEntitiesService<Student> editEntities,
+            FillEntitiesService fillEntities)
         {
             InitializeComponent();
-        }
-
-        private void pictureBoxBack_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            MainForm mainForm = new MainForm();
-            mainForm.ShowDialog();
+            SearchEntities = searchEntities;
+            EditEntities = editEntities;
+            FillEntities = fillEntities;
         }
 
         private async Task LoadListBoxSearchAsync()
@@ -44,6 +42,16 @@ namespace SystemSchool.Forms.StudentForms
                 string displayName = $"{student.CompleteName.CutCompleteName()} - ({student.Classroom.ClassroomName})";
                 listBoxSearch.Items.Add(new DisplayItem<Student>(student, displayName));
             }
+        }
+
+        private async Task LoadComboBoxClassroom()
+        {
+            DisplayItem<Student> student = listBoxSearch.SelectedItem as DisplayItem<Student>;
+            ComboBoxClassroom.Text = student.Value.Classroom.ClassroomName;
+            ComboBoxClassroom.Items.Clear();
+            IEnumerable<Classroom> classrooms = await SearchEntities.FindAllClassroomsAsync();
+            await FillEntities.FillCourseInClassroomAsync(classrooms);
+            ComboBoxClassroom.Items.AddRange(classrooms.Select(c => new DisplayItem<Classroom>(c, $"{c.ClassroomName} - {c.Course.CourseName}")).ToArray());
         }
 
         private async void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
@@ -62,30 +70,6 @@ namespace SystemSchool.Forms.StudentForms
             }
         }
 
-        private void FillTextBoxStudentName()
-        {
-            DisplayItem<Student> student = listBoxSearch.SelectedItem as DisplayItem<Student>;
-            textBoxStudentName.Text = student.Value.CompleteName;
-        }
-
-        private async Task LoadComboBoxClassroom()
-        {
-            DisplayItem<Student> student = listBoxSearch.SelectedItem as DisplayItem<Student>;
-            ComboBoxClassroom.Text = student.Value.Classroom.ClassroomName;
-            ComboBoxClassroom.Items.Clear();
-            IEnumerable<Classroom> classrooms = await SearchEntities.FindAllClassroomsAsync();
-            await FillEntities.FillCourseInClassroomAsync(classrooms);
-            ComboBoxClassroom.Items.AddRange(classrooms.Select(c => new DisplayItem<Classroom>(c, $"{c.ClassroomName} - {c.Course.CourseName}")).ToArray());
-        }
-
-        private async void FillLabelStudent()
-        {
-            DisplayItem<Student> student = listBoxSearch.SelectedItem as DisplayItem<Student>;
-            LabelStudent.ForeColor = Color.Black;
-            student.Value.Classroom = await SearchEntities.FindClassroomByIdAsync(student.Value.ClassroomId);
-            student.Value.Classroom.Course = await SearchEntities.FindCourseByIdAsync(student.Value.Classroom.CourseId);
-            LabelStudent.Text = $"{student.Value.CompleteName} - {student.Value.Classroom.Course.CourseName} - {student.Value.Classroom.ClassroomName}";
-        }
 
         private async void buttonEdit_Click(object sender, EventArgs e)
         {
@@ -95,7 +79,7 @@ namespace SystemSchool.Forms.StudentForms
                 student.Value.CompleteName = textBoxStudentName.Text;
                 FillStudent(student.Value);
                 StudentQuery studentQuery = await EditEntities.EditStudentAsync(student.Value);
-                if (studentQuery.Result) 
+                if (studentQuery.Result)
                 {
                     LabelStudent.Text = textBoxStudentName.Text;
                 }
@@ -106,7 +90,7 @@ namespace SystemSchool.Forms.StudentForms
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch(EntityException ex) 
+            catch (EntityException ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -114,6 +98,21 @@ namespace SystemSchool.Forms.StudentForms
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void FillTextBoxStudentName()
+        {
+            DisplayItem<Student> student = listBoxSearch.SelectedItem as DisplayItem<Student>;
+            textBoxStudentName.Text = student.Value.CompleteName;
+        }
+
+        private async void FillLabelStudent()
+        {
+            DisplayItem<Student> student = listBoxSearch.SelectedItem as DisplayItem<Student>;
+            LabelStudent.ForeColor = Color.Black;
+            student.Value.Classroom = await SearchEntities.FindClassroomByIdAsync(student.Value.ClassroomId);
+            student.Value.Classroom.Course = await SearchEntities.FindCourseByIdAsync(student.Value.Classroom.CourseId);
+            LabelStudent.Text = $"{student.Value.CompleteName} - {student.Value.Classroom.Course.CourseName} - {student.Value.Classroom.ClassroomName}";
         }
 
         private async Task FillStudent(Student student)
@@ -133,15 +132,20 @@ namespace SystemSchool.Forms.StudentForms
         private void pictureBoxDelete_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DeleteStudentForm deleteForm = new DeleteStudentForm();
-            deleteForm.ShowDialog();
+            var studentForm = Program.Container.Resolve<DeleteStudentForm>();
+            studentForm.ShowDialog();
+        }
+
+        private void pictureBoxBack_Click(object sender, EventArgs e)
+        {
+            pictureBoxStudent_Click(sender, e);
         }
 
         private void pictureBoxStudent_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RegistrationStudentForm registerForm = new RegistrationStudentForm();
-            registerForm.ShowDialog();
+            var studentForm = Program.Container.Resolve<RegistrationStudentForm>();
+            studentForm.ShowDialog();
         }
 
         private void LabelDeleteStudent_Click(object sender, EventArgs e)

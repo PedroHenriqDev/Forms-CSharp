@@ -8,21 +8,24 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business.BusinessLogic;
 using Entities;
 using Entities.TransientClasses;
 using SystemSchool.Controls;
+using Services;
+using Autofac;
 
 namespace SystemSchool.Forms.StudentForms
 {
     public partial class DeleteStudentForm : Form
     {
-        SearchEntitiesBusiness SearchEntitiesBusiness = new SearchEntitiesBusiness();
-        DeleteEntitiesBusiness<Student> DeleteEntities = new DeleteEntitiesBusiness<Student>();
+        private readonly SearchEntitiesService SearchEntities;
+        private readonly DeleteEntitiesService<Student> DeleteEntities;
 
-        public DeleteStudentForm()
+        public DeleteStudentForm(SearchEntitiesService searchEntities, DeleteEntitiesService<Student> deleteEntities)
         {
             InitializeComponent();
+            SearchEntities= searchEntities;
+            DeleteEntities = deleteEntities;
         }
 
         private async void StudentDeleteForm_Load(object sender, EventArgs e)
@@ -30,20 +33,20 @@ namespace SystemSchool.Forms.StudentForms
             await LoadComboBoxClassroomsAsync();
         }
 
-        private async Task LoadComboBoxClassroomsAsync()
-        {
-            IEnumerable<Classroom> classrooms = await SearchEntitiesBusiness.FindAllClassroomsAsync();
-            ComboBoxClassroom.Items.AddRange(classrooms.Select(c => c.ClassroomName).ToArray());
-        }
-
         private async void ComboBoxClassroom_SelectedIndexChanged(object sender, EventArgs e)
         {
             await LoadListBoxByIndexAsync(ComboBoxClassroom.SelectedItem.ToString());
         }
 
+        private async Task LoadComboBoxClassroomsAsync()
+        {
+            IEnumerable<Classroom> classrooms = await SearchEntities.FindAllClassroomsAsync();
+            ComboBoxClassroom.Items.AddRange(classrooms.Select(c => c.ClassroomName).ToArray());
+        }
+
         private async Task LoadListBoxByIndexAsync(string classroomName)
         {
-            IEnumerable<Student> students = await SearchEntitiesBusiness.FindStudentsByClassroomNameAsync(classroomName);
+            IEnumerable<Student> students = await SearchEntities.FindStudentsByClassroomNameAsync(classroomName);
             listBoxStudents.Items.Clear();
             foreach (Student student in students)
             {
@@ -53,13 +56,6 @@ namespace SystemSchool.Forms.StudentForms
                     listBoxStudents.Items.Add(new DisplayItem<Student>(student, displayName));
                 }
             }
-        }
-
-        private void pictureBoxBack_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            RegistrationStudentForm StudentRegistrationForm = new RegistrationStudentForm();
-            StudentRegistrationForm.ShowDialog();
         }
 
         private async void buttonDelete_Click(object sender, EventArgs e)
@@ -80,20 +76,27 @@ namespace SystemSchool.Forms.StudentForms
         private void pictureBoxEdit_Click(object sender, EventArgs e)
         {
             this.Hide();
-            EditStudentForm editForm = new EditStudentForm();
-            editForm.ShowDialog();
+            var studentForm = Program.Container. Resolve<EditStudentForm>();
+            studentForm.ShowDialog();
         }
 
-        private void LabelEditStudent_Click(object sender, EventArgs e)
+        private void pictureBoxBack_Click(object sender, EventArgs e)
         {
-            pictureBoxEdit_Click(sender, e);
+            this.Hide();
+            var studentForm = Program.Container.Resolve<RegistrationStudentForm>();
+            studentForm.ShowDialog();
         }
 
         private void pictureBoxStudent_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RegistrationStudentForm registerForm = new RegistrationStudentForm();
-            registerForm.ShowDialog();
+            var studentForm = Program.Container.Resolve<RegistrationStudentForm>();
+            studentForm.ShowDialog();
+        }
+
+        private void LabelEditStudent_Click(object sender, EventArgs e)
+        {
+            pictureBoxEdit_Click(sender, e);
         }
 
         private void LabelRegisterStudent_Click(object sender, EventArgs e)

@@ -9,13 +9,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.BusinessLogic
+namespace Services
 {
-    public class DeleteEntitiesBusiness<T>
+    public class DeleteEntitiesService<T>
     {
         private readonly ConnectionDb ConnectionDb = new ConnectionDb();
-        private readonly ValidationEntitiesBusiness<T> ValidationEntities = new ValidationEntitiesBusiness<T>();
-        private readonly SearchEntitiesBusiness SearchEntities = new SearchEntitiesBusiness();
+        private readonly ValidationEntitiesService<T> ValidationEntities = new ValidationEntitiesService<T>();
+        private readonly SearchEntitiesService SearchEntities = new SearchEntitiesService();
 
         public async Task<StudentQuery> DeleteStudentAsync(Student student)
         {
@@ -24,7 +24,7 @@ namespace Business.BusinessLogic
             {
                 return new StudentQuery(false, "An error occurred when recognizing the student " + student.CompleteName.CutCompleteName(), DateTime.Now, student);
             }
-            await ConnectionDb.DeleteStudentByIdAsync(student.Id);
+            await ConnectionDb.DeleteRecordInTableByIdAsync(student.Id, "Students");
             return new StudentQuery(true, "Student " + student.CompleteName.CutCompleteName() + " deleted successfully", DateTime.Now, student);
         }
 
@@ -35,7 +35,7 @@ namespace Business.BusinessLogic
                 return new CourseQuery(false, "An error occurred when recognizing the course " + course.CourseName, DateTime.Now, course);
             }
 
-            await ConnectionDb.DeleteCourseByIdAsync(course.Id);
+            await ConnectionDb.DeleteRecordInTableByIdAsync(course.Id, "Courses");
             return new CourseQuery(true, "Course " + course.CourseName + " deleted successfully", DateTime.Now, course);
         }
 
@@ -46,7 +46,7 @@ namespace Business.BusinessLogic
                 return new ClassroomQuery(false, "An error occurred when recognizing the course " + classroom.ClassroomName, DateTime.Now, classroom);
             }
 
-            await ConnectionDb.DeleteClassroomByIdAsync(classroom.Id);
+            await ConnectionDb.DeleteRecordInTableByIdAsync(classroom.Id, "Classrooms");
             return new ClassroomQuery(true, "Classroom " + classroom.ClassroomName + " deleted successfully", DateTime.Now, classroom);
         }
 
@@ -54,9 +54,9 @@ namespace Business.BusinessLogic
         {
             if (students.Any())
             {
-                await ConnectionDb.DeleteRecordsInTableAsync(students
+                await ConnectionDb.DeleteRecordsInTableByIdAsync(students
                     .Select(c => c.Id)
-                    .ToList(), "Students", "Id");
+                    .ToList(), "Students");
             }
         }
 
@@ -64,10 +64,10 @@ namespace Business.BusinessLogic
         {
             if (classrooms.Any()) 
             {
-                await ConnectionDb.DeleteRecordsInTableAsync(classrooms
+                await ConnectionDb.DeleteRecordsInTableByIdAsync(classrooms
                .Where(c => c.CourseId == courseId)
                .Select(c => c.Id)
-               .ToList(), "Classrooms", "Id");
+               .ToList(), "Classrooms");
             }
         }
     }

@@ -9,12 +9,12 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.BusinessLogic
+namespace Services
 {
-    public class EditEntitiesBusiness<T>
+    public class EditEntitiesService<T>
     {
         private readonly ConnectionDb ConnectionDb = new ConnectionDb();
-        private readonly ValidationEntitiesBusiness<T> ValidationEntities = new ValidationEntitiesBusiness<T>();
+        private readonly ValidationEntitiesService<T> ValidationEntities = new ValidationEntitiesService<T>();
 
         public async Task<StudentQuery> EditStudentAsync(Student student)
         {
