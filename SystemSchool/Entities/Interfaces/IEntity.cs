@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Interfaces
 {
-    public interface IEntity
+    public interface IEntity<T>
     {
         int Id { get; set; }
     }

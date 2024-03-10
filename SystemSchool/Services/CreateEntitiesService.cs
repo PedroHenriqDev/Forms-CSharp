@@ -25,34 +25,34 @@ namespace Services
             _searchEntities = searchEntities;
         }
 
-        public async Task<CourseQuery> CreateCourseAsync(Course course)
+        public async Task<EntityQuery<Course>> CreateCourseAsync(Course course)
         {
             if (_validationEntities.IsValidNameCourse(course, await _connectionDb.ReturnAllEntitiesAsync<Course>()))
             {
                 await _connectionDb.CreateCourseInDbAsync(course);
-                return new CourseQuery(true, "Course " + course.CourseName + " created successfully!", DateTime.Now, course);
+                return new EntityQuery<Course>(true, "Course " + course.CourseName + " created successfully!", DateTime.Now, course);
             }
-            return new CourseQuery(false, course.CourseName + " course already exists", DateTime.Now, course);
+            return new EntityQuery<Course>(false, course.CourseName + " course already exists", DateTime.Now, course);
         }
 
-        public async Task<StudentQuery> CreateStudentAsync(Student student) 
+        public async Task<EntityQuery<Student>> CreateStudentAsync(Student student) 
         {
             if (_validationEntities.IsValidStudent(student)) 
             {
                 await _connectionDb.CreateStudentInDbAsync(student);
-                return new StudentQuery(true, "Student " + student.CompleteName.CutCompleteName() + " created successfully!", DateTime.Now, student);
+                return new EntityQuery<Student>(true, "Student " + student.CompleteName.CutCompleteName() + " created successfully!", DateTime.Now, student);
             }
-                return new StudentQuery(false, "Student " + student.CompleteName.CutCompleteName() + " student already exists!", DateTime.Now, student);
+                return new EntityQuery<Student>(false, "Student " + student.CompleteName.CutCompleteName() + " student already exists!", DateTime.Now, student);
         }
 
-        public async Task<ClassroomQuery> CreateClassroomAsync(Classroom classroom) 
+        public async Task<EntityQuery<Classroom>> CreateClassroomAsync(Classroom classroom) 
         {
             if (_validationEntities.IsValidClassroomName(classroom, await _searchEntities.FindAllClassroomsAsync()))
             {
                 await _connectionDb.CreateClassroomInDbAsync(classroom);
-                return new ClassroomQuery(true, "Classroom " + classroom.ClassroomName + " created successfully!", DateTime.Now, classroom);
+                return new EntityQuery<Classroom>(true, "Classroom " + classroom.ClassroomName + " created successfully!", DateTime.Now, classroom);
             }
-            return new ClassroomQuery(false, "Classroom " + classroom.ClassroomName + " classroom already exist!", DateTime.Now, classroom);
+            return new EntityQuery<Classroom>(false, "Classroom " + classroom.ClassroomName + " classroom already exist!", DateTime.Now, classroom);
         }
     }
 }

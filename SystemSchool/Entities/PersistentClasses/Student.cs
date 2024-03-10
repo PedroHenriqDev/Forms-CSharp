@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Student : IEntity
+    public class Student : IEntity<Student>
     {
         public int Id { get; set; }
         public int ClassroomId {  get; set; }

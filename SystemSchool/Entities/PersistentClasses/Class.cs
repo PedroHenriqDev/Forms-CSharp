@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Class : IEntity
+    public class Class : IEntity<Class>
     {
         public int Id { get; set; }
         public int AccessLevel {get; set;}

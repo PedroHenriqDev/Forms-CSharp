@@ -18,13 +18,17 @@ namespace SystemSchool.Forms.UserForms
 
         private readonly SearchEntitiesService _searchEntities;
         private readonly CreateEntitiesService<User> _createEntities;
+        private readonly CreateTransientEntities _createTransientEntities;
 
-
-        public RegistrationUserForm(SearchEntitiesService searchEntities, CreateEntitiesService<User> createEntities)
+        public RegistrationUserForm(
+            SearchEntitiesService searchEntities,
+            CreateEntitiesService<User> createEntities,
+            CreateTransientEntities createTransientEntities)
         {
             _searchEntities = searchEntities;
             _createEntities = createEntities;
             InitializeComponent();
+            _createTransientEntities = createTransientEntities;
         }
 
         private async void RegistrationUserForm_Load(object sender, EventArgs e)
@@ -32,11 +36,16 @@ namespace SystemSchool.Forms.UserForms
             await LoadComboBoxClass();
         }
 
-        private async Task LoadComboBoxClass() 
+        private async Task LoadComboBoxClass()
         {
             IEnumerable<Class> classes = await _searchEntities.FindAllClassesAsync();
             ComboBoxClass.Items.Clear();
             ComboBoxClass.Items.AddRange(classes.Select(c => new DisplayItem<Class>(c, c.NameClass)).ToArray());
+        }
+
+        private void buttonCreate_Click(object sender, EventArgs e)
+        {
+            User user = _createTransientEntities.CreateUserTransient(this);
         }
     }
 }

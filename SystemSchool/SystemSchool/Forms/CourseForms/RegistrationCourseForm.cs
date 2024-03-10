@@ -10,7 +10,6 @@ using System.Windows.Forms;
 using Entities;
 using Entities.TransientClasses;
 using System.Linq.Expressions;
-using Business.BusinessComponents.ConcreteClasses;
 using Entities.Expections;
 using Services;
 using Autofac;
@@ -52,7 +51,7 @@ namespace SystemSchool.Forms.CourseForms
             try
             {
                 Course course = _createTransientEntities.CreateCourseTransient(this);
-                CourseQuery courseQuery = await _createEntities.CreateCourseAsync(course);
+                EntityQuery<Course> courseQuery = await _createEntities.CreateCourseAsync(course);
                 MessageBox.Show(courseQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ArgumentNullException ex)

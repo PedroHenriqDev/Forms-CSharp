@@ -82,8 +82,8 @@ namespace SystemSchool.Forms.ClassroomForms
             try
             {
                 Classroom classroom = _createTransientEntities.CreateClassroomTransient(this);
-                ClassroomQuery createClassroomQuery = await _createEntities.CreateClassroomAsync(classroom);
-                MessageBox.Show(createClassroomQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                EntityQuery<Classroom> classroomQuery = await _createEntities.CreateClassroomAsync(classroom);
+                MessageBox.Show(classroomQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ArgumentNullException ex)
             {

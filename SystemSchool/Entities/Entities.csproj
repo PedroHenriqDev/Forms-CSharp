@@ -43,14 +43,11 @@
   <ItemGroup>
     <Compile Include="Exceptions\EntityException.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
+    <Compile Include="Interfaces\IEntityQuery.cs" />
     <Compile Include="PersistentClasses\Class.cs" />
     <Compile Include="PersistentClasses\Classroom.cs" />
     <Compile Include="PersistentClasses\Course.cs" />
-    <Compile Include="TransientClasses\ClassroomQuery.cs" />
-    <Compile Include="TransientClasses\CourseQuery.cs" />
-    <Compile Include="TransientClasses\StudentQuery.cs" />
-    <Compile Include="TransientClasses\LoginQuery.cs" />
-    <Compile Include="Interfaces\IResultOfQueries.cs" />
+    <Compile Include="TransientClasses\EntityQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PersistentClasses\Student.cs" />
     <Compile Include="PersistentClasses\User.cs" />

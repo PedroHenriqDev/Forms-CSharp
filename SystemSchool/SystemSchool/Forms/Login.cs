@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
 using SystemSchool.Helpers;
-using Business.BusinessComponents.ConcreteClasses;
 using SystemSchool.Expections;
 using Services;
+using Entities.TransientClasses;
 
 namespace SystemSchool
 {
@@ -33,18 +33,18 @@ namespace SystemSchool
             {
                 UserCls.Username = TextUsername.Text;
                 UserCls.PasswordHash = TextPassword.Text;
-                LoginQuery loginQuery = await _loginService.LoginAsync(UserCls);
-                if (loginQuery.Result)
+                EntityQuery<User> userQuery = await _loginService.LoginAsync(UserCls);
+                if (userQuery.Result)
                 {
-                    UserCls = loginQuery.User;
-                    MessageBox.Show(loginQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    UserCls = userQuery.Value;
+                    MessageBox.Show(userQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
                     DataAccess.MainFormAccess(MainForm, UserCls);
                     MainForm.ShowDialog();
                 }
                 else
                 {
-                    MessageBox.Show(loginQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(userQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (MainFormException ex)

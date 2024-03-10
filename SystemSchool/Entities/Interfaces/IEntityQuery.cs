@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace Entities.Interfaces
 {
-    public interface IResultOfQueries
+    public interface IEntityQuery<T> where T : class
     {
         bool Result { get; set; }
+        string Message { get; set; }
         DateTime Moment { get; set; }
+        T Value { get; set; }
     }
 }

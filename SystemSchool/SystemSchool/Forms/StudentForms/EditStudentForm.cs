@@ -14,6 +14,7 @@ using Entities.TransientClasses;
 using SystemSchool.Expections;
 using Autofac;
 using Services;
+using Services.Exceptions;
 
 namespace SystemSchool.Forms.StudentForms
 {
@@ -79,7 +80,7 @@ namespace SystemSchool.Forms.StudentForms
                 DisplayItem<Student> student = listBoxSearch.SelectedItem as DisplayItem<Student>;
                 student.Value.CompleteName = textBoxStudentName.Text;
                 FillClassroomInStudent(student.Value);
-                StudentQuery studentQuery = await _editEntities.EditStudentAsync(student.Value);
+                EntityQuery<Student> studentQuery = await _editEntities.EditStudentAsync(student.Value);
                 if (studentQuery.Result)
                 {
                     LabelStudent.Text = textBoxStudentName.Text;
@@ -92,6 +93,10 @@ namespace SystemSchool.Forms.StudentForms
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (EntityException ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (FillException ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

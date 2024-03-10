@@ -196,6 +196,7 @@
             this.buttonCreate.TabIndex = 24;
             this.buttonCreate.Text = "Create";
             this.buttonCreate.UseVisualStyleBackColor = false;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // textBoxPassword
             // 
@@ -246,7 +247,7 @@
         private System.Windows.Forms.PictureBox pictureBoxEdit;
         private System.Windows.Forms.PictureBox pictureBoxStudent;
         private System.Windows.Forms.PictureBox pictureBoxSchool;
-        private System.Windows.Forms.ComboBox ComboBoxClass;
+        public System.Windows.Forms.ComboBox ComboBoxClass;
         public System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.Label LabelUsername;
         private System.Windows.Forms.Label LabelClass;

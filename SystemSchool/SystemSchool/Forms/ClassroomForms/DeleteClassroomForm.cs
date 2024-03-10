@@ -70,7 +70,7 @@ namespace SystemSchool.Forms.ClassroomForms
             {
                 DisplayItem<Classroom> classroom = listBoxClassrooms.SelectedItem as DisplayItem<Classroom>;
                 await _deleteEntities.DeleteStudentsAsync(await _searchEntities.FindStudentsByClassroomNameAsync(classroom.Value.ClassroomName));
-                ClassroomQuery classroomQuery = await _deleteEntities.DeleteClassroomAsync(classroom.Value);
+                EntityQuery<Classroom> classroomQuery = await _deleteEntities.DeleteClassroomAsync(classroom.Value);
                 MessageBox.Show(classroomQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listBoxClassrooms.Items.Clear();
                 ComboBoxCourse.Focus();

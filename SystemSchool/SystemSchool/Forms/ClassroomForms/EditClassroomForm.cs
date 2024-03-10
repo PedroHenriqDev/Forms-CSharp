@@ -77,7 +77,7 @@ namespace SystemSchool.Forms.ClassroomForms
                 DisplayItem<Course> course = ComboBoxCourse.SelectedItem as DisplayItem<Course>;
                 DisplayItem<Classroom> classroom = listBoxSearch.SelectedItem as DisplayItem<Classroom>;
                 _fillEntities.FillClassroomWithCourse(classroom.Value, course.Value);
-                ClassroomQuery classroomQuery = await _editEntities.EditClassroomAsync(classroom.Value);
+                EntityQuery<Classroom> classroomQuery = await _editEntities.EditClassroomAsync(classroom.Value);
                 MessageBox.Show(classroomQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 await LoadListBoxSearchAsync();
             }

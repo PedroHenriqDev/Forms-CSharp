@@ -27,24 +27,24 @@ namespace Services
             _searchEntities = searchEntities;
         }
 
-        public async Task<StudentQuery> EditStudentAsync(Student student)
+        public async Task<EntityQuery<Student>> EditStudentAsync(Student student)
         {
             if(_validationEntities.IsValidStudent(student)) 
             {
                 await _connectionDb.EditStudentInDbAsync(student);
-                return new StudentQuery(true,"Student " + student.CompleteName.CutCompleteName() + " edited successfully", DateTime.Now, student);
+                return new EntityQuery<Student>(true,"Student " + student.CompleteName.CutCompleteName() + " edited successfully", DateTime.Now, student);
             }
-            return new StudentQuery(false, "Student " + student.CompleteName.CutCompleteName() + " to be edited there must be some change", DateTime.Now, student);
+            return new EntityQuery<Student>(false, "Student " + student.CompleteName.CutCompleteName() + " to be edited there must be some change", DateTime.Now, student);
         }
 
-        public async Task<ClassroomQuery> EditClassroomAsync(Classroom classroom) 
+        public async Task<EntityQuery<Classroom>> EditClassroomAsync(Classroom classroom) 
         {
             if(_validationEntities.ClassroomNameIsInCorrectOrder(classroom.ClassroomName) && _validationEntities.EntityHasId(classroom.Id)) 
             {
                 await _connectionDb.EditClassroomInDbAsync(classroom);
-                return new ClassroomQuery(true,"Classroom " + classroom.ClassroomName.CutCompleteName() + " edited successfully", DateTime.Now, classroom);
+                return new EntityQuery<Classroom>(true,"Classroom " + classroom.ClassroomName.CutCompleteName() + " edited successfully", DateTime.Now, classroom);
             }
-            return new ClassroomQuery(false, "Classroom " + classroom.ClassroomName.CutCompleteName() + " to be edited there must be some change", DateTime.Now, classroom);
+            return new EntityQuery<Classroom>(false, "Classroom " + classroom.ClassroomName.CutCompleteName() + " to be edited there must be some change", DateTime.Now, classroom);
         }
     }
 }

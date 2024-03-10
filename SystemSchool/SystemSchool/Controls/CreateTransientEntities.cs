@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SystemSchool.Forms.ClassroomForms;
 using SystemSchool.Forms.CourseForms;
+using SystemSchool.Forms.UserForms;
 
 namespace SystemSchool.Controls
 {
@@ -34,6 +35,13 @@ namespace SystemSchool.Controls
             DisplayItem<Course> course = classroomForm.ComboBoxCourse.SelectedItem as DisplayItem<Course>;
             Random random = new Random();
             return new Classroom(random.Next(), classroomName, course.Value.Id);
+        }
+
+        public User CreateUserTransient(RegistrationUserForm userForm) 
+        {
+            DisplayItem<Class> displayClass = userForm.ComboBoxClass.SelectedItem as DisplayItem<Class>;
+            Random random = new Random();
+            return new User(random.Next(), userForm.textBoxUsername.Text, userForm.textBoxPassword.Text, displayClass.Value.Id);
         }
     }
 }

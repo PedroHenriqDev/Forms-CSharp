@@ -63,7 +63,7 @@ namespace SystemSchool.Forms.StudentForms
             try
             {
                 DisplayItem<Student> student = (DisplayItem<Student>)listBoxStudents.SelectedItem;
-                StudentQuery studentQuery = await _deleteEntities.DeleteStudentAsync(student.Value);
+                EntityQuery<Student> studentQuery = await _deleteEntities.DeleteStudentAsync(student.Value);
                 MessageBox.Show(studentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 await LoadListBoxByIndexAsync(ComboBoxClassroom.SelectedItem.ToString());
             }

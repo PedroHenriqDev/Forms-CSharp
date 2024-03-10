@@ -24,37 +24,37 @@ namespace Services
             _searchService = searchService;
         }
 
-        public async Task<StudentQuery> DeleteStudentAsync(Student student)
+        public async Task<EntityQuery<Student>> DeleteStudentAsync(Student student)
         {
             Student studentDb = await _searchService.FindStudentByIdAsync(student.Id);
             if (studentDb == null || !_validationEntities.EntityHasId(studentDb.Id))
             {
-                return new StudentQuery(false, "An error occurred when recognizing the student " + student.CompleteName.CutCompleteName(), DateTime.Now, student);
+                return new EntityQuery<Student>(false, "An error occurred when recognizing the student " + student.CompleteName.CutCompleteName(), DateTime.Now, student);
             }
             await _connectionDb.DeleteRecordInTableByIdAsync<Student>(student.Id);
-            return new StudentQuery(true, "Student " + student.CompleteName.CutCompleteName() + " deleted successfully", DateTime.Now, student);
+            return new EntityQuery<Student>(true, "Student " + student.CompleteName.CutCompleteName() + " deleted successfully", DateTime.Now, student);
         }
 
-        public async Task<CourseQuery> DeleteCourseAsync(Course course)
+        public async Task<EntityQuery<Course>> DeleteCourseAsync(Course course)
         {
             if (course == null || !_validationEntities.EntityHasId(course.Id))
             {
-                return new CourseQuery(false, "An error occurred when recognizing the course " + course.CourseName, DateTime.Now, course);
+                return new EntityQuery<Course>(false, "An error occurred when recognizing the course " + course.CourseName, DateTime.Now, course);
             }
 
             await _connectionDb.DeleteRecordInTableByIdAsync<Course>(course.Id);
-            return new CourseQuery(true, "Course " + course.CourseName + " deleted successfully", DateTime.Now, course);
+            return new EntityQuery<Course>(true, "Course " + course.CourseName + " deleted successfully", DateTime.Now, course);
         }
 
-        public async Task<ClassroomQuery> DeleteClassroomAsync(Classroom classroom)
+        public async Task<EntityQuery<Classroom>> DeleteClassroomAsync(Classroom classroom)
         {
             if (classroom == null || !_validationEntities.EntityHasId(classroom.Id))
             {
-                return new ClassroomQuery(false, "An error occurred when recognizing the course " + classroom.ClassroomName, DateTime.Now, classroom);
+                return new EntityQuery<Classroom>(false, "An error occurred when recognizing the course " + classroom.ClassroomName, DateTime.Now, classroom);
             }
 
             await _connectionDb.DeleteRecordInTableByIdAsync<Classroom>(classroom.Id);
-            return new ClassroomQuery(true, "Classroom " + classroom.ClassroomName + " deleted successfully", DateTime.Now, classroom);
+            return new EntityQuery<Classroom>(true, "Classroom " + classroom.ClassroomName + " deleted successfully", DateTime.Now, classroom);
         }
 
         public async Task DeleteStudentsAsync(IEnumerable<Student> students) 

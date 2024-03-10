@@ -94,8 +94,8 @@ namespace SystemSchool
             {
                 Student student = _createTransientEntities.CreateStudentTransient(this);
                 Classroom classroom = await _searchEntities.FindClassroomByNameAsync(ComboBoxClassroom.SelectedItem.ToString());
-                StudentQuery createStudentQuery = await _createEntities.CreateStudentAsync(student);
-                MessageBox.Show(createStudentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                EntityQuery<Student> studentQuery = await _createEntities.CreateStudentAsync(student);
+                MessageBox.Show(studentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (ArgumentNullException ex)
             {

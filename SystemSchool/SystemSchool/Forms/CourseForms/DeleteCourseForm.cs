@@ -55,7 +55,7 @@ namespace SystemSchool.Forms.CourseForms
 
                 await _deleteEntities.DeleteClassromsByCourseIdAsync(course.Value.Classrooms, course.Value.Id);
 
-                CourseQuery courseQuery = await _deleteEntities.DeleteCourseAsync(course.Value);
+                EntityQuery<Course> courseQuery = await _deleteEntities.DeleteCourseAsync(course.Value);
                 MessageBox.Show(courseQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 await LoadListBoxCoursesAsync();
             }
