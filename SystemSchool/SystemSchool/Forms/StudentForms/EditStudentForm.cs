@@ -37,7 +37,7 @@ namespace SystemSchool.Forms.StudentForms
         private async Task LoadListBoxSearchAsync()
         {
             IEnumerable<Student> students = await _searchEntities.FindStudentByQueryAsync(textBoxSearch.Text);
-            await _fillEntities.FillClassroomInStudentAsync(students);
+            await _fillEntities.FillClassroomInStudentsAsync(students);
             listBoxSearch.Items.Clear();
             foreach (Student student in students)
             {
@@ -78,7 +78,7 @@ namespace SystemSchool.Forms.StudentForms
             {
                 DisplayItem<Student> student = listBoxSearch.SelectedItem as DisplayItem<Student>;
                 student.Value.CompleteName = textBoxStudentName.Text;
-                FillStudent(student.Value);
+                FillClassroomInStudent(student.Value);
                 StudentQuery studentQuery = await _editEntities.EditStudentAsync(student.Value);
                 if (studentQuery.Result)
                 {
@@ -116,17 +116,17 @@ namespace SystemSchool.Forms.StudentForms
             LabelStudent.Text = $"{student.Value.CompleteName} - {student.Value.Classroom.Course.CourseName} - {student.Value.Classroom.ClassroomName}";
         }
 
-        private async Task FillStudent(Student student)
+        private async Task FillClassroomInStudent(Student student)
         {
             IEnumerable<Classroom> classrooms = await _searchEntities.FindAllClassroomsAsync();
             if (ComboBoxClassroom.SelectedItem == null && classrooms.Select(c => c.ClassroomName).Any(c => c == ComboBoxClassroom.Text))
             {
-                student.Classroom = await _searchEntities.FindClassroomByNameAsync(ComboBoxClassroom.Text);
+                _fillEntities.FillStudentWithClassroom(student, await _searchEntities.FindClassroomByNameAsync(ComboBoxClassroom.Text));
             }
             else
             {
                 DisplayItem<Classroom> classroom = ComboBoxClassroom.SelectedItem as DisplayItem<Classroom>;
-                student.Classroom = await _searchEntities.FindClassroomByNameAsync(classroom.Value.ClassroomName);
+                _fillEntities.FillStudentWithClassroom(student, await _searchEntities.FindClassroomByNameAsync(classroom.Value.ClassroomName));
             }
         }
 

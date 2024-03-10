@@ -34,7 +34,7 @@ namespace Services
             }
         }
 
-        public async Task FillClassroomInStudentAsync(IEnumerable<Student> students)
+        public async Task FillClassroomInStudentsAsync(IEnumerable<Student> students)
         {
             if (students != null)
             {
@@ -66,6 +66,15 @@ namespace Services
 
             classroom.CourseId = course.Id;
             classroom.Course = course;
+        }
+
+        public void FillStudentWithClassroom(Student student, Classroom classroom)
+        {
+            if (student == null || classroom == null)
+            {
+                throw new FillException("Problems filling student and classroom objects");
+            }
+            student.Classroom = classroom;
         }
     }
 }
