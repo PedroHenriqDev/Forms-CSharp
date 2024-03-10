@@ -39,5 +39,26 @@ namespace SystemSchool.Forms.ClassroomForms
             listBoxSearch.Items.Clear();
             listBoxSearch.Items.AddRange(classrooms.Select(c => new DisplayItem<Classroom>(c, $"{c.ClassroomName} - {c.Course.CourseName}")).ToArray());  
         }
+
+        private async Task LoadComboBoxCourseAsync() 
+        {
+            IEnumerable<Course> courses = await _searchEntities.FindAllCoursesAsync();
+            DisplayItem<Classroom> classroom = listBoxSearch.SelectedItem as DisplayItem<Classroom>;
+            ComboBoxCourse.Text = classroom.Value.Course.CourseName;
+            ComboBoxCourse.Items.AddRange(courses.Select(c => new DisplayItem<Course>(c, c.CourseName)).ToArray());
+        }
+
+        private async void listBoxSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            await LoadComboBoxCourseAsync();
+            FillLabelClassroomAndCourse();
+        }
+
+        private void FillLabelClassroomAndCourse() 
+        {
+            DisplayItem<Classroom> classroom = listBoxSearch.SelectedItem as DisplayItem<Classroom>;
+            LabelClassroomAndCourse.ForeColor = Color.Black;
+            LabelClassroomAndCourse.Text = $"{classroom.Value.ClassroomName} - {classroom.Value.Course.CourseName}";
+        }
     }
 }

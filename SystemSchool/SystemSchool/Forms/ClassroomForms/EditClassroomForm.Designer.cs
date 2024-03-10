@@ -87,6 +87,7 @@
             this.listBoxSearch.Name = "listBoxSearch";
             this.listBoxSearch.Size = new System.Drawing.Size(187, 225);
             this.listBoxSearch.TabIndex = 33;
+            this.listBoxSearch.SelectedIndexChanged += new System.EventHandler(this.listBoxSearch_SelectedIndexChanged);
             // 
             // LabelSearchResult
             // 
@@ -199,7 +200,7 @@
             this.LabelClassroomAndCourse.BackColor = System.Drawing.Color.Transparent;
             this.LabelClassroomAndCourse.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelClassroomAndCourse.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.LabelClassroomAndCourse.Location = new System.Drawing.Point(405, 182);
+            this.LabelClassroomAndCourse.Location = new System.Drawing.Point(400, 221);
             this.LabelClassroomAndCourse.Name = "LabelClassroomAndCourse";
             this.LabelClassroomAndCourse.Size = new System.Drawing.Size(216, 65);
             this.LabelClassroomAndCourse.TabIndex = 42;
@@ -223,7 +224,7 @@
             // 
             this.LabelCourse.AutoSize = true;
             this.LabelCourse.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelCourse.Location = new System.Drawing.Point(472, 354);
+            this.LabelCourse.Location = new System.Drawing.Point(483, 354);
             this.LabelCourse.Name = "LabelCourse";
             this.LabelCourse.Size = new System.Drawing.Size(62, 21);
             this.LabelCourse.TabIndex = 40;
