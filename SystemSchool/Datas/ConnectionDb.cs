@@ -83,6 +83,16 @@ namespace Datas
             }
         }
 
+        public async Task<IEnumerable<Class>> ReturnAllClassesAsync() 
+        {
+            using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
+            {
+                await connection.OpenAsync();
+                string sqlQuery = @"SELECT * FROM Classes";
+                return await connection.QueryAsync<Class>(sqlQuery);
+            }
+        }
+
         public async Task<IEnumerable<Classroom>> ReturnClassroomsByCourseIdAsync(int courseId)
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
