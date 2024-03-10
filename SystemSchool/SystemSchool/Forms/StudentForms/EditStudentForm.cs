@@ -23,7 +23,8 @@ namespace SystemSchool.Forms.StudentForms
         private readonly EditEntitiesService<Student> _editEntities; 
         private readonly FillEntitiesService _fillEntities;
 
-        public EditStudentForm(SearchEntitiesService searchEntities,
+        public EditStudentForm(
+            SearchEntitiesService searchEntities,
             EditEntitiesService<Student> editEntities,
             FillEntitiesService fillEntities)
         {

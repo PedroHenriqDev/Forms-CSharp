@@ -44,6 +44,7 @@
     <Compile Include="CreateEntitiesService.cs" />
     <Compile Include="DeleteEntitiesService.cs" />
     <Compile Include="EditEntitiesService.cs" />
+    <Compile Include="Exceptions\FillException.cs" />
     <Compile Include="Extensions\StringExtension.cs" />
     <Compile Include="FillEntitiesService.cs" />
     <Compile Include="LoginService.cs" />

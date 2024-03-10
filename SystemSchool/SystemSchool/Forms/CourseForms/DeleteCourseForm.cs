@@ -38,10 +38,7 @@ namespace SystemSchool.Forms.CourseForms
         {
             IEnumerable<Course> courses = await _searchEntities.FindAllCoursesAsync();
             listBoxCourses.Items.Clear();
-            foreach (Course course in courses)
-            {
-                listBoxCourses.Items.Add(new DisplayItem<Course>(course, course.CourseName));
-            }
+            listBoxCourses.Items.AddRange(courses.Select(c => new DisplayItem<Course>(c, c.CourseName)).ToArray());
         }
 
         private async void buttonDelete_Click(object sender, EventArgs e)

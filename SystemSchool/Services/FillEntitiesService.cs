@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Services.Exceptions;
 
 namespace Services
 {
@@ -54,6 +55,17 @@ namespace Services
                     classroom.Course = course;
                 }
             }
+        }
+
+        public void FillClassroomWithCourse(Classroom classroom, Course course)
+        {
+            if (classroom == null || course == null)
+            {
+                throw new FillException("Problems filling classroom and course objects");
+            }
+
+            classroom.CourseId = course.Id;
+            classroom.Course = course;
         }
     }
 }

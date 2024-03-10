@@ -184,11 +184,29 @@ namespace Datas
                 string sqlQuery = @"UPDATE Students 
                                     SET CompleteName = @completeName, ClassroomId = @classroomId 
                                     WHERE Id = @id";
+
                 await connection.ExecuteAsync(sqlQuery, new
                 {
                     completeName = student.CompleteName,
                     classroomId = student.Classroom.Id,
                     id = student.Id,
+                });
+            }
+        }
+
+        public async Task EditClassroomInDbAsync(Classroom classroom) 
+        {
+            using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
+            {
+                await connection.OpenAsync();
+                string sqlQuery = @"UPDATE Classrooms 
+                                    SET CourseId = @courseId
+                                    WHERE Id = @id";
+
+                await connection.ExecuteAsync(sqlQuery, new
+                {
+                   CourseId = classroom.CourseId,
+                   Id = classroom.Id,
                 });
             }
         }

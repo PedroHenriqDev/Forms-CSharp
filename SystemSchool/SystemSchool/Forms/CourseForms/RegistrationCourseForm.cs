@@ -24,7 +24,9 @@ namespace SystemSchool.Forms.CourseForms
         private readonly CreateEntitiesService<Course> _createEntities;
         private readonly CreateTransientEntities _createTransientEntities;
 
-        public RegistrationCourseForm(CreateEntitiesService<Course> createEntities ,CreateTransientEntities createTransientEntities)
+        public RegistrationCourseForm(
+            CreateEntitiesService<Course> createEntities,
+            CreateTransientEntities createTransientEntities)
         {
             _createEntities = createEntities;
             _createTransientEntities = createTransientEntities;
