@@ -46,31 +46,31 @@ namespace SystemSchool
             this.LabelChangePassword = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.LabelStudent = new System.Windows.Forms.Label();
-            this.TimerDate = new System.Windows.Forms.Timer(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.labelSchooolManager = new System.Windows.Forms.Label();
-            this.pictureBoxSchool = new System.Windows.Forms.PictureBox();
-            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
-            this.pictureChangePassword = new System.Windows.Forms.PictureBox();
-            this.pictureStatistics = new System.Windows.Forms.PictureBox();
-            this.pictureReports = new System.Windows.Forms.PictureBox();
-            this.pictureLogout = new System.Windows.Forms.PictureBox();
             this.pictureStudent = new System.Windows.Forms.PictureBox();
             this.pictureClassroom = new System.Windows.Forms.PictureBox();
             this.pictureCourse = new System.Windows.Forms.PictureBox();
             this.pictureUser = new System.Windows.Forms.PictureBox();
+            this.TimerDate = new System.Windows.Forms.Timer(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
+            this.labelSchooolManager = new System.Windows.Forms.Label();
+            this.pictureChangePassword = new System.Windows.Forms.PictureBox();
+            this.pictureStatistics = new System.Windows.Forms.PictureBox();
+            this.pictureReports = new System.Windows.Forms.PictureBox();
+            this.pictureLogout = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSchool = new System.Windows.Forms.PictureBox();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureClassroom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureCourse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSchool)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureChangePassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureStatistics)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureReports)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureClassroom)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureCourse)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSchool)).BeginInit();
             this.SuspendLayout();
             // 
             // LabelUsername
@@ -204,6 +204,7 @@ namespace SystemSchool
             this.LabelUser.Size = new System.Drawing.Size(43, 21);
             this.LabelUser.TabIndex = 18;
             this.LabelUser.Text = "User";
+            this.LabelUser.Click += new System.EventHandler(this.LabelUser_Click);
             // 
             // LabelCourse
             // 
@@ -263,110 +264,6 @@ namespace SystemSchool
             this.LabelStudent.Text = "Student";
             this.LabelStudent.Click += new System.EventHandler(this.LabelClassroom_Click);
             // 
-            // TimerDate
-            // 
-            this.TimerDate.Tick += new System.EventHandler(this.TimerDate_Tick);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.Controls.Add(this.pictureBoxClose);
-            this.panel2.Controls.Add(this.labelSchooolManager);
-            this.panel2.Controls.Add(this.pictureChangePassword);
-            this.panel2.Controls.Add(this.LabelUsername);
-            this.panel2.Controls.Add(this.LabelChangePassword);
-            this.panel2.Controls.Add(this.pictureStatistics);
-            this.panel2.Controls.Add(this.pictureReports);
-            this.panel2.Controls.Add(this.LabelReports);
-            this.panel2.Controls.Add(this.pictureLogout);
-            this.panel2.Controls.Add(this.LabelLogout);
-            this.panel2.Controls.Add(this.LabelStatistics);
-            this.panel2.Location = new System.Drawing.Point(634, -7);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(414, 697);
-            this.panel2.TabIndex = 23;
-            // 
-            // labelSchooolManager
-            // 
-            this.labelSchooolManager.AutoSize = true;
-            this.labelSchooolManager.BackColor = System.Drawing.Color.Transparent;
-            this.labelSchooolManager.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSchooolManager.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelSchooolManager.Location = new System.Drawing.Point(141, 16);
-            this.labelSchooolManager.Name = "labelSchooolManager";
-            this.labelSchooolManager.Size = new System.Drawing.Size(135, 21);
-            this.labelSchooolManager.TabIndex = 27;
-            this.labelSchooolManager.Text = "Manager School";
-            // 
-            // pictureBoxSchool
-            // 
-            this.pictureBoxSchool.Image = global::SystemSchool.Properties.Resources.icons8_school_80;
-            this.pictureBoxSchool.Location = new System.Drawing.Point(440, 264);
-            this.pictureBoxSchool.Name = "pictureBoxSchool";
-            this.pictureBoxSchool.Size = new System.Drawing.Size(170, 153);
-            this.pictureBoxSchool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBoxSchool.TabIndex = 24;
-            this.pictureBoxSchool.TabStop = false;
-            // 
-            // pictureBoxClose
-            // 
-            this.pictureBoxClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxClose.Image = global::SystemSchool.Properties.Resources.icons8_close_48__2_;
-            this.pictureBoxClose.Location = new System.Drawing.Point(370, 11);
-            this.pictureBoxClose.Name = "pictureBoxClose";
-            this.pictureBoxClose.Size = new System.Drawing.Size(26, 26);
-            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxClose.TabIndex = 28;
-            this.pictureBoxClose.TabStop = false;
-            // 
-            // pictureChangePassword
-            // 
-            this.pictureChangePassword.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pictureChangePassword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureChangePassword.Image = global::SystemSchool.Properties.Resources.icons8_password_key_100;
-            this.pictureChangePassword.Location = new System.Drawing.Point(23, 443);
-            this.pictureChangePassword.Name = "pictureChangePassword";
-            this.pictureChangePassword.Size = new System.Drawing.Size(136, 77);
-            this.pictureChangePassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureChangePassword.TabIndex = 7;
-            this.pictureChangePassword.TabStop = false;
-            // 
-            // pictureStatistics
-            // 
-            this.pictureStatistics.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pictureStatistics.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureStatistics.Image = global::SystemSchool.Properties.Resources.icons8_graph_report_64;
-            this.pictureStatistics.Location = new System.Drawing.Point(241, 151);
-            this.pictureStatistics.Name = "pictureStatistics";
-            this.pictureStatistics.Size = new System.Drawing.Size(136, 80);
-            this.pictureStatistics.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureStatistics.TabIndex = 5;
-            this.pictureStatistics.TabStop = false;
-            // 
-            // pictureReports
-            // 
-            this.pictureReports.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pictureReports.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureReports.Image = global::SystemSchool.Properties.Resources.icons8_reports_58;
-            this.pictureReports.Location = new System.Drawing.Point(23, 151);
-            this.pictureReports.Name = "pictureReports";
-            this.pictureReports.Size = new System.Drawing.Size(136, 80);
-            this.pictureReports.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureReports.TabIndex = 6;
-            this.pictureReports.TabStop = false;
-            // 
-            // pictureLogout
-            // 
-            this.pictureLogout.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.pictureLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureLogout.Image = global::SystemSchool.Properties.Resources.icons8_logout_100;
-            this.pictureLogout.Location = new System.Drawing.Point(241, 443);
-            this.pictureLogout.Name = "pictureLogout";
-            this.pictureLogout.Size = new System.Drawing.Size(136, 77);
-            this.pictureLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureLogout.TabIndex = 4;
-            this.pictureLogout.TabStop = false;
-            // 
             // pictureStudent
             // 
             this.pictureStudent.BackColor = System.Drawing.Color.Transparent;
@@ -417,6 +314,111 @@ namespace SystemSchool
             this.pictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureUser.TabIndex = 3;
             this.pictureUser.TabStop = false;
+            this.pictureUser.Click += new System.EventHandler(this.pictureUser_Click);
+            // 
+            // TimerDate
+            // 
+            this.TimerDate.Tick += new System.EventHandler(this.TimerDate_Tick);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel2.Controls.Add(this.pictureBoxClose);
+            this.panel2.Controls.Add(this.labelSchooolManager);
+            this.panel2.Controls.Add(this.pictureChangePassword);
+            this.panel2.Controls.Add(this.LabelUsername);
+            this.panel2.Controls.Add(this.LabelChangePassword);
+            this.panel2.Controls.Add(this.pictureStatistics);
+            this.panel2.Controls.Add(this.pictureReports);
+            this.panel2.Controls.Add(this.LabelReports);
+            this.panel2.Controls.Add(this.pictureLogout);
+            this.panel2.Controls.Add(this.LabelLogout);
+            this.panel2.Controls.Add(this.LabelStatistics);
+            this.panel2.Location = new System.Drawing.Point(634, -7);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(414, 697);
+            this.panel2.TabIndex = 23;
+            // 
+            // pictureBoxClose
+            // 
+            this.pictureBoxClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxClose.Image = global::SystemSchool.Properties.Resources.icons8_close_48__2_;
+            this.pictureBoxClose.Location = new System.Drawing.Point(370, 11);
+            this.pictureBoxClose.Name = "pictureBoxClose";
+            this.pictureBoxClose.Size = new System.Drawing.Size(26, 26);
+            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxClose.TabIndex = 28;
+            this.pictureBoxClose.TabStop = false;
+            // 
+            // labelSchooolManager
+            // 
+            this.labelSchooolManager.AutoSize = true;
+            this.labelSchooolManager.BackColor = System.Drawing.Color.Transparent;
+            this.labelSchooolManager.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSchooolManager.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelSchooolManager.Location = new System.Drawing.Point(141, 16);
+            this.labelSchooolManager.Name = "labelSchooolManager";
+            this.labelSchooolManager.Size = new System.Drawing.Size(135, 21);
+            this.labelSchooolManager.TabIndex = 27;
+            this.labelSchooolManager.Text = "Manager School";
+            // 
+            // pictureChangePassword
+            // 
+            this.pictureChangePassword.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pictureChangePassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureChangePassword.Image = global::SystemSchool.Properties.Resources.icons8_password_key_100;
+            this.pictureChangePassword.Location = new System.Drawing.Point(23, 443);
+            this.pictureChangePassword.Name = "pictureChangePassword";
+            this.pictureChangePassword.Size = new System.Drawing.Size(136, 77);
+            this.pictureChangePassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureChangePassword.TabIndex = 7;
+            this.pictureChangePassword.TabStop = false;
+            // 
+            // pictureStatistics
+            // 
+            this.pictureStatistics.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pictureStatistics.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureStatistics.Image = global::SystemSchool.Properties.Resources.icons8_graph_report_64;
+            this.pictureStatistics.Location = new System.Drawing.Point(241, 151);
+            this.pictureStatistics.Name = "pictureStatistics";
+            this.pictureStatistics.Size = new System.Drawing.Size(136, 80);
+            this.pictureStatistics.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureStatistics.TabIndex = 5;
+            this.pictureStatistics.TabStop = false;
+            // 
+            // pictureReports
+            // 
+            this.pictureReports.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pictureReports.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureReports.Image = global::SystemSchool.Properties.Resources.icons8_reports_58;
+            this.pictureReports.Location = new System.Drawing.Point(23, 151);
+            this.pictureReports.Name = "pictureReports";
+            this.pictureReports.Size = new System.Drawing.Size(136, 80);
+            this.pictureReports.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureReports.TabIndex = 6;
+            this.pictureReports.TabStop = false;
+            // 
+            // pictureLogout
+            // 
+            this.pictureLogout.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pictureLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureLogout.Image = global::SystemSchool.Properties.Resources.icons8_logout_100;
+            this.pictureLogout.Location = new System.Drawing.Point(241, 443);
+            this.pictureLogout.Name = "pictureLogout";
+            this.pictureLogout.Size = new System.Drawing.Size(136, 77);
+            this.pictureLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureLogout.TabIndex = 4;
+            this.pictureLogout.TabStop = false;
+            // 
+            // pictureBoxSchool
+            // 
+            this.pictureBoxSchool.Image = global::SystemSchool.Properties.Resources.icons8_school_80;
+            this.pictureBoxSchool.Location = new System.Drawing.Point(440, 264);
+            this.pictureBoxSchool.Name = "pictureBoxSchool";
+            this.pictureBoxSchool.Size = new System.Drawing.Size(170, 153);
+            this.pictureBoxSchool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxSchool.TabIndex = 24;
+            this.pictureBoxSchool.TabStop = false;
             // 
             // MainForm
             // 
@@ -437,18 +439,18 @@ namespace SystemSchool
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureClassroom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureCourse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSchool)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureChangePassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureStatistics)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureReports)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureClassroom)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureCourse)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSchool)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

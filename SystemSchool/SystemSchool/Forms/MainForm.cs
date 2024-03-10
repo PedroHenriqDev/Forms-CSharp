@@ -13,6 +13,7 @@ using SystemSchool.Forms.ClassroomForms;
 using SystemSchool.Forms.CourseForms;
 using Autofac;
 using Services;
+using SystemSchool.Forms.UserForms;
 
 namespace SystemSchool
 {
@@ -61,6 +62,13 @@ namespace SystemSchool
             registrationCourseForm.ShowDialog();
         }
 
+        private void pictureUser_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var registrationUserForm = Program.Container.Resolve<RegistrationUserForm>();
+            registrationUserForm.ShowDialog();
+        }
+
         private void LabelStudentRegistration_Click(object sender, EventArgs e)
         {
             pictureStudent_Click(sender, e);
@@ -84,6 +92,11 @@ namespace SystemSchool
         private void LabelCourse_Click(object sender, EventArgs e)
         {
             pictureCourse_Click(sender, e);
+        }
+
+        private void LabelUser_Click(object sender, EventArgs e)
+        {
+            pictureUser_Click(sender, e);
         }
     } 
 }

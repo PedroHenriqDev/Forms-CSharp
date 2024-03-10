@@ -8,6 +8,7 @@ using Entities;
 using SystemSchool.Forms.StudentForms;
 using Datas;
 using SystemSchool.Controls;
+using SystemSchool.Forms.UserForms;
 
 namespace SystemSchool
 {
@@ -29,6 +30,7 @@ namespace SystemSchool
             builder.RegisterType<RegistrationStudentForm>().AsSelf();
             builder.RegisterType<RegistrationClassroomForm>().AsSelf();
             builder.RegisterType<RegistrationCourseForm>().AsSelf();
+            builder.RegisterType<RegistrationUserForm>().AsSelf();
             builder.RegisterType<EditStudentForm>().AsSelf();
             builder.RegisterType<EditClassroomForm>().AsSelf();
             builder.RegisterType<DeleteCourseForm>().AsSelf();
