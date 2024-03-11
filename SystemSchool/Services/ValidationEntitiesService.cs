@@ -8,21 +8,47 @@ using System.Runtime.Serialization.Formatters;
 using System.Text;
 using System.Threading.Tasks;
 using Entities.Expections;
+using System.Net.Http.Headers;
+using Datas;
 
 namespace Services
 {
-    public class ValidationEntitiesService<T>
+    public class ValidationEntitiesService
     {
-        public bool IsValidNameCourse(Course course, IEnumerable<Course> courses)
+
+        private readonly ConnectionDb _connectionDb;
+        
+        public ValidationEntitiesService(ConnectionDb connectionDb) 
         {
-            if(string.IsNullOrWhiteSpace(course.CourseName)) 
+            _connectionDb = connectionDb;
+        }
+
+        public async Task<bool> IsValidCourseAsync(Course course)
+        {
+            IEnumerable<Course> courses = await _connectionDb.ReturnAllEntitiesAsync<Course>();
+            if(course == null || string.IsNullOrWhiteSpace(course.CourseName)) 
             {
-                throw new ArgumentNullException("The course name cannot be empty!");
+                throw new ArgumentNullException("The course cannot be empty!");
             }
 
             return !EqualEntityInSet(courses.Select(c => c.CourseName).ToList(), course.CourseName)
                 && !HasNumbersInString(course.CourseName)
                 && EntityHasId(course.Id);
+        }
+
+        public async Task<bool> IsValidUserAsync(User user) 
+        {
+            IEnumerable<User> users = await _connectionDb.ReturnAllEntitiesAsync<User>();
+
+            if (user == null|| string.IsNullOrWhiteSpace(user.Username) || string.IsNullOrEmpty(user.PasswordHash))
+            {
+                throw new ArgumentNullException("User credentials cannot be empty");
+            }
+
+            return !EqualEntityInSet(users.Select(u => u.Username).ToList(), user.Username)
+                && EntityHasId(user.Id)
+                && EntityHasId(user.ClassId)
+                && !HasNumbersInString(user.Username);
         }
 
         public bool IsValidStudent(Student student) 
@@ -36,8 +62,15 @@ namespace Services
                 && EntityHasId(student.Id);
         }
 
-        public bool IsValidClassroomName(Classroom classroom, IEnumerable<Classroom> classrooms)
+        public async Task<bool> IsValidClassroomAsync(Classroom classroom)
         {
+            IEnumerable<Classroom> classrooms = await _connectionDb.ReturnAllEntitiesAsync<Classroom>();
+
+            if (classroom == null || string.IsNullOrEmpty(classroom.ClassroomName))
+            {
+                throw new ArgumentNullException("The classroom cannot be empty!");
+            }
+
             return !EqualEntityInSet(classrooms.Select(c => c.ClassroomName).ToList(), classroom.ClassroomName)
                 && ClassroomNameIsInCorrectOrder(classroom.ClassroomName)
                 && EntityHasId(classroom.Id);
@@ -79,7 +112,7 @@ namespace Services
             return false;
         }
 
-        public bool EqualEntityInSet<T>(IEnumerable<T> entities, T entity) 
+        public bool EqualEntityInSet<T>(IEnumerable<T> entities, T entity)
         {
             if (entity is string) 
             {

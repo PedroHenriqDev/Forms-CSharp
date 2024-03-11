@@ -1,4 +1,5 @@
 ﻿using Entities;
+using Entities.TransientClasses;
 using Services;
 using System;
 using System.Collections.Generic;
@@ -43,9 +44,22 @@ namespace SystemSchool.Forms.UserForms
             ComboBoxClass.Items.AddRange(classes.Select(c => new DisplayItem<Class>(c, c.NameClass)).ToArray());
         }
 
-        private void buttonCreate_Click(object sender, EventArgs e)
+        private async void buttonCreate_Click(object sender, EventArgs e)
         {
-            User user = _createTransientEntities.CreateUserTransient(this);
+            try
+            {
+                User user = _createTransientEntities.CreateUserTransient(this);
+                EntityQuery<User> userQuery = await _createEntities.CreateUserAsync(user);
+                MessageBox.Show(userQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

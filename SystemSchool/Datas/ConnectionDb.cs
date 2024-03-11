@@ -23,8 +23,8 @@ namespace Datas
             {
                 await connection.OpenAsync();
                 string sqlQuery = @"SELECT * FROM Users 
-                                    WHERE Username = @username COLLATE SQL_Latin1_General_CP1_CS_AS 
-                                    AND PasswordHash = HASHBYTES('SHA2_512', @passwordHash)";
+                    WHERE Username = @username COLLATE SQL_Latin1_General_CP1_CS_AS 
+                    AND PasswordHash = @passwordHash";
                 return await connection.QueryFirstOrDefaultAsync<User>(sqlQuery, new { username = user.Username, passwordHash = user.PasswordHash });
             }
         }
@@ -142,6 +142,24 @@ namespace Datas
                     Id = classroom.Id,
                     ClassroomName = classroom.ClassroomName,
                     CourseId = classroom.CourseId
+                });
+            }
+        }
+
+        public async Task CreateUserInDbAsync(User user) 
+        {
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
+            {
+                await connection.OpenAsync();
+                string sqlQuery = @"INSERT INTO Users (Id, Username, PasswordHash, ClassId) 
+                                    VALUES (@Id, @Username, @PasswordHash, @ClassId)";
+
+                await connection.ExecuteAsync(sqlQuery, new
+                {
+                    Id = user.Id,
+                    Username = user.Username,
+                    PasswordHash = user.PasswordHash,
+                    ClassId = user.ClassId
                 });
             }
         }

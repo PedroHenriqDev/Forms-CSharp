@@ -41,8 +41,9 @@ namespace SystemSchool
             builder.RegisterGeneric(typeof(CreateEntitiesService<>)).AsSelf();
             builder.RegisterGeneric(typeof(DeleteEntitiesService<>)).AsSelf();
             builder.RegisterGeneric(typeof(EditEntitiesService<>)).AsSelf();
-            builder.RegisterGeneric(typeof(ValidationEntitiesService<>)).AsSelf();
 
+            builder.RegisterType<ValidationEntitiesService>().AsSelf();
+            builder.RegisterType<EncryptEntitiesService>().AsSelf();
             builder.RegisterType<LoginService>().AsSelf();
             builder.RegisterType<FillEntitiesService>().AsSelf();
             builder.RegisterType<SearchEntitiesService>().AsSelf();

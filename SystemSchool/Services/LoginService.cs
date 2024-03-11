@@ -10,18 +10,20 @@ using Entities.TransientClasses;
 
 namespace Services
 {
-
     public class LoginService
     {
         private readonly ConnectionDb _connectionDb;
+        private readonly EncryptEntitiesService _encryptEntities;
 
-        public LoginService(ConnectionDb connectionDb)
+        public LoginService(ConnectionDb connectionDb, EncryptEntitiesService encryptEntities)
         {
             _connectionDb = connectionDb;
+            _encryptEntities = encryptEntities;
         }
 
         public async Task<EntityQuery<User>> LoginAsync(User user)
         {
+            user.PasswordHash = _encryptEntities.EncryptPasswordSHA512(user.PasswordHash);
             User userDb = await _connectionDb.VerifyCredentialsAsync(user);
 
             if (userDb == null)

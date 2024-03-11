@@ -15,11 +15,11 @@ namespace Services
     {
         private readonly ConnectionDb _connectionDb;
         private readonly SearchEntitiesService _searchEntities;
-        private readonly ValidationEntitiesService<T> _validationEntities;
+        private readonly ValidationEntitiesService _validationEntities;
 
         public EditEntitiesService(
             ConnectionDb connectionDb, 
-            ValidationEntitiesService<T> validationEntities,
+            ValidationEntitiesService validationEntities,
             SearchEntitiesService searchEntities)
         {
             _connectionDb = connectionDb;

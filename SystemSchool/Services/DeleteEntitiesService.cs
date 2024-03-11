@@ -14,10 +14,10 @@ namespace Services
     public class DeleteEntitiesService<T>
     {
         private readonly ConnectionDb _connectionDb;
-        private readonly ValidationEntitiesService<T> _validationEntities;
+        private readonly ValidationEntitiesService _validationEntities;
         private readonly SearchEntitiesService _searchService;
 
-        public DeleteEntitiesService(ConnectionDb connectionDb, ValidationEntitiesService<T> validationEntities, SearchEntitiesService searchService)
+        public DeleteEntitiesService(ConnectionDb connectionDb, ValidationEntitiesService validationEntities, SearchEntitiesService searchService)
         {
             _connectionDb = connectionDb;
             _validationEntities = validationEntities;
