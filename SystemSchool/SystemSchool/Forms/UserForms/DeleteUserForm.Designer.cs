@@ -1,6 +1,6 @@
 ﻿namespace SystemSchool.Forms.UserForms
 {
-    partial class RegistrationUserForm
+    partial class DeleteUserForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,20 +34,18 @@
             this.pictureBoxEdit = new System.Windows.Forms.PictureBox();
             this.pictureBoxStudent = new System.Windows.Forms.PictureBox();
             this.pictureBoxSchool = new System.Windows.Forms.PictureBox();
-            this.ComboBoxClass = new System.Windows.Forms.ComboBox();
-            this.textBoxUsername = new System.Windows.Forms.TextBox();
-            this.LabelUsername = new System.Windows.Forms.Label();
-            this.LabelClass = new System.Windows.Forms.Label();
-            this.LabelPassword = new System.Windows.Forms.Label();
-            this.pictureUser = new System.Windows.Forms.PictureBox();
-            this.buttonCreate = new System.Windows.Forms.Button();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
+            this.pictureDelete = new System.Windows.Forms.PictureBox();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.LabelClassroom = new System.Windows.Forms.Label();
+            this.ComboBoxClassroom = new System.Windows.Forms.ComboBox();
+            this.listBoxStudents = new System.Windows.Forms.ListBox();
+            this.LabelStudent = new System.Windows.Forms.Label();
             this.pictureBoxBack = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSchool)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,7 +60,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(227, 646);
-            this.panel1.TabIndex = 1;
+            this.panel1.TabIndex = 2;
             // 
             // LabelEditStudent
             // 
@@ -122,93 +120,74 @@
             this.pictureBoxSchool.TabIndex = 19;
             this.pictureBoxSchool.TabStop = false;
             // 
-            // ComboBoxClass
+            // pictureDelete
             // 
-            this.ComboBoxClass.BackColor = System.Drawing.Color.White;
-            this.ComboBoxClass.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ComboBoxClass.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.ComboBoxClass.FormattingEnabled = true;
-            this.ComboBoxClass.Location = new System.Drawing.Point(433, 485);
-            this.ComboBoxClass.Name = "ComboBoxClass";
-            this.ComboBoxClass.Size = new System.Drawing.Size(346, 28);
-            this.ComboBoxClass.TabIndex = 21;
+            this.pictureDelete.Image = global::SystemSchool.Properties.Resources.icons8_delete_48;
+            this.pictureDelete.Location = new System.Drawing.Point(608, 16);
+            this.pictureDelete.Name = "pictureDelete";
+            this.pictureDelete.Size = new System.Drawing.Size(88, 72);
+            this.pictureDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureDelete.TabIndex = 12;
+            this.pictureDelete.TabStop = false;
             // 
-            // textBoxUsername
+            // buttonDelete
             // 
-            this.textBoxUsername.BackColor = System.Drawing.Color.White;
-            this.textBoxUsername.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxUsername.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.textBoxUsername.Location = new System.Drawing.Point(433, 197);
-            this.textBoxUsername.Name = "textBoxUsername";
-            this.textBoxUsername.Size = new System.Drawing.Size(346, 27);
-            this.textBoxUsername.TabIndex = 20;
+            this.buttonDelete.BackColor = System.Drawing.Color.Black;
+            this.buttonDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonDelete.Location = new System.Drawing.Point(599, 597);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(115, 37);
+            this.buttonDelete.TabIndex = 13;
+            this.buttonDelete.Text = "Delete";
+            this.buttonDelete.UseVisualStyleBackColor = false;
             // 
-            // LabelUsername
+            // LabelClassroom
             // 
-            this.LabelUsername.AutoSize = true;
-            this.LabelUsername.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelUsername.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LabelUsername.Location = new System.Drawing.Point(562, 164);
-            this.LabelUsername.Name = "LabelUsername";
-            this.LabelUsername.Size = new System.Drawing.Size(91, 21);
-            this.LabelUsername.TabIndex = 19;
-            this.LabelUsername.Text = "Username:";
+            this.LabelClassroom.AutoSize = true;
+            this.LabelClassroom.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelClassroom.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LabelClassroom.Location = new System.Drawing.Point(604, 100);
+            this.LabelClassroom.Name = "LabelClassroom";
+            this.LabelClassroom.Size = new System.Drawing.Size(92, 21);
+            this.LabelClassroom.TabIndex = 17;
+            this.LabelClassroom.Text = "Classroom:";
+            this.LabelClassroom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LabelClass
+            // ComboBoxClassroom
             // 
-            this.LabelClass.AutoSize = true;
-            this.LabelClass.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelClass.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LabelClass.Location = new System.Drawing.Point(585, 439);
-            this.LabelClass.Name = "LabelClass";
-            this.LabelClass.Size = new System.Drawing.Size(47, 21);
-            this.LabelClass.TabIndex = 18;
-            this.LabelClass.Text = "Class";
+            this.ComboBoxClassroom.BackColor = System.Drawing.Color.White;
+            this.ComboBoxClassroom.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ComboBoxClassroom.ForeColor = System.Drawing.Color.Black;
+            this.ComboBoxClassroom.FormattingEnabled = true;
+            this.ComboBoxClassroom.Location = new System.Drawing.Point(523, 133);
+            this.ComboBoxClassroom.Name = "ComboBoxClassroom";
+            this.ComboBoxClassroom.Size = new System.Drawing.Size(249, 29);
+            this.ComboBoxClassroom.TabIndex = 16;
             // 
-            // LabelPassword
+            // listBoxStudents
             // 
-            this.LabelPassword.AutoSize = true;
-            this.LabelPassword.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelPassword.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LabelPassword.Location = new System.Drawing.Point(571, 292);
-            this.LabelPassword.Name = "LabelPassword";
-            this.LabelPassword.Size = new System.Drawing.Size(82, 21);
-            this.LabelPassword.TabIndex = 17;
-            this.LabelPassword.Text = "Password";
+            this.listBoxStudents.BackColor = System.Drawing.Color.White;
+            this.listBoxStudents.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBoxStudents.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.listBoxStudents.FormattingEnabled = true;
+            this.listBoxStudents.ItemHeight = 21;
+            this.listBoxStudents.Location = new System.Drawing.Point(486, 218);
+            this.listBoxStudents.Name = "listBoxStudents";
+            this.listBoxStudents.Size = new System.Drawing.Size(333, 361);
+            this.listBoxStudents.TabIndex = 15;
             // 
-            // pictureUser
+            // LabelStudent
             // 
-            this.pictureUser.Image = global::SystemSchool.Properties.Resources.icons8_user_40;
-            this.pictureUser.Location = new System.Drawing.Point(565, 42);
-            this.pictureUser.Name = "pictureUser";
-            this.pictureUser.Size = new System.Drawing.Size(88, 81);
-            this.pictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureUser.TabIndex = 23;
-            this.pictureUser.TabStop = false;
-            // 
-            // buttonCreate
-            // 
-            this.buttonCreate.BackColor = System.Drawing.Color.Black;
-            this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCreate.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCreate.ForeColor = System.Drawing.Color.Green;
-            this.buttonCreate.Location = new System.Drawing.Point(541, 575);
-            this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(121, 35);
-            this.buttonCreate.TabIndex = 24;
-            this.buttonCreate.Text = "Create";
-            this.buttonCreate.UseVisualStyleBackColor = false;
-            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
-            // 
-            // textBoxPassword
-            // 
-            this.textBoxPassword.BackColor = System.Drawing.Color.White;
-            this.textBoxPassword.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.textBoxPassword.Location = new System.Drawing.Point(433, 329);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(346, 27);
-            this.textBoxPassword.TabIndex = 25;
+            this.LabelStudent.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelStudent.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LabelStudent.Location = new System.Drawing.Point(572, 164);
+            this.LabelStudent.Name = "LabelStudent";
+            this.LabelStudent.Size = new System.Drawing.Size(156, 51);
+            this.LabelStudent.TabIndex = 14;
+            this.LabelStudent.Text = "Students:";
+            this.LabelStudent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBoxBack
             // 
@@ -218,37 +197,34 @@
             this.pictureBoxBack.Name = "pictureBoxBack";
             this.pictureBoxBack.Size = new System.Drawing.Size(23, 23);
             this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxBack.TabIndex = 23;
+            this.pictureBoxBack.TabIndex = 18;
             this.pictureBoxBack.TabStop = false;
             this.pictureBoxBack.Click += new System.EventHandler(this.pictureBoxBack_Click);
             // 
-            // RegistrationUserForm
+            // DeleteUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1026, 642);
             this.Controls.Add(this.pictureBoxBack);
-            this.Controls.Add(this.textBoxPassword);
-            this.Controls.Add(this.buttonCreate);
-            this.Controls.Add(this.pictureUser);
-            this.Controls.Add(this.ComboBoxClass);
-            this.Controls.Add(this.textBoxUsername);
-            this.Controls.Add(this.LabelUsername);
-            this.Controls.Add(this.LabelClass);
-            this.Controls.Add(this.LabelPassword);
+            this.Controls.Add(this.pictureDelete);
+            this.Controls.Add(this.buttonDelete);
+            this.Controls.Add(this.LabelClassroom);
+            this.Controls.Add(this.ComboBoxClassroom);
+            this.Controls.Add(this.listBoxStudents);
+            this.Controls.Add(this.LabelStudent);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "RegistrationUserForm";
+            this.Name = "DeleteUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RegistrationUserForm";
-            this.Load += new System.EventHandler(this.RegistrationUserForm_Load);
+            this.Text = "DeleteUserForm";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStudent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSchool)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -263,14 +239,12 @@
         private System.Windows.Forms.PictureBox pictureBoxEdit;
         private System.Windows.Forms.PictureBox pictureBoxStudent;
         private System.Windows.Forms.PictureBox pictureBoxSchool;
-        public System.Windows.Forms.ComboBox ComboBoxClass;
-        public System.Windows.Forms.TextBox textBoxUsername;
-        private System.Windows.Forms.Label LabelUsername;
-        private System.Windows.Forms.Label LabelClass;
-        private System.Windows.Forms.Label LabelPassword;
-        private System.Windows.Forms.PictureBox pictureUser;
-        private System.Windows.Forms.Button buttonCreate;
-        public System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.PictureBox pictureDelete;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Label LabelClassroom;
+        private System.Windows.Forms.ComboBox ComboBoxClassroom;
+        private System.Windows.Forms.ListBox listBoxStudents;
+        private System.Windows.Forms.Label LabelStudent;
         private System.Windows.Forms.PictureBox pictureBoxBack;
     }
 }

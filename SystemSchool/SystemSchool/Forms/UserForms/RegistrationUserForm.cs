@@ -61,5 +61,12 @@ namespace SystemSchool.Forms.UserForms
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void pictureBoxBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainForm mainForm = new MainForm();
+            mainForm.ShowDialog();
+        }
     }
 }
