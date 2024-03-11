@@ -36,6 +36,7 @@ namespace SystemSchool
             builder.RegisterType<DeleteCourseForm>().AsSelf();
             builder.RegisterType<DeleteStudentForm>().AsSelf();
             builder.RegisterType<DeleteClassroomForm>().AsSelf();
+            builder.RegisterType<DeleteUserForm>().AsSelf();
 
             // Register generic services
             builder.RegisterGeneric(typeof(CreateEntitiesService<>)).AsSelf();

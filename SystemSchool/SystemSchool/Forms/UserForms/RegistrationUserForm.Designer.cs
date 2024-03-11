@@ -89,6 +89,7 @@
             this.LabelDeleteUser.TabIndex = 12;
             this.LabelDeleteUser.Text = "Delete User";
             this.LabelDeleteUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelDeleteUser.Click += new System.EventHandler(this.LabelDeleteUser_Click);
             // 
             // pictureBoxEdit
             // 
@@ -111,6 +112,7 @@
             this.pictureBoxStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxStudent.TabIndex = 20;
             this.pictureBoxStudent.TabStop = false;
+            this.pictureBoxStudent.Click += new System.EventHandler(this.pictureBoxStudent_Click);
             // 
             // pictureBoxSchool
             // 

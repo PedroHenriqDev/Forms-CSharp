@@ -1,4 +1,5 @@
-﻿using Entities;
+﻿using Autofac;
+using Entities;
 using Entities.TransientClasses;
 using Services;
 using System;
@@ -67,6 +68,18 @@ namespace SystemSchool.Forms.UserForms
             this.Hide();
             MainForm mainForm = new MainForm();
             mainForm.ShowDialog();
+        }
+
+        private void pictureBoxStudent_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var userForm = Program.Container.Resolve<DeleteUserForm>();
+            userForm.ShowDialog();
+        }
+
+        private void LabelDeleteUser_Click(object sender, EventArgs e)
+        {
+            pictureBoxStudent_Click(sender, e);
         }
     }
 }
