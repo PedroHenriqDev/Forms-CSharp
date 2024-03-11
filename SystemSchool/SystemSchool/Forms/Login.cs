@@ -63,5 +63,20 @@ namespace SystemSchool
         {
             Application.Exit();
         }
+
+        private void buttonPasswordPrivacy_Click(object sender, EventArgs e)
+        {
+            TextPassword.UseSystemPasswordChar = !TextPassword.UseSystemPasswordChar;
+            if (TextPassword.UseSystemPasswordChar)
+            {
+                buttonPasswordPrivacy.Text = "Hide";
+                TextPassword.Font = new System.Drawing.Font("Malgun Gothic", 5F);
+            }
+            else
+            {
+                buttonPasswordPrivacy.Text = "Show";
+                TextPassword.Font = new System.Drawing.Font("Malgun Gothic", 12F);
+            }
+        }
     }
 }
