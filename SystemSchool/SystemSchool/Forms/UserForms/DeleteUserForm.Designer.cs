@@ -74,6 +74,7 @@
             this.LabelEditStudent.TabIndex = 22;
             this.LabelEditStudent.Text = "Edit User";
             this.LabelEditStudent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelEditStudent.Click += new System.EventHandler(this.LabelEditStudent_Click);
             // 
             // LabelCreateUser
             // 
@@ -87,6 +88,7 @@
             this.LabelCreateUser.TabIndex = 12;
             this.LabelCreateUser.Text = "Register User";
             this.LabelCreateUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelCreateUser.Click += new System.EventHandler(this.LabelCreateUser_Click);
             // 
             // pictureBoxEdit
             // 
@@ -98,6 +100,7 @@
             this.pictureBoxEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxEdit.TabIndex = 21;
             this.pictureBoxEdit.TabStop = false;
+            this.pictureBoxEdit.Click += new System.EventHandler(this.pictureBoxEdit_Click);
             // 
             // pictureBoxStudent
             // 
@@ -109,6 +112,7 @@
             this.pictureBoxStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxStudent.TabIndex = 20;
             this.pictureBoxStudent.TabStop = false;
+            this.pictureBoxStudent.Click += new System.EventHandler(this.pictureBoxStudent_Click);
             // 
             // pictureBoxSchool
             // 

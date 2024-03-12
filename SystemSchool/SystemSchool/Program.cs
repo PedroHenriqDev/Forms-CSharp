@@ -34,6 +34,7 @@ namespace SystemSchool
             builder.RegisterType<RegistrationUserForm>().AsSelf();
             builder.RegisterType<EditStudentForm>().AsSelf();
             builder.RegisterType<EditClassroomForm>().AsSelf();
+            builder.RegisterType<EditUserForm>().AsSelf();
             builder.RegisterType<DeleteCourseForm>().AsSelf();
             builder.RegisterType<DeleteStudentForm>().AsSelf();
             builder.RegisterType<DeleteClassroomForm>().AsSelf();

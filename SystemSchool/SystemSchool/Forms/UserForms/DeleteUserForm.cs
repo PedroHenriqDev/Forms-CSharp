@@ -34,13 +34,6 @@ namespace SystemSchool.Forms.UserForms
             InitializeComponent();
         }
 
-        private void pictureBoxBack_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var userForm = Program.Container.Resolve<RegistrationUserForm>();
-            userForm.ShowDialog();
-        }
-
         private async void DeleteUserForm_Load(object sender, EventArgs e)
         {
             await LoadComboBoxClassAsync();
@@ -84,6 +77,35 @@ namespace SystemSchool.Forms.UserForms
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void pictureBoxEdit_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var userForm = Program.Container.Resolve<EditUserForm>();
+            userForm.ShowDialog();
+        }
+
+        private void pictureBoxStudent_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var userForm = Program.Container.Resolve<RegistrationUserForm>();
+            userForm.ShowDialog();
+        }
+
+        private void pictureBoxBack_Click(object sender, EventArgs e)
+        {
+            pictureBoxStudent_Click(sender, e);
+        }
+
+        private void LabelEditStudent_Click(object sender, EventArgs e)
+        {
+            pictureBoxEdit_Click(sender, e);
+        }
+
+        private void LabelCreateUser_Click(object sender, EventArgs e)
+        {
+            pictureBoxStudent_Click(sender, e);
         }
     }
 }

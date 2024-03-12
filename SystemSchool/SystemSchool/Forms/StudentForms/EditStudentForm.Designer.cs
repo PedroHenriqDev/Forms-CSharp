@@ -79,7 +79,7 @@
             this.LabelRegisterStudent.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LabelRegisterStudent.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelRegisterStudent.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.LabelRegisterStudent.Location = new System.Drawing.Point(42, 467);
+            this.LabelRegisterStudent.Location = new System.Drawing.Point(60, 467);
             this.LabelRegisterStudent.Name = "LabelRegisterStudent";
             this.LabelRegisterStudent.Size = new System.Drawing.Size(121, 20);
             this.LabelRegisterStudent.TabIndex = 24;
@@ -93,7 +93,7 @@
             this.LabelDeleteStudent.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LabelDeleteStudent.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelDeleteStudent.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.LabelDeleteStudent.Location = new System.Drawing.Point(52, 245);
+            this.LabelDeleteStudent.Location = new System.Drawing.Point(70, 245);
             this.LabelDeleteStudent.Name = "LabelDeleteStudent";
             this.LabelDeleteStudent.Size = new System.Drawing.Size(111, 20);
             this.LabelDeleteStudent.TabIndex = 23;
@@ -105,7 +105,7 @@
             // 
             this.pictureBoxStudent.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxStudent.Image = global::SystemSchool.Properties.Resources.icons8_student_48;
-            this.pictureBoxStudent.Location = new System.Drawing.Point(56, 413);
+            this.pictureBoxStudent.Location = new System.Drawing.Point(74, 413);
             this.pictureBoxStudent.Name = "pictureBoxStudent";
             this.pictureBoxStudent.Size = new System.Drawing.Size(100, 51);
             this.pictureBoxStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -117,7 +117,7 @@
             // 
             this.pictureBoxDelete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxDelete.Image = global::SystemSchool.Properties.Resources.icons8_delete_48;
-            this.pictureBoxDelete.Location = new System.Drawing.Point(56, 191);
+            this.pictureBoxDelete.Location = new System.Drawing.Point(74, 191);
             this.pictureBoxDelete.Name = "pictureBoxDelete";
             this.pictureBoxDelete.Size = new System.Drawing.Size(100, 51);
             this.pictureBoxDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -128,7 +128,7 @@
             // pictureBoxSchool
             // 
             this.pictureBoxSchool.Image = global::SystemSchool.Properties.Resources.icons8_school_80;
-            this.pictureBoxSchool.Location = new System.Drawing.Point(56, 19);
+            this.pictureBoxSchool.Location = new System.Drawing.Point(74, 19);
             this.pictureBoxSchool.Name = "pictureBoxSchool";
             this.pictureBoxSchool.Size = new System.Drawing.Size(100, 97);
             this.pictureBoxSchool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;

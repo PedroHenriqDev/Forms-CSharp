@@ -70,7 +70,14 @@ namespace SystemSchool.Forms.UserForms
             mainForm.ShowDialog();
         }
 
-        private void pictureBoxStudent_Click(object sender, EventArgs e)
+        private void pictureBoxEdit_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var userForm = Program.Container.Resolve<EditUserForm>();
+            userForm.ShowDialog();
+        }
+
+        private void pictureBoxDelete_Click(object sender, EventArgs e)
         {
             this.Hide();
             var userForm = Program.Container.Resolve<DeleteUserForm>();
@@ -79,7 +86,12 @@ namespace SystemSchool.Forms.UserForms
 
         private void LabelDeleteUser_Click(object sender, EventArgs e)
         {
-            pictureBoxStudent_Click(sender, e);
+            pictureBoxDelete_Click(sender, e);
+        }
+
+        private void LabelEditStudent_Click(object sender, EventArgs e)
+        {
+            pictureBoxEdit_Click(sender, e);
         }
     }
 }
