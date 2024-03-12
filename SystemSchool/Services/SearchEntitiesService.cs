@@ -55,10 +55,9 @@ namespace Services
             return await _connectionDb.ReturnEntityByIdAsync<Student>(id);
         }
 
-        public async Task<IEnumerable<Classroom>> FindClassroomsByCourseNameAsync(string courseName)
+        public async Task<IEnumerable<Classroom>> FindClassroomsByCourseNameAsync(Course course)
         {
-            Course course = await FindCourseByNameAsync(courseName);
-            return await _connectionDb.ReturnClassroomsByCourseIdAsync(course.Id);
+            return await _connectionDb.ReturnEntitiesByReferenceIdAsync<Classroom, Course>(course);
         }
 
         public async Task<IEnumerable<Classroom>> FindAllClassroomsAsync()

@@ -41,12 +41,13 @@ namespace SystemSchool
 
         private async void ComboBoxCourse_SelectedIndexChanged(object sender, EventArgs e)
         {
-            await LoadComboBoxClassroomAsync(ComboBoxCourse.SelectedItem.ToString());
+            await LoadComboBoxClassroomAsync();
         }
 
-        private async Task LoadComboBoxClassroomAsync(string courseName)
+        private async Task LoadComboBoxClassroomAsync()
         {
-            IEnumerable<Classroom> classrooms = await _searchEntities.FindClassroomsByCourseNameAsync(courseName);
+            DisplayItem<Course> course = ComboBoxCourse.SelectedItem as DisplayItem<Course>;
+            IEnumerable<Classroom> classrooms = await _searchEntities.FindClassroomsByCourseNameAsync(course.Value);
             ComboBoxClassroom.Items.Clear();
             ComboBoxClassroom.Items.AddRange(classrooms.Select(c => new DisplayItem<Classroom>(c, c.ClassroomName)).ToArray());
         }
@@ -54,7 +55,7 @@ namespace SystemSchool
         private async Task LoadComboBoxCoursesAsync()
         {
             IEnumerable<Course> courses = await _searchEntities.FindAllCoursesAsync();
-            ComboBoxCourse.Items.AddRange(courses.Select(c => c.CourseName).ToArray());
+            ComboBoxCourse.Items.AddRange(courses.Select(c => new DisplayItem<Course>(c, c.CourseName)).ToArray());
         }
 
         private void pictureBoxBack_Click(object sender, EventArgs e)

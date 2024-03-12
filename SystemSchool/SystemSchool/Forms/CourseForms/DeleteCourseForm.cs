@@ -46,7 +46,7 @@ namespace SystemSchool.Forms.CourseForms
             try
             {
                 DisplayItem<Course> course = listBoxCourses.SelectedItem as DisplayItem<Course>;
-                course.Value.Classrooms = (await _searchEntities.FindClassroomsByCourseNameAsync(course.Value.CourseName)).ToList(); 
+                course.Value.Classrooms = (await _searchEntities.FindClassroomsByCourseNameAsync(course.Value)).ToList(); 
                 foreach (var classroom in course.Value.Classrooms) 
                 {
                     IEnumerable<Student> students = await _searchEntities.FindStudentsByClassroomNameAsync(classroom);

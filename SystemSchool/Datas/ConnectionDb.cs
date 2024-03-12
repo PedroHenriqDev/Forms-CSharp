@@ -94,16 +94,6 @@ namespace Datas
             }
         }
 
-        public async Task<IEnumerable<Classroom>> ReturnClassroomsByCourseIdAsync(int courseId)
-        {
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
-            {
-                await connection.OpenAsync();
-                string sqlQuery = @"SELECT * FROM Classrooms WHERE CourseId = @courseId";
-                return await connection.QueryAsync<Classroom>(sqlQuery, new { courseId = courseId });
-            }
-        }
-
         public async Task<IEnumerable<T>> ReturnEntitiesByReferenceIdAsync<T, TR>(TR entity) 
             where T : class, IEntity<T> 
             where TR : class, IEntity<TR>

@@ -45,7 +45,7 @@ namespace Services
             }
         }
 
-        public async Task FillCourseInClassroom(IEnumerable<Classroom> classrooms)
+        public async Task FillClassroomsWithCourseAsync(IEnumerable<Classroom> classrooms)
         {
             if (classrooms != null)
             {
