@@ -34,44 +34,26 @@ namespace Services
             return await _connectionDb.ReturnClassByIdAsync(classId);
         }
 
-        public async Task<IEnumerable<Course>> FindAllCoursesAsync()
-        {
-            return await _connectionDb.ReturnAllEntitiesAsync<Course>();
-        }
-
         public async Task<IEnumerable<User>> FindUsersByClassAsync(Class displayClass) 
         {
             return await _connectionDb.ReturnEntitiesByReferenceIdAsync<User, Class>(displayClass);
         }
 
-        public async Task<IEnumerable<Classroom>> FindClassroomsByCourseNameAsync(Course course)
+        public async Task<IEnumerable<T>> FindEntitiesByReferenceIdAsync<T, TR>(TR entity) 
+            where T : class, IEntity<T> 
+            where TR : class, IEntity<TR> 
         {
-            return await _connectionDb.ReturnEntitiesByReferenceIdAsync<Classroom, Course>(course);
+            return await _connectionDb.ReturnEntitiesByReferenceIdAsync<T, TR>(entity);
         }
 
-        public async Task<IEnumerable<Classroom>> FindAllClassroomsAsync()
+        public async Task<IEnumerable<T>> FindAllEntitiesAsync<T>() where T : class, IEntity<T>
         {
-            return await _connectionDb.ReturnAllEntitiesAsync<Classroom>();
-        }
-
-        public async Task<IEnumerable<Student>> FindAllStudentsAsync()
-        {
-            return await _connectionDb.ReturnAllEntitiesAsync<Student>();
+            return await _connectionDb.ReturnAllEntitiesAsync<T>();
         }
 
         public async Task<IEnumerable<Class>> FindAllClassesAsync()
         {
             return await _connectionDb.ReturnAllClassesAsync();
-        }
-
-        public async Task<Course> FindCourseByNameAsync(string courseName)
-        {
-            return await _connectionDb.ReturnCourseByNameAsync(courseName);
-        }
-
-        public async Task<IEnumerable<Student>> FindStudentsByClassroomNameAsync(Classroom classroom)
-        {
-            return await _connectionDb.ReturnEntitiesByReferenceIdAsync<Student, Classroom>(classroom);
         }
 
         public async Task<IEnumerable<User>> FindUsersByQueryAsync(string query)

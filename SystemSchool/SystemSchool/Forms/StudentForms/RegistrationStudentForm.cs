@@ -47,14 +47,14 @@ namespace SystemSchool
         private async Task LoadComboBoxClassroomAsync()
         {
             DisplayItem<Course> course = ComboBoxCourse.SelectedItem as DisplayItem<Course>;
-            IEnumerable<Classroom> classrooms = await _searchEntities.FindClassroomsByCourseNameAsync(course.Value);
+            IEnumerable<Classroom> classrooms = await _searchEntities.FindEntitiesByReferenceIdAsync<Classroom, Course>(course.Value);
             ComboBoxClassroom.Items.Clear();
             ComboBoxClassroom.Items.AddRange(classrooms.Select(c => new DisplayItem<Classroom>(c, c.ClassroomName)).ToArray());
         }
 
         private async Task LoadComboBoxCoursesAsync()
         {
-            IEnumerable<Course> courses = await _searchEntities.FindAllCoursesAsync();
+            IEnumerable<Course> courses = await _searchEntities.FindAllEntitiesAsync<Course>();
             ComboBoxCourse.Items.AddRange(courses.Select(c => new DisplayItem<Course>(c, c.CourseName)).ToArray());
         }
 

@@ -41,7 +41,7 @@ namespace SystemSchool.Forms.ClassroomForms
 
         private async Task LoadListBoxSearchAsync() 
         {
-            IEnumerable<Classroom> classrooms = await _searchEntities.FindAllClassroomsAsync();
+            IEnumerable<Classroom> classrooms = await _searchEntities.FindAllEntitiesAsync<Classroom>();
             await _fillEntities.FillCourseInClassroomAsync(classrooms);
             classrooms = await _searchEntities.FindClassroomByQueryAsync(textBoxSearch.Text, classrooms);
             listBoxSearch.Items.Clear();
@@ -50,7 +50,7 @@ namespace SystemSchool.Forms.ClassroomForms
 
         private async Task LoadComboBoxCourseAsync() 
         {
-            IEnumerable<Course> courses = await _searchEntities.FindAllCoursesAsync();
+            IEnumerable<Course> courses = await _searchEntities.FindAllEntitiesAsync<Course>();
             DisplayItem<Classroom> classroom = listBoxSearch.SelectedItem as DisplayItem<Classroom>;
             ComboBoxCourse.Items.Clear();
             ComboBoxCourse.Text = classroom.Value.Course.CourseName;

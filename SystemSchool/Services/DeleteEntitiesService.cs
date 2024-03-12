@@ -79,6 +79,20 @@ namespace Services
             }
         }
 
+        public async Task DeleteStudentsInClassroomsAsync(IEnumerable<Classroom> classrooms) 
+        {
+            if(classrooms == null) 
+            {
+                return;
+            }
+
+            foreach(Classroom classroom in classrooms) 
+            {
+                IEnumerable<Student> students = await _searchService.FindEntitiesByReferenceIdAsync<Student, Classroom>(classroom);
+                await _connectionDb.DeleteRecordsInTableByIdAsync<Student>(students.Select(s => s.Id).ToList());
+            }
+        }
+
         public async Task DeleteClassromsByCourseIdAsync(IEnumerable<Classroom> classrooms, int courseId) 
         {
             if (classrooms.Any()) 

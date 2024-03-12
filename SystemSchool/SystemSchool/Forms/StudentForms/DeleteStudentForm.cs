@@ -40,14 +40,14 @@ namespace SystemSchool.Forms.StudentForms
 
         private async Task LoadComboBoxClassroomsAsync()
         {
-            IEnumerable<Classroom> classrooms = await _searchEntities.FindAllClassroomsAsync();
+            IEnumerable<Classroom> classrooms = await _searchEntities.FindAllEntitiesAsync<Classroom>();
             ComboBoxClassroom.Items.AddRange(classrooms.Select(c => new DisplayItem<Classroom>(c, c.ClassroomName)).ToArray());
         }
 
         private async Task LoadListBoxByIndexAsync()
         {
             DisplayItem<Classroom> classroom = ComboBoxClassroom.SelectedItem as DisplayItem<Classroom>;
-            IEnumerable<Student> students = await _searchEntities.FindStudentsByClassroomNameAsync(classroom.Value);
+            IEnumerable<Student> students = await _searchEntities.FindEntitiesByReferenceIdAsync<Student, Classroom>(classroom.Value);
             listBoxStudents.Items.Clear();
             foreach (Student student in students)
             {

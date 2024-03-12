@@ -36,7 +36,7 @@ namespace SystemSchool.Forms.CourseForms
 
         private async Task LoadListBoxCoursesAsync()
         {
-            IEnumerable<Course> courses = await _searchEntities.FindAllCoursesAsync();
+            IEnumerable<Course> courses = await _searchEntities.FindAllEntitiesAsync<Course>();
             listBoxCourses.Items.Clear();
             listBoxCourses.Items.AddRange(courses.Select(c => new DisplayItem<Course>(c, c.CourseName)).ToArray());
         }
@@ -46,13 +46,8 @@ namespace SystemSchool.Forms.CourseForms
             try
             {
                 DisplayItem<Course> course = listBoxCourses.SelectedItem as DisplayItem<Course>;
-                course.Value.Classrooms = (await _searchEntities.FindClassroomsByCourseNameAsync(course.Value)).ToList(); 
-                foreach (var classroom in course.Value.Classrooms) 
-                {
-                    IEnumerable<Student> students = await _searchEntities.FindStudentsByClassroomNameAsync(classroom);
-                    await _deleteEntities.DeleteStudentsAsync(students);
-                }
-
+                course.Value.Classrooms = (await _searchEntities.FindEntitiesByReferenceIdAsync<Classroom, Course>(course.Value)).ToList();
+                await _deleteEntities.DeleteStudentsInClassroomsAsync(course.Value.Classrooms);
                 await _deleteEntities.DeleteClassromsByCourseIdAsync(course.Value.Classrooms, course.Value.Id);
 
                 EntityQuery<Course> courseQuery = await _deleteEntities.DeleteCourseAsync(course.Value);

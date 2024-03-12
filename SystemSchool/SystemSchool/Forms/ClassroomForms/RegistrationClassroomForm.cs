@@ -51,7 +51,7 @@ namespace SystemSchool.Forms.ClassroomForms
 
         private async Task LoadComboBoxCourseAsync()
         {
-            IEnumerable<Course> courses = await _searchEntities.FindAllCoursesAsync();
+            IEnumerable<Course> courses = await _searchEntities.FindAllEntitiesAsync<Course>();
             ComboBoxCourse.Items.AddRange(courses.Select(c => new DisplayItem<Course>(c, c.CourseName)).ToArray());
         }
 

@@ -52,7 +52,7 @@ namespace SystemSchool.Forms.StudentForms
             DisplayItem<Student> student = listBoxSearch.SelectedItem as DisplayItem<Student>;
             ComboBoxClassroom.Text = student.Value.Classroom.ClassroomName;
             ComboBoxClassroom.Items.Clear();
-            IEnumerable<Classroom> classrooms = await _searchEntities.FindAllClassroomsAsync();
+            IEnumerable<Classroom> classrooms = await _searchEntities.FindAllEntitiesAsync<Classroom>();
             await _fillEntities.FillCourseInClassroomAsync(classrooms);
             ComboBoxClassroom.Items.AddRange(classrooms.Select(c => new DisplayItem<Classroom>(c, $"{c.ClassroomName} - {c.Course.CourseName}")).ToArray());
         }
@@ -123,7 +123,7 @@ namespace SystemSchool.Forms.StudentForms
 
         private async Task FillClassroomInStudent(Student student)
         {
-            IEnumerable<Classroom> classrooms = await _searchEntities.FindAllClassroomsAsync();
+            IEnumerable<Classroom> classrooms = await _searchEntities.FindAllEntitiesAsync<Classroom>();
             if (ComboBoxClassroom.SelectedItem == null && classrooms.Select(c => c.ClassroomName).Any(c => c == ComboBoxClassroom.Text))
             {
                 _fillEntities.FillStudentWithClassroom(student, await _searchEntities.FindEntityByNameAsync<Classroom>(ComboBoxClassroom.Text));
