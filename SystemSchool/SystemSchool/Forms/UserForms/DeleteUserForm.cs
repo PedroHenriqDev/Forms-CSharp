@@ -15,7 +15,6 @@ namespace SystemSchool.Forms.UserForms
 {
     public partial class DeleteUserForm : Form
     {
-
         private readonly SearchEntitiesService _searchEntities;
 
         public DeleteUserForm(SearchEntitiesService searchEntities)
@@ -45,6 +44,15 @@ namespace SystemSchool.Forms.UserForms
 
         private async Task LoadListBoxUsersAsync() 
         {
+            DisplayItem<Class> displayClass = ComboBoxClasses.SelectedItem as DisplayItem<Class>;
+            IEnumerable<User> users = await _searchEntities.FindUsersByClassAsync(displayClass.Value);
+            listBoxUsers.Items.Clear();
+            listBoxUsers.Items.AddRange(users.Select(u => new DisplayItem<User>(u, u.Username)).ToArray());
+        }
+
+        private async void ComboBoxClasses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            await LoadListBoxUsersAsync();
         }
     }
 }

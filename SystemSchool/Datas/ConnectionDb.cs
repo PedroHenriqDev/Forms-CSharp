@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 using System.Globalization;
 using System.Collections;
 using System.Runtime.Remoting.Messaging;
+using Entities.Interfaces;
 
 namespace Datas
 {
@@ -111,6 +112,20 @@ namespace Datas
                 await connection.OpenAsync();
                 string sqlQuery = @"SELECT * FROM Students WHERE ClassroomId = @classroomId";
                 return await connection.QueryAsync<Student>(sqlQuery, new { classroomId = classroomId });
+            }
+        }
+
+        public async Task<IEnumerable<T>> ReturnEntitiesByReferenceIdAsync<T, TR>(TR entity) 
+            where T : class, IEntity<T> 
+            where TR : class, IEntity<TR>
+        {
+            using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
+            {
+                await connection.OpenAsync();
+                string tableName = typeof(T).Name + "s";
+                string where = typeof(TR).Name + "Id";
+                string sqlQuery = $"SELECT * FROM {tableName} WHERE {where} = @referenceId";
+                return await connection.QueryAsync<T>(sqlQuery, new { referenceId = entity.Id, });
             }
         }
 

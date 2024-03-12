@@ -165,6 +165,7 @@
             this.ComboBoxClasses.Name = "ComboBoxClasses";
             this.ComboBoxClasses.Size = new System.Drawing.Size(249, 29);
             this.ComboBoxClasses.TabIndex = 16;
+            this.ComboBoxClasses.SelectedIndexChanged += new System.EventHandler(this.ComboBoxClasses_SelectedIndexChanged);
             // 
             // listBoxUsers
             // 
