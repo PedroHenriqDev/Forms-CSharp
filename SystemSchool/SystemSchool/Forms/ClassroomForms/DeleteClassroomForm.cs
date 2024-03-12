@@ -62,13 +62,6 @@ namespace SystemSchool.Forms.ClassroomForms
             }
         }
 
-        private void pictureBoxBack_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var formClassroom = Program.Container.Resolve<RegistrationClassroomForm>();
-            formClassroom.ShowDialog();
-        }
-
         private async void buttonDelete_Click(object sender, EventArgs e)
         {
             try
@@ -83,6 +76,35 @@ namespace SystemSchool.Forms.ClassroomForms
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void pictureBoxRegisterClassroom_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var formClassroom = Program.Container.Resolve<RegistrationClassroomForm>();
+            formClassroom.ShowDialog();
+        }
+
+        private void pictureBoxEditClassroom_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var formClassroom = Program.Container.Resolve<EditClassroomForm>();
+            formClassroom.ShowDialog();
+        }
+
+        private void pictureBoxBack_Click(object sender, EventArgs e)
+        {
+            pictureBoxRegisterClassroom_Click(sender, e);
+        }
+
+        private void LabelRegisterClassroom_Click(object sender, EventArgs e)
+        {
+            pictureBoxRegisterClassroom_Click(sender, e);
+        }
+
+        private void LabelEditClassroom_Click(object sender, EventArgs e)
+        {
+            pictureBoxEditClassroom_Click(sender, e);
         }
     }
 }

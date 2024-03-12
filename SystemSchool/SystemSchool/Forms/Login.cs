@@ -12,13 +12,13 @@ namespace SystemSchool
     public partial class Login : Form
     {
         private readonly LoginService _loginService;
-        static public User UserCls = new User();
-        MainForm MainForm = new MainForm();
-        DataAccess DataAccess = new DataAccess();
+        static public User CurrentUser = new User();
+        private readonly DataAccess _dataAccess = new DataAccess();
 
-        public Login(LoginService loginService) 
+        public Login(LoginService loginService, DataAccess dataAccess) 
         {
             _loginService = loginService;
+            _dataAccess = dataAccess;
             InitializeComponent();
         }
 
@@ -29,17 +29,18 @@ namespace SystemSchool
 
         private async Task ButtonLogin_ClickAsync(object sender, EventArgs e)
         {
+            MainForm MainForm = new MainForm();
             try
             {
-                UserCls.Username = TextUsername.Text;
-                UserCls.PasswordHash = TextPassword.Text;
-                EntityQuery<User> userQuery = await _loginService.LoginAsync(UserCls);
+                CurrentUser.Username = TextUsername.Text;
+                CurrentUser.PasswordHash = TextPassword.Text;
+                EntityQuery<User> userQuery = await _loginService.LoginAsync(CurrentUser);
                 if (userQuery.Result)
                 {
-                    UserCls = userQuery.Value;
+                    CurrentUser = userQuery.Value;
                     MessageBox.Show(userQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Hide();
-                    DataAccess.MainFormAccess(MainForm, UserCls);
+                    _dataAccess.MainFormAccess(MainForm, CurrentUser);
                     MainForm.ShowDialog();
                 }
                 else

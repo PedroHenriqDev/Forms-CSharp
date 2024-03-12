@@ -11,6 +11,16 @@ namespace SystemSchool.Helpers
 {
     public class DataAccess
     {
+        public IEnumerable<User> RemoveCurrentUserFromSet(IEnumerable<User> users) 
+        {
+            if (users != null)
+            {
+                return users.Where(u => u.Id != Login.CurrentUser.Id).ToList();
+            }
+            return users;
+        }
+
+
         public void MainFormAccess(MainForm mainForm, User user)
         {
             if (mainForm == null)

@@ -9,6 +9,7 @@ using SystemSchool.Forms.StudentForms;
 using Datas;
 using SystemSchool.Controls;
 using SystemSchool.Forms.UserForms;
+using SystemSchool.Helpers;
 
 namespace SystemSchool
 {
@@ -50,12 +51,14 @@ namespace SystemSchool
             builder.RegisterType<SearchEntitiesService>().AsSelf();
             builder.RegisterType<ConnectionDb>().AsSelf();
 
+            builder.RegisterType<DataAccess>().AsSelf();
             builder.RegisterType<CreateTransientEntities>().AsSelf();
 
             Container = builder.Build();
 
             var loginService = Container.Resolve<LoginService>();
-            Application.Run(new Login(loginService));
+            var dataAccess = Container.Resolve<DataAccess>();
+            Application.Run(new Login(loginService, dataAccess));
         }
     }
 }

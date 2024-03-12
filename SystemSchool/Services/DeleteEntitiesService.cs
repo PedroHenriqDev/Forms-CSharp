@@ -5,6 +5,7 @@ using Entities.Interfaces;
 using Entities.TransientClasses;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,6 +47,17 @@ namespace Services
             return new EntityQuery<Course>(true, "Course " + course.CourseName + " deleted successfully", DateTime.Now, course);
         }
 
+
+        public async Task<EntityQuery<User>> DeleteUserAsync(User user)
+        {
+            if (user == null || !_validationEntities.EntityHasId(user.Id)) 
+            {
+                return new EntityQuery<User>(false, "An error ocurred when recognizing the user " + user.Username, DateTime.Now, user);
+            }
+            await _connectionDb.DeleteRecordInTableByIdAsync<User>(user.Id);
+            return new EntityQuery<User>(true, "User " + user.Username + " deleted successfully", DateTime.Now, user);
+        }
+
         public async Task<EntityQuery<Classroom>> DeleteClassroomAsync(Classroom classroom)
         {
             if (classroom == null || !_validationEntities.EntityHasId(classroom.Id))
@@ -57,7 +69,7 @@ namespace Services
             return new EntityQuery<Classroom>(true, "Classroom " + classroom.ClassroomName + " deleted successfully", DateTime.Now, classroom);
         }
 
-        public async Task DeleteStudentsAsync(IEnumerable<Student> students) 
+        public async Task DeleteStudentsAsync(IEnumerable<Student> students)
         {
             if (students.Any())
             {
