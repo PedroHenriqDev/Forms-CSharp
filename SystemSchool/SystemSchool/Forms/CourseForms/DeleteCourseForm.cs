@@ -49,7 +49,7 @@ namespace SystemSchool.Forms.CourseForms
                 course.Value.Classrooms = (await _searchEntities.FindClassroomsByCourseNameAsync(course.Value.CourseName)).ToList(); 
                 foreach (var classroom in course.Value.Classrooms) 
                 {
-                    IEnumerable<Student> students = await _searchEntities.FindStudentsByClassroomNameAsync(classroom.ClassroomName);
+                    IEnumerable<Student> students = await _searchEntities.FindStudentsByClassroomNameAsync(classroom);
                     await _deleteEntities.DeleteStudentsAsync(students);
                 }
 

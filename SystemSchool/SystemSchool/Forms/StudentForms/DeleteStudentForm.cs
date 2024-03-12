@@ -35,22 +35,23 @@ namespace SystemSchool.Forms.StudentForms
 
         private async void ComboBoxClassroom_SelectedIndexChanged(object sender, EventArgs e)
         {
-            await LoadListBoxByIndexAsync(ComboBoxClassroom.SelectedItem.ToString());
+            await LoadListBoxByIndexAsync();
         }
 
         private async Task LoadComboBoxClassroomsAsync()
         {
             IEnumerable<Classroom> classrooms = await _searchEntities.FindAllClassroomsAsync();
-            ComboBoxClassroom.Items.AddRange(classrooms.Select(c => c.ClassroomName).ToArray());
+            ComboBoxClassroom.Items.AddRange(classrooms.Select(c => new DisplayItem<Classroom>(c, c.ClassroomName)).ToArray());
         }
 
-        private async Task LoadListBoxByIndexAsync(string classroomName)
+        private async Task LoadListBoxByIndexAsync()
         {
-            IEnumerable<Student> students = await _searchEntities.FindStudentsByClassroomNameAsync(classroomName);
+            DisplayItem<Classroom> classroom = ComboBoxClassroom.SelectedItem as DisplayItem<Classroom>;
+            IEnumerable<Student> students = await _searchEntities.FindStudentsByClassroomNameAsync(classroom.Value);
             listBoxStudents.Items.Clear();
             foreach (Student student in students)
             {
-                string displayName = $"{student.CompleteName} - ({classroomName})";
+                string displayName = $"{student.CompleteName} - ({classroom.Value.ClassroomName})";
                 if (!listBoxStudents.Items.Contains(student))
                 {
                     listBoxStudents.Items.Add(new DisplayItem<Student>(student, displayName));
@@ -65,7 +66,7 @@ namespace SystemSchool.Forms.StudentForms
                 DisplayItem<Student> student = (DisplayItem<Student>)listBoxStudents.SelectedItem;
                 EntityQuery<Student> studentQuery = await _deleteEntities.DeleteStudentAsync(student.Value);
                 MessageBox.Show(studentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                await LoadListBoxByIndexAsync(ComboBoxClassroom.SelectedItem.ToString());
+                await LoadListBoxByIndexAsync();
             }
             catch (Exception ex)
             {
