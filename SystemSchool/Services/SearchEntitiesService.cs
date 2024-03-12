@@ -1,5 +1,6 @@
 ﻿using Datas;
 using Entities;
+using Entities.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,16 @@ namespace Services
             _connectionDb = connectionDb;
         }
 
+        public async Task<T> FindEntityByIdAsync<T>(int id) where T : class, IEntity<T> 
+        {
+            return await _connectionDb.ReturnEntityByIdAsync<T>(id);
+        } 
+
+        public async Task<T> FindEntityByNameAsync<T>(string name) where T : class, IEntity<T> 
+        {
+            return await _connectionDb.ReturnEntityByNameAsync<T>(name);
+        }
+
         public async Task<Class> FindClassByIdAsync(int classId) 
         {
             return await _connectionDb.ReturnClassByIdAsync(classId);
@@ -28,24 +39,9 @@ namespace Services
             return await _connectionDb.ReturnAllEntitiesAsync<Course>();
         }
 
-        public async Task<Classroom> FindClassroomByNameAsync(string classroomName)
-        {
-            return await _connectionDb.ReturnClassroomByNameAsync(classroomName);
-        }
-
-        public async Task<Classroom> FindClassroomByIdAsync(int classroomId)
-        {
-            return await _connectionDb.ReturnEntityByIdAsync<Classroom>(classroomId);
-        }
-
         public async Task<IEnumerable<User>> FindUsersByClassAsync(Class displayClass) 
         {
             return await _connectionDb.ReturnEntitiesByReferenceIdAsync<User, Class>(displayClass);
-        }
-
-        public async Task<Student> FindStudentByIdAsync(int id)
-        {
-            return await _connectionDb.ReturnEntityByIdAsync<Student>(id);
         }
 
         public async Task<IEnumerable<Classroom>> FindClassroomsByCourseNameAsync(Course course)
@@ -71,11 +67,6 @@ namespace Services
         public async Task<Course> FindCourseByNameAsync(string courseName)
         {
             return await _connectionDb.ReturnCourseByNameAsync(courseName);
-        }
-
-        public async Task<Course> FindCourseByIdAsync(int courseId)
-        {
-            return await _connectionDb.ReturnEntityByIdAsync<Course>(courseId);
         }
 
         public async Task<IEnumerable<Student>> FindStudentsByClassroomNameAsync(Classroom classroom)

@@ -62,16 +62,17 @@ namespace Datas
             }
         }
 
-        public async Task<Classroom> ReturnClassroomByNameAsync(string classroomName)
+        public async Task<T> ReturnEntityByNameAsync<T>(string name) where T : class
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"SELECT * FROM Classrooms WHERE ClassroomName = @classroomName";
-                return await connection.QueryFirstOrDefaultAsync<Classroom>(sqlQuery, new { classroomName = classroomName });
+                string tableName = typeof(T).Name + "s";
+                string where = typeof(T).Name + "Name";
+                string sqlQuery = $"SELECT * FROM {tableName} WHERE {where} = @name";
+                return await connection.QueryFirstOrDefaultAsync<T>(sqlQuery, new { name = name });
             }
         }
-
 
         public async Task<IEnumerable<T>> ReturnAllEntitiesAsync<T> () where T : class
         {

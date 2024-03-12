@@ -27,7 +27,7 @@ namespace Services
                 {
                     if (classroom.CourseId != null)
                     {
-                        Course course = await _searchEntities.FindCourseByIdAsync(classroom.CourseId);
+                        Course course = await _searchEntities.FindEntityByIdAsync<Course>(classroom.CourseId);
                         classroom.Course = course;
                     }
                 }
@@ -40,7 +40,7 @@ namespace Services
             {
                 foreach (Student student in students)
                 {
-                    student.Classroom = await _searchEntities.FindClassroomByIdAsync(student.ClassroomId);
+                    student.Classroom = await _searchEntities.FindEntityByIdAsync<Classroom>(student.ClassroomId);
                 }
             }
         }
@@ -51,7 +51,7 @@ namespace Services
             {
                 foreach (Classroom classroom in classrooms)
                 {
-                    Course course = await _searchEntities.FindCourseByIdAsync(classroom.CourseId);
+                    Course course = await _searchEntities.FindEntityByIdAsync<Course>(classroom.CourseId);
                     classroom.Course = course;
                 }
             }

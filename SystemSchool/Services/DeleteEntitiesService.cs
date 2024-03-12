@@ -27,7 +27,7 @@ namespace Services
 
         public async Task<EntityQuery<Student>> DeleteStudentAsync(Student student)
         {
-            Student studentDb = await _searchService.FindStudentByIdAsync(student.Id);
+            Student studentDb = await _searchService.FindEntityByIdAsync<Student>(student.Id);
             if (studentDb == null || !_validationEntities.EntityHasId(studentDb.Id))
             {
                 return new EntityQuery<Student>(false, "An error occurred when recognizing the student " + student.CompleteName.CutCompleteName(), DateTime.Now, student);

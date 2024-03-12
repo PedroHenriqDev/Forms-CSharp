@@ -116,8 +116,8 @@ namespace SystemSchool.Forms.StudentForms
         {
             DisplayItem<Student> student = listBoxSearch.SelectedItem as DisplayItem<Student>;
             LabelStudent.ForeColor = Color.Black;
-            student.Value.Classroom = await _searchEntities.FindClassroomByIdAsync(student.Value.ClassroomId);
-            student.Value.Classroom.Course = await _searchEntities.FindCourseByIdAsync(student.Value.Classroom.CourseId);
+            student.Value.Classroom = await _searchEntities.FindEntityByIdAsync<Classroom>(student.Value.ClassroomId);
+            student.Value.Classroom.Course = await _searchEntities.FindEntityByIdAsync<Course>(student.Value.Classroom.CourseId);
             LabelStudent.Text = $"{student.Value.CompleteName} - {student.Value.Classroom.Course.CourseName} - {student.Value.Classroom.ClassroomName}";
         }
 
@@ -126,12 +126,12 @@ namespace SystemSchool.Forms.StudentForms
             IEnumerable<Classroom> classrooms = await _searchEntities.FindAllClassroomsAsync();
             if (ComboBoxClassroom.SelectedItem == null && classrooms.Select(c => c.ClassroomName).Any(c => c == ComboBoxClassroom.Text))
             {
-                _fillEntities.FillStudentWithClassroom(student, await _searchEntities.FindClassroomByNameAsync(ComboBoxClassroom.Text));
+                _fillEntities.FillStudentWithClassroom(student, await _searchEntities.FindEntityByNameAsync<Classroom>(ComboBoxClassroom.Text));
             }
             else
             {
                 DisplayItem<Classroom> classroom = ComboBoxClassroom.SelectedItem as DisplayItem<Classroom>;
-                _fillEntities.FillStudentWithClassroom(student, await _searchEntities.FindClassroomByNameAsync(classroom.Value.ClassroomName));
+                _fillEntities.FillStudentWithClassroom(student, await _searchEntities.FindEntityByNameAsync<Classroom>(classroom.Value.ClassroomName));
             }
         }
 
