@@ -18,6 +18,11 @@ namespace Services
             _connectionDb = connectionDb;
         }
 
+        public async Task<Class> FindClassByIdAsync(int classId) 
+        {
+            return await _connectionDb.ReturnClassByIdAsync(classId);
+        }
+
         public async Task<IEnumerable<Course>> FindAllCoursesAsync()
         {
             return await _connectionDb.ReturnAllEntitiesAsync<Course>();
@@ -31,18 +36,6 @@ namespace Services
         public async Task<Classroom> FindClassroomByIdAsync(int classroomId)
         {
             return await _connectionDb.ReturnEntityByIdAsync<Classroom>(classroomId);
-        }
-
-        public async Task<IEnumerable<Student>> FindStudentByQueryAsync(string query)
-        {
-            IEnumerable<Student> students = await _connectionDb.ReturnAllEntitiesAsync<Student>();
-
-            if (query == null)
-            {
-                return students;
-            }
-
-            return students.Where(s => s.CompleteName.ToLower().Contains(query.ToLower())).ToList();
         }
 
         public async Task<IEnumerable<User>> FindUsersByClassAsync(Class displayClass) 
@@ -63,16 +56,6 @@ namespace Services
         public async Task<IEnumerable<Classroom>> FindAllClassroomsAsync()
         {
             return await _connectionDb.ReturnAllEntitiesAsync<Classroom>();
-        }
-
-        public async Task<IEnumerable<Classroom>> FindClassroomByQueryAsync(string query, IEnumerable<Classroom> classrooms)
-        {
-            if (classrooms == null)
-            {
-                return classrooms;
-            }
-
-            return classrooms.Where(c => c.ClassroomName.ToLower().Contains(query.ToLower()) || c.Course.CourseName.ToLower().Contains(query.ToLower()));
         }
 
         public async Task<IEnumerable<Student>> FindAllStudentsAsync()
@@ -98,6 +81,39 @@ namespace Services
         public async Task<IEnumerable<Student>> FindStudentsByClassroomNameAsync(Classroom classroom)
         {
             return await _connectionDb.ReturnEntitiesByReferenceIdAsync<Student, Classroom>(classroom);
+        }
+
+        public async Task<IEnumerable<User>> FindUsersByQueryAsync(string query)
+        {
+            IEnumerable<User> users = await _connectionDb.ReturnAllEntitiesAsync<User>();
+            if (users == null)
+            {
+                return users;
+            }
+
+            return users.Where(c => c.Username.ToLower().Contains(query.ToLower()) || c.Class.NameClass.ToLower().Contains(query.ToLower())).ToList();
+        }
+
+        public async Task<IEnumerable<Student>> FindStudentByQueryAsync(string query)
+        {
+            IEnumerable<Student> students = await _connectionDb.ReturnAllEntitiesAsync<Student>();
+
+            if (query == null)
+            {
+                return students;
+            }
+
+            return students.Where(s => s.CompleteName.ToLower().Contains(query.ToLower())).ToList();
+        }
+
+        public async Task<IEnumerable<Classroom>> FindClassroomByQueryAsync(string query, IEnumerable<Classroom> classrooms)
+        {
+            if (classrooms == null)
+            {
+                return classrooms;
+            }
+
+            return classrooms.Where(c => c.ClassroomName.ToLower().Contains(query.ToLower()) || c.Course.CourseName.ToLower().Contains(query.ToLower()));
         }
 
         public async Task<IEnumerable<char>> FindLettersAvailableBySchoolYearAsync(string schoolYear)

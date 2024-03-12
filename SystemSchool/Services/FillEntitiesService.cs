@@ -76,6 +76,19 @@ namespace Services
             }
             student.Classroom = classroom;
         }
+
+        public async Task FillUsersWithClassAsync(IEnumerable<User> users) 
+        {
+            if(users == null) 
+            {
+                throw new FillException("Problems filling users objects!");
+            }
+
+            foreach(User user in users) 
+            {
+                user.Class = await _searchEntities.FindClassByIdAsync(user.ClassId);
+            }
+        }
     }
 }
 
