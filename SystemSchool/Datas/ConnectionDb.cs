@@ -36,18 +36,17 @@ namespace Datas
             {
                 await connection.OpenAsync();
                 string sqlQuery = @"SELECT * FROM Classes WHERE Id = @id";
-                Class classDb = await connection.QueryFirstOrDefaultAsync<Class>(sqlQuery, new { id = id });
-                return classDb;
+                return await connection.QueryFirstOrDefaultAsync<Class>(sqlQuery, new { id = id });
             }
         }
 
-        public async Task<Course> ReturnCourseByNameAsync(string courseName)
+        public async Task<Class> ReturnClassByNameAsync(string nameClass) 
         {
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
+            using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"SELECT * FROM Courses WHERE CourseName = @courseName";
-                return await connection.QueryFirstOrDefaultAsync<Course>(sqlQuery, new { courseName = courseName });
+                string sqlQuery = @"SELECT * FROM Classes WHERE NameClass = @nameClass";
+                return await connection.QueryFirstOrDefaultAsync<Class>(sqlQuery, new { nameClass = nameClass });
             }
         }
 
@@ -216,6 +215,22 @@ namespace Datas
                     completeName = student.CompleteName,
                     classroomId = student.Classroom.Id,
                     id = student.Id,
+                });
+            }
+        }
+
+        public async Task EditUserInDbAsync(User user) 
+        {
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
+            {
+                await connection.OpenAsync();
+                string sqlQuery = @"UPDATE Users SET ClassId = @classId, Username = @username WHERE Id = @id";
+
+                await connection.ExecuteAsync(sqlQuery, new 
+                {
+                    classId = user.ClassId, 
+                    username = user.Username,
+                    id = user.Id
                 });
             }
         }

@@ -46,5 +46,16 @@ namespace Services
             }
             return new EntityQuery<Classroom>(false, "Classroom " + classroom.ClassroomName.CutCompleteName() + " to be edited there must be some change", DateTime.Now, classroom);
         }
+
+        public async Task<EntityQuery<User>> EditUserAsync(User user) 
+        {
+            if (_validationEntities.EntityHasId(user.Id) && _validationEntities.EntityHasId(user.ClassId) && !string.IsNullOrWhiteSpace(user.Username)) 
+            {
+                await _connectionDb.EditUserInDbAsync(user);
+                return new EntityQuery<User>(true, "User " + user.Username.CutCompleteName() + " edit successfully", DateTime.Now, user);
+            }
+            return new EntityQuery<User>(false, "User " + user.Username.CutCompleteName() + " Username cannot be empty", DateTime.Now, user);
+
+        }
     }
 }

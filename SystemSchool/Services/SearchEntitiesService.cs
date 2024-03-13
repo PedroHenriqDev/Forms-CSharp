@@ -34,6 +34,11 @@ namespace Services
             return await _connectionDb.ReturnClassByIdAsync(classId);
         }
 
+        public async Task<Class> FindClassByNameAsync(string className) 
+        {
+            return await _connectionDb.ReturnClassByNameAsync(className);
+        }
+
         public async Task<IEnumerable<User>> FindUsersByClassAsync(Class displayClass) 
         {
             return await _connectionDb.ReturnEntitiesByReferenceIdAsync<User, Class>(displayClass);

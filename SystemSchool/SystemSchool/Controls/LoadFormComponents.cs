@@ -89,7 +89,22 @@ namespace SystemSchool.Controls
             await _fillEntities.FillUsersWithClassAsync(users);
             users = _dataAccess.RemoveCurrentUserFromSet(users);
             editUserForm.listBoxSearch.Items.Clear();
-            editUserForm.listBoxSearch.Items.AddRange(users.Select(c => new DisplayItem<User>(c, $"{c.Username} - {c.Class.NameClass}")).ToArray());
+            editUserForm.listBoxSearch.Items.AddRange(users.Select(c => new DisplayItem<User>(c, $"{c.Username.CutCompleteName()} - {c.Class.NameClass}")).ToArray());
+        }
+
+        public async Task UserFormLoadClassInUserAsync(EditUserForm editUserForm, User user)
+        {
+            IEnumerable<Class> classes = await _searchEntities.FindAllClassesAsync();
+            if (editUserForm.ComboBoxClass.SelectedItem == null && classes.Select(c => c.NameClass).Any(c => c == editUserForm.ComboBoxClass.Text))
+            {
+                Class cls = await _searchEntities.FindClassByNameAsync(editUserForm.ComboBoxClass.Text);
+                user.Class = cls;
+            }
+            else
+            {
+                DisplayItem<Class> cls = editUserForm.ComboBoxClass.SelectedItem as DisplayItem<Class>;
+                user.Class = cls.Value;
+            }
         }
 
         public async Task StudentFormLoadComponentsAsync(EditStudentForm editStudentForm) 
@@ -152,8 +167,8 @@ namespace SystemSchool.Controls
 
         public async Task ClassroomFormLoadComponentsAsync(EditClassroomForm editClassroomForm) 
         {
-            await LoadComboBoxCourseAsync(editClassroomForm);
-            LoadLabelClassroomShow(editClassroomForm);
+            await ClassroomFormLoadComboBoxCourseAsync(editClassroomForm);
+            ClassroomFormLoadLabelClassroomShow(editClassroomForm);
         }
 
         public async Task ClassroomFormLoadListBoxSearchAsync(EditClassroomForm editClassroomForm)
@@ -166,7 +181,7 @@ namespace SystemSchool.Controls
         }
 
 
-        private async Task LoadComboBoxCourseAsync(EditClassroomForm editClassroomForm)
+        public async Task ClassroomFormLoadComboBoxCourseAsync(EditClassroomForm editClassroomForm)
         {
             IEnumerable<Course> courses = await _searchEntities.FindAllEntitiesAsync<Course>();
             DisplayItem<Classroom> classroom = editClassroomForm.listBoxSearch.SelectedItem as DisplayItem<Classroom>;
@@ -175,7 +190,7 @@ namespace SystemSchool.Controls
             editClassroomForm.ComboBoxCourse.Items.AddRange(courses.Select(c => new DisplayItem<Course>(c, c.CourseName)).ToArray());
         }
 
-        private void LoadLabelClassroomShow(EditClassroomForm editClassroomForm)
+        public void ClassroomFormLoadLabelClassroomShow(EditClassroomForm editClassroomForm)
         {
             DisplayItem<Classroom> classroom = editClassroomForm.listBoxSearch.SelectedItem as DisplayItem<Classroom>;
             editClassroomForm.LabelClassroomShow.ForeColor = Color.Black;

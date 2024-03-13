@@ -1,6 +1,8 @@
 ﻿using Autofac;
 using Business.Extensions;
 using Entities;
+using Entities.Expections;
+using Entities.TransientClasses;
 using Services;
 using System;
 using System.Collections.Generic;
@@ -68,6 +70,27 @@ namespace SystemSchool.Forms.UserForms
         private void LabelDeleteUser_Click(object sender, EventArgs e)
         {
             pictureBoxDelete_Click(sender, e);
+        }
+
+        private async void buttonEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DisplayItem<Class> cls = ComboBoxClass.SelectedItem as DisplayItem<Class>;
+                DisplayItem<User> user = listBoxSearch.SelectedItem as DisplayItem<User>;
+                user.Value.Username = textBoxUsername.Text;
+                await _loadFormComponents.UserFormLoadClassInUserAsync(this, user.Value);
+                EntityQuery<User> userQuery = await _editEntities.EditUserAsync(user.Value);
+                MessageBox.Show(userQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(EntityException ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
