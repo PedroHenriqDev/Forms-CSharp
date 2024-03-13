@@ -11,7 +11,7 @@ namespace SystemSchool.Helpers
 {
     public class DataAccess
     {
-        public IEnumerable<User> RemoveCurrentUserFromSet(IEnumerable<User> users) 
+        public IEnumerable<User> RemoveCurrentUserFromSet(IEnumerable<User> users)
         {
             if (users != null)
             {

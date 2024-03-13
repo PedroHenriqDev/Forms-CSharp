@@ -18,18 +18,15 @@ namespace SystemSchool.Forms.ClassroomForms
 {
     public partial class EditClassroomForm : Form
     {
-        private readonly SearchEntitiesService _searchEntities;
         private readonly FillEntitiesService _fillEntities;
         private readonly EditEntitiesService<Classroom> _editEntities;
         private readonly LoadFormComponents _loadFormComponents;
 
         public EditClassroomForm(
-            SearchEntitiesService searchEntitiesService, 
             FillEntitiesService fillEntities,
             EditEntitiesService<Classroom> editEntities,
             LoadFormComponents loadFormComponents)
         {
-            _searchEntities = searchEntitiesService;
             _fillEntities = fillEntities;
             _editEntities = editEntities;
             InitializeComponent();

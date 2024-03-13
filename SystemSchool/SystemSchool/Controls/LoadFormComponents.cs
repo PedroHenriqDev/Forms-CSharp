@@ -17,7 +17,6 @@ namespace SystemSchool.Controls
 {
     public class LoadFormComponents
     {
-
         private readonly SearchEntitiesService _searchEntities;
         private readonly FillEntitiesService _fillEntities;
         private readonly DataAccess _dataAccess;
@@ -30,6 +29,24 @@ namespace SystemSchool.Controls
             _searchEntities = searchEntities;
             _fillEntities = fillEntities;
             _dataAccess = dataAccess;
+        }
+
+        public void TeacherAccess(MainForm mainForm) 
+        {
+            mainForm.pictureUser.Enabled = false;
+            mainForm.LabelUser.Enabled = false;
+            mainForm.pictureStudent.Enabled = false;
+            mainForm.LabelStudent.Enabled = false;
+            mainForm.pictureClassroom.Enabled = false;
+            mainForm.LabelClassroom.Enabled = false;
+            mainForm.pictureCourse.Enabled = false;
+            mainForm.LabelCourse.Enabled = false;
+        }
+
+        public void SecretaryAccess(MainForm mainForm) 
+        {
+            mainForm.pictureUser.Enabled = false;
+            mainForm.LabelUser.Enabled = false;
         }
 
         public async Task UserFormLoadComponentsAsync(EditUserForm editUserForm)

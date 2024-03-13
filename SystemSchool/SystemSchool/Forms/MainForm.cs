@@ -27,6 +27,7 @@ namespace SystemSchool
         private void MainForm_Load(object sender, EventArgs e)
         {
             LabelUsername.Text = Login.CurrentUser.Username;
+            
             TimerDate.Start();
         }
         

@@ -13,7 +13,7 @@ namespace SystemSchool
     {
         private readonly LoginService _loginService;
         static public User CurrentUser = new User();
-        private readonly DataAccess _dataAccess = new DataAccess();
+        private readonly DataAccess _dataAccess; 
 
         public Login(LoginService loginService, DataAccess dataAccess) 
         {
