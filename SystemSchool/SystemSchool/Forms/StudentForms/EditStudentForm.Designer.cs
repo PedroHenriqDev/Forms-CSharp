@@ -34,7 +34,7 @@
             this.pictureBoxStudent = new System.Windows.Forms.PictureBox();
             this.pictureBoxDelete = new System.Windows.Forms.PictureBox();
             this.pictureBoxSchool = new System.Windows.Forms.PictureBox();
-            this.LabelEditStudent = new System.Windows.Forms.Label();
+            this.LabelEditStudentShow = new System.Windows.Forms.Label();
             this.LabelSearch = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.listBoxSearch = new System.Windows.Forms.ListBox();
@@ -135,18 +135,18 @@
             this.pictureBoxSchool.TabIndex = 0;
             this.pictureBoxSchool.TabStop = false;
             // 
-            // LabelEditStudent
+            // LabelEditStudentShow
             // 
-            this.LabelEditStudent.AutoSize = true;
-            this.LabelEditStudent.BackColor = System.Drawing.Color.Transparent;
-            this.LabelEditStudent.Font = new System.Drawing.Font("Malgun Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelEditStudent.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LabelEditStudent.Location = new System.Drawing.Point(445, 112);
-            this.LabelEditStudent.Name = "LabelEditStudent";
-            this.LabelEditStudent.Size = new System.Drawing.Size(137, 30);
-            this.LabelEditStudent.TabIndex = 25;
-            this.LabelEditStudent.Text = "Edit Student";
-            this.LabelEditStudent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelEditStudentShow.AutoSize = true;
+            this.LabelEditStudentShow.BackColor = System.Drawing.Color.Transparent;
+            this.LabelEditStudentShow.Font = new System.Drawing.Font("Malgun Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelEditStudentShow.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LabelEditStudentShow.Location = new System.Drawing.Point(445, 112);
+            this.LabelEditStudentShow.Name = "LabelEditStudentShow";
+            this.LabelEditStudentShow.Size = new System.Drawing.Size(137, 30);
+            this.LabelEditStudentShow.TabIndex = 25;
+            this.LabelEditStudentShow.Text = "Edit Student";
+            this.LabelEditStudentShow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LabelSearch
             // 
@@ -320,7 +320,7 @@
             this.Controls.Add(this.ComboBoxClassroom);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.LabelStudentName);
-            this.Controls.Add(this.LabelEditStudent);
+            this.Controls.Add(this.LabelEditStudentShow);
             this.Controls.Add(this.pictureBoxEdit);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -351,20 +351,20 @@
         private System.Windows.Forms.PictureBox pictureBoxEdit;
         private System.Windows.Forms.Label LabelRegisterStudent;
         private System.Windows.Forms.Label LabelDeleteStudent;
-        private System.Windows.Forms.Label LabelEditStudent;
+        private System.Windows.Forms.Label LabelEditStudentShow;
         private System.Windows.Forms.Label LabelSearch;
-        private System.Windows.Forms.TextBox textBoxSearch;
-        private System.Windows.Forms.ListBox listBoxSearch;
+        public System.Windows.Forms.TextBox textBoxSearch;
+        public System.Windows.Forms.ListBox listBoxSearch;
         private System.Windows.Forms.Label LabelSearchResult;
         private System.Windows.Forms.Label LabelStudentName;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.ComboBox ComboBoxClassroom;
-        private System.Windows.Forms.TextBox textBoxStudentName;
+        public System.Windows.Forms.ComboBox ComboBoxClassroom;
+        public System.Windows.Forms.TextBox textBoxStudentName;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label LabelClassroom;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.PictureBox pictureBoxBack;
-        private System.Windows.Forms.Label LabelStudent;
+        public System.Windows.Forms.Label LabelStudent;
     }
 }

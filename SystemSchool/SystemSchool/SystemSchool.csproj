@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="Controls\CreateTransientEntities.cs" />
     <Compile Include="Controls\DisplayItem.cs" />
+    <Compile Include="Controls\LoadFormComponents.cs" />
     <Compile Include="Exceptions\EntityException.cs" />
     <Compile Include="Exceptions\MainFormException.cs" />
     <Compile Include="Forms\ClassroomForms\DeleteClassroomForm.cs">

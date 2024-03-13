@@ -54,6 +54,7 @@ namespace SystemSchool
 
             builder.RegisterType<DataAccess>().AsSelf();
             builder.RegisterType<CreateTransientEntities>().AsSelf();
+            builder.RegisterType<LoadFormComponents>().AsSelf();
 
             Container = builder.Build();
 

@@ -18,71 +18,27 @@ namespace SystemSchool.Forms.UserForms
     public partial class EditUserForm : Form
     {
 
-        private readonly SearchEntitiesService _searchEntities;
         private readonly EditEntitiesService<User> _editEntities;
-        private readonly CreateTransientEntities _createTransient;
-        private readonly FillEntitiesService _fillEntities;
+        private readonly LoadFormComponents _loadFormComponents;
 
         public EditUserForm(
-            SearchEntitiesService searchEntities, 
             EditEntitiesService<User> editEntities, 
-            CreateTransientEntities createTransient,
-            FillEntitiesService fillEntities)
+            LoadFormComponents loadFormComponents)
         {
-            _searchEntities = searchEntities;
             _editEntities = editEntities;
-            _createTransient = createTransient;
-            _fillEntities = fillEntities;
+            _loadFormComponents = loadFormComponents;
             InitializeComponent();
         }
 
         private async void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            await LoadListBoxSearchAsync();
+        { 
+            await _loadFormComponents.UserFormLoadListBoxSearchAsync(this);
             LabelSearchResult.Text = $"Result of search '{textBoxSearch.Text}'";
-        }
-
-        private async Task LoadComboBoxClassAsync()
-        {
-            IEnumerable<Class> classes = await _searchEntities.FindAllClassesAsync();
-            ComboBoxClass.Items.Clear();
-            ComboBoxClass.Items.AddRange(classes.Select(c => new DisplayItem<Class>(c, c.NameClass.CutCompleteName())).ToArray());
-        }
-
-        private async Task LoadListBoxSearchAsync() 
-        {
-            IEnumerable<User> users = await _searchEntities.FindUsersByQueryAsync(textBoxSearch.Text);
-            await _fillEntities.FillUsersWithClassAsync(users);
-            listBoxSearch.Items.Clear();
-            listBoxSearch.Items.AddRange(users.Select(c => new DisplayItem<User>(c, $"{c.Username} - {c.Class.NameClass}")).ToArray());
         }
 
         private async void listBoxSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            FillTextBoxUsername();
-            FillComboBoxClass();
-            await LoadComboBoxClassAsync();
-            await FillLabelUserShowAsync();
-        }
-
-        private void FillComboBoxClass() 
-        {
-            DisplayItem<User> user = listBoxSearch.SelectedItem as DisplayItem<User>;
-            ComboBoxClass.Text = user.Value.Class.NameClass;
-        }
-
-        private void FillTextBoxUsername() 
-        {
-            DisplayItem<User> user = listBoxSearch.SelectedItem as DisplayItem<User>;
-            textBoxUsername.Text = user.Value.Username;
-        }
-
-        private async Task FillLabelUserShowAsync() 
-        {
-            DisplayItem<User> user = listBoxSearch.SelectedItem as DisplayItem<User>;
-            await _fillEntities.FillUserWithClassByIdAsync(user.Value, user.Value.ClassId);
-            LabelUserShow.ForeColor = Color.Black;
-            LabelUserShow.Text = $"{user.Value.Username} - {user.Value.Class.NameClass}";         
+            await _loadFormComponents.UserFormLoadComponentsAsync(this);
         }
 
         private void pictureBoxDelete_Click(object sender, EventArgs e)

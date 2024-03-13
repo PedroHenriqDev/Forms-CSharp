@@ -34,18 +34,6 @@ namespace Services
             }
         }
 
-        public async Task FillUserWithClassByIdAsync(User user, int classId)
-        {
-            if (classId != null)
-            {
-                Class cls = await _searchEntities.FindClassByIdAsync(classId);
-                if (cls != null)
-                {
-                    user.Class = cls;
-                }
-            }
-        }
-
         public async Task FillClassroomInStudentsAsync(IEnumerable<Student> students)
         {
             if (students != null)

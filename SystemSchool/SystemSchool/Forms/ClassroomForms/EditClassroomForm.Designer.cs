@@ -41,7 +41,7 @@
             this.pictureBoxStudent = new System.Windows.Forms.PictureBox();
             this.pictureBoxDelete = new System.Windows.Forms.PictureBox();
             this.pictureBoxSchool = new System.Windows.Forms.PictureBox();
-            this.LabelClassroomAndCourse = new System.Windows.Forms.Label();
+            this.LabelClassroomShow = new System.Windows.Forms.Label();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.LabelCourse = new System.Windows.Forms.Label();
             this.ComboBoxCourse = new System.Windows.Forms.ComboBox();
@@ -214,17 +214,17 @@
             this.pictureBoxSchool.TabIndex = 0;
             this.pictureBoxSchool.TabStop = false;
             // 
-            // LabelClassroomAndCourse
+            // LabelClassroomShow
             // 
-            this.LabelClassroomAndCourse.BackColor = System.Drawing.Color.Transparent;
-            this.LabelClassroomAndCourse.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelClassroomAndCourse.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.LabelClassroomAndCourse.Location = new System.Drawing.Point(400, 221);
-            this.LabelClassroomAndCourse.Name = "LabelClassroomAndCourse";
-            this.LabelClassroomAndCourse.Size = new System.Drawing.Size(216, 65);
-            this.LabelClassroomAndCourse.TabIndex = 42;
-            this.LabelClassroomAndCourse.Text = "Student";
-            this.LabelClassroomAndCourse.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelClassroomShow.BackColor = System.Drawing.Color.Transparent;
+            this.LabelClassroomShow.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelClassroomShow.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.LabelClassroomShow.Location = new System.Drawing.Point(400, 221);
+            this.LabelClassroomShow.Name = "LabelClassroomShow";
+            this.LabelClassroomShow.Size = new System.Drawing.Size(216, 65);
+            this.LabelClassroomShow.TabIndex = 42;
+            this.LabelClassroomShow.Text = "Student";
+            this.LabelClassroomShow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonEdit
             // 
@@ -290,7 +290,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1026, 642);
-            this.Controls.Add(this.LabelClassroomAndCourse);
+            this.Controls.Add(this.LabelClassroomShow);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.panel1);
@@ -323,9 +323,9 @@
 
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label LabelSearch;
-        private System.Windows.Forms.ListBox listBoxSearch;
-        private System.Windows.Forms.Label LabelSearchResult;
-        private System.Windows.Forms.TextBox textBoxSearch;
+        public System.Windows.Forms.ListBox listBoxSearch;
+        public System.Windows.Forms.Label LabelSearchResult;
+        public System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label LabelRegisterClassroom;
@@ -333,10 +333,10 @@
         private System.Windows.Forms.PictureBox pictureBoxStudent;
         private System.Windows.Forms.PictureBox pictureBoxDelete;
         private System.Windows.Forms.PictureBox pictureBoxSchool;
-        private System.Windows.Forms.Label LabelClassroomAndCourse;
+        public System.Windows.Forms.Label LabelClassroomShow;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Label LabelCourse;
-        private System.Windows.Forms.ComboBox ComboBoxCourse;
+        public System.Windows.Forms.ComboBox ComboBoxCourse;
         private System.Windows.Forms.Label LabelEditClassroom;
         private System.Windows.Forms.PictureBox pictureBoxEdit;
         private System.Windows.Forms.PictureBox pictureBoxBack;
