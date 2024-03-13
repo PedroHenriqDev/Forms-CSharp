@@ -10,6 +10,7 @@ using Datas;
 using SystemSchool.Controls;
 using SystemSchool.Forms.UserForms;
 using SystemSchool.Helpers;
+using SystemSchool.Forms;
 
 namespace SystemSchool
 {
@@ -28,6 +29,7 @@ namespace SystemSchool
 
             var builder = new ContainerBuilder();
             builder.RegisterType<MainForm>().AsSelf();
+            builder.RegisterType<Login>().AsSelf();
             builder.RegisterType<RegistrationStudentForm>().AsSelf();
             builder.RegisterType<RegistrationClassroomForm>().AsSelf();
             builder.RegisterType<RegistrationCourseForm>().AsSelf();
@@ -58,9 +60,7 @@ namespace SystemSchool
 
             Container = builder.Build();
 
-            var loginService = Container.Resolve<LoginService>();
-            var dataAccess = Container.Resolve<DataAccess>();
-            Application.Run(new Login(loginService, dataAccess));
+            Application.Run(new LoadForm());
         }
     }
 }

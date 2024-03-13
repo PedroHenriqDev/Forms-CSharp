@@ -106,6 +106,12 @@
     <Compile Include="Forms\CourseForms\RegistrationCourseForm.Designer.cs">
       <DependentUpon>RegistrationCourseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\LoadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LoadForm.Designer.cs">
+      <DependentUpon>LoadForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\StudentForms\DeleteStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\CourseForms\RegistrationCourseForm.resx">
       <DependentUpon>RegistrationCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LoadForm.resx">
+      <DependentUpon>LoadForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
