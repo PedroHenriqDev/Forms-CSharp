@@ -68,7 +68,7 @@ namespace SystemSchool.Forms.ClassroomForms
             {
                 DisplayItem<Classroom> classroom = listBoxClassrooms.SelectedItem as DisplayItem<Classroom>;
                 await _deleteEntities.DeleteStudentsAsync(await _searchEntities.FindEntitiesByReferenceIdAsync<Student, Classroom>(classroom.Value));
-                EntityQuery<Classroom> classroomQuery = await _deleteEntities.DeleteClassroomAsync(classroom.Value);
+                EntityQuery<Classroom> classroomQuery = await _deleteEntities.DeleteEntityAsync(classroom.Value);
                 MessageBox.Show(classroomQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 await LoadListBoxClassroomsAsync();
             }

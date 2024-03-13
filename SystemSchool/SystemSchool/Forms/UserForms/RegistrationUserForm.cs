@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using Entities;
+using Entities.Expections;
 using Entities.TransientClasses;
 using Services;
 using System;
@@ -54,6 +55,10 @@ namespace SystemSchool.Forms.UserForms
                 MessageBox.Show(userQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(ArgumentNullException ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(EntityException ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

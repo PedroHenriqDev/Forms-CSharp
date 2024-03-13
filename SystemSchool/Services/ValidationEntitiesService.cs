@@ -105,7 +105,7 @@ namespace Services
            {
                if(!char.IsLetter(c) && !char.IsWhiteSpace(c)) 
                {
-                  return true;
+                    throw new EntityException("You cannot have numbers in the field");
                }          
            }
 

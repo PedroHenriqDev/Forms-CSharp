@@ -65,7 +65,7 @@ namespace SystemSchool.Forms.UserForms
             try
             {
                 DisplayItem<User> user = listBoxUsers.SelectedItem as DisplayItem<User>;
-                EntityQuery<User> userQuery = await _deleteEntities.DeleteUserAsync(user.Value);
+                EntityQuery<User> userQuery = await _deleteEntities.DeleteEntityAsync(user.Value);
                 await LoadListBoxUsersAsync();
                 MessageBox.Show(userQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
