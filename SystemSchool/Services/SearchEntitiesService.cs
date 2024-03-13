@@ -59,12 +59,12 @@ namespace Services
         public async Task<IEnumerable<User>> FindUsersByQueryAsync(string query)
         {
             IEnumerable<User> users = await _connectionDb.ReturnAllEntitiesAsync<User>();
-            if (users == null)
+            if (query == null)
             {
                 return users;
             }
 
-            return users.Where(c => c.Username.ToLower().Contains(query.ToLower()) || c.Class.NameClass.ToLower().Contains(query.ToLower())).ToList();
+            return users.Where(c => c.Username.ToLower().Contains(query.ToLower())).ToList();
         }
 
         public async Task<IEnumerable<Student>> FindStudentByQueryAsync(string query)

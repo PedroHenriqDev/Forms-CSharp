@@ -9,7 +9,7 @@ namespace Services
 {
     public class EncryptEntitiesService
     {
-        public string EncryptPasswordSHA512(string password)
+        internal string EncryptPasswordSHA512(string password)
         {
             using (SHA512 sha512 = SHA512.Create())
             {

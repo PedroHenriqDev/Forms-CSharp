@@ -35,7 +35,7 @@
             this.listBoxSearch = new System.Windows.Forms.ListBox();
             this.LabelSearchResult = new System.Windows.Forms.Label();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.LabelStudent = new System.Windows.Forms.Label();
+            this.LabelUserShow = new System.Windows.Forms.Label();
             this.buttonEdit = new System.Windows.Forms.Button();
             this.LabelClass = new System.Windows.Forms.Label();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
@@ -49,8 +49,6 @@
             this.pictureBoxStudent = new System.Windows.Forms.PictureBox();
             this.pictureBoxDelete = new System.Windows.Forms.PictureBox();
             this.pictureBoxSchool = new System.Windows.Forms.PictureBox();
-            this.textBoxPassword = new System.Windows.Forms.TextBox();
-            this.LabelPassword = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -79,12 +77,13 @@
             // 
             this.pictureBoxBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxBack.Image = global::SystemSchool.Properties.Resources.icons8_back_48;
-            this.pictureBoxBack.Location = new System.Drawing.Point(214, 13);
+            this.pictureBoxBack.Location = new System.Drawing.Point(205, 16);
             this.pictureBoxBack.Name = "pictureBoxBack";
             this.pictureBoxBack.Size = new System.Drawing.Size(23, 23);
             this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxBack.TabIndex = 34;
             this.pictureBoxBack.TabStop = false;
+            this.pictureBoxBack.Click += new System.EventHandler(this.pictureBoxBack_Click);
             // 
             // pictureBox4
             // 
@@ -118,6 +117,7 @@
             this.listBoxSearch.Name = "listBoxSearch";
             this.listBoxSearch.Size = new System.Drawing.Size(187, 225);
             this.listBoxSearch.TabIndex = 28;
+            this.listBoxSearch.SelectedIndexChanged += new System.EventHandler(this.listBoxSearch_SelectedIndexChanged);
             // 
             // LabelSearchResult
             // 
@@ -141,17 +141,17 @@
             this.textBoxSearch.TabIndex = 27;
             this.textBoxSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxSearch_KeyDown);
             // 
-            // LabelStudent
+            // LabelUserShow
             // 
-            this.LabelStudent.BackColor = System.Drawing.Color.Transparent;
-            this.LabelStudent.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelStudent.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.LabelStudent.Location = new System.Drawing.Point(405, 189);
-            this.LabelStudent.Name = "LabelStudent";
-            this.LabelStudent.Size = new System.Drawing.Size(216, 65);
-            this.LabelStudent.TabIndex = 42;
-            this.LabelStudent.Text = "Student";
-            this.LabelStudent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelUserShow.BackColor = System.Drawing.Color.Transparent;
+            this.LabelUserShow.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelUserShow.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.LabelUserShow.Location = new System.Drawing.Point(405, 189);
+            this.LabelUserShow.Name = "LabelUserShow";
+            this.LabelUserShow.Size = new System.Drawing.Size(216, 65);
+            this.LabelUserShow.TabIndex = 42;
+            this.LabelUserShow.Text = "Student";
+            this.LabelUserShow.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonEdit
             // 
@@ -181,7 +181,7 @@
             this.textBoxUsername.BackColor = System.Drawing.SystemColors.HighlightText;
             this.textBoxUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUsername.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBoxUsername.Location = new System.Drawing.Point(405, 287);
+            this.textBoxUsername.Location = new System.Drawing.Point(405, 365);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(216, 26);
             this.textBoxUsername.TabIndex = 37;
@@ -201,7 +201,7 @@
             // 
             this.LabelUsername.AutoSize = true;
             this.LabelUsername.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelUsername.Location = new System.Drawing.Point(468, 263);
+            this.LabelUsername.Location = new System.Drawing.Point(472, 341);
             this.LabelUsername.Name = "LabelUsername";
             this.LabelUsername.Size = new System.Drawing.Size(91, 21);
             this.LabelUsername.TabIndex = 39;
@@ -213,11 +213,11 @@
             this.LabelEditUser.BackColor = System.Drawing.Color.Transparent;
             this.LabelEditUser.Font = new System.Drawing.Font("Malgun Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelEditUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LabelEditUser.Location = new System.Drawing.Point(445, 133);
+            this.LabelEditUser.Location = new System.Drawing.Point(458, 133);
             this.LabelEditUser.Name = "LabelEditUser";
-            this.LabelEditUser.Size = new System.Drawing.Size(137, 30);
+            this.LabelEditUser.Size = new System.Drawing.Size(103, 30);
             this.LabelEditUser.TabIndex = 36;
-            this.LabelEditUser.Text = "Edit Student";
+            this.LabelEditUser.Text = "Edit User";
             this.LabelEditUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBoxEdit
@@ -255,6 +255,7 @@
             this.LabelRegisterUser.TabIndex = 24;
             this.LabelRegisterUser.Text = "Register User";
             this.LabelRegisterUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelRegisterUser.Click += new System.EventHandler(this.LabelRegisterUser_Click);
             // 
             // LabelDeleteUser
             // 
@@ -268,6 +269,7 @@
             this.LabelDeleteUser.TabIndex = 23;
             this.LabelDeleteUser.Text = "Delete User";
             this.LabelDeleteUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelDeleteUser.Click += new System.EventHandler(this.LabelDeleteUser_Click);
             // 
             // pictureBoxStudent
             // 
@@ -279,6 +281,7 @@
             this.pictureBoxStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxStudent.TabIndex = 2;
             this.pictureBoxStudent.TabStop = false;
+            this.pictureBoxStudent.Click += new System.EventHandler(this.pictureBoxStudent_Click);
             // 
             // pictureBoxDelete
             // 
@@ -290,6 +293,7 @@
             this.pictureBoxDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxDelete.TabIndex = 1;
             this.pictureBoxDelete.TabStop = false;
+            this.pictureBoxDelete.Click += new System.EventHandler(this.pictureBoxDelete_Click);
             // 
             // pictureBoxSchool
             // 
@@ -301,36 +305,14 @@
             this.pictureBoxSchool.TabIndex = 0;
             this.pictureBoxSchool.TabStop = false;
             // 
-            // textBoxPassword
-            // 
-            this.textBoxPassword.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.textBoxPassword.Location = new System.Drawing.Point(405, 393);
-            this.textBoxPassword.Name = "textBoxPassword";
-            this.textBoxPassword.Size = new System.Drawing.Size(216, 26);
-            this.textBoxPassword.TabIndex = 44;
-            // 
-            // LabelPassword
-            // 
-            this.LabelPassword.AutoSize = true;
-            this.LabelPassword.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelPassword.Location = new System.Drawing.Point(468, 369);
-            this.LabelPassword.Name = "LabelPassword";
-            this.LabelPassword.Size = new System.Drawing.Size(86, 21);
-            this.LabelPassword.TabIndex = 45;
-            this.LabelPassword.Text = "Password:";
-            // 
             // EditUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1026, 642);
-            this.Controls.Add(this.LabelPassword);
-            this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.LabelStudent);
+            this.Controls.Add(this.LabelUserShow);
             this.Controls.Add(this.buttonEdit);
             this.Controls.Add(this.LabelClass);
             this.Controls.Add(this.textBoxUsername);
@@ -367,7 +349,7 @@
         private System.Windows.Forms.ListBox listBoxSearch;
         private System.Windows.Forms.Label LabelSearchResult;
         private System.Windows.Forms.TextBox textBoxSearch;
-        private System.Windows.Forms.Label LabelStudent;
+        private System.Windows.Forms.Label LabelUserShow;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Label LabelClass;
         private System.Windows.Forms.TextBox textBoxUsername;
@@ -381,7 +363,5 @@
         private System.Windows.Forms.PictureBox pictureBoxStudent;
         private System.Windows.Forms.PictureBox pictureBoxDelete;
         private System.Windows.Forms.PictureBox pictureBoxSchool;
-        private System.Windows.Forms.TextBox textBoxPassword;
-        private System.Windows.Forms.Label LabelPassword;
     }
 }
