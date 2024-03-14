@@ -30,44 +30,29 @@ namespace SystemSchool
         /// </summary>
         private void InitializeComponent()
         {
-            this.ButtonCancel = new System.Windows.Forms.Button();
             this.ButtonLogin = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.LabelManagerSchool = new System.Windows.Forms.Label();
             this.pictureBoxSchool = new System.Windows.Forms.PictureBox();
             this.TextPassword = new System.Windows.Forms.TextBox();
-            this.LoginText = new System.Windows.Forms.Label();
             this.TextUsername = new System.Windows.Forms.TextBox();
             this.picturePassword = new System.Windows.Forms.PictureBox();
             this.pictureUser = new System.Windows.Forms.PictureBox();
             this.buttonPasswordPrivacy = new System.Windows.Forms.Button();
+            this.labelManagerSchool = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSchool)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
             this.SuspendLayout();
             // 
-            // ButtonCancel
-            // 
-            this.ButtonCancel.BackColor = System.Drawing.Color.Black;
-            this.ButtonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonCancel.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.ButtonCancel.Location = new System.Drawing.Point(485, 344);
-            this.ButtonCancel.Name = "ButtonCancel";
-            this.ButtonCancel.Size = new System.Drawing.Size(94, 33);
-            this.ButtonCancel.TabIndex = 2;
-            this.ButtonCancel.Text = "Cancel\r\n";
-            this.ButtonCancel.UseVisualStyleBackColor = false;
-            this.ButtonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
-            // 
             // ButtonLogin
             // 
-            this.ButtonLogin.BackColor = System.Drawing.Color.Black;
+            this.ButtonLogin.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.ButtonLogin.BackColor = System.Drawing.Color.White;
             this.ButtonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonLogin.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonLogin.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.ButtonLogin.Location = new System.Drawing.Point(645, 344);
+            this.ButtonLogin.Location = new System.Drawing.Point(194, 516);
             this.ButtonLogin.Name = "ButtonLogin";
             this.ButtonLogin.Size = new System.Drawing.Size(87, 33);
             this.ButtonLogin.TabIndex = 2;
@@ -77,29 +62,21 @@ namespace SystemSchool
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.Controls.Add(this.LabelManagerSchool);
-            this.panel1.Controls.Add(this.pictureBoxSchool);
-            this.panel1.Location = new System.Drawing.Point(-3, 0);
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Controls.Add(this.labelManagerSchool);
+            this.panel1.Location = new System.Drawing.Point(-33, 572);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(394, 458);
+            this.panel1.Size = new System.Drawing.Size(533, 85);
             this.panel1.TabIndex = 3;
-            // 
-            // LabelManagerSchool
-            // 
-            this.LabelManagerSchool.Font = new System.Drawing.Font("Malgun Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelManagerSchool.ForeColor = System.Drawing.Color.LightBlue;
-            this.LabelManagerSchool.Location = new System.Drawing.Point(87, 28);
-            this.LabelManagerSchool.Name = "LabelManagerSchool";
-            this.LabelManagerSchool.Size = new System.Drawing.Size(230, 61);
-            this.LabelManagerSchool.TabIndex = 1;
-            this.LabelManagerSchool.Text = "Manager School";
-            this.LabelManagerSchool.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBoxSchool
             // 
+            this.pictureBoxSchool.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pictureBoxSchool.Image = global::SystemSchool.Properties.Resources.icons8_school_80;
-            this.pictureBoxSchool.Location = new System.Drawing.Point(119, 137);
+            this.pictureBoxSchool.Location = new System.Drawing.Point(159, -11);
             this.pictureBoxSchool.Name = "pictureBoxSchool";
             this.pictureBoxSchool.Size = new System.Drawing.Size(156, 146);
             this.pictureBoxSchool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -108,91 +85,97 @@ namespace SystemSchool
             // 
             // TextPassword
             // 
-            TextPassword.AutoSize = false;
+            this.TextPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.TextPassword.BackColor = System.Drawing.Color.White;
             this.TextPassword.Font = new System.Drawing.Font("Malgun Gothic", 12F);
             this.TextPassword.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TextPassword.Location = new System.Drawing.Point(485, 292);
+            this.TextPassword.Location = new System.Drawing.Point(73, 441);
             this.TextPassword.Name = "TextPassword";
-            this.TextPassword.Size = new System.Drawing.Size(199, 29);
+            this.TextPassword.Size = new System.Drawing.Size(304, 29);
             this.TextPassword.TabIndex = 5;
-            // 
-            // LoginText
-            // 
-            this.LoginText.BackColor = System.Drawing.Color.Transparent;
-            this.LoginText.Font = new System.Drawing.Font("Malgun Gothic", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginText.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.LoginText.Location = new System.Drawing.Point(404, 9);
-            this.LoginText.Name = "LoginText";
-            this.LoginText.Size = new System.Drawing.Size(376, 95);
-            this.LoginText.TabIndex = 8;
-            this.LoginText.Text = "Login";
-            this.LoginText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TextUsername
             // 
+            this.TextUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.TextUsername.BackColor = System.Drawing.Color.White;
             this.TextUsername.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TextUsername.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TextUsername.Location = new System.Drawing.Point(485, 173);
+            this.TextUsername.Location = new System.Drawing.Point(73, 270);
             this.TextUsername.Name = "TextUsername";
-            this.TextUsername.Size = new System.Drawing.Size(247, 29);
+            this.TextUsername.Size = new System.Drawing.Size(350, 29);
             this.TextUsername.TabIndex = 9;
             // 
             // picturePassword
             // 
+            this.picturePassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.picturePassword.Image = global::SystemSchool.Properties.Resources.icons8_password_48;
-            this.picturePassword.Location = new System.Drawing.Point(412, 259);
+            this.picturePassword.Location = new System.Drawing.Point(205, 316);
             this.picturePassword.Name = "picturePassword";
-            this.picturePassword.Size = new System.Drawing.Size(67, 62);
+            this.picturePassword.Size = new System.Drawing.Size(67, 119);
             this.picturePassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picturePassword.TabIndex = 7;
             this.picturePassword.TabStop = false;
             // 
             // pictureUser
             // 
+            this.pictureUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureUser.Image = global::SystemSchool.Properties.Resources.icons8_user_40;
-            this.pictureUser.Location = new System.Drawing.Point(412, 137);
+            this.pictureUser.Location = new System.Drawing.Point(205, 160);
             this.pictureUser.Name = "pictureUser";
-            this.pictureUser.Size = new System.Drawing.Size(67, 65);
+            this.pictureUser.Size = new System.Drawing.Size(67, 126);
             this.pictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureUser.TabIndex = 6;
             this.pictureUser.TabStop = false;
             // 
             // buttonPasswordPrivacy
             // 
+            this.buttonPasswordPrivacy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonPasswordPrivacy.BackColor = System.Drawing.Color.Transparent;
             this.buttonPasswordPrivacy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPasswordPrivacy.Location = new System.Drawing.Point(681, 292);
+            this.buttonPasswordPrivacy.Location = new System.Drawing.Point(349, 441);
             this.buttonPasswordPrivacy.Name = "buttonPasswordPrivacy";
-            this.buttonPasswordPrivacy.Size = new System.Drawing.Size(51, 29);
+            this.buttonPasswordPrivacy.Size = new System.Drawing.Size(49, 29);
             this.buttonPasswordPrivacy.TabIndex = 10;
             this.buttonPasswordPrivacy.Text = "Show";
             this.buttonPasswordPrivacy.UseVisualStyleBackColor = false;
             this.buttonPasswordPrivacy.Click += new System.EventHandler(this.buttonPasswordPrivacy_Click);
+            // 
+            // labelManagerSchool
+            // 
+            this.labelManagerSchool.AutoSize = true;
+            this.labelManagerSchool.Font = new System.Drawing.Font("Malgun Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelManagerSchool.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.labelManagerSchool.Location = new System.Drawing.Point(179, 31);
+            this.labelManagerSchool.Name = "labelManagerSchool";
+            this.labelManagerSchool.Size = new System.Drawing.Size(175, 30);
+            this.labelManagerSchool.TabIndex = 0;
+            this.labelManagerSchool.Text = "School Manager";
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(497, 656);
+            this.Controls.Add(this.pictureBoxSchool);
             this.Controls.Add(this.buttonPasswordPrivacy);
             this.Controls.Add(this.TextUsername);
-            this.Controls.Add(this.LoginText);
             this.Controls.Add(this.picturePassword);
             this.Controls.Add(this.pictureUser);
             this.Controls.Add(this.TextPassword);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ButtonLogin);
-            this.Controls.Add(this.ButtonCancel);
             this.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(416, 311);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Login";
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSchool)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
@@ -202,16 +185,14 @@ namespace SystemSchool
         }
 
         #endregion
-        private System.Windows.Forms.Button ButtonCancel;
         private System.Windows.Forms.Button ButtonLogin;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox TextPassword;
         private System.Windows.Forms.PictureBox pictureUser;
         private System.Windows.Forms.PictureBox picturePassword;
-        private System.Windows.Forms.Label LoginText;
         private System.Windows.Forms.TextBox TextUsername;
         private System.Windows.Forms.PictureBox pictureBoxSchool;
-        private System.Windows.Forms.Label LabelManagerSchool;
         private System.Windows.Forms.Button buttonPasswordPrivacy;
+        private System.Windows.Forms.Label labelManagerSchool;
     }
 }

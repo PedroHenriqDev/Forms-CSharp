@@ -114,7 +114,7 @@
             // 
             // buttonCreate
             // 
-            this.buttonCreate.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonCreate.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreate.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCreate.ForeColor = System.Drawing.Color.Green;

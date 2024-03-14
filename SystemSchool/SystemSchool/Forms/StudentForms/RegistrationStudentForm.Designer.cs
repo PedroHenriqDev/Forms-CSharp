@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBoxSchool = new System.Windows.Forms.PictureBox();
+            this.pictureBoxDelete = new System.Windows.Forms.PictureBox();
+            this.pictureBoxEdit = new System.Windows.Forms.PictureBox();
             this.LabelDeleteStudent = new System.Windows.Forms.Label();
             this.LabelEditStudent = new System.Windows.Forms.Label();
             this.ComboBoxClassroom = new System.Windows.Forms.ComboBox();
@@ -41,19 +44,18 @@
             this.LabelRegistrationStudent = new System.Windows.Forms.Label();
             this.pictureBoxBack = new System.Windows.Forms.PictureBox();
             this.pictureStudent = new System.Windows.Forms.PictureBox();
-            this.pictureBoxSchool = new System.Windows.Forms.PictureBox();
-            this.pictureBoxDelete = new System.Windows.Forms.PictureBox();
-            this.pictureBoxEdit = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSchool)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Controls.Add(this.pictureBoxSchool);
             this.panel1.Controls.Add(this.pictureBoxDelete);
@@ -65,8 +67,44 @@
             this.panel1.Size = new System.Drawing.Size(281, 695);
             this.panel1.TabIndex = 0;
             // 
+            // pictureBoxSchool
+            // 
+            this.pictureBoxSchool.Image = global::SystemSchool.Properties.Resources.icons8_school_80;
+            this.pictureBoxSchool.Location = new System.Drawing.Point(90, 14);
+            this.pictureBoxSchool.Name = "pictureBoxSchool";
+            this.pictureBoxSchool.Size = new System.Drawing.Size(88, 81);
+            this.pictureBoxSchool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxSchool.TabIndex = 18;
+            this.pictureBoxSchool.TabStop = false;
+            // 
+            // pictureBoxDelete
+            // 
+            this.pictureBoxDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBoxDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxDelete.Image = global::SystemSchool.Properties.Resources.icons8_delete_48;
+            this.pictureBoxDelete.Location = new System.Drawing.Point(90, 466);
+            this.pictureBoxDelete.Name = "pictureBoxDelete";
+            this.pictureBoxDelete.Size = new System.Drawing.Size(88, 63);
+            this.pictureBoxDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxDelete.TabIndex = 20;
+            this.pictureBoxDelete.TabStop = false;
+            this.pictureBoxDelete.Click += new System.EventHandler(this.pictureBoxDelete_Click);
+            // 
+            // pictureBoxEdit
+            // 
+            this.pictureBoxEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxEdit.Image = global::SystemSchool.Properties.Resources.icons8_edit_40;
+            this.pictureBoxEdit.Location = new System.Drawing.Point(90, 204);
+            this.pictureBoxEdit.Name = "pictureBoxEdit";
+            this.pictureBoxEdit.Size = new System.Drawing.Size(88, 70);
+            this.pictureBoxEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBoxEdit.TabIndex = 19;
+            this.pictureBoxEdit.TabStop = false;
+            this.pictureBoxEdit.Click += new System.EventHandler(this.pictureBoxEdit_Click);
+            // 
             // LabelDeleteStudent
             // 
+            this.LabelDeleteStudent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LabelDeleteStudent.AutoSize = true;
             this.LabelDeleteStudent.BackColor = System.Drawing.Color.Black;
             this.LabelDeleteStudent.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -94,6 +132,7 @@
             // 
             // ComboBoxClassroom
             // 
+            this.ComboBoxClassroom.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ComboBoxClassroom.BackColor = System.Drawing.Color.White;
             this.ComboBoxClassroom.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboBoxClassroom.ForeColor = System.Drawing.SystemColors.MenuText;
@@ -105,6 +144,7 @@
             // 
             // ComboBoxCourse
             // 
+            this.ComboBoxCourse.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ComboBoxCourse.BackColor = System.Drawing.Color.White;
             this.ComboBoxCourse.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboBoxCourse.ForeColor = System.Drawing.SystemColors.MenuText;
@@ -117,6 +157,7 @@
             // 
             // textBoxCompleteName
             // 
+            this.textBoxCompleteName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxCompleteName.BackColor = System.Drawing.Color.White;
             this.textBoxCompleteName.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxCompleteName.ForeColor = System.Drawing.SystemColors.MenuText;
@@ -127,6 +168,7 @@
             // 
             // LabelStudentName
             // 
+            this.LabelStudentName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelStudentName.AutoSize = true;
             this.LabelStudentName.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelStudentName.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -138,6 +180,7 @@
             // 
             // LabelCourse
             // 
+            this.LabelCourse.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelCourse.AutoSize = true;
             this.LabelCourse.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelCourse.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -149,6 +192,7 @@
             // 
             // LabelClassroom
             // 
+            this.LabelClassroom.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelClassroom.AutoSize = true;
             this.LabelClassroom.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelClassroom.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -160,7 +204,8 @@
             // 
             // buttonCreate
             // 
-            this.buttonCreate.BackColor = System.Drawing.Color.Black;
+            this.buttonCreate.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonCreate.BackColor = System.Drawing.Color.White;
             this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreate.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCreate.ForeColor = System.Drawing.Color.Green;
@@ -174,6 +219,7 @@
             // 
             // LabelRegistrationStudent
             // 
+            this.LabelRegistrationStudent.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.LabelRegistrationStudent.AutoSize = true;
             this.LabelRegistrationStudent.BackColor = System.Drawing.Color.Transparent;
             this.LabelRegistrationStudent.Font = new System.Drawing.Font("Malgun Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -187,6 +233,7 @@
             // 
             // pictureBoxBack
             // 
+            this.pictureBoxBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxBack.Image = global::SystemSchool.Properties.Resources.icons8_back_48;
             this.pictureBoxBack.Location = new System.Drawing.Point(1007, 12);
@@ -199,6 +246,7 @@
             // 
             // pictureStudent
             // 
+            this.pictureStudent.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureStudent.Image = global::SystemSchool.Properties.Resources.icons8_student_48;
             this.pictureStudent.Location = new System.Drawing.Point(591, 12);
             this.pictureStudent.Name = "pictureStudent";
@@ -206,40 +254,6 @@
             this.pictureStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureStudent.TabIndex = 8;
             this.pictureStudent.TabStop = false;
-            // 
-            // pictureBoxSchool
-            // 
-            this.pictureBoxSchool.Image = global::SystemSchool.Properties.Resources.icons8_school_80;
-            this.pictureBoxSchool.Location = new System.Drawing.Point(90, 14);
-            this.pictureBoxSchool.Name = "pictureBoxSchool";
-            this.pictureBoxSchool.Size = new System.Drawing.Size(88, 81);
-            this.pictureBoxSchool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBoxSchool.TabIndex = 18;
-            this.pictureBoxSchool.TabStop = false;
-            // 
-            // pictureBoxDelete
-            // 
-            this.pictureBoxDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxDelete.Image = global::SystemSchool.Properties.Resources.icons8_delete_48;
-            this.pictureBoxDelete.Location = new System.Drawing.Point(90, 466);
-            this.pictureBoxDelete.Name = "pictureBoxDelete";
-            this.pictureBoxDelete.Size = new System.Drawing.Size(88, 63);
-            this.pictureBoxDelete.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBoxDelete.TabIndex = 20;
-            this.pictureBoxDelete.TabStop = false;
-            this.pictureBoxDelete.Click += new System.EventHandler(this.pictureBoxDelete_Click);
-            // 
-            // pictureBoxEdit
-            // 
-            this.pictureBoxEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxEdit.Image = global::SystemSchool.Properties.Resources.icons8_edit_40;
-            this.pictureBoxEdit.Location = new System.Drawing.Point(90, 204);
-            this.pictureBoxEdit.Name = "pictureBoxEdit";
-            this.pictureBoxEdit.Size = new System.Drawing.Size(88, 70);
-            this.pictureBoxEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBoxEdit.TabIndex = 19;
-            this.pictureBoxEdit.TabStop = false;
-            this.pictureBoxEdit.Click += new System.EventHandler(this.pictureBoxEdit_Click);
             // 
             // RegistrationStudentForm
             // 
@@ -265,11 +279,11 @@
             this.Load += new System.EventHandler(this.StudentRegistrationForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSchool)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

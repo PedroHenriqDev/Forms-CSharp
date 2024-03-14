@@ -17,14 +17,14 @@ namespace SystemSchool.Controls
         public Course CreateCourseTransient(RegistrationCourseForm courseForm) 
         {
             Random random = new Random();
-            return new Course(courseForm.textBoxCourseName.Text, random.Next());
+            return new Course(random.Next(), courseForm.textBoxCourseName.Text, DateTime.Now);
         }
 
         public Student CreateStudentTransient(RegistrationStudentForm studentForm) 
         {
             Random random = new Random();
             DisplayItem<Classroom> classroom = studentForm.ComboBoxClassroom.SelectedItem as DisplayItem<Classroom>;
-            return new Student(random.Next(), classroom.Value.Id, studentForm.textBoxCompleteName.Text);
+            return new Student(random.Next(), classroom.Value.Id, studentForm.textBoxCompleteName.Text, DateTime.Now);
         }
 
         public Classroom CreateClassroomTransient(RegistrationClassroomForm classroomForm) 
@@ -34,14 +34,14 @@ namespace SystemSchool.Controls
 
             DisplayItem<Course> course = classroomForm.ComboBoxCourse.SelectedItem as DisplayItem<Course>;
             Random random = new Random();
-            return new Classroom(random.Next(), classroomName, course.Value.Id);
+            return new Classroom(random.Next(), classroomName, course.Value.Id, DateTime.Now);
         }
 
         public User CreateUserTransient(RegistrationUserForm userForm) 
         {
             DisplayItem<Class> displayClass = userForm.ComboBoxClass.SelectedItem as DisplayItem<Class>;
             Random random = new Random();
-            return new User(random.Next(), userForm.textBoxUsername.Text, userForm.textBoxPassword.Text, displayClass.Value.Id);
+            return new User(random.Next(), userForm.textBoxUsername.Text, userForm.textBoxPassword.Text, displayClass.Value.Id, DateTime.Now);
         }
     }
 }

@@ -12,16 +12,14 @@ namespace Entities
     {
         public int Id {  get; set; }
         public string CourseName { get; set; }
+        public DateTime DateCreation { get; set; }
         public List<Classroom> Classrooms { get; set; }
 
-        public Course() 
+        public Course(int id, string courseName, DateTime dateCreation)
         {
-        }
-
-        public Course(string courseName, int id)
-        {
-            CourseName = courseName;
             Id = id;
+            CourseName = courseName;
+            DateCreation = dateCreation;
         }
     }
 }

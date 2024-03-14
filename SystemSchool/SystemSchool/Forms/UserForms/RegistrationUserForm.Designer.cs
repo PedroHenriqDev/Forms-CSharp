@@ -53,6 +53,7 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Controls.Add(this.LabelEditStudent);
             this.panel1.Controls.Add(this.LabelDeleteUser);
@@ -128,6 +129,7 @@
             // 
             // ComboBoxClass
             // 
+            this.ComboBoxClass.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ComboBoxClass.BackColor = System.Drawing.Color.White;
             this.ComboBoxClass.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboBoxClass.ForeColor = System.Drawing.SystemColors.MenuText;
@@ -139,6 +141,7 @@
             // 
             // textBoxUsername
             // 
+            this.textBoxUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxUsername.BackColor = System.Drawing.Color.White;
             this.textBoxUsername.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUsername.ForeColor = System.Drawing.SystemColors.MenuText;
@@ -149,6 +152,7 @@
             // 
             // LabelUsername
             // 
+            this.LabelUsername.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelUsername.AutoSize = true;
             this.LabelUsername.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelUsername.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -160,6 +164,7 @@
             // 
             // LabelClass
             // 
+            this.LabelClass.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelClass.AutoSize = true;
             this.LabelClass.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelClass.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -171,6 +176,7 @@
             // 
             // LabelPassword
             // 
+            this.LabelPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelPassword.AutoSize = true;
             this.LabelPassword.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelPassword.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -182,6 +188,7 @@
             // 
             // pictureUser
             // 
+            this.pictureUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureUser.Image = global::SystemSchool.Properties.Resources.icons8_user_40;
             this.pictureUser.Location = new System.Drawing.Point(565, 42);
             this.pictureUser.Name = "pictureUser";
@@ -192,7 +199,8 @@
             // 
             // buttonCreate
             // 
-            this.buttonCreate.BackColor = System.Drawing.Color.Black;
+            this.buttonCreate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonCreate.BackColor = System.Drawing.Color.White;
             this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreate.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCreate.ForeColor = System.Drawing.Color.Green;
@@ -206,6 +214,7 @@
             // 
             // textBoxPassword
             // 
+            this.textBoxPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textBoxPassword.BackColor = System.Drawing.Color.White;
             this.textBoxPassword.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassword.ForeColor = System.Drawing.SystemColors.MenuText;
@@ -216,6 +225,7 @@
             // 
             // pictureBoxBack
             // 
+            this.pictureBoxBack.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBoxBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxBack.Image = global::SystemSchool.Properties.Resources.icons8_back_48;
             this.pictureBoxBack.Location = new System.Drawing.Point(991, 12);
@@ -244,7 +254,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegistrationUserForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "RegistrationUserForm";
             this.Load += new System.EventHandler(this.RegistrationUserForm_Load);
             this.panel1.ResumeLayout(false);

@@ -52,29 +52,30 @@ namespace SystemSchool
             this.pictureUser = new System.Windows.Forms.PictureBox();
             this.TimerDate = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.labelSchooolManager = new System.Windows.Forms.Label();
             this.pictureChangePassword = new System.Windows.Forms.PictureBox();
             this.pictureStatistics = new System.Windows.Forms.PictureBox();
             this.pictureReports = new System.Windows.Forms.PictureBox();
             this.pictureLogout = new System.Windows.Forms.PictureBox();
             this.pictureBoxSchool = new System.Windows.Forms.PictureBox();
+            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClassroom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCourse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureChangePassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureStatistics)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureReports)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSchool)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.SuspendLayout();
             // 
             // LabelUsername
             // 
+            this.LabelUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelUsername.BackColor = System.Drawing.Color.WhiteSmoke;
             this.LabelUsername.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelUsername.ForeColor = System.Drawing.Color.Black;
@@ -133,6 +134,7 @@ namespace SystemSchool
             // 
             // LabelHour
             // 
+            this.LabelHour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LabelHour.AutoSize = true;
             this.LabelHour.BackColor = System.Drawing.Color.WhiteSmoke;
             this.LabelHour.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -149,7 +151,7 @@ namespace SystemSchool
             this.LabelStatistics.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LabelStatistics.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelStatistics.ForeColor = System.Drawing.Color.Blue;
-            this.LabelStatistics.Location = new System.Drawing.Point(50, 234);
+            this.LabelStatistics.Location = new System.Drawing.Point(77, 234);
             this.LabelStatistics.Name = "LabelStatistics";
             this.LabelStatistics.Size = new System.Drawing.Size(75, 21);
             this.LabelStatistics.TabIndex = 12;
@@ -162,7 +164,7 @@ namespace SystemSchool
             this.LabelClassroom.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LabelClassroom.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelClassroom.ForeColor = System.Drawing.Color.Blue;
-            this.LabelClassroom.Location = new System.Drawing.Point(268, 231);
+            this.LabelClassroom.Location = new System.Drawing.Point(284, 231);
             this.LabelClassroom.Name = "LabelClassroom";
             this.LabelClassroom.Size = new System.Drawing.Size(86, 21);
             this.LabelClassroom.TabIndex = 14;
@@ -175,7 +177,7 @@ namespace SystemSchool
             this.LabelReports.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LabelReports.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelReports.ForeColor = System.Drawing.Color.Blue;
-            this.LabelReports.Location = new System.Drawing.Point(268, 234);
+            this.LabelReports.Location = new System.Drawing.Point(295, 234);
             this.LabelReports.Name = "LabelReports";
             this.LabelReports.Size = new System.Drawing.Size(68, 21);
             this.LabelReports.TabIndex = 16;
@@ -183,11 +185,12 @@ namespace SystemSchool
             // 
             // LabelLogout
             // 
+            this.LabelLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelLogout.AutoSize = true;
             this.LabelLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LabelLogout.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelLogout.ForeColor = System.Drawing.Color.Blue;
-            this.LabelLogout.Location = new System.Drawing.Point(273, 523);
+            this.LabelLogout.Location = new System.Drawing.Point(300, 523);
             this.LabelLogout.Name = "LabelLogout";
             this.LabelLogout.Size = new System.Drawing.Size(63, 21);
             this.LabelLogout.TabIndex = 17;
@@ -195,11 +198,12 @@ namespace SystemSchool
             // 
             // LabelUser
             // 
+            this.LabelUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LabelUser.AutoSize = true;
             this.LabelUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LabelUser.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelUser.ForeColor = System.Drawing.Color.Blue;
-            this.LabelUser.Location = new System.Drawing.Point(289, 523);
+            this.LabelUser.Location = new System.Drawing.Point(305, 523);
             this.LabelUser.Name = "LabelUser";
             this.LabelUser.Size = new System.Drawing.Size(43, 21);
             this.LabelUser.TabIndex = 18;
@@ -208,11 +212,12 @@ namespace SystemSchool
             // 
             // LabelCourse
             // 
+            this.LabelCourse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LabelCourse.AutoSize = true;
             this.LabelCourse.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LabelCourse.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelCourse.ForeColor = System.Drawing.Color.Blue;
-            this.LabelCourse.Location = new System.Drawing.Point(52, 523);
+            this.LabelCourse.Location = new System.Drawing.Point(68, 523);
             this.LabelCourse.Name = "LabelCourse";
             this.LabelCourse.Size = new System.Drawing.Size(61, 21);
             this.LabelCourse.TabIndex = 19;
@@ -221,11 +226,12 @@ namespace SystemSchool
             // 
             // LabelChangePassword
             // 
+            this.LabelChangePassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelChangePassword.AutoSize = true;
             this.LabelChangePassword.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LabelChangePassword.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelChangePassword.ForeColor = System.Drawing.Color.Blue;
-            this.LabelChangePassword.Location = new System.Drawing.Point(19, 523);
+            this.LabelChangePassword.Location = new System.Drawing.Point(46, 523);
             this.LabelChangePassword.Name = "LabelChangePassword";
             this.LabelChangePassword.Size = new System.Drawing.Size(140, 21);
             this.LabelChangePassword.TabIndex = 21;
@@ -233,6 +239,8 @@ namespace SystemSchool
             // 
             // panel4
             // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel4.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel4.Controls.Add(this.LabelDate);
             this.panel4.Controls.Add(this.LabelStudent);
@@ -248,7 +256,7 @@ namespace SystemSchool
             this.panel4.Controls.Add(this.pictureUser);
             this.panel4.Location = new System.Drawing.Point(0, -7);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(416, 697);
+            this.panel4.Size = new System.Drawing.Size(430, 697);
             this.panel4.TabIndex = 22;
             // 
             // LabelStudent
@@ -257,7 +265,7 @@ namespace SystemSchool
             this.LabelStudent.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LabelStudent.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelStudent.ForeColor = System.Drawing.Color.Blue;
-            this.LabelStudent.Location = new System.Drawing.Point(52, 231);
+            this.LabelStudent.Location = new System.Drawing.Point(68, 231);
             this.LabelStudent.Name = "LabelStudent";
             this.LabelStudent.Size = new System.Drawing.Size(68, 21);
             this.LabelStudent.TabIndex = 24;
@@ -269,7 +277,7 @@ namespace SystemSchool
             this.pictureStudent.BackColor = System.Drawing.Color.Transparent;
             this.pictureStudent.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureStudent.Image = global::SystemSchool.Properties.Resources.icons8_student_48;
-            this.pictureStudent.Location = new System.Drawing.Point(21, 151);
+            this.pictureStudent.Location = new System.Drawing.Point(37, 151);
             this.pictureStudent.Name = "pictureStudent";
             this.pictureStudent.Size = new System.Drawing.Size(136, 77);
             this.pictureStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -282,7 +290,7 @@ namespace SystemSchool
             this.pictureClassroom.BackColor = System.Drawing.Color.Transparent;
             this.pictureClassroom.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureClassroom.Image = global::SystemSchool.Properties.Resources.icons8_classroom_48;
-            this.pictureClassroom.Location = new System.Drawing.Point(246, 151);
+            this.pictureClassroom.Location = new System.Drawing.Point(262, 151);
             this.pictureClassroom.Name = "pictureClassroom";
             this.pictureClassroom.Size = new System.Drawing.Size(131, 77);
             this.pictureClassroom.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -292,10 +300,11 @@ namespace SystemSchool
             // 
             // pictureCourse
             // 
+            this.pictureCourse.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureCourse.BackColor = System.Drawing.Color.Transparent;
             this.pictureCourse.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureCourse.Image = global::SystemSchool.Properties.Resources.icons8_course_64;
-            this.pictureCourse.Location = new System.Drawing.Point(21, 443);
+            this.pictureCourse.Location = new System.Drawing.Point(37, 443);
             this.pictureCourse.Name = "pictureCourse";
             this.pictureCourse.Size = new System.Drawing.Size(136, 77);
             this.pictureCourse.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -305,10 +314,11 @@ namespace SystemSchool
             // 
             // pictureUser
             // 
+            this.pictureUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureUser.BackColor = System.Drawing.Color.Transparent;
             this.pictureUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureUser.Image = global::SystemSchool.Properties.Resources.icons8_user_40;
-            this.pictureUser.Location = new System.Drawing.Point(241, 443);
+            this.pictureUser.Location = new System.Drawing.Point(257, 443);
             this.pictureUser.Name = "pictureUser";
             this.pictureUser.Size = new System.Drawing.Size(136, 77);
             this.pictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -322,6 +332,8 @@ namespace SystemSchool
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel2.Controls.Add(this.pictureBoxClose);
             this.panel2.Controls.Add(this.labelSchooolManager);
@@ -334,24 +346,15 @@ namespace SystemSchool
             this.panel2.Controls.Add(this.pictureLogout);
             this.panel2.Controls.Add(this.LabelLogout);
             this.panel2.Controls.Add(this.LabelStatistics);
-            this.panel2.Location = new System.Drawing.Point(634, -7);
+            this.panel2.Location = new System.Drawing.Point(618, -7);
+            this.panel2.MinimumSize = new System.Drawing.Size(300, 111);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(414, 697);
+            this.panel2.Size = new System.Drawing.Size(430, 697);
             this.panel2.TabIndex = 23;
-            // 
-            // pictureBoxClose
-            // 
-            this.pictureBoxClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxClose.Image = global::SystemSchool.Properties.Resources.icons8_close_48__2_;
-            this.pictureBoxClose.Location = new System.Drawing.Point(370, 11);
-            this.pictureBoxClose.Name = "pictureBoxClose";
-            this.pictureBoxClose.Size = new System.Drawing.Size(26, 26);
-            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxClose.TabIndex = 28;
-            this.pictureBoxClose.TabStop = false;
             // 
             // labelSchooolManager
             // 
+            this.labelSchooolManager.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelSchooolManager.AutoSize = true;
             this.labelSchooolManager.BackColor = System.Drawing.Color.Transparent;
             this.labelSchooolManager.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -364,10 +367,11 @@ namespace SystemSchool
             // 
             // pictureChangePassword
             // 
+            this.pictureChangePassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureChangePassword.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureChangePassword.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureChangePassword.Image = global::SystemSchool.Properties.Resources.icons8_password_key_100;
-            this.pictureChangePassword.Location = new System.Drawing.Point(23, 443);
+            this.pictureChangePassword.Location = new System.Drawing.Point(50, 443);
             this.pictureChangePassword.Name = "pictureChangePassword";
             this.pictureChangePassword.Size = new System.Drawing.Size(136, 77);
             this.pictureChangePassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -379,7 +383,7 @@ namespace SystemSchool
             this.pictureStatistics.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureStatistics.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureStatistics.Image = global::SystemSchool.Properties.Resources.icons8_graph_report_64;
-            this.pictureStatistics.Location = new System.Drawing.Point(241, 151);
+            this.pictureStatistics.Location = new System.Drawing.Point(268, 151);
             this.pictureStatistics.Name = "pictureStatistics";
             this.pictureStatistics.Size = new System.Drawing.Size(136, 80);
             this.pictureStatistics.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -391,7 +395,7 @@ namespace SystemSchool
             this.pictureReports.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureReports.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureReports.Image = global::SystemSchool.Properties.Resources.icons8_reports_58;
-            this.pictureReports.Location = new System.Drawing.Point(23, 151);
+            this.pictureReports.Location = new System.Drawing.Point(50, 151);
             this.pictureReports.Name = "pictureReports";
             this.pictureReports.Size = new System.Drawing.Size(136, 80);
             this.pictureReports.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -400,10 +404,11 @@ namespace SystemSchool
             // 
             // pictureLogout
             // 
+            this.pictureLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureLogout.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureLogout.Image = global::SystemSchool.Properties.Resources.icons8_logout_100;
-            this.pictureLogout.Location = new System.Drawing.Point(241, 443);
+            this.pictureLogout.Location = new System.Drawing.Point(268, 443);
             this.pictureLogout.Name = "pictureLogout";
             this.pictureLogout.Size = new System.Drawing.Size(136, 77);
             this.pictureLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -412,13 +417,27 @@ namespace SystemSchool
             // 
             // pictureBoxSchool
             // 
+            this.pictureBoxSchool.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxSchool.Image = global::SystemSchool.Properties.Resources.icons8_school_80;
-            this.pictureBoxSchool.Location = new System.Drawing.Point(440, 264);
+            this.pictureBoxSchool.Location = new System.Drawing.Point(456, 264);
             this.pictureBoxSchool.Name = "pictureBoxSchool";
-            this.pictureBoxSchool.Size = new System.Drawing.Size(170, 153);
+            this.pictureBoxSchool.Size = new System.Drawing.Size(130, 153);
             this.pictureBoxSchool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxSchool.TabIndex = 24;
             this.pictureBoxSchool.TabStop = false;
+            // 
+            // pictureBoxClose
+            // 
+            this.pictureBoxClose.Image = global::SystemSchool.Properties.Resources.icons8_close_48__2_;
+            this.pictureBoxClose.Location = new System.Drawing.Point(389, 19);
+            this.pictureBoxClose.Name = "pictureBoxClose";
+            this.pictureBoxClose.Size = new System.Drawing.Size(23, 25);
+            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxClose.TabIndex = 28;
+            this.pictureBoxClose.TabStop = false;
+            this.pictureBoxClose.Click += new System.EventHandler(this.pictureClose_Click);
             // 
             // MainForm
             // 
@@ -435,7 +454,7 @@ namespace SystemSchool
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "x";
+            this.Text = "Manager School";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -445,12 +464,12 @@ namespace SystemSchool
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureChangePassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureStatistics)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureReports)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSchool)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

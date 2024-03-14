@@ -113,12 +113,13 @@ namespace Datas
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"INSERT INTO Courses (Id, CourseName) VALUES (@Id, @CourseName)";
+                string sqlQuery = @"INSERT INTO Courses (Id, CourseName, DateCreation) VALUES (@Id, @CourseName, @DateCreation)";
 
                 await connection.ExecuteAsync(sqlQuery, new 
                 {
                     Id = course.Id,
-                    CourseName = course.CourseName  
+                    CourseName = course.CourseName,
+                    DateCreation = course.DateCreation
                 });
             }
         }
@@ -128,14 +129,15 @@ namespace Datas
             using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"INSERT INTO Classrooms (Id, ClassroomName, CourseId) 
-                                    VALUES (@Id, @ClassroomName, @CourseId)";
+                string sqlQuery = @"INSERT INTO Classrooms (Id, ClassroomName, CourseId, DateCreation) 
+                                    VALUES (@Id, @ClassroomName, @CourseId, @DateCreation)";
 
                 await connection.ExecuteAsync(sqlQuery, new
                 {
                     Id = classroom.Id,
                     ClassroomName = classroom.ClassroomName,
-                    CourseId = classroom.CourseId
+                    CourseId = classroom.CourseId,
+                    DateCreation = classroom.DateCreation,
                 });
             }
         }
@@ -145,15 +147,16 @@ namespace Datas
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"INSERT INTO Users (Id, Username, PasswordHash, ClassId) 
-                                    VALUES (@Id, @Username, @PasswordHash, @ClassId)";
+                string sqlQuery = @"INSERT INTO Users (Id, Username, PasswordHash, ClassId, DateCreation) 
+                                    VALUES (@Id, @Username, @PasswordHash, @ClassId, @DateCreation)";
 
                 await connection.ExecuteAsync(sqlQuery, new
                 {
                     Id = user.Id,
                     Username = user.Username,
                     PasswordHash = user.PasswordHash,
-                    ClassId = user.ClassId
+                    ClassId = user.ClassId,
+                    DateCreation = user.DateCreation
                 });
             }
         }
@@ -163,14 +166,15 @@ namespace Datas
             using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"INSERT INTO Students (Id, ClassroomId, CompleteName) 
-                                    VALUES (@Id, @ClassroomId, @CompleteName)";
+                string sqlQuery = @"INSERT INTO Students (Id, ClassroomId, CompleteName, DateCreation) 
+                                    VALUES (@Id, @ClassroomId, @CompleteName, @DateCreation)";
 
                 await connection.ExecuteAsync(sqlQuery, new 
                 {
                     Id = student.Id,
                     ClassroomId = student.ClassroomId,
-                    CompleteName = student.CompleteName
+                    CompleteName = student.CompleteName,
+                    DateCreation = student.DateCreation
                 });
             }
         }

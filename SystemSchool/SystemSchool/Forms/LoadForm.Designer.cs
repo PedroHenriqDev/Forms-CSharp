@@ -51,8 +51,10 @@
             // 
             this.progressBar.BackColor = System.Drawing.Color.Cyan;
             this.progressBar.Location = new System.Drawing.Point(98, 322);
+            this.progressBar.MarqueeAnimationSpeed = 30;
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(605, 32);
+            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.progressBar.TabIndex = 1;
             // 
             // timer
@@ -89,7 +91,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 427);
             this.Controls.Add(this.LabelVersion);
             this.Controls.Add(this.LabelManagerSchool);
             this.Controls.Add(this.progressBar);

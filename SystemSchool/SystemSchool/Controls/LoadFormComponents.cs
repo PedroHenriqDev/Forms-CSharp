@@ -76,7 +76,7 @@ namespace SystemSchool.Controls
             editUserForm.LabelUserShow.Text = $"{user.Value.Username} - {user.Value.Class.NameClass}";
         }
 
-        private async Task UserFormLoadComboBoxClassAsync(EditUserForm editUserForm)
+        public async Task UserFormLoadComboBoxClassAsync(EditUserForm editUserForm)
         {
             IEnumerable<Class> classes = await _searchEntities.FindAllClassesAsync();
             editUserForm.ComboBoxClass.Items.Clear();
