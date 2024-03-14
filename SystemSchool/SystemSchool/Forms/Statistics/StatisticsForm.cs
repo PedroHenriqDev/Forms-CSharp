@@ -39,9 +39,9 @@ namespace SystemSchool.Forms.Statistics
 
             Title title = new Title("Record per month");
             title.Font = new Font("Malgun Gothic", 12F, FontStyle.Bold);
-            chart.Titles.Add("Record per month");
+            chart.Titles.Add(title);
 
-            chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry ;
+            chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
             chart.Series.Add("Classroom");
             chart.Series.Add("User");
             chart.Series.Add("Student");
@@ -78,6 +78,34 @@ namespace SystemSchool.Forms.Statistics
             chart.Series[3].Points.AddXY("July-Aug", await _amountEntitiesService.AmountEntitiesByDateCreationAsync<Course>(7, 8));
             chart.Series[3].Points.AddXY("Sept-Oct", await _amountEntitiesService.AmountEntitiesByDateCreationAsync<Course>(9, 10));
             chart.Series[3].Points.AddXY("Nov-Dec", await _amountEntitiesService.AmountEntitiesByDateCreationAsync<Course>(11, 12));
+        }
+
+        private async void buttonBarCharts_Click(object sender, EventArgs e)
+        {
+            chart.Series.Clear();
+            chart.Titles.Clear();
+            chart.Legends.Clear();
+
+            Title title = new Title("Record per year");
+            title.Font = new Font("Malgun Gothic", 12F, FontStyle.Bold);
+            chart.Titles.Add(title);
+            chart.Legends.Add("Legend");
+            chart.Legends[0].LegendStyle = LegendStyle.Table;
+            chart.Legends[0].Docking = Docking.Bottom;
+            chart.Legends[0].Alignment = StringAlignment.Center;
+            chart.Legends[0].BorderColor = Color.Black;
+            chart.Legends[0].Title = "Legend";
+
+            chart.Palette = ChartColorPalette.Excel;
+            chart.Series.Add("Classrooms");
+            chart.Series.Add("User");
+            chart.Series.Add("Students");
+            chart.Series.Add("Course");
+
+            chart.Series[0].Points.Add(await _amountEntitiesService.AmountEntitiesByDateCreationAsync<Classroom>(1, 12));
+            chart.Series[1].Points.Add(await _amountEntitiesService.AmountEntitiesByDateCreationAsync<User>(1, 12));
+            chart.Series[2].Points.Add(await _amountEntitiesService.AmountEntitiesByDateCreationAsync<Student>(1, 12));
+            chart.Series[3].Points.Add(await _amountEntitiesService.AmountEntitiesByDateCreationAsync<Course>(1, 12));
         }
     }
 }
