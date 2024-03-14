@@ -77,10 +77,10 @@
     <Compile Include="Controls\LoadFormComponents.cs" />
     <Compile Include="Exceptions\EntityException.cs" />
     <Compile Include="Exceptions\MainFormException.cs" />
-    <Compile Include="Forms\PasswordForms\ChangePasswordForm.cs">
+    <Compile Include="Forms\UserForms\ChangePasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PasswordForms\ChangePasswordForm.Designer.cs">
+    <Compile Include="Forms\UserForms\ChangePasswordForm.Designer.cs">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\ClassroomForms\DeleteClassroomForm.cs">
@@ -119,10 +119,10 @@
     <Compile Include="Forms\LoadForm.Designer.cs">
       <DependentUpon>LoadForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PasswordForms\ConfirmPasswordForm.cs">
+    <Compile Include="Forms\UserForms\ConfirmPasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PasswordForms\ConfirmPasswordForm.Designer.cs">
+    <Compile Include="Forms\UserForms\ConfirmPasswordForm.Designer.cs">
       <DependentUpon>ConfirmPasswordForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\StatisticsForms\StatisticsForm.cs">
@@ -182,7 +182,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\PasswordForms\ChangePasswordForm.resx">
+    <EmbeddedResource Include="Forms\UserForms\ChangePasswordForm.resx">
       <DependentUpon>ChangePasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\ClassroomForms\DeleteClassroomForm.resx">
@@ -209,7 +209,7 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PasswordForms\ConfirmPasswordForm.resx">
+    <EmbeddedResource Include="Forms\UserForms\ConfirmPasswordForm.resx">
       <DependentUpon>ConfirmPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StatisticsForms\StatisticsForm.resx">

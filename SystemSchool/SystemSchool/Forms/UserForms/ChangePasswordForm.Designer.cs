@@ -1,4 +1,4 @@
-﻿namespace SystemSchool.Forms
+﻿namespace SystemSchool.Forms.PasswordForms
 {
     partial class ChangePasswordForm
     {
@@ -32,23 +32,23 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LabelNewPassword = new System.Windows.Forms.Label();
             this.LabelConfirmationPassword = new System.Windows.Forms.Label();
-            this.pictureBoxBack = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
+            this.textBoxNewPassword = new System.Windows.Forms.TextBox();
+            this.textBoxConfirmationPassword = new System.Windows.Forms.TextBox();
+            this.buttonChange = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.SuspendLayout();
             // 
             // labelUsername
             // 
-            this.labelUsername.AutoSize = true;
             this.labelUsername.Font = new System.Drawing.Font("Malgun Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsername.Location = new System.Drawing.Point(194, 29);
+            this.labelUsername.Location = new System.Drawing.Point(30, 9);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(55, 30);
+            this.labelUsername.Size = new System.Drawing.Size(382, 73);
             this.labelUsername.TabIndex = 0;
             this.labelUsername.Text = "User";
+            this.labelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox1
             // 
@@ -64,7 +64,7 @@
             // 
             this.LabelNewPassword.AutoSize = true;
             this.LabelNewPassword.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelNewPassword.Location = new System.Drawing.Point(136, 315);
+            this.LabelNewPassword.Location = new System.Drawing.Point(136, 285);
             this.LabelNewPassword.Name = "LabelNewPassword";
             this.LabelNewPassword.Size = new System.Drawing.Size(150, 25);
             this.LabelNewPassword.TabIndex = 2;
@@ -80,45 +80,47 @@
             this.LabelConfirmationPassword.TabIndex = 3;
             this.LabelConfirmationPassword.Text = "Confirmation Password:";
             // 
-            // pictureBoxBack
+            // pictureBoxClose
             // 
-            this.pictureBoxBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBoxBack.Image = global::SystemSchool.Properties.Resources.icons8_back_48;
-            this.pictureBoxBack.Location = new System.Drawing.Point(418, 3);
-            this.pictureBoxBack.Name = "pictureBoxBack";
-            this.pictureBoxBack.Size = new System.Drawing.Size(23, 23);
-            this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxBack.TabIndex = 7;
-            this.pictureBoxBack.TabStop = false;
+            this.pictureBoxClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxClose.Image = global::SystemSchool.Properties.Resources.icons8_close_48__2_;
+            this.pictureBoxClose.Location = new System.Drawing.Point(418, 3);
+            this.pictureBoxClose.Name = "pictureBoxClose";
+            this.pictureBoxClose.Size = new System.Drawing.Size(23, 23);
+            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxClose.TabIndex = 7;
+            this.pictureBoxClose.TabStop = false;
+            this.pictureBoxClose.Click += new System.EventHandler(this.pictureBoxClose_Click);
             // 
-            // textBox1
+            // textBoxNewPassword
             // 
-            this.textBox1.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(90, 348);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(262, 33);
-            this.textBox1.TabIndex = 8;
+            this.textBoxNewPassword.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxNewPassword.Location = new System.Drawing.Point(90, 318);
+            this.textBoxNewPassword.Name = "textBoxNewPassword";
+            this.textBoxNewPassword.Size = new System.Drawing.Size(262, 29);
+            this.textBoxNewPassword.TabIndex = 8;
             // 
-            // textBox2
+            // textBoxConfirmationPassword
             // 
-            this.textBox2.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(90, 487);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(262, 33);
-            this.textBox2.TabIndex = 9;
+            this.textBoxConfirmationPassword.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxConfirmationPassword.Location = new System.Drawing.Point(90, 487);
+            this.textBoxConfirmationPassword.Name = "textBoxConfirmationPassword";
+            this.textBoxConfirmationPassword.Size = new System.Drawing.Size(262, 29);
+            this.textBoxConfirmationPassword.TabIndex = 9;
             // 
-            // button1
+            // buttonChange
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.button1.Location = new System.Drawing.Point(163, 583);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 34);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Change";
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonChange.BackColor = System.Drawing.Color.White;
+            this.buttonChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonChange.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonChange.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.buttonChange.Location = new System.Drawing.Point(163, 583);
+            this.buttonChange.Name = "buttonChange";
+            this.buttonChange.Size = new System.Drawing.Size(116, 34);
+            this.buttonChange.TabIndex = 10;
+            this.buttonChange.Text = "Change";
+            this.buttonChange.UseVisualStyleBackColor = false;
+            this.buttonChange.Click += new System.EventHandler(this.buttonChange_Click);
             // 
             // ChangePasswordForm
             // 
@@ -126,10 +128,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(442, 642);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.pictureBoxBack);
+            this.Controls.Add(this.buttonChange);
+            this.Controls.Add(this.textBoxConfirmationPassword);
+            this.Controls.Add(this.textBoxNewPassword);
+            this.Controls.Add(this.pictureBoxClose);
             this.Controls.Add(this.LabelConfirmationPassword);
             this.Controls.Add(this.LabelNewPassword);
             this.Controls.Add(this.pictureBox1);
@@ -140,8 +142,9 @@
             this.Name = "ChangePasswordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ChangePasswordForm";
+            this.Load += new System.EventHandler(this.ChangePasswordForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,9 +156,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label LabelNewPassword;
         private System.Windows.Forms.Label LabelConfirmationPassword;
-        private System.Windows.Forms.PictureBox pictureBoxBack;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBoxClose;
+        private System.Windows.Forms.TextBox textBoxNewPassword;
+        private System.Windows.Forms.TextBox textBoxConfirmationPassword;
+        private System.Windows.Forms.Button buttonChange;
     }
 }

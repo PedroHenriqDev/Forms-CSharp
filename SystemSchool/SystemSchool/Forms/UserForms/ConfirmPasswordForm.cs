@@ -1,4 +1,5 @@
-﻿using Entities;
+﻿using Autofac;
+using Entities;
 using Entities.TransientClasses;
 using Services;
 using System;
@@ -19,6 +20,8 @@ namespace SystemSchool.Forms.PasswordForms
 
         private readonly LoginService _loginService;
         private readonly CreateTransientEntities _createTransient;
+        public string Username => Login.CurrentUser.Username;
+        public string Password => textBoxPassword.Text;
 
         public ConfirmPasswordForm(LoginService loginService, CreateTransientEntities createTransient)
         {
@@ -26,9 +29,6 @@ namespace SystemSchool.Forms.PasswordForms
             _createTransient = createTransient;
             InitializeComponent();
         }
-
-        public string Username => Login.CurrentUser.Username;
-        public string Password => this.textBoxPassword.Text;
 
         private void pictureBoxClose_Click(object sender, EventArgs e)
         {
@@ -44,8 +44,8 @@ namespace SystemSchool.Forms.PasswordForms
                 if (userQuery.Result)
                 {
                     this.Hide();
-                    ChangePasswordForm changePasswordForm = new ChangePasswordForm();
-                    changePasswordForm.ShowDialog();
+                    var passwordForm = Program.Container.Resolve<ChangePasswordForm>();
+                    passwordForm.ShowDialog();
                 }
                 else 
                 {

@@ -239,6 +239,21 @@ namespace Datas
             }
         }
 
+        public async Task EditPasswordInDbAsync(User user) 
+        {
+            using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
+            {
+                await connection.OpenAsync();
+                string sqlQuery = @"UPDATE Users SET PasswordHash = @passwordHash WHERE Id = @id";
+
+                await connection.ExecuteAsync(sqlQuery, new
+                {
+                    passwordHash = user.PasswordHash,
+                    Id = user.Id
+                });
+            }
+        }
+
         public async Task EditClassroomInDbAsync(Classroom classroom) 
         {
             using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 

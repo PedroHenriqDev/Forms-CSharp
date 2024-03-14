@@ -14,42 +14,53 @@ namespace Services
     public class EditEntitiesService<T>
     {
         private readonly ConnectionDb _connectionDb;
-        private readonly SearchEntitiesService _searchEntities;
+        private readonly EncryptEntitiesService _encryptEntitiesService;
         private readonly ValidationEntitiesService _validationEntities;
 
         public EditEntitiesService(
-            ConnectionDb connectionDb, 
+            ConnectionDb connectionDb,
             ValidationEntitiesService validationEntities,
-            SearchEntitiesService searchEntities)
+           EncryptEntitiesService encryptEntitiesService )
         {
             _connectionDb = connectionDb;
             _validationEntities = validationEntities;
-            _searchEntities = searchEntities;
+            _encryptEntitiesService = encryptEntitiesService;
         }
 
         public async Task<EntityQuery<Student>> EditStudentAsync(Student student)
         {
-            if(_validationEntities.IsValidStudent(student)) 
+            if (_validationEntities.IsValidStudent(student))
             {
                 await _connectionDb.EditStudentInDbAsync(student);
-                return new EntityQuery<Student>(true,"Student " + student.CompleteName.CutCompleteName() + " edited successfully", DateTime.Now, student);
+                return new EntityQuery<Student>(true, "Student " + student.CompleteName.CutCompleteName() + " edited successfully", DateTime.Now, student);
             }
             return new EntityQuery<Student>(false, "Student " + student.CompleteName.CutCompleteName() + " to be edited there must be some change", DateTime.Now, student);
         }
 
-        public async Task<EntityQuery<Classroom>> EditClassroomAsync(Classroom classroom) 
+        public async Task<EntityQuery<Classroom>> EditClassroomAsync(Classroom classroom)
         {
-            if(_validationEntities.ClassroomNameIsInCorrectOrder(classroom.ClassroomName) && _validationEntities.EntityHasId(classroom.Id)) 
+            if (_validationEntities.ClassroomNameIsInCorrectOrder(classroom.ClassroomName) && _validationEntities.EntityHasId(classroom.Id))
             {
                 await _connectionDb.EditClassroomInDbAsync(classroom);
-                return new EntityQuery<Classroom>(true,"Classroom " + classroom.ClassroomName.CutCompleteName() + " edited successfully", DateTime.Now, classroom);
+                return new EntityQuery<Classroom>(true, "Classroom " + classroom.ClassroomName.CutCompleteName() + " edited successfully", DateTime.Now, classroom);
             }
             return new EntityQuery<Classroom>(false, "Classroom " + classroom.ClassroomName.CutCompleteName() + " to be edited there must be some change", DateTime.Now, classroom);
         }
 
-        public async Task<EntityQuery<User>> EditUserAsync(User user) 
+        public async Task<EntityQuery<User>> EditPasswordAsync(User user)
         {
-            if (_validationEntities.EntityHasId(user.Id) && _validationEntities.EntityHasId(user.ClassId) && !string.IsNullOrWhiteSpace(user.Username)) 
+            if (!string.IsNullOrWhiteSpace(user.PasswordHash))
+            {
+                user.PasswordHash = _encryptEntitiesService.EncryptPasswordSHA512(user.PasswordHash);
+                await _connectionDb.EditPasswordInDbAsync(user);
+                return new EntityQuery<User>(true, "User " + user.Username.CutCompleteName() + " edited successfully", DateTime.Now, user);
+            }
+            return new EntityQuery<User>(false, "User " + user.Username.CutCompleteName() + " password cannot be empty", DateTime.Now, user);
+        }
+
+        public async Task<EntityQuery<User>> EditUserAsync(User user)
+        {
+            if (_validationEntities.EntityHasId(user.Id) && _validationEntities.EntityHasId(user.ClassId) && !string.IsNullOrWhiteSpace(user.Username))
             {
                 await _connectionDb.EditUserInDbAsync(user);
                 return new EntityQuery<User>(true, "User " + user.Username.CutCompleteName() + " edit successfully", DateTime.Now, user);

@@ -45,6 +45,7 @@ namespace SystemSchool
             builder.RegisterType<DeleteUserForm>().AsSelf();
             builder.RegisterType<StatisticsForm>().AsSelf();
             builder.RegisterType<ConfirmPasswordForm>().AsSelf();
+            builder.RegisterType<ChangePasswordForm>().AsSelf();
 
             // Register generic services
             builder.RegisterGeneric(typeof(CreateEntitiesService<>)).AsSelf();
