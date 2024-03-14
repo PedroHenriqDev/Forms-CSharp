@@ -29,23 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.LabelVersion = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SystemSchool.Properties.Resources.icons8_school_80;
-            this.pictureBox1.Location = new System.Drawing.Point(286, 25);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(228, 157);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // progressBar
             // 
@@ -68,7 +58,7 @@
             this.LabelVersion.BackColor = System.Drawing.Color.WhiteSmoke;
             this.LabelVersion.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelVersion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.LabelVersion.Location = new System.Drawing.Point(333, 379);
+            this.LabelVersion.Location = new System.Drawing.Point(693, 9);
             this.LabelVersion.Name = "LabelVersion";
             this.LabelVersion.Size = new System.Drawing.Size(95, 21);
             this.LabelVersion.TabIndex = 3;
@@ -78,12 +68,22 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Malgun Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.label1.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.label1.Location = new System.Drawing.Point(313, 264);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(175, 30);
             this.label1.TabIndex = 4;
             this.label1.Text = "School Manager";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SystemSchool.Properties.Resources.icons8_school_80;
+            this.pictureBox1.Location = new System.Drawing.Point(286, 25);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(228, 157);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // LoadForm
             // 

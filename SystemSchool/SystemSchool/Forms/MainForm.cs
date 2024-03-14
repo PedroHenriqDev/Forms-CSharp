@@ -78,6 +78,13 @@ namespace SystemSchool
             statisticsForm.ShowDialog();
         }
 
+        private void pictureLogout_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var loginForm = Program.Container.Resolve<Login>();
+            loginForm.ShowDialog();
+        }
+
         private void LabelStudentRegistration_Click(object sender, EventArgs e)
         {
             pictureStudent_Click(sender, e);
@@ -111,6 +118,11 @@ namespace SystemSchool
         private void LabelStatistics_Click(object sender, EventArgs e)
         {
             pictureStatistics_Click(sender, e);
+        }
+
+        private void LabelLogout_Click(object sender, EventArgs e)
+        {
+            pictureLogout_Click(sender, e );
         }
     } 
 }

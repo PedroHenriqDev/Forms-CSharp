@@ -52,25 +52,25 @@ namespace SystemSchool
             this.pictureUser = new System.Windows.Forms.PictureBox();
             this.TimerDate = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.labelSchooolManager = new System.Windows.Forms.Label();
             this.pictureChangePassword = new System.Windows.Forms.PictureBox();
             this.pictureStatistics = new System.Windows.Forms.PictureBox();
             this.pictureReports = new System.Windows.Forms.PictureBox();
             this.pictureLogout = new System.Windows.Forms.PictureBox();
             this.pictureBoxSchool = new System.Windows.Forms.PictureBox();
-            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureStudent)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureClassroom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureCourse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureChangePassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureStatistics)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureReports)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSchool)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.SuspendLayout();
             // 
             // LabelUsername
@@ -196,6 +196,7 @@ namespace SystemSchool
             this.LabelLogout.Size = new System.Drawing.Size(63, 21);
             this.LabelLogout.TabIndex = 17;
             this.LabelLogout.Text = "Logout";
+            this.LabelLogout.Click += new System.EventHandler(this.LabelLogout_Click);
             // 
             // LabelUser
             // 
@@ -353,6 +354,17 @@ namespace SystemSchool
             this.panel2.Size = new System.Drawing.Size(430, 697);
             this.panel2.TabIndex = 23;
             // 
+            // pictureBoxClose
+            // 
+            this.pictureBoxClose.Image = global::SystemSchool.Properties.Resources.icons8_close_48__2_;
+            this.pictureBoxClose.Location = new System.Drawing.Point(389, 19);
+            this.pictureBoxClose.Name = "pictureBoxClose";
+            this.pictureBoxClose.Size = new System.Drawing.Size(23, 25);
+            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxClose.TabIndex = 28;
+            this.pictureBoxClose.TabStop = false;
+            this.pictureBoxClose.Click += new System.EventHandler(this.pictureClose_Click);
+            // 
             // labelSchooolManager
             // 
             this.labelSchooolManager.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -416,6 +428,7 @@ namespace SystemSchool
             this.pictureLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureLogout.TabIndex = 4;
             this.pictureLogout.TabStop = false;
+            this.pictureLogout.Click += new System.EventHandler(this.pictureLogout_Click);
             // 
             // pictureBoxSchool
             // 
@@ -429,17 +442,6 @@ namespace SystemSchool
             this.pictureBoxSchool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxSchool.TabIndex = 24;
             this.pictureBoxSchool.TabStop = false;
-            // 
-            // pictureBoxClose
-            // 
-            this.pictureBoxClose.Image = global::SystemSchool.Properties.Resources.icons8_close_48__2_;
-            this.pictureBoxClose.Location = new System.Drawing.Point(389, 19);
-            this.pictureBoxClose.Name = "pictureBoxClose";
-            this.pictureBoxClose.Size = new System.Drawing.Size(23, 25);
-            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxClose.TabIndex = 28;
-            this.pictureBoxClose.TabStop = false;
-            this.pictureBoxClose.Click += new System.EventHandler(this.pictureClose_Click);
             // 
             // MainForm
             // 
@@ -466,12 +468,12 @@ namespace SystemSchool
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureChangePassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureStatistics)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureReports)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSchool)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

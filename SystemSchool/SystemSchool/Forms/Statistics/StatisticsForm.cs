@@ -24,7 +24,6 @@ namespace SystemSchool.Forms.Statistics
             InitializeComponent();
         }
 
-
         private async void StatisticsForm_Load(object sender, EventArgs e)
         {
              buttonBarCharts_Click(sender, e);
@@ -47,7 +46,7 @@ namespace SystemSchool.Forms.Statistics
             title.Font = new Font("Malgun Gothic", 12F, FontStyle.Bold);
             chart.Titles.Add(title);
 
-            chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
+            chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
             chart.Series.Add("Classroom");
             chart.Series.Add("User");
             chart.Series.Add("Student");
@@ -135,8 +134,8 @@ namespace SystemSchool.Forms.Statistics
 
             int classroomAmount = await _amountEntitiesService.AmountEntitiesByDateCreationAsync<Classroom>(1, 12);
             int userAmount = await _amountEntitiesService.AmountEntitiesByDateCreationAsync<User>(1, 12);
-            int studentAmount = await _amountEntitiesService.AmountEntitiesByDateCreationAsync<User>(1, 12);
-            int courseAmount = await _amountEntitiesService.AmountEntitiesByDateCreationAsync<User>(1, 12);
+            int studentAmount = await _amountEntitiesService.AmountEntitiesByDateCreationAsync<Student>(1, 12);
+            int courseAmount = await _amountEntitiesService.AmountEntitiesByDateCreationAsync<Course>(1, 12);
 
             chart.Series.Add("Pie");
             chart.Series["Pie"].ChartType = SeriesChartType.Pie;
