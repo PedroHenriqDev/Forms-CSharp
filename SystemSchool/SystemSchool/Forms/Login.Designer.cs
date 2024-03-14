@@ -97,7 +97,7 @@ namespace SystemSchool
             this.picturePassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.picturePassword.Image = global::SystemSchool.Properties.Resources.icons8_password_48;
-            this.picturePassword.Location = new System.Drawing.Point(205, 316);
+            this.picturePassword.Location = new System.Drawing.Point(205, 354);
             this.picturePassword.Name = "picturePassword";
             this.picturePassword.Size = new System.Drawing.Size(67, 81);
             this.picturePassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;

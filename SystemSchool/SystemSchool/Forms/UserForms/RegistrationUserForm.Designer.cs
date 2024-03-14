@@ -254,7 +254,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegistrationUserForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegistrationUserForm";
             this.Load += new System.EventHandler(this.RegistrationUserForm_Load);
             this.panel1.ResumeLayout(false);
