@@ -196,5 +196,21 @@ namespace SystemSchool.Controls
             editClassroomForm.LabelClassroomShow.ForeColor = Color.Black;
             editClassroomForm.LabelClassroomShow.Text = $"{classroom.Value.ClassroomName} - {classroom.Value.Course.CourseName}";
         }
+
+
+        public async Task DeleteUserLoadComboBoxClassAsync(DeleteUserForm deleteUserForm)
+        {
+            IEnumerable<Class> classes = await _searchEntities.FindAllClassesAsync();
+            deleteUserForm.ComboBoxClasses.Items.Clear();
+            deleteUserForm.ComboBoxClasses.Items.AddRange(classes.Select(c => new DisplayItem<Class>(c, c.NameClass)).ToArray());
+        }
+
+        public async Task DeleteUserLoadListBoxUsersAsync(DeleteUserForm deleteUserForm)
+        {
+            IEnumerable<User> users = await _searchEntities.FindUsersByClassAsync(deleteUserForm.SelectedClass.Value);
+            users = _dataAccess.RemoveCurrentUserFromSet(users);
+            deleteUserForm.listBoxUsers.Items.Clear();
+            deleteUserForm.listBoxUsers.Items.AddRange(users.Select(u => new DisplayItem<User>(u, u.Username)).ToArray());
+        }
     }
 }

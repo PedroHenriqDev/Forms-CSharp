@@ -19,45 +19,27 @@ namespace SystemSchool.Forms.UserForms
 {
     public partial class DeleteUserForm : Form
     {
-        private readonly SearchEntitiesService _searchEntities;
         private readonly DeleteEntitiesService<User> _deleteEntities;
-        private readonly DataAccess _dataAccess;
+        private readonly LoadFormComponents _loadFormComponents;
+        public DisplayItem<Class> SelectedClass => ComboBoxClasses.SelectedItem as DisplayItem<Class>;
 
         public DeleteUserForm(
-            SearchEntitiesService searchEntities,
             DeleteEntitiesService<User> deleteEntities,
-            DataAccess dataAccess)
+            LoadFormComponents loadFormComponents)
         {
-            _searchEntities = searchEntities;
             _deleteEntities = deleteEntities;
-            _dataAccess = dataAccess;
             InitializeComponent();
+            _loadFormComponents = loadFormComponents;
         }
 
         private async void DeleteUserForm_Load(object sender, EventArgs e)
         {
-            await LoadComboBoxClassAsync();
-        }
-
-        private async Task LoadComboBoxClassAsync() 
-        {
-            IEnumerable<Class> classes = await _searchEntities.FindAllClassesAsync();
-            ComboBoxClasses.Items.Clear();
-            ComboBoxClasses.Items.AddRange(classes.Select(c => new DisplayItem<Class>(c, c.NameClass)).ToArray());
-        }
-
-        private async Task LoadListBoxUsersAsync() 
-        {
-            DisplayItem<Class> displayClass = ComboBoxClasses.SelectedItem as DisplayItem<Class>;
-            IEnumerable<User> users = await _searchEntities.FindUsersByClassAsync(displayClass.Value);
-            users = _dataAccess.RemoveCurrentUserFromSet(users);
-            listBoxUsers.Items.Clear();
-            listBoxUsers.Items.AddRange(users.Select(u => new DisplayItem<User>(u, u.Username)).ToArray());
+            await _loadFormComponents.DeleteUserLoadComboBoxClassAsync(this);
         }
 
         private async void ComboBoxClasses_SelectedIndexChanged(object sender, EventArgs e)
         {
-            await LoadListBoxUsersAsync();
+            await _loadFormComponents.DeleteUserLoadListBoxUsersAsync(this);
         }
 
         private async void buttonDelete_Click(object sender, EventArgs e)
@@ -66,7 +48,7 @@ namespace SystemSchool.Forms.UserForms
             {
                 DisplayItem<User> user = listBoxUsers.SelectedItem as DisplayItem<User>;
                 EntityQuery<User> userQuery = await _deleteEntities.DeleteEntityAsync(user.Value);
-                await LoadListBoxUsersAsync();
+                await _loadFormComponents.DeleteUserLoadListBoxUsersAsync(this);
                 MessageBox.Show(userQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(EntityException ex)
