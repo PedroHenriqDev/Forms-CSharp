@@ -28,14 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.buttonChartLines = new System.Windows.Forms.Button();
             this.buttonBarCharts = new System.Windows.Forms.Button();
-            this.buttonPizzaCharts = new System.Windows.Forms.Button();
+            this.buttonPieCharts = new System.Windows.Forms.Button();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxBack = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonChartLines
@@ -68,36 +72,61 @@
             this.buttonBarCharts.UseVisualStyleBackColor = false;
             this.buttonBarCharts.Click += new System.EventHandler(this.buttonBarCharts_Click);
             // 
-            // buttonPizzaCharts
+            // buttonPieCharts
             // 
-            this.buttonPizzaCharts.BackColor = System.Drawing.Color.White;
-            this.buttonPizzaCharts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPizzaCharts.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPizzaCharts.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonPizzaCharts.Location = new System.Drawing.Point(1020, 599);
-            this.buttonPizzaCharts.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.buttonPizzaCharts.Name = "buttonPizzaCharts";
-            this.buttonPizzaCharts.Size = new System.Drawing.Size(121, 23);
-            this.buttonPizzaCharts.TabIndex = 4;
-            this.buttonPizzaCharts.Text = "Pizza Charts";
-            this.buttonPizzaCharts.UseVisualStyleBackColor = false;
+            this.buttonPieCharts.BackColor = System.Drawing.Color.White;
+            this.buttonPieCharts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPieCharts.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPieCharts.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.buttonPieCharts.Location = new System.Drawing.Point(1020, 599);
+            this.buttonPieCharts.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.buttonPieCharts.Name = "buttonPieCharts";
+            this.buttonPieCharts.Size = new System.Drawing.Size(121, 23);
+            this.buttonPieCharts.TabIndex = 4;
+            this.buttonPieCharts.Text = "Pie Charts";
+            this.buttonPieCharts.UseVisualStyleBackColor = false;
+            this.buttonPieCharts.Click += new System.EventHandler(this.buttonPieCharts_Click);
             // 
             // chart
             // 
             this.chart.BackColor = System.Drawing.Color.WhiteSmoke;
-            chartArea2.Name = "ChartArea1";
-            this.chart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart.Legends.Add(legend2);
-            this.chart.Location = new System.Drawing.Point(-1, 67);
+            this.chart.BorderlineColor = System.Drawing.Color.DimGray;
+            chartArea1.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart.Legends.Add(legend1);
+            this.chart.Location = new System.Drawing.Point(3, 79);
             this.chart.Name = "chart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chart.Series.Add(series2);
+            this.chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart.Series.Add(series1);
             this.chart.Size = new System.Drawing.Size(1201, 485);
             this.chart.TabIndex = 5;
             this.chart.Text = "chart";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SystemSchool.Properties.Resources.icons8_school_80;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 88);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBoxBack
+            // 
+            this.pictureBoxBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxBack.Image = global::SystemSchool.Properties.Resources.icons8_back_48;
+            this.pictureBoxBack.Location = new System.Drawing.Point(1181, 12);
+            this.pictureBoxBack.Name = "pictureBoxBack";
+            this.pictureBoxBack.Size = new System.Drawing.Size(23, 23);
+            this.pictureBoxBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxBack.TabIndex = 7;
+            this.pictureBoxBack.TabStop = false;
+            this.pictureBoxBack.Click += new System.EventHandler(this.pictureBoxBack_Click);
             // 
             // StatisticsForm
             // 
@@ -105,8 +134,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1216, 681);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBoxBack);
             this.Controls.Add(this.chart);
-            this.Controls.Add(this.buttonPizzaCharts);
+            this.Controls.Add(this.buttonPieCharts);
             this.Controls.Add(this.buttonBarCharts);
             this.Controls.Add(this.buttonChartLines);
             this.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -115,7 +146,10 @@
             this.Name = "StatisticsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StatisticsForm";
+            this.Load += new System.EventHandler(this.StatisticsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBack)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -123,7 +157,9 @@
         #endregion
         private System.Windows.Forms.Button buttonChartLines;
         private System.Windows.Forms.Button buttonBarCharts;
-        private System.Windows.Forms.Button buttonPizzaCharts;
+        private System.Windows.Forms.Button buttonPieCharts;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart;
+        private System.Windows.Forms.PictureBox pictureBoxBack;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

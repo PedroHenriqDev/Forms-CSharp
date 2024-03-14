@@ -1,4 +1,5 @@
 ﻿using Datas;
+using Entities;
 using Entities.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,26 @@ namespace Services
             IEnumerable<T> entities = await _searchEntitiesService.FindAllEntitiesAsync<T>();
 
             return entities.Count(e => e.DateCreation.Month >= start && e.DateCreation.Month <= end && e.DateCreation.Year == DateTime.Now.Year);
+        }
+
+        public async Task<int> TotalAmountEntitiesAsync() 
+        {
+            return await AmountEntitiesByDateCreationAsync<Classroom>(1, 12) +
+                  await AmountEntitiesByDateCreationAsync<User>(1, 12) +
+                  await AmountEntitiesByDateCreationAsync<Student>(1, 12) +
+                  await AmountEntitiesByDateCreationAsync<Course>(1, 12);
+        }
+
+        public async Task<double> CalculatePencentageAsync(int amount) 
+        {
+            int totalAmount = await TotalAmountEntitiesAsync();
+
+            int classroomAmount = await AmountEntitiesByDateCreationAsync<Classroom>(1, 12);
+            int userAmount = await AmountEntitiesByDateCreationAsync<User>(1, 12);
+            int studentAmount = await AmountEntitiesByDateCreationAsync<User>(1, 12);
+            int courseAmount = await AmountEntitiesByDateCreationAsync<User>(1, 12);
+
+            return (double)amount / totalAmount * 100;
         }
     }
 }
