@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace SystemSchool.Forms.Statistics
+namespace SystemSchool.Forms.StatisticsForms
 {
     public partial class StatisticsForm : Form
     {

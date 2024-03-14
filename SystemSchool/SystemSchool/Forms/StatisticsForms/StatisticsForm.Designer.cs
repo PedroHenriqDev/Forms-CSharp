@@ -1,4 +1,4 @@
-﻿namespace SystemSchool.Forms.Statistics
+﻿namespace SystemSchool.Forms.StatisticsForms
 {
     partial class StatisticsForm
     {

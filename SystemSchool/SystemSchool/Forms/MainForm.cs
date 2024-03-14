@@ -14,7 +14,8 @@ using SystemSchool.Forms.CourseForms;
 using Autofac;
 using Services;
 using SystemSchool.Forms.UserForms;
-using SystemSchool.Forms.Statistics;
+using SystemSchool.Forms.PasswordForm;
+using SystemSchool.Forms.StatisticsForms;
 
 namespace SystemSchool
 {
@@ -123,6 +124,17 @@ namespace SystemSchool
         private void LabelLogout_Click(object sender, EventArgs e)
         {
             pictureLogout_Click(sender, e );
+        }
+
+        private void pictureChangePassword_Click(object sender, EventArgs e)
+        {
+            ConfirmPasswordForm passwordForm = new ConfirmPasswordForm();
+            passwordForm.ShowDialog();
+        }
+
+        private void LabelChangePassword_Click(object sender, EventArgs e)
+        {
+            pictureChangePassword_Click(sender, e);
         }
     } 
 }
