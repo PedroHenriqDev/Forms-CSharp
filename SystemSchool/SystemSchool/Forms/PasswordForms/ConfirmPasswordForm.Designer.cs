@@ -1,4 +1,4 @@
-﻿namespace SystemSchool.Forms.PasswordForm
+﻿namespace SystemSchool.Forms.PasswordForms
 {
     partial class ConfirmPasswordForm
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.LabelYourPassword = new System.Windows.Forms.Label();
             this.pictureBoxPassword = new System.Windows.Forms.PictureBox();
             this.pictureBoxClose = new System.Windows.Forms.PictureBox();
@@ -37,13 +37,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textBoxPassword
             // 
-            this.textBox1.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(45, 116);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(271, 29);
-            this.textBox1.TabIndex = 0;
+            this.textBoxPassword.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPassword.Location = new System.Drawing.Point(45, 116);
+            this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.Size = new System.Drawing.Size(271, 29);
+            this.textBoxPassword.TabIndex = 0;
             // 
             // LabelYourPassword
             // 
@@ -74,6 +74,7 @@
             this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxClose.TabIndex = 3;
             this.pictureBoxClose.TabStop = false;
+            this.pictureBoxClose.Click += new System.EventHandler(this.pictureBoxClose_Click);
             // 
             // buttonAccess
             // 
@@ -87,6 +88,7 @@
             this.buttonAccess.TabIndex = 4;
             this.buttonAccess.Text = "Access";
             this.buttonAccess.UseVisualStyleBackColor = false;
+            this.buttonAccess.Click += new System.EventHandler(this.buttonAccess_Click);
             // 
             // ConfirmPasswordForm
             // 
@@ -98,7 +100,7 @@
             this.Controls.Add(this.pictureBoxClose);
             this.Controls.Add(this.pictureBoxPassword);
             this.Controls.Add(this.LabelYourPassword);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxPassword);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ConfirmPasswordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -112,7 +114,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Label LabelYourPassword;
         private System.Windows.Forms.PictureBox pictureBoxPassword;
         private System.Windows.Forms.PictureBox pictureBoxClose;

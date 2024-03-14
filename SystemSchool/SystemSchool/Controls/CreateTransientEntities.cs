@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SystemSchool.Forms.ClassroomForms;
 using SystemSchool.Forms.CourseForms;
+using SystemSchool.Forms.PasswordForms;
 using SystemSchool.Forms.UserForms;
 
 namespace SystemSchool.Controls
@@ -18,6 +19,14 @@ namespace SystemSchool.Controls
         {
             Random random = new Random();
             return new Course(random.Next(), courseForm.textBoxCourseName.Text, DateTime.Now);
+        }
+
+        public User CreateUserTransient(ConfirmPasswordForm passwordForm) 
+        {
+            User user = new User();
+            user.Username = passwordForm.Username;
+            user.PasswordHash = passwordForm.Password;
+            return user;
         }
 
         public Student CreateStudentTransient(RegistrationStudentForm studentForm) 

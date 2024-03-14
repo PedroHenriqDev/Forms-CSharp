@@ -77,6 +77,12 @@
     <Compile Include="Controls\LoadFormComponents.cs" />
     <Compile Include="Exceptions\EntityException.cs" />
     <Compile Include="Exceptions\MainFormException.cs" />
+    <Compile Include="Forms\PasswordForms\ChangePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PasswordForms\ChangePasswordForm.Designer.cs">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ClassroomForms\DeleteClassroomForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,10 +119,16 @@
     <Compile Include="Forms\LoadForm.Designer.cs">
       <DependentUpon>LoadForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Statistics\StatisticsForm.cs">
+    <Compile Include="Forms\PasswordForms\ConfirmPasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Statistics\StatisticsForm.Designer.cs">
+    <Compile Include="Forms\PasswordForms\ConfirmPasswordForm.Designer.cs">
+      <DependentUpon>ConfirmPasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\StatisticsForms\StatisticsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StatisticsForms\StatisticsForm.Designer.cs">
       <DependentUpon>StatisticsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\StudentForms\DeleteStudentForm.cs">
@@ -170,6 +182,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\PasswordForms\ChangePasswordForm.resx">
+      <DependentUpon>ChangePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ClassroomForms\DeleteClassroomForm.resx">
       <DependentUpon>DeleteClassroomForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,7 +209,10 @@
     <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Statistics\StatisticsForm.resx">
+    <EmbeddedResource Include="Forms\PasswordForms\ConfirmPasswordForm.resx">
+      <DependentUpon>ConfirmPasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StatisticsForms\StatisticsForm.resx">
       <DependentUpon>StatisticsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\StudentForms\DeleteStudentForm.resx">
@@ -269,6 +287,7 @@
     <None Include="Resources\icons8-search-64.png" />
     <None Include="Resources\icons8-school-80.png" />
     <None Include="Resources\icons8-school-801.png" />
+    <None Include="Resources\icons8-settings-48.png" />
     <Content Include="Resources\icons8-user-64.png" />
   </ItemGroup>
   <ItemGroup>

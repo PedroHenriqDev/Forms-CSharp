@@ -14,7 +14,7 @@ using SystemSchool.Forms.CourseForms;
 using Autofac;
 using Services;
 using SystemSchool.Forms.UserForms;
-using SystemSchool.Forms.PasswordForm;
+using SystemSchool.Forms.PasswordForms;
 using SystemSchool.Forms.StatisticsForms;
 
 namespace SystemSchool
@@ -128,7 +128,7 @@ namespace SystemSchool
 
         private void pictureChangePassword_Click(object sender, EventArgs e)
         {
-            ConfirmPasswordForm passwordForm = new ConfirmPasswordForm();
+            var passwordForm = Program.Container.Resolve<ConfirmPasswordForm>();
             passwordForm.ShowDialog();
         }
 
