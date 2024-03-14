@@ -31,18 +31,17 @@ namespace SystemSchool
         private void InitializeComponent()
         {
             this.ButtonLogin = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBoxSchool = new System.Windows.Forms.PictureBox();
             this.TextPassword = new System.Windows.Forms.TextBox();
             this.TextUsername = new System.Windows.Forms.TextBox();
             this.picturePassword = new System.Windows.Forms.PictureBox();
             this.pictureUser = new System.Windows.Forms.PictureBox();
             this.buttonPasswordPrivacy = new System.Windows.Forms.Button();
-            this.labelManagerSchool = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSchool)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePassword)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonLogin
@@ -52,7 +51,7 @@ namespace SystemSchool
             this.ButtonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ButtonLogin.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ButtonLogin.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.ButtonLogin.Location = new System.Drawing.Point(194, 516);
+            this.ButtonLogin.Location = new System.Drawing.Point(196, 533);
             this.ButtonLogin.Name = "ButtonLogin";
             this.ButtonLogin.Size = new System.Drawing.Size(87, 33);
             this.ButtonLogin.TabIndex = 2;
@@ -60,23 +59,11 @@ namespace SystemSchool
             this.ButtonLogin.UseVisualStyleBackColor = false;
             this.ButtonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.BackColor = System.Drawing.Color.Black;
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel1.Controls.Add(this.labelManagerSchool);
-            this.panel1.Location = new System.Drawing.Point(-33, 572);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(533, 85);
-            this.panel1.TabIndex = 3;
-            // 
             // pictureBoxSchool
             // 
             this.pictureBoxSchool.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pictureBoxSchool.Image = global::SystemSchool.Properties.Resources.icons8_school_80;
-            this.pictureBoxSchool.Location = new System.Drawing.Point(159, -11);
+            this.pictureBoxSchool.Location = new System.Drawing.Point(159, -3);
             this.pictureBoxSchool.Name = "pictureBoxSchool";
             this.pictureBoxSchool.Size = new System.Drawing.Size(156, 146);
             this.pictureBoxSchool.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -112,7 +99,7 @@ namespace SystemSchool
             this.picturePassword.Image = global::SystemSchool.Properties.Resources.icons8_password_48;
             this.picturePassword.Location = new System.Drawing.Point(205, 316);
             this.picturePassword.Name = "picturePassword";
-            this.picturePassword.Size = new System.Drawing.Size(67, 119);
+            this.picturePassword.Size = new System.Drawing.Size(67, 81);
             this.picturePassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.picturePassword.TabIndex = 7;
             this.picturePassword.TabStop = false;
@@ -125,7 +112,7 @@ namespace SystemSchool
             this.pictureUser.Image = global::SystemSchool.Properties.Resources.icons8_user_40;
             this.pictureUser.Location = new System.Drawing.Point(205, 160);
             this.pictureUser.Name = "pictureUser";
-            this.pictureUser.Size = new System.Drawing.Size(67, 126);
+            this.pictureUser.Size = new System.Drawing.Size(67, 88);
             this.pictureUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureUser.TabIndex = 6;
             this.pictureUser.TabStop = false;
@@ -135,7 +122,7 @@ namespace SystemSchool
             this.buttonPasswordPrivacy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonPasswordPrivacy.BackColor = System.Drawing.Color.Transparent;
             this.buttonPasswordPrivacy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPasswordPrivacy.Location = new System.Drawing.Point(349, 441);
+            this.buttonPasswordPrivacy.Location = new System.Drawing.Point(374, 441);
             this.buttonPasswordPrivacy.Name = "buttonPasswordPrivacy";
             this.buttonPasswordPrivacy.Size = new System.Drawing.Size(49, 29);
             this.buttonPasswordPrivacy.TabIndex = 10;
@@ -143,30 +130,30 @@ namespace SystemSchool
             this.buttonPasswordPrivacy.UseVisualStyleBackColor = false;
             this.buttonPasswordPrivacy.Click += new System.EventHandler(this.buttonPasswordPrivacy_Click);
             // 
-            // labelManagerSchool
+            // pictureBoxClose
             // 
-            this.labelManagerSchool.AutoSize = true;
-            this.labelManagerSchool.Font = new System.Drawing.Font("Malgun Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelManagerSchool.ForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.labelManagerSchool.Location = new System.Drawing.Point(179, 31);
-            this.labelManagerSchool.Name = "labelManagerSchool";
-            this.labelManagerSchool.Size = new System.Drawing.Size(175, 30);
-            this.labelManagerSchool.TabIndex = 0;
-            this.labelManagerSchool.Text = "School Manager";
+            this.pictureBoxClose.Image = global::SystemSchool.Properties.Resources.icons8_close_48__2_;
+            this.pictureBoxClose.Location = new System.Drawing.Point(462, 12);
+            this.pictureBoxClose.Name = "pictureBoxClose";
+            this.pictureBoxClose.Size = new System.Drawing.Size(23, 25);
+            this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxClose.TabIndex = 29;
+            this.pictureBoxClose.TabStop = false;
+            this.pictureBoxClose.Click += new System.EventHandler(this.pictureClose_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(497, 656);
+            this.ClientSize = new System.Drawing.Size(497, 618);
+            this.Controls.Add(this.pictureBoxClose);
             this.Controls.Add(this.pictureBoxSchool);
             this.Controls.Add(this.buttonPasswordPrivacy);
             this.Controls.Add(this.TextUsername);
             this.Controls.Add(this.picturePassword);
             this.Controls.Add(this.pictureUser);
             this.Controls.Add(this.TextPassword);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.ButtonLogin);
             this.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -174,11 +161,10 @@ namespace SystemSchool
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSchool)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturePassword)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxClose)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,13 +172,12 @@ namespace SystemSchool
 
         #endregion
         private System.Windows.Forms.Button ButtonLogin;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox TextPassword;
         private System.Windows.Forms.PictureBox pictureUser;
         private System.Windows.Forms.PictureBox picturePassword;
         private System.Windows.Forms.TextBox TextUsername;
         private System.Windows.Forms.PictureBox pictureBoxSchool;
         private System.Windows.Forms.Button buttonPasswordPrivacy;
-        private System.Windows.Forms.Label labelManagerSchool;
+        private System.Windows.Forms.PictureBox pictureBoxClose;
     }
 }

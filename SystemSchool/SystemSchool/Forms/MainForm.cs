@@ -14,6 +14,7 @@ using SystemSchool.Forms.CourseForms;
 using Autofac;
 using Services;
 using SystemSchool.Forms.UserForms;
+using SystemSchool.Forms.Statistics;
 
 namespace SystemSchool
 {
@@ -70,6 +71,13 @@ namespace SystemSchool
             registrationUserForm.ShowDialog();
         }
 
+        private void pictureStatistics_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var statisticsForm = Program.Container.Resolve<StatisticsForm>();
+            statisticsForm.ShowDialog();
+        }
+
         private void LabelStudentRegistration_Click(object sender, EventArgs e)
         {
             pictureStudent_Click(sender, e);
@@ -98,6 +106,11 @@ namespace SystemSchool
         private void LabelUser_Click(object sender, EventArgs e)
         {
             pictureUser_Click(sender, e);
+        }
+
+        private void LabelStatistics_Click(object sender, EventArgs e)
+        {
+            pictureStatistics_Click(sender, e);
         }
     } 
 }

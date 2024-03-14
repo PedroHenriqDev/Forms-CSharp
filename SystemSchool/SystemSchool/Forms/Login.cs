@@ -60,7 +60,7 @@ namespace SystemSchool
             }
         }
 
-        private void ButtonCancel_Click(object sender, EventArgs e)
+        private void pictureClose_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

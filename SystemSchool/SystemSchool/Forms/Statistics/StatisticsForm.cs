@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entities;
+using Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,12 +15,16 @@ namespace SystemSchool.Forms.Statistics
 {
     public partial class StatisticsForm : Form
     {
-        public StatisticsForm()
+
+        private readonly AmountEntitiesService _amountEntitiesService;
+
+        public StatisticsForm(AmountEntitiesService amountEntitiesService)
         {
+            _amountEntitiesService = amountEntitiesService;
             InitializeComponent();
         }
 
-        private void buttonChartLines_Click(object sender, EventArgs e)
+        private async void buttonChartLines_Click(object sender, EventArgs e)
         {
             chart.Series.Clear();
             chart.Titles.Clear();
@@ -29,7 +35,7 @@ namespace SystemSchool.Forms.Statistics
             chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
             chart.Series.Add("Month");
             chart.Series[0].ChartType = SeriesChartType.Line;
-
+            chart.Series[0].Points.AddXY("1-3", await _amountEntitiesService.AmountEntitiesByDateCreationAsync<Classroom>(1, 3));
         }
     }
 }

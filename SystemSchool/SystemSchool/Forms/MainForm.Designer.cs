@@ -156,6 +156,7 @@ namespace SystemSchool
             this.LabelStatistics.Size = new System.Drawing.Size(75, 21);
             this.LabelStatistics.TabIndex = 12;
             this.LabelStatistics.Text = "Statistics";
+            this.LabelStatistics.Click += new System.EventHandler(this.LabelStatistics_Click);
             // 
             // LabelClassroom
             // 
@@ -383,19 +384,20 @@ namespace SystemSchool
             this.pictureStatistics.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureStatistics.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureStatistics.Image = global::SystemSchool.Properties.Resources.icons8_graph_report_64;
-            this.pictureStatistics.Location = new System.Drawing.Point(268, 151);
+            this.pictureStatistics.Location = new System.Drawing.Point(50, 151);
             this.pictureStatistics.Name = "pictureStatistics";
             this.pictureStatistics.Size = new System.Drawing.Size(136, 80);
             this.pictureStatistics.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureStatistics.TabIndex = 5;
             this.pictureStatistics.TabStop = false;
+            this.pictureStatistics.Click += new System.EventHandler(this.pictureStatistics_Click);
             // 
             // pictureReports
             // 
             this.pictureReports.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pictureReports.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureReports.Image = global::SystemSchool.Properties.Resources.icons8_reports_58;
-            this.pictureReports.Location = new System.Drawing.Point(50, 151);
+            this.pictureReports.Location = new System.Drawing.Point(259, 151);
             this.pictureReports.Name = "pictureReports";
             this.pictureReports.Size = new System.Drawing.Size(136, 80);
             this.pictureReports.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;

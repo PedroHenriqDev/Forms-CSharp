@@ -13,6 +13,7 @@ namespace Entities
         public int Id { get; set; }
         public int AccessLevel {get; set;}
         public string NameClass { get; set; }
+        public DateTime DateCreation {  get; set; }
         public List<User> Users { get; set; }
     }
 }

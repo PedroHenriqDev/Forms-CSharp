@@ -11,6 +11,7 @@ using SystemSchool.Controls;
 using SystemSchool.Forms.UserForms;
 using SystemSchool.Helpers;
 using SystemSchool.Forms;
+using SystemSchool.Forms.Statistics;
 
 namespace SystemSchool
 {
@@ -41,6 +42,7 @@ namespace SystemSchool
             builder.RegisterType<DeleteStudentForm>().AsSelf();
             builder.RegisterType<DeleteClassroomForm>().AsSelf();
             builder.RegisterType<DeleteUserForm>().AsSelf();
+            builder.RegisterType<StatisticsForm>().AsSelf();
 
             // Register generic services
             builder.RegisterGeneric(typeof(CreateEntitiesService<>)).AsSelf();
@@ -50,6 +52,7 @@ namespace SystemSchool
             builder.RegisterType<ValidationEntitiesService>().AsSelf();
             builder.RegisterType<EncryptEntitiesService>().AsSelf();
             builder.RegisterType<LoginService>().AsSelf();
+            builder.RegisterType<AmountEntitiesService>().AsSelf();
             builder.RegisterType<FillEntitiesService>().AsSelf();
             builder.RegisterType<SearchEntitiesService>().AsSelf();
             builder.RegisterType<ConnectionDb>().AsSelf();

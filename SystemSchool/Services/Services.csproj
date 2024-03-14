@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AmountEntitiesService.cs" />
     <Compile Include="CreateEntitiesService.cs" />
     <Compile Include="DeleteEntitiesService.cs" />
     <Compile Include="EditEntitiesService.cs" />
