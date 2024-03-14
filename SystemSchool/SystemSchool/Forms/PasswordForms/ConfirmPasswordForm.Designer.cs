@@ -68,9 +68,9 @@
             // pictureBoxClose
             // 
             this.pictureBoxClose.Image = global::SystemSchool.Properties.Resources.icons8_close_48__2_;
-            this.pictureBoxClose.Location = new System.Drawing.Point(334, 3);
+            this.pictureBoxClose.Location = new System.Drawing.Point(338, 3);
             this.pictureBoxClose.Name = "pictureBoxClose";
-            this.pictureBoxClose.Size = new System.Drawing.Size(25, 23);
+            this.pictureBoxClose.Size = new System.Drawing.Size(21, 21);
             this.pictureBoxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxClose.TabIndex = 3;
             this.pictureBoxClose.TabStop = false;
