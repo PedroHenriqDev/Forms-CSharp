@@ -66,7 +66,6 @@ namespace Services
                 return new EntityQuery<User>(true, "User " + user.Username.CutCompleteName() + " edit successfully", DateTime.Now, user);
             }
             return new EntityQuery<User>(false, "User " + user.Username.CutCompleteName() + " Username cannot be empty", DateTime.Now, user);
-
         }
     }
 }

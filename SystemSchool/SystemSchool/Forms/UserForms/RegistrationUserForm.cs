@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,9 @@ namespace SystemSchool.Forms.UserForms
         private readonly SearchEntitiesService _searchEntities;
         private readonly CreateEntitiesService<User> _createEntities;
         private readonly CreateTransientEntities _createTransientEntities;
+        public string Username => textBoxUsername.Text;
+        public string Password => textBoxPassword.Text;
+        public DisplayItem<Class> Cls => ComboBoxClass.SelectedItem as DisplayItem<Class>;
 
         public RegistrationUserForm(
             SearchEntitiesService searchEntities,

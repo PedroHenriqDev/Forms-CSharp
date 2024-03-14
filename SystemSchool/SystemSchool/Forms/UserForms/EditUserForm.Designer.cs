@@ -349,7 +349,7 @@
         private System.Windows.Forms.Label LabelSearch;
         public System.Windows.Forms.ListBox listBoxSearch;
         private System.Windows.Forms.Label LabelSearchResult;
-        public System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.TextBox textBoxSearch;
         public System.Windows.Forms.Label LabelUserShow;
         private System.Windows.Forms.Button buttonEdit;
         private System.Windows.Forms.Label LabelClass;

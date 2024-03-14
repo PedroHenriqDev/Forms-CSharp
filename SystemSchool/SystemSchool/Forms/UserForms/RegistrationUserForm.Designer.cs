@@ -277,14 +277,14 @@
         private System.Windows.Forms.PictureBox pictureBoxEdit;
         private System.Windows.Forms.PictureBox pictureBoxStudent;
         private System.Windows.Forms.PictureBox pictureBoxSchool;
-        public System.Windows.Forms.ComboBox ComboBoxClass;
-        public System.Windows.Forms.TextBox textBoxUsername;
+        private System.Windows.Forms.ComboBox ComboBoxClass;
+        private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.Label LabelUsername;
         private System.Windows.Forms.Label LabelClass;
         private System.Windows.Forms.Label LabelPassword;
         private System.Windows.Forms.PictureBox pictureUser;
         private System.Windows.Forms.Button buttonCreate;
-        public System.Windows.Forms.TextBox textBoxPassword;
+        private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.PictureBox pictureBoxBack;
     }
 }

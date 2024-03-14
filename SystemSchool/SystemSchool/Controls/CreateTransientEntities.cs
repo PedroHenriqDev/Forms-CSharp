@@ -48,9 +48,8 @@ namespace SystemSchool.Controls
 
         public User CreateUserTransient(RegistrationUserForm userForm) 
         {
-            DisplayItem<Class> displayClass = userForm.ComboBoxClass.SelectedItem as DisplayItem<Class>;
             Random random = new Random();
-            return new User(random.Next(), userForm.textBoxUsername.Text, userForm.textBoxPassword.Text, displayClass.Value.Id, DateTime.Now);
+            return new User(random.Next(), userForm.Username, userForm.Password, userForm.Cls.Value.Id, DateTime.Now);
         }
     }
 }

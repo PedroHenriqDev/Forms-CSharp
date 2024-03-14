@@ -86,6 +86,12 @@ namespace SystemSchool
             loginForm.ShowDialog();
         }
 
+        private void pictureChangePassword_Click(object sender, EventArgs e)
+        {
+            var passwordForm = Program.Container.Resolve<ConfirmPasswordForm>();
+            passwordForm.ShowDialog();
+        }
+
         private void LabelStudentRegistration_Click(object sender, EventArgs e)
         {
             pictureStudent_Click(sender, e);
@@ -124,12 +130,6 @@ namespace SystemSchool
         private void LabelLogout_Click(object sender, EventArgs e)
         {
             pictureLogout_Click(sender, e );
-        }
-
-        private void pictureChangePassword_Click(object sender, EventArgs e)
-        {
-            var passwordForm = Program.Container.Resolve<ConfirmPasswordForm>();
-            passwordForm.ShowDialog();
         }
 
         private void LabelChangePassword_Click(object sender, EventArgs e)

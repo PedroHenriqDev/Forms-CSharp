@@ -22,6 +22,9 @@ namespace SystemSchool.Forms.UserForms
 
         private readonly EditEntitiesService<User> _editEntities;
         private readonly LoadFormComponents _loadFormComponents;
+        public DisplayItem<Class> Cls => ComboBoxClass.SelectedItem as DisplayItem<Class>;
+        public DisplayItem<User> SelectedUser => listBoxSearch.SelectedItem as DisplayItem<User>;
+        public string Query => textBoxSearch.Text;
 
         public EditUserForm(
             EditEntitiesService<User> editEntities, 
@@ -32,15 +35,36 @@ namespace SystemSchool.Forms.UserForms
             InitializeComponent();
         }
 
+        private async void buttonEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                await _loadFormComponents.UserFormLoadClassInUserAsync(this);
+                EntityQuery<User> userQuery = await _editEntities.EditUserAsync(SelectedUser.Value);
+                MessageBox.Show(userQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(EntityException ex)
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch(Exception ex) 
+            {
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        
         private async void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
-        { 
+        {
             await _loadFormComponents.UserFormLoadListBoxSearchAsync(this);
             LabelSearchResult.Text = $"Result of search '{textBoxSearch.Text}'";
         }
 
         private async void listBoxSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            await _loadFormComponents.UserFormLoadComponentsAsync(this);
+            if (SelectedUser != null)
+            {
+                await _loadFormComponents.UserFormLoadComponentsAsync(this);
+            }
         }
 
         private void pictureBoxDelete_Click(object sender, EventArgs e)
@@ -70,27 +94,6 @@ namespace SystemSchool.Forms.UserForms
         private void LabelDeleteUser_Click(object sender, EventArgs e)
         {
             pictureBoxDelete_Click(sender, e);
-        }
-
-        private async void buttonEdit_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                DisplayItem<Class> cls = ComboBoxClass.SelectedItem as DisplayItem<Class>;
-                DisplayItem<User> user = listBoxSearch.SelectedItem as DisplayItem<User>;
-                user.Value.Username = textBoxUsername.Text;
-                await _loadFormComponents.UserFormLoadClassInUserAsync(this, user.Value);
-                EntityQuery<User> userQuery = await _editEntities.EditUserAsync(user.Value);
-                MessageBox.Show(userQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch(EntityException ex)
-            {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch(Exception ex) 
-            {
-                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
     }
 }

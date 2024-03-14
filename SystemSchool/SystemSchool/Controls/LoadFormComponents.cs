@@ -65,15 +65,13 @@ namespace SystemSchool.Controls
 
         public void UserFormLoadTextBoxUsername(EditUserForm editUserForm) 
         {
-            DisplayItem<User> user = editUserForm.listBoxSearch.SelectedItem as DisplayItem<User>;
-            editUserForm.textBoxUsername.Text = user.Value.Username;
+            editUserForm.textBoxUsername.Text = editUserForm.SelectedUser.Value.Username;
         }
 
         public void UserFormLoadLabelUserShow(EditUserForm editUserForm) 
         {
-            DisplayItem<User> user = editUserForm.listBoxSearch.SelectedItem as DisplayItem<User>;
             editUserForm.LabelUserShow.ForeColor = Color.Black;
-            editUserForm.LabelUserShow.Text = $"{user.Value.Username} - {user.Value.Class.NameClass}";
+            editUserForm.LabelUserShow.Text = $"{editUserForm.SelectedUser.Value.Username} - {editUserForm.SelectedUser.Value.Class.NameClass}";
         }
 
         public async Task UserFormLoadComboBoxClassAsync(EditUserForm editUserForm)
@@ -85,25 +83,27 @@ namespace SystemSchool.Controls
 
         public async Task UserFormLoadListBoxSearchAsync(EditUserForm editUserForm)
         {
-            IEnumerable<User> users = await _searchEntities.FindUsersByQueryAsync(editUserForm.textBoxSearch.Text);
+            IEnumerable<User> users = await _searchEntities.FindUsersByQueryAsync(editUserForm.Query);
             await _fillEntities.FillUsersWithClassAsync(users);
             users = _dataAccess.RemoveCurrentUserFromSet(users);
             editUserForm.listBoxSearch.Items.Clear();
             editUserForm.listBoxSearch.Items.AddRange(users.Select(c => new DisplayItem<User>(c, $"{c.Username.CutCompleteName()} - {c.Class.NameClass}")).ToArray());
         }
 
-        public async Task UserFormLoadClassInUserAsync(EditUserForm editUserForm, User user)
+        public async Task UserFormLoadClassInUserAsync(EditUserForm editUserForm)
         {
             IEnumerable<Class> classes = await _searchEntities.FindAllClassesAsync();
             if (editUserForm.ComboBoxClass.SelectedItem == null && classes.Select(c => c.NameClass).Any(c => c == editUserForm.ComboBoxClass.Text))
             {
                 Class cls = await _searchEntities.FindClassByNameAsync(editUserForm.ComboBoxClass.Text);
-                user.Class = cls;
+                editUserForm.SelectedUser.Value.ClassId = cls.Id;
+                editUserForm.SelectedUser.Value.Class = cls;
             }
             else
             {
                 DisplayItem<Class> cls = editUserForm.ComboBoxClass.SelectedItem as DisplayItem<Class>;
-                user.Class = cls.Value;
+                editUserForm.SelectedUser.Value.ClassId = editUserForm.Cls.Value.Id;
+                editUserForm.SelectedUser.Value.Class = editUserForm.Cls.Value;
             }
         }
 
