@@ -35,13 +35,13 @@ namespace SystemSchool.Forms.ClassroomForms
 
         private async void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
         {
-            await _loadFormComponents.ClassroomFormLoadListBoxSearchAsync(this);
+            await _loadFormComponents.EditClassroomLoadListBoxSearchAsync(this);
             LabelSearchResult.Text = $"Result of Search '{textBoxSearch.Text}'";
         }
 
         private async void listBoxSearch_SelectedIndexChanged(object sender, EventArgs e)
         {
-            await _loadFormComponents.ClassroomFormLoadComponentsAsync(this);
+            await _loadFormComponents.EditClassroomLoadComponentsAsync(this);
         }
 
         private async void buttonEdit_Click(object sender, EventArgs e)

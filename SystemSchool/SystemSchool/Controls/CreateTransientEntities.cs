@@ -33,7 +33,7 @@ namespace SystemSchool.Controls
         {
             Random random = new Random();
             DisplayItem<Classroom> classroom = studentForm.ComboBoxClassroom.SelectedItem as DisplayItem<Classroom>;
-            return new Student(random.Next(), classroom.Value.Id, studentForm.textBoxCompleteName.Text, DateTime.Now);
+            return new Student(random.Next(), classroom.Value.Id, studentForm.CompleteName, DateTime.Now);
         }
 
         public Classroom CreateClassroomTransient(RegistrationClassroomForm classroomForm) 

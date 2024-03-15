@@ -18,55 +18,36 @@ namespace SystemSchool.Forms.StudentForms
 {
     public partial class DeleteStudentForm : Form
     {
-        private readonly SearchEntitiesService _searchEntities;
         private readonly DeleteEntitiesService<Student> _deleteEntities;
+        private readonly LoadFormComponents _loadFormComponents;
+        public DisplayItem<Classroom> SelectedClassroom => ComboBoxClassroom.SelectedItem as DisplayItem<Classroom>;
+        public DisplayItem<Student> SelectedStudent => listBoxStudents.SelectedItem as DisplayItem<Student>;
 
-        public DeleteStudentForm(SearchEntitiesService searchEntities, DeleteEntitiesService<Student> deleteEntities)
+        public DeleteStudentForm(DeleteEntitiesService<Student> deleteEntities, LoadFormComponents loadFormComponents)
         {
-            InitializeComponent();
-            _searchEntities= searchEntities;
             _deleteEntities = deleteEntities;
+            _loadFormComponents = loadFormComponents;
+            InitializeComponent();
         }
 
         private async void StudentDeleteForm_Load(object sender, EventArgs e)
         {
-            await LoadComboBoxClassroomsAsync();
+            await _loadFormComponents.DeleteStudentLoadComboBoxClassroomsAsync(this);
         }
 
         private async void ComboBoxClassroom_SelectedIndexChanged(object sender, EventArgs e)
         {
-            await LoadListBoxByIndexAsync();
+            await _loadFormComponents.DeleteStudentLoadListBoxByIndexAsync(this);
         }
-
-        private async Task LoadComboBoxClassroomsAsync()
-        {
-            IEnumerable<Classroom> classrooms = await _searchEntities.FindAllEntitiesAsync<Classroom>();
-            ComboBoxClassroom.Items.AddRange(classrooms.Select(c => new DisplayItem<Classroom>(c, c.ClassroomName)).ToArray());
-        }
-
-        private async Task LoadListBoxByIndexAsync()
-        {
-            DisplayItem<Classroom> classroom = ComboBoxClassroom.SelectedItem as DisplayItem<Classroom>;
-            IEnumerable<Student> students = await _searchEntities.FindEntitiesByReferenceIdAsync<Student, Classroom>(classroom.Value);
-            listBoxStudents.Items.Clear();
-            foreach (Student student in students)
-            {
-                string displayName = $"{student.CompleteName} - ({classroom.Value.ClassroomName})";
-                if (!listBoxStudents.Items.Contains(student))
-                {
-                    listBoxStudents.Items.Add(new DisplayItem<Student>(student, displayName));
-                }
-            }
-        }
+  
 
         private async void buttonDelete_Click(object sender, EventArgs e)
         {
             try
             {
-                DisplayItem<Student> student = (DisplayItem<Student>)listBoxStudents.SelectedItem;
-                EntityQuery<Student> studentQuery = await _deleteEntities.DeleteEntityAsync(student.Value);
+                EntityQuery<Student> studentQuery = await _deleteEntities.DeleteEntityAsync(SelectedStudent.Value);
                 MessageBox.Show(studentQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                await LoadListBoxByIndexAsync();
+                await _loadFormComponents.DeleteStudentLoadListBoxByIndexAsync(this);
             }
             catch (Exception ex)
             {

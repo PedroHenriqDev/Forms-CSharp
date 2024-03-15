@@ -22,6 +22,8 @@ namespace SystemSchool.Forms.StudentForms
     {
         private readonly EditEntitiesService<Student> _editEntities; 
         private readonly LoadFormComponents _loadFormComponents;
+        public DisplayItem<Student> SelectedStudent => listBoxSearch.SelectedItem as DisplayItem<Student>;
+        public string CompleteName => textBoxStudentName.Text;
 
         public EditStudentForm(
             EditEntitiesService<Student> editEntities,
@@ -34,7 +36,7 @@ namespace SystemSchool.Forms.StudentForms
 
         private async void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
         {
-            await _loadFormComponents.StudentFormLoadListBoxSearchAsync(this);
+            await _loadFormComponents.EditStudentLoadListBoxSearchAsync(this);
             LabelSearchResult.Text = $"Result of search '{textBoxSearch.Text}'";
         }
 
@@ -42,7 +44,7 @@ namespace SystemSchool.Forms.StudentForms
         {
             if (listBoxSearch.SelectedItem != null)
             {
-                await _loadFormComponents.StudentFormLoadComponentsAsync(this);
+                await _loadFormComponents.EditStudentLoadComponentsAsync(this);
             }
         }
 
@@ -50,10 +52,9 @@ namespace SystemSchool.Forms.StudentForms
         {
             try
             {
-                DisplayItem<Student> student = listBoxSearch.SelectedItem as DisplayItem<Student>;
-                student.Value.CompleteName = textBoxStudentName.Text;
-                await _loadFormComponents.StudentFormLoadClassroomInStudentAsync(this, student.Value);
-                EntityQuery<Student> studentQuery = await _editEntities.EditStudentAsync(student.Value);
+                SelectedStudent.Value.CompleteName = CompleteName;
+                await _loadFormComponents.EditStudentLoadClassroomInStudentAsync(this, SelectedStudent.Value);
+                EntityQuery<Student> studentQuery = await _editEntities.EditStudentAsync(SelectedStudent.Value);
                 if (studentQuery.Result)
                 {
                     LabelStudent.Text = textBoxStudentName.Text;

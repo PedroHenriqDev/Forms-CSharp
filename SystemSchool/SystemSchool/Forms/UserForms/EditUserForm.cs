@@ -39,7 +39,7 @@ namespace SystemSchool.Forms.UserForms
         {
             try
             {
-                await _loadFormComponents.UserFormLoadClassInUserAsync(this);
+                await _loadFormComponents.EditUserLoadClassInUserAsync(this);
                 EntityQuery<User> userQuery = await _editEntities.EditUserAsync(SelectedUser.Value);
                 MessageBox.Show(userQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -55,7 +55,7 @@ namespace SystemSchool.Forms.UserForms
         
         private async void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
         {
-            await _loadFormComponents.UserFormLoadListBoxSearchAsync(this);
+            await _loadFormComponents.EditUserLoadListBoxSearchAsync(this);
             LabelSearchResult.Text = $"Result of search '{textBoxSearch.Text}'";
         }
 
@@ -63,7 +63,7 @@ namespace SystemSchool.Forms.UserForms
         {
             if (SelectedUser != null)
             {
-                await _loadFormComponents.UserFormLoadComponentsAsync(this);
+                await _loadFormComponents.EditUserLoadComponentsAsync(this);
             }
         }
 

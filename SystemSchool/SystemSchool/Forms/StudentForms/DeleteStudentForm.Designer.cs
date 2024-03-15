@@ -245,8 +245,8 @@
         private System.Windows.Forms.PictureBox pictureBoxBack;
         private System.Windows.Forms.Button buttonDelete;
         private System.Windows.Forms.Label LabelClassroom;
-        private System.Windows.Forms.ComboBox ComboBoxClassroom;
-        private System.Windows.Forms.ListBox listBoxStudents;
+        public System.Windows.Forms.ComboBox ComboBoxClassroom;
+        public System.Windows.Forms.ListBox listBoxStudents;
         private System.Windows.Forms.Label LabelStudent;
         private System.Windows.Forms.PictureBox pictureBoxSchool;
         private System.Windows.Forms.PictureBox pictureBoxEdit;

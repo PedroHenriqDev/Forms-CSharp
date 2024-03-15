@@ -171,7 +171,7 @@
             // 
             this.LabelClass.AutoSize = true;
             this.LabelClass.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelClass.Location = new System.Drawing.Point(488, 481);
+            this.LabelClass.Location = new System.Drawing.Point(488, 463);
             this.LabelClass.Name = "LabelClass";
             this.LabelClass.Size = new System.Drawing.Size(51, 21);
             this.LabelClass.TabIndex = 40;
@@ -193,7 +193,7 @@
             this.ComboBoxClass.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComboBoxClass.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.ComboBoxClass.FormattingEnabled = true;
-            this.ComboBoxClass.Location = new System.Drawing.Point(405, 505);
+            this.ComboBoxClass.Location = new System.Drawing.Point(405, 487);
             this.ComboBoxClass.Name = "ComboBoxClass";
             this.ComboBoxClass.Size = new System.Drawing.Size(216, 29);
             this.ComboBoxClass.TabIndex = 38;
