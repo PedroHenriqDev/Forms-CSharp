@@ -37,11 +37,11 @@ namespace Services
             return new EntityQuery<T>(true, $"{nameEntity} delete successfully!", DateTime.Now, entity);
         }
 
-        public async Task DeleteStudentsAsync(IEnumerable<Student> students)
+        public async Task DeleteEntitiesAsync<T>(IEnumerable<T> entities) where T : class, IEntity<T>
         {
-            if (students.Any())
+            if (entities.Any())
             {
-                await _connectionDb.DeleteRecordsInTableByIdAsync<Student>(students
+                await _connectionDb.DeleteRecordsInTableByIdAsync<T>(entities
                     .Select(c => c.Id)
                     .ToList());
             }

@@ -22,8 +22,6 @@ namespace SystemSchool
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
-
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -481,7 +479,6 @@ namespace SystemSchool
 
         }
 
-        #endregion
         public System.Windows.Forms.PictureBox pictureClassroom;
         public System.Windows.Forms.PictureBox pictureCourse;
         public System.Windows.Forms.PictureBox pictureUser;

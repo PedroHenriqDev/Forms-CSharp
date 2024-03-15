@@ -49,7 +49,7 @@ namespace SystemSchool.Forms.ClassroomForms
             try
             {
                 DisplayItem<Classroom> classroom = listBoxClassrooms.SelectedItem as DisplayItem<Classroom>;
-                await _deleteEntities.DeleteStudentsAsync(await _searchEntities.FindEntitiesByReferenceIdAsync<Student, Classroom>(classroom.Value));
+                await _deleteEntities.DeleteEntitiesAsync<Student>(await _searchEntities.FindEntitiesByReferenceIdAsync<Student, Classroom>(classroom.Value));
                 EntityQuery<Classroom> classroomQuery = await _deleteEntities.DeleteEntityAsync(classroom.Value);
                 MessageBox.Show(classroomQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 await _loadFormComponents.DeleteClassroomLoadListBoxClassroomsAsync(this);
