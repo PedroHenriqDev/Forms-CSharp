@@ -4,14 +4,9 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Entities;
 using Dapper;
-using System.Runtime.InteropServices;
-using System.Globalization;
-using System.Collections;
-using System.Runtime.Remoting.Messaging;
 using Entities.Interfaces;
 
 namespace Datas

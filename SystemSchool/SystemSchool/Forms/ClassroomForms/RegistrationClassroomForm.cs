@@ -19,48 +19,33 @@ namespace SystemSchool.Forms.ClassroomForms
 {
     public partial class RegistrationClassroomForm : Form
     {
-        private readonly SearchEntitiesService _searchEntities;
         private readonly CreateEntitiesService<Classroom> _createEntities;
         private readonly CreateTransientEntities _createTransientEntities;
+        private readonly LoadFormComponents _loadFormComponents;
+        public DisplayItem<Course> Course => ComboBoxCourse.SelectedItem as DisplayItem<Course>;
+        public string SchoolYear => ComboBoxSchoolYear.SelectedItem.ToString().Substring(0, 1);
 
         public RegistrationClassroomForm(
-            SearchEntitiesService searchEntities, 
             CreateEntitiesService<Classroom> createEntities,
-            CreateTransientEntities createTransientEntities)
+            CreateTransientEntities createTransientEntities,
+            LoadFormComponents loadFormComponents)
         {
-            InitializeComponent();
-            _searchEntities = searchEntities;
             _createEntities = createEntities;
             _createTransientEntities = createTransientEntities;
+            _loadFormComponents = loadFormComponents;
+            InitializeComponent();
         }
 
         private async void RegistrationClassroomForm_Load(object sender, EventArgs e)
         {
-            await LoadComboBoxCourseAsync();
-        }
-
-        private async Task LoadComboBoxLetterAsnyc(string schoolYear)
-        {
-            IEnumerable<char> availableLetters = await _searchEntities.FindLettersAvailableBySchoolYearAsync(schoolYear);
-            ComboBoxLetter.Items.Clear();
-            foreach (char letter in availableLetters)
-            {
-                ComboBoxLetter.Items.Add(letter);
-            }
-        }
-
-        private async Task LoadComboBoxCourseAsync()
-        {
-            IEnumerable<Course> courses = await _searchEntities.FindAllEntitiesAsync<Course>();
-            ComboBoxCourse.Items.AddRange(courses.Select(c => new DisplayItem<Course>(c, c.CourseName)).ToArray());
+            await _loadFormComponents.RegistrationClassroomLoadComboBoxCourseAsync(this);
         }
 
         private async void ComboBoxSchoolYear_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string schoolYear = ComboBoxSchoolYear.SelectedItem.ToString().Substring(0, 1);
-            await LoadComboBoxLetterAsnyc(schoolYear);
+            await _loadFormComponents.RegistrationClassroomLoadComboBoxLetterAsnyc(this);
             LabelClassroomNameShow.ForeColor = Color.White;
-            LabelClassroomNameShow.Text = schoolYear + "º";
+            LabelClassroomNameShow.Text = SchoolYear + "º";
         }
 
         private void ComboBoxLetter_SelectedIndexChanged(object sender, EventArgs e)
@@ -114,16 +99,16 @@ namespace SystemSchool.Forms.ClassroomForms
             mainForm.ShowDialog();
         }
 
-        private void LabelDeleteClassroom_Click(object sender, EventArgs e)
-        {
-            pictureBoxDelete_Click(sender, e);
-        }
-
         private void pictureBoxEdit_Click(object sender, EventArgs e)
         {
             this.Hide();
             var classroomForm = Program.Container.Resolve<EditClassroomForm>();
             classroomForm.ShowDialog();
+        }
+
+        private void LabelDeleteClassroom_Click(object sender, EventArgs e)
+        {
+            pictureBoxDelete_Click(sender, e);
         }
     }
 }

@@ -145,6 +145,22 @@ namespace SystemSchool.Controls
             editStudentForm.ComboBoxClassroom.Items.AddRange(classrooms.Select(c => new DisplayItem<Classroom>(c, $"{c.ClassroomName} - {c.Course.CourseName}")).ToArray());
         }
 
+        public async Task RegistrationClassroomLoadComboBoxLetterAsnyc(RegistrationClassroomForm registrationClassroomForm)
+        {
+            IEnumerable<char> availableLetters = await _searchEntities.FindLettersAvailableBySchoolYearAsync(registrationClassroomForm.SchoolYear);
+            registrationClassroomForm.ComboBoxLetter.Items.Clear();
+            foreach (char letter in availableLetters)
+            {
+                registrationClassroomForm.ComboBoxLetter.Items.Add(letter);
+            }
+        }
+
+        public async Task RegistrationClassroomLoadComboBoxCourseAsync(RegistrationClassroomForm registrationClassroomForm)
+        {
+            IEnumerable<Course> courses = await _searchEntities.FindAllEntitiesAsync<Course>();
+            registrationClassroomForm.ComboBoxCourse.Items.AddRange(courses.Select(c => new DisplayItem<Course>(c, c.CourseName)).ToArray());
+        }
+
         public async Task EditClassroomLoadComponentsAsync(EditClassroomForm editClassroomForm) 
         {
             await EditClassroomLoadComboBoxCourseAsync(editClassroomForm);
@@ -155,26 +171,42 @@ namespace SystemSchool.Controls
         {
             IEnumerable<Classroom> classrooms = await _searchEntities.FindAllEntitiesAsync<Classroom>();
             await _fillEntities.FillCourseInClassroomAsync(classrooms);
-            classrooms = await _searchEntities.FindClassroomByQueryAsync(editClassroomForm.textBoxSearch.Text, classrooms);
+            classrooms = await _searchEntities.FindClassroomByQueryAsync(editClassroomForm.Query, classrooms);
             editClassroomForm.listBoxSearch.Items.Clear();
             editClassroomForm.listBoxSearch.Items.AddRange(classrooms.Select(c => new DisplayItem<Classroom>(c, $"{c.ClassroomName} - {c.Course.CourseName}")).ToArray());
         }
 
-
         public async Task EditClassroomLoadComboBoxCourseAsync(EditClassroomForm editClassroomForm)
         {
             IEnumerable<Course> courses = await _searchEntities.FindAllEntitiesAsync<Course>();
-            DisplayItem<Classroom> classroom = editClassroomForm.listBoxSearch.SelectedItem as DisplayItem<Classroom>;
             editClassroomForm.ComboBoxCourse.Items.Clear();
-            editClassroomForm.ComboBoxCourse.Text = classroom.Value.Course.CourseName;
+            editClassroomForm.ComboBoxCourse.Text = editClassroomForm.SelectedClassroom.Value.Course.CourseName;
             editClassroomForm.ComboBoxCourse.Items.AddRange(courses.Select(c => new DisplayItem<Course>(c, c.CourseName)).ToArray());
         }
 
         public void EditClassroomLoadLabelClassroomShow(EditClassroomForm editClassroomForm)
         {
-            DisplayItem<Classroom> classroom = editClassroomForm.listBoxSearch.SelectedItem as DisplayItem<Classroom>;
             editClassroomForm.LabelClassroomShow.ForeColor = Color.Black;
-            editClassroomForm.LabelClassroomShow.Text = $"{classroom.Value.ClassroomName} - {classroom.Value.Course.CourseName}";
+            editClassroomForm.LabelClassroomShow.Text = $"{editClassroomForm.SelectedClassroom.Value.ClassroomName} - {editClassroomForm.SelectedClassroom.Value.Course.CourseName}";
+        }
+
+
+        public async Task DeleteClassroomLoadComboBoxCourseAsync(DeleteClassroomForm deleteClassroomForm)
+        {
+            IEnumerable<Course> courses = await _searchEntities.FindAllEntitiesAsync<Course>();
+            deleteClassroomForm.ComboBoxCourse.Items.Clear();
+            deleteClassroomForm.ComboBoxCourse.Items.AddRange(courses.Select(c => new DisplayItem<Course>(c, c.CourseName)).ToArray());
+        }
+
+        public async Task DeleteClassroomLoadListBoxClassroomsAsync(DeleteClassroomForm deleteClassroomForm)
+        {
+            IEnumerable<Classroom> classrooms = await _searchEntities.FindEntitiesByReferenceIdAsync<Classroom, Course>(deleteClassroomForm.SelectedCourse.Value);
+            deleteClassroomForm.listBoxClassrooms.Items.Clear();
+            await _fillEntities.FillClassroomsWithCourseAsync(classrooms);
+            foreach (Classroom classroom in classrooms)
+            {
+                deleteClassroomForm.listBoxClassrooms.Items.Add(new DisplayItem<Classroom>(classroom, $"{classroom.ClassroomName} - {classroom.Course.CourseName}"));
+            }
         }
 
         public async Task DeleteStudentLoadComboBoxClassroomsAsync(DeleteStudentForm deleteStudentForm)

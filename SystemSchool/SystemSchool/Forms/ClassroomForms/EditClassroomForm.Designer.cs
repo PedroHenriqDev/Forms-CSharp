@@ -325,7 +325,7 @@
         private System.Windows.Forms.Label LabelSearch;
         public System.Windows.Forms.ListBox listBoxSearch;
         public System.Windows.Forms.Label LabelSearchResult;
-        public System.Windows.Forms.TextBox textBoxSearch;
+        private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label LabelRegisterClassroom;

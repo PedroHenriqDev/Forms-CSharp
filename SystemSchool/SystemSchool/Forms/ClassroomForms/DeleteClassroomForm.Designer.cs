@@ -239,7 +239,7 @@
         #endregion
 
         private System.Windows.Forms.Button buttonDelete;
-        private System.Windows.Forms.ListBox listBoxClassrooms;
+        public System.Windows.Forms.ListBox listBoxClassrooms;
         private System.Windows.Forms.Label LabelClassroom;
         private System.Windows.Forms.PictureBox pictureBoxDelete;
         private System.Windows.Forms.Panel panel1;
@@ -249,7 +249,7 @@
         private System.Windows.Forms.Label LabelEditClassroom;
         private System.Windows.Forms.PictureBox pictureBoxEditClassroom;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox ComboBoxCourse;
+        public System.Windows.Forms.ComboBox ComboBoxCourse;
         private System.Windows.Forms.PictureBox pictureBoxBack;
     }
 }

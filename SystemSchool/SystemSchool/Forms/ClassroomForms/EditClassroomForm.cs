@@ -21,6 +21,9 @@ namespace SystemSchool.Forms.ClassroomForms
         private readonly FillEntitiesService _fillEntities;
         private readonly EditEntitiesService<Classroom> _editEntities;
         private readonly LoadFormComponents _loadFormComponents;
+        public DisplayItem<Course> SelectedCourse => ComboBoxCourse.SelectedItem as DisplayItem<Course>;
+        public DisplayItem<Classroom> SelectedClassroom => listBoxSearch.SelectedItem as DisplayItem<Classroom>;
+        public string Query => textBoxSearch.Text;
 
         public EditClassroomForm(
             FillEntitiesService fillEntities,
@@ -48,10 +51,8 @@ namespace SystemSchool.Forms.ClassroomForms
         {
             try
             {
-                DisplayItem<Course> course = ComboBoxCourse.SelectedItem as DisplayItem<Course>;
-                DisplayItem<Classroom> classroom = listBoxSearch.SelectedItem as DisplayItem<Classroom>;
-                _fillEntities.FillClassroomWithCourse(classroom.Value, course.Value);
-                EntityQuery<Classroom> classroomQuery = await _editEntities.EditClassroomAsync(classroom.Value);
+                _fillEntities.FillClassroomWithCourse(SelectedClassroom.Value, SelectedCourse.Value);
+                EntityQuery<Classroom> classroomQuery = await _editEntities.EditClassroomAsync(SelectedClassroom.Value);
                 MessageBox.Show(classroomQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (FillException ex) 
