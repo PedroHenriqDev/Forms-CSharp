@@ -18,7 +18,7 @@ namespace SystemSchool.Controls
         public Course CreateCourseTransient(RegistrationCourseForm courseForm) 
         {
             Random random = new Random();
-            return new Course(random.Next(), courseForm.textBoxCourseName.Text, DateTime.Now);
+            return new Course(random.Next(), courseForm.CourseName, DateTime.Now);
         }
 
         public User CreateUserTransient(ConfirmPasswordForm passwordForm) 

@@ -192,7 +192,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        public System.Windows.Forms.TextBox textBoxCourseName;
+        private System.Windows.Forms.TextBox textBoxCourseName;
         private System.Windows.Forms.PictureBox pictureBoxCourse;
         private System.Windows.Forms.Label LabelCouseName;
         private System.Windows.Forms.PictureBox pictureBoxBack;

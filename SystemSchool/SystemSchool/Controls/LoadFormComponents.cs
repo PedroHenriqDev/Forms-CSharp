@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SystemSchool.Forms.ClassroomForms;
+using SystemSchool.Forms.CourseForms;
 using SystemSchool.Forms.StudentForms;
 using SystemSchool.Forms.UserForms;
 using SystemSchool.Helpers;
@@ -222,6 +223,13 @@ namespace SystemSchool.Controls
         {
             IEnumerable<Course> courses = await _searchEntities.FindAllEntitiesAsync<Course>();
             registrationStudentForm.ComboBoxCourse.Items.AddRange(courses.Select(c => new DisplayItem<Course>(c, c.CourseName)).ToArray());
+        }
+
+        public async Task DeleteCourseLoadListBoxCoursesAsync(DeleteCourseForm deleteCourseForm)
+        {
+            IEnumerable<Course> courses = await _searchEntities.FindAllEntitiesAsync<Course>();
+            deleteCourseForm.listBoxCourses.Items.Clear();
+            deleteCourseForm.listBoxCourses.Items.AddRange(courses.Select(c => new DisplayItem<Course>(c, c.CourseName)).ToArray());
         }
     }
 }

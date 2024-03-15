@@ -184,7 +184,7 @@
         private System.Windows.Forms.Label LabelRegisterCourse;
         private System.Windows.Forms.PictureBox pictureBoxBack;
         private System.Windows.Forms.Button buttonDelete;
-        private System.Windows.Forms.ListBox listBoxCourses;
+        public System.Windows.Forms.ListBox listBoxCourses;
         private System.Windows.Forms.Label LabelCourses;
     }
 }

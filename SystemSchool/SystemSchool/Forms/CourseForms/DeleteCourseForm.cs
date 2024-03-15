@@ -21,38 +21,37 @@ namespace SystemSchool.Forms.CourseForms
 
         private readonly SearchEntitiesService _searchEntities;
         private readonly DeleteEntitiesService<Course> _deleteEntities;
+        private readonly LoadFormComponents _loadFormComponents;
+        public DisplayItem<Course> SelectedCourse => listBoxCourses.SelectedItem as DisplayItem<Course>;
 
-        public DeleteCourseForm(SearchEntitiesService searchEntities, DeleteEntitiesService<Course> deleteEntities)
+
+        public DeleteCourseForm(
+            SearchEntitiesService searchEntities,
+            DeleteEntitiesService<Course> deleteEntities,
+            LoadFormComponents loadFormComponents)
         {
             _searchEntities = searchEntities;
             _deleteEntities = deleteEntities;
+            _loadFormComponents = loadFormComponents;
             InitializeComponent();
         }
 
         private async void DeleteCourseForm_Load(object sender, EventArgs e)
         {
-            await LoadListBoxCoursesAsync();
-        }
-
-        private async Task LoadListBoxCoursesAsync()
-        {
-            IEnumerable<Course> courses = await _searchEntities.FindAllEntitiesAsync<Course>();
-            listBoxCourses.Items.Clear();
-            listBoxCourses.Items.AddRange(courses.Select(c => new DisplayItem<Course>(c, c.CourseName)).ToArray());
+            await _loadFormComponents.DeleteCourseLoadListBoxCoursesAsync(this);
         }
 
         private async void buttonDelete_Click(object sender, EventArgs e)
         {
             try
             {
-                DisplayItem<Course> course = listBoxCourses.SelectedItem as DisplayItem<Course>;
-                course.Value.Classrooms = (await _searchEntities.FindEntitiesByReferenceIdAsync<Classroom, Course>(course.Value)).ToList();
-                await _deleteEntities.DeleteStudentsInClassroomsAsync(course.Value.Classrooms);
-                await _deleteEntities.DeleteClassromsByCourseIdAsync(course.Value.Classrooms, course.Value.Id);
+                SelectedCourse.Value.Classrooms = (await _searchEntities.FindEntitiesByReferenceIdAsync<Classroom, Course>(SelectedCourse.Value)).ToList();
+                await _deleteEntities.DeleteStudentsInClassroomsAsync(SelectedCourse.Value.Classrooms);
+                await _deleteEntities.DeleteClassromsByCourseIdAsync(SelectedCourse.Value.Classrooms, SelectedCourse.Value.Id);
 
-                EntityQuery<Course> courseQuery = await _deleteEntities.DeleteEntityAsync(course.Value);
+                EntityQuery<Course> courseQuery = await _deleteEntities.DeleteEntityAsync(SelectedCourse.Value);
                 MessageBox.Show(courseQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                await LoadListBoxCoursesAsync();
+                await _loadFormComponents.DeleteCourseLoadListBoxCoursesAsync(this);
             }
             catch (Exception ex)
             {

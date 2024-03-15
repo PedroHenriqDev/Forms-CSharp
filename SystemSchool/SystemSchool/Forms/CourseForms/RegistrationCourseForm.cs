@@ -22,6 +22,7 @@ namespace SystemSchool.Forms.CourseForms
 
         private readonly CreateEntitiesService<Course> _createEntities;
         private readonly CreateTransientEntities _createTransientEntities;
+        public string CourseName => textBoxCourseName.Text;
 
         public RegistrationCourseForm(
             CreateEntitiesService<Course> createEntities,
