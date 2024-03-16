@@ -17,6 +17,9 @@ namespace SystemSchool
 {
     internal static class Program
     {
+        /// <summary>
+        /// Gets the Autofac container instance.
+        /// </summary>
         public static IContainer Container { get; private set; }
 
         /// <summary>
@@ -25,10 +28,14 @@ namespace SystemSchool
         [STAThread]
         static void Main()
         {
+            // Enable visual styles and set compatible text rendering defaults
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            // Configure Autofac container
             var builder = new ContainerBuilder();
+
+            // Register forms
             builder.RegisterType<MainForm>().AsSelf();
             builder.RegisterType<Login>().AsSelf();
             builder.RegisterType<RegistrationStudentForm>().AsSelf();
@@ -63,8 +70,10 @@ namespace SystemSchool
             builder.RegisterType<CreateTransientEntities>().AsSelf();
             builder.RegisterType<LoadFormComponents>().AsSelf();
 
+            // Build Autofac container
             Container = builder.Build();
 
+            // Run the application by opening the load form
             Application.Run(new LoadForm());
         }
     }

@@ -47,7 +47,6 @@ namespace SystemSchool.Forms.ClassroomForms
             }
         }
 
-
         private async void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
         {
             await _loadFormComponents.EditClassroomLoadListBoxSearchAsync(this);

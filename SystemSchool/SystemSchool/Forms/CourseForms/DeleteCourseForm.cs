@@ -30,7 +30,6 @@ namespace SystemSchool.Forms.CourseForms
             InitializeComponent();
         }
 
-
         private async void buttonDelete_Click(object sender, EventArgs e)
         {
             try
