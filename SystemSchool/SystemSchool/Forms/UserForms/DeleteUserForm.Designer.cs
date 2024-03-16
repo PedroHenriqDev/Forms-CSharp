@@ -34,7 +34,7 @@
             this.pictureBoxSchool = new System.Windows.Forms.PictureBox();
             this.pictureDelete = new System.Windows.Forms.PictureBox();
             this.buttonDelete = new System.Windows.Forms.Button();
-            this.LabelClass = new System.Windows.Forms.Label();
+            this.LabelGroup = new System.Windows.Forms.Label();
             this.ComboBoxClasses = new System.Windows.Forms.ComboBox();
             this.listBoxUsers = new System.Windows.Forms.ListBox();
             this.LabelUser = new System.Windows.Forms.Label();
@@ -146,17 +146,17 @@
             this.buttonDelete.UseVisualStyleBackColor = false;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // LabelClass
+            // LabelGroup
             // 
-            this.LabelClass.AutoSize = true;
-            this.LabelClass.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelClass.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LabelClass.Location = new System.Drawing.Point(628, 109);
-            this.LabelClass.Name = "LabelClass";
-            this.LabelClass.Size = new System.Drawing.Size(47, 21);
-            this.LabelClass.TabIndex = 17;
-            this.LabelClass.Text = "Class";
-            this.LabelClass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LabelGroup.AutoSize = true;
+            this.LabelGroup.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelGroup.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LabelGroup.Location = new System.Drawing.Point(618, 109);
+            this.LabelGroup.Name = "LabelGroup";
+            this.LabelGroup.Size = new System.Drawing.Size(58, 21);
+            this.LabelGroup.TabIndex = 17;
+            this.LabelGroup.Text = "Group";
+            this.LabelGroup.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ComboBoxClasses
             // 
@@ -214,7 +214,7 @@
             this.Controls.Add(this.pictureBoxBack);
             this.Controls.Add(this.pictureDelete);
             this.Controls.Add(this.buttonDelete);
-            this.Controls.Add(this.LabelClass);
+            this.Controls.Add(this.LabelGroup);
             this.Controls.Add(this.ComboBoxClasses);
             this.Controls.Add(this.listBoxUsers);
             this.Controls.Add(this.LabelUser);
@@ -244,7 +244,7 @@
         private System.Windows.Forms.PictureBox pictureBoxSchool;
         private System.Windows.Forms.PictureBox pictureDelete;
         private System.Windows.Forms.Button buttonDelete;
-        private System.Windows.Forms.Label LabelClass;
+        private System.Windows.Forms.Label LabelGroup;
         public System.Windows.Forms.ComboBox ComboBoxClasses;
         public System.Windows.Forms.ListBox listBoxUsers;
         private System.Windows.Forms.Label LabelUser;

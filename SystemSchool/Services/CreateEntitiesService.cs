@@ -3,12 +3,6 @@ using Datas;
 using Entities;
 using Entities.TransientClasses;
 using System;
-using System.Security.Cryptography;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Services

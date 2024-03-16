@@ -1,18 +1,14 @@
 ﻿using Entities.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class Class : IEntity<Class>
+    public class Group : IEntity<Group>
     {
         public int Id { get; set; }
         public int AccessLevel {get; set;}
-        public string NameClass { get; set; }
+        public string GroupName { get; set; }
         public DateTime DateCreation {  get; set; }
         public List<User> Users { get; set; }
     }

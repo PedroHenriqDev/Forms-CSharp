@@ -61,20 +61,20 @@
             // LabelNewPassword
             // 
             this.LabelNewPassword.AutoSize = true;
-            this.LabelNewPassword.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelNewPassword.Location = new System.Drawing.Point(136, 285);
+            this.LabelNewPassword.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelNewPassword.Location = new System.Drawing.Point(152, 285);
             this.LabelNewPassword.Name = "LabelNewPassword";
-            this.LabelNewPassword.Size = new System.Drawing.Size(150, 25);
+            this.LabelNewPassword.Size = new System.Drawing.Size(127, 21);
             this.LabelNewPassword.TabIndex = 2;
             this.LabelNewPassword.Text = "New password:";
             // 
             // LabelConfirmationPassword
             // 
             this.LabelConfirmationPassword.AutoSize = true;
-            this.LabelConfirmationPassword.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelConfirmationPassword.Location = new System.Drawing.Point(105, 454);
+            this.LabelConfirmationPassword.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelConfirmationPassword.Location = new System.Drawing.Point(121, 454);
             this.LabelConfirmationPassword.Name = "LabelConfirmationPassword";
-            this.LabelConfirmationPassword.Size = new System.Drawing.Size(229, 25);
+            this.LabelConfirmationPassword.Size = new System.Drawing.Size(192, 21);
             this.LabelConfirmationPassword.TabIndex = 3;
             this.LabelConfirmationPassword.Text = "Confirmation Password:";
             // 

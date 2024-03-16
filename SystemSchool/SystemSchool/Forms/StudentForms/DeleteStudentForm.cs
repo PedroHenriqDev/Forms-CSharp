@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
 using Entities.TransientClasses;
@@ -23,7 +15,9 @@ namespace SystemSchool.Forms.StudentForms
         public DisplayItem<Classroom> SelectedClassroom => ComboBoxClassroom.SelectedItem as DisplayItem<Classroom>;
         public DisplayItem<Student> SelectedStudent => listBoxStudents.SelectedItem as DisplayItem<Student>;
 
-        public DeleteStudentForm(DeleteEntitiesService<Student> deleteEntities, LoadFormComponents loadFormComponents)
+        public DeleteStudentForm(
+            DeleteEntitiesService<Student> deleteEntities,
+            LoadFormComponents loadFormComponents)
         {
             _deleteEntities = deleteEntities;
             _loadFormComponents = loadFormComponents;

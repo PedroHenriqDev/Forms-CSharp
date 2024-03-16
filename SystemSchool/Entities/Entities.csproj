@@ -44,7 +44,7 @@
     <Compile Include="Exceptions\EntityException.cs" />
     <Compile Include="Interfaces\IEntity.cs" />
     <Compile Include="Interfaces\IEntityQuery.cs" />
-    <Compile Include="PersistentClasses\Class.cs" />
+    <Compile Include="PersistentClasses\Group.cs" />
     <Compile Include="PersistentClasses\Classroom.cs" />
     <Compile Include="PersistentClasses\Course.cs" />
     <Compile Include="TransientClasses\EntityQuery.cs" />

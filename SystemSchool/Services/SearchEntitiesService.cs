@@ -1,11 +1,8 @@
 ﻿using Datas;
 using Entities;
 using Entities.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Services
@@ -29,21 +26,6 @@ namespace Services
             return await _connectionDb.ReturnEntityByNameAsync<T>(name);
         }
 
-        public async Task<Class> FindClassByIdAsync(int classId) 
-        {
-            return await _connectionDb.ReturnClassByIdAsync(classId);
-        }
-
-        public async Task<Class> FindClassByNameAsync(string className) 
-        {
-            return await _connectionDb.ReturnClassByNameAsync(className);
-        }
-
-        public async Task<IEnumerable<User>> FindUsersByClassAsync(Class displayClass) 
-        {
-            return await _connectionDb.ReturnEntitiesByReferenceIdAsync<User, Class>(displayClass);
-        }
-
         public async Task<IEnumerable<T>> FindEntitiesByReferenceIdAsync<T, TR>(TR entity) 
             where T : class, IEntity<T> 
             where TR : class, IEntity<TR> 
@@ -54,11 +36,6 @@ namespace Services
         public async Task<IEnumerable<T>> FindAllEntitiesAsync<T>() where T : class, IEntity<T>
         {
             return await _connectionDb.ReturnAllEntitiesAsync<T>();
-        }
-
-        public async Task<IEnumerable<Class>> FindAllClassesAsync()
-        {
-            return await _connectionDb.ReturnAllClassesAsync();
         }
 
         public async Task<IEnumerable<User>> FindUsersByQueryAsync(string query)
@@ -84,7 +61,7 @@ namespace Services
             return students.Where(s => s.CompleteName.ToLower().Contains(query.ToLower())).ToList();
         }
 
-        public async Task<IEnumerable<Classroom>> FindClassroomByQueryAsync(string query, IEnumerable<Classroom> classrooms)
+        public async Task<IEnumerable<Classroom>> FindClassroomsByQueryAsync(string query, IEnumerable<Classroom> classrooms)
         {
             if (classrooms == null)
             {

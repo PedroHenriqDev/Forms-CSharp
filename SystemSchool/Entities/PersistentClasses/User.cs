@@ -1,9 +1,5 @@
 ﻿using Entities.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entities
 {
@@ -12,20 +8,20 @@ namespace Entities
         public int Id { get; set; } 
         public string Username { get; set; }
         public string PasswordHash { get; set; }
-        public int ClassId { get; set; }
+        public int GroupId { get; set; }
         public DateTime DateCreation { get; set; }
-        public Class Class { get; set; }
+        public Group Group { get; set; }
 
         public User()
         {
         }
 
-        public User(int id, string username, string passwordHash, int classId, DateTime dateCreation) 
+        public User(int id, string username, string passwordHash, int groupId, DateTime dateCreation) 
         {
             Id = id;
             Username = username;
             PasswordHash = passwordHash;
-            ClassId = classId;
+            GroupId = groupId;
             DateCreation = dateCreation;
         }
     }

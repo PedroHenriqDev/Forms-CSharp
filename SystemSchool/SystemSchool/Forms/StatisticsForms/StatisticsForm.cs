@@ -1,13 +1,7 @@
 ﻿using Entities;
 using Services;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
@@ -46,7 +40,7 @@ namespace SystemSchool.Forms.StatisticsForms
             title.Font = new Font("Malgun Gothic", 12F, FontStyle.Bold);
             chart.Titles.Add(title);
 
-            chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
+            chart.Palette = ChartColorPalette.BrightPastel;
             chart.Series.Add("Classroom");
             chart.Series.Add("User");
             chart.Series.Add("Student");
@@ -87,7 +81,7 @@ namespace SystemSchool.Forms.StatisticsForms
 
         private async void buttonBarCharts_Click(object sender, EventArgs e)
         {
-            chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Fire;
+            chart.Palette = ChartColorPalette.Fire;
 
             chart.Series.Clear();
             chart.Titles.Clear();
@@ -117,7 +111,7 @@ namespace SystemSchool.Forms.StatisticsForms
 
         private async void buttonPieCharts_Click(object sender, EventArgs e)
         {
-            chart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Excel;
+            chart.Palette = ChartColorPalette.Excel;
             chart.Series.Clear();
             chart.Titles.Clear();
             chart.Legends.Clear();

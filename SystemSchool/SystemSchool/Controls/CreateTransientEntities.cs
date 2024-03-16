@@ -1,10 +1,5 @@
 ﻿using Entities;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using SystemSchool.Forms.ClassroomForms;
 using SystemSchool.Forms.CourseForms;
 using SystemSchool.Forms.PasswordForms;
@@ -49,7 +44,7 @@ namespace SystemSchool.Controls
         public User CreateUserTransient(RegistrationUserForm userForm) 
         {
             Random random = new Random();
-            return new User(random.Next(), userForm.Username, userForm.Password, userForm.Cls.Value.Id, DateTime.Now);
+            return new User(random.Next(), userForm.Username, userForm.Password, userForm.SelectedGroup.Value.Id, DateTime.Now);
         }
     }
 }

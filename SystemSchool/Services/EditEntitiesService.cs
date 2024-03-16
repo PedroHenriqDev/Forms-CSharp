@@ -3,10 +3,6 @@ using Datas;
 using Entities;
 using Entities.TransientClasses;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Services
@@ -60,7 +56,7 @@ namespace Services
 
         public async Task<EntityQuery<User>> EditUserAsync(User user)
         {
-            if (_validationEntities.EntityHasId(user.Id) && _validationEntities.EntityHasId(user.ClassId) && !string.IsNullOrWhiteSpace(user.Username))
+            if (_validationEntities.EntityHasId(user.Id) && _validationEntities.EntityHasId(user.GroupId) && !string.IsNullOrWhiteSpace(user.Username))
             {
                 await _connectionDb.EditUserInDbAsync(user);
                 return new EntityQuery<User>(true, "User " + user.Username.CutCompleteName() + " edit successfully", DateTime.Now, user);

@@ -35,7 +35,7 @@
             this.ComboBoxClass = new System.Windows.Forms.ComboBox();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.LabelUsername = new System.Windows.Forms.Label();
-            this.LabelClass = new System.Windows.Forms.Label();
+            this.LabelGroup = new System.Windows.Forms.Label();
             this.LabelPassword = new System.Windows.Forms.Label();
             this.pictureUser = new System.Windows.Forms.PictureBox();
             this.buttonCreate = new System.Windows.Forms.Button();
@@ -160,17 +160,17 @@
             this.LabelUsername.TabIndex = 19;
             this.LabelUsername.Text = "Username:";
             // 
-            // LabelClass
+            // LabelGroup
             // 
-            this.LabelClass.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.LabelClass.AutoSize = true;
-            this.LabelClass.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelClass.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LabelClass.Location = new System.Drawing.Point(585, 439);
-            this.LabelClass.Name = "LabelClass";
-            this.LabelClass.Size = new System.Drawing.Size(47, 21);
-            this.LabelClass.TabIndex = 18;
-            this.LabelClass.Text = "Class";
+            this.LabelGroup.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LabelGroup.AutoSize = true;
+            this.LabelGroup.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelGroup.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LabelGroup.Location = new System.Drawing.Point(582, 439);
+            this.LabelGroup.Name = "LabelGroup";
+            this.LabelGroup.Size = new System.Drawing.Size(58, 21);
+            this.LabelGroup.TabIndex = 18;
+            this.LabelGroup.Text = "Group";
             // 
             // LabelPassword
             // 
@@ -247,7 +247,7 @@
             this.Controls.Add(this.ComboBoxClass);
             this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.LabelUsername);
-            this.Controls.Add(this.LabelClass);
+            this.Controls.Add(this.LabelGroup);
             this.Controls.Add(this.LabelPassword);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -276,7 +276,7 @@
         private System.Windows.Forms.ComboBox ComboBoxClass;
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.Label LabelUsername;
-        private System.Windows.Forms.Label LabelClass;
+        private System.Windows.Forms.Label LabelGroup;
         private System.Windows.Forms.Label LabelPassword;
         private System.Windows.Forms.PictureBox pictureUser;
         private System.Windows.Forms.Button buttonCreate;

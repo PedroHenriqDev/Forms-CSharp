@@ -5,12 +5,8 @@ using Entities.TransientClasses;
 using Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Drawing.Text;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using SystemSchool.Controls;
@@ -25,7 +21,7 @@ namespace SystemSchool.Forms.UserForms
         private readonly CreateTransientEntities _createTransientEntities;
         public string Username => textBoxUsername.Text;
         public string Password => textBoxPassword.Text;
-        public DisplayItem<Class> Cls => ComboBoxClass.SelectedItem as DisplayItem<Class>;
+        public DisplayItem<Group> SelectedGroup => ComboBoxClass.SelectedItem as DisplayItem<Group>;
 
         public RegistrationUserForm(
             SearchEntitiesService searchEntities,
@@ -45,9 +41,9 @@ namespace SystemSchool.Forms.UserForms
 
         private async Task LoadComboBoxClass()
         {
-            IEnumerable<Class> classes = await _searchEntities.FindAllClassesAsync();
+            IEnumerable<Group> groups = await _searchEntities.FindAllEntitiesAsync<Group>();
             ComboBoxClass.Items.Clear();
-            ComboBoxClass.Items.AddRange(classes.Select(c => new DisplayItem<Class>(c, c.NameClass)).ToArray());
+            ComboBoxClass.Items.AddRange(groups.Select(c => new DisplayItem<Group>(c, c.GroupName)).ToArray());
         }
 
         private async void buttonCreate_Click(object sender, EventArgs e)

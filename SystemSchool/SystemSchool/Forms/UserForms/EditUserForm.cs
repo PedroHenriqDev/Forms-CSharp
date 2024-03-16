@@ -1,17 +1,9 @@
 ﻿using Autofac;
-using Business.Extensions;
 using Entities;
 using Entities.Expections;
 using Entities.TransientClasses;
 using Services;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using SystemSchool.Controls;
 
@@ -22,7 +14,7 @@ namespace SystemSchool.Forms.UserForms
 
         private readonly EditEntitiesService<User> _editEntities;
         private readonly LoadFormComponents _loadFormComponents;
-        public DisplayItem<Class> Cls => ComboBoxClass.SelectedItem as DisplayItem<Class>;
+        public DisplayItem<Group> SelectedGroup => ComboBoxClass.SelectedItem as DisplayItem<Group>;
         public DisplayItem<User> SelectedUser => listBoxSearch.SelectedItem as DisplayItem<User>;
         public string Query => textBoxSearch.Text;
 

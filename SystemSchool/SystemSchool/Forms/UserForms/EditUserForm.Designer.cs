@@ -36,7 +36,7 @@
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.LabelUserShow = new System.Windows.Forms.Label();
             this.buttonEdit = new System.Windows.Forms.Button();
-            this.LabelClass = new System.Windows.Forms.Label();
+            this.LabelGroup = new System.Windows.Forms.Label();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.ComboBoxClass = new System.Windows.Forms.ComboBox();
             this.LabelUsername = new System.Windows.Forms.Label();
@@ -166,15 +166,15 @@
             this.buttonEdit.UseVisualStyleBackColor = false;
             this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
-            // LabelClass
+            // LabelGroup
             // 
-            this.LabelClass.AutoSize = true;
-            this.LabelClass.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelClass.Location = new System.Drawing.Point(488, 463);
-            this.LabelClass.Name = "LabelClass";
-            this.LabelClass.Size = new System.Drawing.Size(51, 21);
-            this.LabelClass.TabIndex = 40;
-            this.LabelClass.Text = "Class:";
+            this.LabelGroup.AutoSize = true;
+            this.LabelGroup.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelGroup.Location = new System.Drawing.Point(484, 463);
+            this.LabelGroup.Name = "LabelGroup";
+            this.LabelGroup.Size = new System.Drawing.Size(58, 21);
+            this.LabelGroup.TabIndex = 40;
+            this.LabelGroup.Text = "Group";
             // 
             // textBoxUsername
             // 
@@ -314,7 +314,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.LabelUserShow);
             this.Controls.Add(this.buttonEdit);
-            this.Controls.Add(this.LabelClass);
+            this.Controls.Add(this.LabelGroup);
             this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.ComboBoxClass);
             this.Controls.Add(this.LabelUsername);
@@ -349,7 +349,7 @@
         private System.Windows.Forms.TextBox textBoxSearch;
         public System.Windows.Forms.Label LabelUserShow;
         private System.Windows.Forms.Button buttonEdit;
-        private System.Windows.Forms.Label LabelClass;
+        private System.Windows.Forms.Label LabelGroup;
         public System.Windows.Forms.TextBox textBoxUsername;
         public System.Windows.Forms.ComboBox ComboBoxClass;
         private System.Windows.Forms.Label LabelUsername;

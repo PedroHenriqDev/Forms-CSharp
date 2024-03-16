@@ -1,13 +1,10 @@
 ﻿using Business.Extensions;
 using Entities;
 using Services;
-using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using SystemSchool.Forms.ClassroomForms;
 using SystemSchool.Forms.CourseForms;
 using SystemSchool.Forms.StudentForms;
@@ -43,7 +40,7 @@ namespace SystemSchool.Controls
         public void EditUserLoadComboBoxClass(EditUserForm editUserForm) 
         {
             DisplayItem<User> user = editUserForm.listBoxSearch.SelectedItem as DisplayItem<User>;
-            editUserForm.ComboBoxClass.Text = user.Value.Class.NameClass;
+            editUserForm.ComboBoxClass.Text = user.Value.Group.GroupName;
         }
 
         public void EditUserLoadTextBoxUsername(EditUserForm editUserForm) 
@@ -54,39 +51,38 @@ namespace SystemSchool.Controls
         public void EditUserLoadLabelUserShow(EditUserForm editUserForm) 
         {
             editUserForm.LabelUserShow.ForeColor = Color.Black;
-            editUserForm.LabelUserShow.Text = $"{editUserForm.SelectedUser.Value.Username} - {editUserForm.SelectedUser.Value.Class.NameClass}";
+            editUserForm.LabelUserShow.Text = $"{editUserForm.SelectedUser.Value.Username} - {editUserForm.SelectedUser.Value.Group.GroupName}";
         }
 
         public async Task EditUserLoadComboBoxClassAsync(EditUserForm editUserForm)
         {
-            IEnumerable<Class> classes = await _searchEntities.FindAllClassesAsync();
+            IEnumerable<Group> groups = await _searchEntities.FindAllEntitiesAsync<Group>();
             editUserForm.ComboBoxClass.Items.Clear();
-            editUserForm.ComboBoxClass.Items.AddRange(classes.Select(c => new DisplayItem<Class>(c, c.NameClass.CutCompleteName())).ToArray());
+            editUserForm.ComboBoxClass.Items.AddRange(groups.Select(c => new DisplayItem<Group>(c, c.GroupName.CutCompleteName())).ToArray());
         }
 
         public async Task EditUserLoadListBoxSearchAsync(EditUserForm editUserForm)
         {
             IEnumerable<User> users = await _searchEntities.FindUsersByQueryAsync(editUserForm.Query);
-            await _fillEntities.FillUsersWithClassAsync(users);
+            await _fillEntities.FillUsersWithGroupAsync(users);
             users = _dataAccess.RemoveCurrentUserFromSet(users);
             editUserForm.listBoxSearch.Items.Clear();
-            editUserForm.listBoxSearch.Items.AddRange(users.Select(c => new DisplayItem<User>(c, $"{c.Username.CutCompleteName()} - {c.Class.NameClass}")).ToArray());
+            editUserForm.listBoxSearch.Items.AddRange(users.Select(c => new DisplayItem<User>(c, $"{c.Username.CutCompleteName()} - {c.Group.GroupName}")).ToArray());
         }
 
         public async Task EditUserLoadClassInUserAsync(EditUserForm editUserForm)
         {
-            IEnumerable<Class> classes = await _searchEntities.FindAllClassesAsync();
-            if (editUserForm.ComboBoxClass.SelectedItem == null && classes.Select(c => c.NameClass).Any(c => c == editUserForm.ComboBoxClass.Text))
+            IEnumerable<Group> groups = await _searchEntities.FindAllEntitiesAsync<Group>();
+            if (editUserForm.ComboBoxClass.SelectedItem == null && groups.Select(c => c.GroupName).Any(c => c == editUserForm.ComboBoxClass.Text))
             {
-                Class cls = await _searchEntities.FindClassByNameAsync(editUserForm.ComboBoxClass.Text);
-                editUserForm.SelectedUser.Value.ClassId = cls.Id;
-                editUserForm.SelectedUser.Value.Class = cls;
+                Group group = await _searchEntities.FindEntityByNameAsync<Group>(editUserForm.ComboBoxClass.Text);
+                editUserForm.SelectedUser.Value.GroupId = group.Id;
+                editUserForm.SelectedUser.Value.Group = group;
             }
             else
             {
-                DisplayItem<Class> cls = editUserForm.ComboBoxClass.SelectedItem as DisplayItem<Class>;
-                editUserForm.SelectedUser.Value.ClassId = editUserForm.Cls.Value.Id;
-                editUserForm.SelectedUser.Value.Class = editUserForm.Cls.Value;
+                editUserForm.SelectedUser.Value.GroupId = editUserForm.SelectedGroup.Value.Id;
+                editUserForm.SelectedUser.Value.Group = editUserForm.SelectedGroup.Value;
             }
         }
 
@@ -171,7 +167,7 @@ namespace SystemSchool.Controls
         {
             IEnumerable<Classroom> classrooms = await _searchEntities.FindAllEntitiesAsync<Classroom>();
             await _fillEntities.FillCourseInClassroomAsync(classrooms);
-            classrooms = await _searchEntities.FindClassroomByQueryAsync(editClassroomForm.Query, classrooms);
+            classrooms = await _searchEntities.FindClassroomsByQueryAsync(editClassroomForm.Query, classrooms);
             editClassroomForm.listBoxSearch.Items.Clear();
             editClassroomForm.listBoxSearch.Items.AddRange(classrooms.Select(c => new DisplayItem<Classroom>(c, $"{c.ClassroomName} - {c.Course.CourseName}")).ToArray());
         }
@@ -231,14 +227,14 @@ namespace SystemSchool.Controls
 
         public async Task DeleteUserLoadComboBoxClassAsync(DeleteUserForm deleteUserForm)
         {
-            IEnumerable<Class> classes = await _searchEntities.FindAllClassesAsync();
+            IEnumerable<Group> groups = await _searchEntities.FindAllEntitiesAsync<Group>();
             deleteUserForm.ComboBoxClasses.Items.Clear();
-            deleteUserForm.ComboBoxClasses.Items.AddRange(classes.Select(c => new DisplayItem<Class>(c, c.NameClass)).ToArray());
+            deleteUserForm.ComboBoxClasses.Items.AddRange(groups.Select(c => new DisplayItem<Group>(c, c.GroupName)).ToArray());
         }
 
         public async Task DeleteUserLoadListBoxUsersAsync(DeleteUserForm deleteUserForm)
         {
-            IEnumerable<User> users = await _searchEntities.FindUsersByClassAsync(deleteUserForm.SelectedClass.Value);
+            IEnumerable<User> users = await _searchEntities.FindEntitiesByReferenceIdAsync<User, Group>(deleteUserForm.SelectedClass.Value);
             users = _dataAccess.RemoveCurrentUserFromSet(users);
             deleteUserForm.listBoxUsers.Items.Clear();
             deleteUserForm.listBoxUsers.Items.AddRange(users.Select(u => new DisplayItem<User>(u, u.Username)).ToArray());

@@ -4,16 +4,8 @@ using Entities.Expections;
 using Entities.TransientClasses;
 using Services;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using SystemSchool.Controls;
-using SystemSchool.Helpers;
 
 namespace SystemSchool.Forms.UserForms
 {
@@ -21,7 +13,7 @@ namespace SystemSchool.Forms.UserForms
     {
         private readonly DeleteEntitiesService<User> _deleteEntities;
         private readonly LoadFormComponents _loadFormComponents;
-        public DisplayItem<Class> SelectedClass => ComboBoxClasses.SelectedItem as DisplayItem<Class>;
+        public DisplayItem<Group> SelectedClass => ComboBoxClasses.SelectedItem as DisplayItem<Group>;
 
         public DeleteUserForm(
             DeleteEntitiesService<User> deleteEntities,

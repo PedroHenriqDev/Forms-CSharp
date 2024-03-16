@@ -1,9 +1,6 @@
-﻿using Datas;
-using Entities;
-using System;
+﻿using Entities;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Services.Exceptions;
 
@@ -77,16 +74,26 @@ namespace Services
             student.Classroom = classroom;
         }
 
-        public async Task FillUsersWithClassAsync(IEnumerable<User> users) 
+        public async Task FillUserWithGroupAsync(User user)
         {
-            if(users == null) 
+            if (user == null)
             {
                 throw new FillException("Problems filling users objects!");
             }
 
-            foreach(User user in users) 
+            user.Group = await _searchEntities.FindEntityByIdAsync<Group>(user.GroupId);
+        }
+
+        public async Task FillUsersWithGroupAsync(IEnumerable<User> users)
+        {
+            if (users == null)
             {
-                user.Class = await _searchEntities.FindClassByIdAsync(user.ClassId);
+                throw new FillException("Problems filling users objects!");
+            }
+
+            foreach (User user in users)
+            {
+                user.Group = await _searchEntities.FindEntityByIdAsync<Group>(user.GroupId);
             }
         }
     }

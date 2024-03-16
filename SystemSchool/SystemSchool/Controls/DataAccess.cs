@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using SystemSchool.Expections;
-using System.Threading.Tasks;
 using Entities;
-using System.Windows.Forms;
 
 namespace SystemSchool.Helpers
 {
@@ -28,15 +24,15 @@ namespace SystemSchool.Helpers
                 throw new MainFormException("An brutal error while the main form was trying to run");
             }
 
-            if (user.Class.AccessLevel == 3)
+            if (user.Group.AccessLevel == 3)
             {
             }
-            else if (user.Class.AccessLevel == 2)
+            else if (user.Group.AccessLevel == 2)
             {
                 mainForm.pictureUser.Enabled = false;
                 mainForm.LabelUser.Enabled = false;
             }
-            else if (user.Class.AccessLevel == 1)
+            else if (user.Group.AccessLevel == 1)
             {
                 mainForm.pictureUser.Enabled = false;
                 mainForm.LabelUser.Enabled = false;

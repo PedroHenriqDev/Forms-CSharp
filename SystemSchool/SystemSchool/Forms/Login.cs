@@ -15,7 +15,9 @@ namespace SystemSchool
         static public User CurrentUser = new User();
         private readonly DataAccess _dataAccess; 
 
-        public Login(LoginService loginService, DataAccess dataAccess) 
+        public Login(
+            LoginService loginService,
+            DataAccess dataAccess) 
         {
             _loginService = loginService;
             _dataAccess = dataAccess;

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.Linq;
@@ -22,26 +20,6 @@ namespace Datas
                     WHERE Username = @username COLLATE SQL_Latin1_General_CP1_CS_AS 
                     AND PasswordHash = @passwordHash";
                 return await connection.QueryFirstOrDefaultAsync<User>(sqlQuery, new { username = user.Username, passwordHash = user.PasswordHash });
-            }
-        }
-
-        public async Task<Class> ReturnClassByIdAsync(int id)
-        {
-            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
-            {
-                await connection.OpenAsync();
-                string sqlQuery = @"SELECT * FROM Classes WHERE Id = @id";
-                return await connection.QueryFirstOrDefaultAsync<Class>(sqlQuery, new { id = id });
-            }
-        }
-
-        public async Task<Class> ReturnClassByNameAsync(string nameClass) 
-        {
-            using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
-            {
-                await connection.OpenAsync();
-                string sqlQuery = @"SELECT * FROM Classes WHERE NameClass = @nameClass";
-                return await connection.QueryFirstOrDefaultAsync<Class>(sqlQuery, new { nameClass = nameClass });
             }
         }
 
@@ -76,16 +54,6 @@ namespace Datas
                 string tableName = typeof(T).Name + "s";
                 string sqlQuery = $"SELECT * FROM {tableName}";
                 return await connection.QueryAsync<T>(sqlQuery);
-            }
-        }
-
-        public async Task<IEnumerable<Class>> ReturnAllClassesAsync() 
-        {
-            using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
-            {
-                await connection.OpenAsync();
-                string sqlQuery = @"SELECT * FROM Classes";
-                return await connection.QueryAsync<Class>(sqlQuery);
             }
         }
 
@@ -142,7 +110,7 @@ namespace Datas
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"INSERT INTO Users (Id, Username, PasswordHash, ClassId, DateCreation) 
+                string sqlQuery = @"INSERT INTO Users (Id, Username, PasswordHash, GroupId, DateCreation) 
                                     VALUES (@Id, @Username, @PasswordHash, @ClassId, @DateCreation)";
 
                 await connection.ExecuteAsync(sqlQuery, new
@@ -150,7 +118,7 @@ namespace Datas
                     Id = user.Id,
                     Username = user.Username,
                     PasswordHash = user.PasswordHash,
-                    ClassId = user.ClassId,
+                    ClassId = user.GroupId,
                     DateCreation = user.DateCreation
                 });
             }
@@ -223,11 +191,11 @@ namespace Datas
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString)) 
             {
                 await connection.OpenAsync();
-                string sqlQuery = @"UPDATE Users SET ClassId = @classId, Username = @username WHERE Id = @id";
+                string sqlQuery = @"UPDATE Users SET GroupId = @groupId, Username = @username WHERE Id = @id";
 
                 await connection.ExecuteAsync(sqlQuery, new 
                 {
-                    classId = user.ClassId, 
+                    groupId = user.GroupId, 
                     username = user.Username,
                     id = user.Id
                 });
