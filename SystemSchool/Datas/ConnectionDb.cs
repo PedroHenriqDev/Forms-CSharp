@@ -23,7 +23,7 @@ namespace Datas
             }
         }
 
-        public async Task<T> ReturnEntityByIdAsync<T>(int id) where T : class
+        public async Task<T> ReturnEntityByIdAsync<T>(int id) where T : class, IEntity<T>
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
@@ -34,7 +34,7 @@ namespace Datas
             }
         }
 
-        public async Task<T> ReturnEntityByNameAsync<T>(string name) where T : class
+        public async Task<T> ReturnEntityByNameAsync<T>(string name) where T : class, IEntity<T>
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
@@ -46,7 +46,7 @@ namespace Datas
             }
         }
 
-        public async Task<IEnumerable<T>> ReturnAllEntitiesAsync<T> () where T : class
+        public async Task<IEnumerable<T>> ReturnAllEntitiesAsync<T> () where T : class, IEntity<T>
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
@@ -142,7 +142,7 @@ namespace Datas
             }
         }
 
-        public async Task DeleteRecordInTableByIdAsync<T>(int id) where T : class 
+        public async Task DeleteRecordInTableByIdAsync<T>(int id) where T : class, IEntity<T>
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["sql"].ConnectionString))
             {
@@ -153,7 +153,7 @@ namespace Datas
             }
         }
 
-        public async Task DeleteRecordsInTableByIdAsync<T>(IEnumerable<int> recordIds) where T : class
+        public async Task DeleteRecordsInTableByIdAsync<T>(IEnumerable<int> recordIds) where T : class, IEntity<T>
         {
             if (recordIds.Any() && recordIds.Count() > 0)
             {

@@ -15,7 +15,6 @@ namespace SystemSchool.Forms.UserForms
 {
     public partial class RegistrationUserForm : Form
     {
-
         private readonly SearchEntitiesService _searchEntities;
         private readonly CreateEntitiesService<User> _createEntities;
         private readonly CreateTransientEntities _createTransientEntities;
@@ -23,6 +22,12 @@ namespace SystemSchool.Forms.UserForms
         public string Password => textBoxPassword.Text;
         public DisplayItem<Group> SelectedGroup => ComboBoxClass.SelectedItem as DisplayItem<Group>;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="RegistrationUserForm"/> class.
+        /// </summary>
+        /// <param name="searchEntitiesService">The service for handling search-related operations.</param>
+        /// <param name="createEntitiesService">The service for handling create-related operations.</param>
+        /// <param name="createTransientEntities">The control for handling create trasients-related operations.</param>
         public RegistrationUserForm(
             SearchEntitiesService searchEntities,
             CreateEntitiesService<User> createEntities,

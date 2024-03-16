@@ -43,7 +43,6 @@ namespace SystemSchool
             await _loadFormComponents.RegistrationStudentLoadComboBoxClassroomAsync(this);
         }
 
-
         private async void buttonCreate_Click(object sender, EventArgs e)
         {
             try
