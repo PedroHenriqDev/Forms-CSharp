@@ -30,10 +30,6 @@ namespace SystemSchool.Forms.CourseForms
             InitializeComponent();
         }
 
-        private async void DeleteCourseForm_Load(object sender, EventArgs e)
-        {
-            await _loadFormComponents.DeleteCourseLoadListBoxCoursesAsync(this);
-        }
 
         private async void buttonDelete_Click(object sender, EventArgs e)
         {
@@ -51,6 +47,11 @@ namespace SystemSchool.Forms.CourseForms
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private async void DeleteCourseForm_Load(object sender, EventArgs e)
+        {
+            await _loadFormComponents.DeleteCourseLoadListBoxCoursesAsync(this);
         }
 
         private void pictureBoxBack_Click(object sender, EventArgs e)

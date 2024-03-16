@@ -9,25 +9,39 @@ using SystemSchool.Forms.StatisticsForms;
 
 namespace SystemSchool
 {
+    /// <summary>
+    /// Represents the main form of the application.
+    /// </summary>
     public partial class MainForm : Form
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainForm"/> class.
+        /// </summary>
         public MainForm()
         {
+            // Initialize the components of the main form.
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Handles the Load event of the MainForm, updating the username label and starting the timer.
+        /// </summary>
         private void MainForm_Load(object sender, EventArgs e)
         {
             LabelUsername.Text = Login.CurrentUser.Username;
-            
             TimerDate.Start();
         }
-        
+
+        /// <summary>
+        /// Handles the Tick event of the TimerDate, updating the hour and date labels.
+        /// </summary>
         private void TimerDate_Tick(object sender, EventArgs e)
         {
             LabelHour.Text = DateTime.Now.ToString("HH:mm:ss");
             LabelDate.Text = DateTime.Now.ToString("dd-MM-yyyy");
         }
+
+        #region PictureBox Click Events
 
         private void pictureStudent_Click(object sender, EventArgs e)
         {
@@ -78,9 +92,14 @@ namespace SystemSchool
 
         private void pictureChangePassword_Click(object sender, EventArgs e)
         {
+            this.Hide();
             var passwordForm = Program.Container.Resolve<ConfirmPasswordForm>();
             passwordForm.ShowDialog();
         }
+
+        #endregion
+
+        #region Label Click Events
 
         private void LabelStudentRegistration_Click(object sender, EventArgs e)
         {
@@ -119,12 +138,14 @@ namespace SystemSchool
 
         private void LabelLogout_Click(object sender, EventArgs e)
         {
-            pictureLogout_Click(sender, e );
+            pictureLogout_Click(sender, e);
         }
 
         private void LabelChangePassword_Click(object sender, EventArgs e)
         {
             pictureChangePassword_Click(sender, e);
         }
-    } 
+
+        #endregion
+    }
 }

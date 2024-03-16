@@ -25,19 +25,8 @@ namespace SystemSchool.Forms.ClassroomForms
         {
             _fillEntities = fillEntities;
             _editEntities = editEntities;
-            InitializeComponent();
             _loadFormComponents = loadFormComponents;
-        }
-
-        private async void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            await _loadFormComponents.EditClassroomLoadListBoxSearchAsync(this);
-            LabelSearchResult.Text = $"Result of Search '{textBoxSearch.Text}'";
-        }
-
-        private async void listBoxSearch_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            await _loadFormComponents.EditClassroomLoadComponentsAsync(this);
+            InitializeComponent();
         }
 
         private async void buttonEdit_Click(object sender, EventArgs e)
@@ -48,14 +37,26 @@ namespace SystemSchool.Forms.ClassroomForms
                 EntityQuery<Classroom> classroomQuery = await _editEntities.EditClassroomAsync(SelectedClassroom.Value);
                 MessageBox.Show(classroomQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (FillException ex) 
+            catch (FillException ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+
+        private async void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            await _loadFormComponents.EditClassroomLoadListBoxSearchAsync(this);
+            LabelSearchResult.Text = $"Result of Search '{textBoxSearch.Text}'";
+        }
+
+        private async void listBoxSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            await _loadFormComponents.EditClassroomLoadComponentsAsync(this);
         }
 
         private void pictureBoxDelete_Click(object sender, EventArgs e)

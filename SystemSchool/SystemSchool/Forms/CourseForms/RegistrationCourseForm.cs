@@ -25,20 +25,6 @@ namespace SystemSchool.Forms.CourseForms
             InitializeComponent();
         }
 
-        private void pictureBoxBack_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            MainForm mainForm = new MainForm();
-            mainForm.ShowDialog();
-        }
-
-        private void pictureBoxDelete_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            var deleteForm = Program.Container.Resolve<DeleteCourseForm>();
-            deleteForm.ShowDialog();
-        }
-
         private async void buttonCreate_Click(object sender, EventArgs e)
         {
             try
@@ -59,6 +45,20 @@ namespace SystemSchool.Forms.CourseForms
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void pictureBoxBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainForm mainForm = new MainForm();
+            mainForm.ShowDialog();
+        }
+
+        private void pictureBoxDelete_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var deleteForm = Program.Container.Resolve<DeleteCourseForm>();
+            deleteForm.ShowDialog();
         }
     }
 }

@@ -26,20 +26,6 @@ namespace SystemSchool.Forms.StudentForms
             _loadFormComponents = loadFormComponents;
         }
 
-        private async void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            await _loadFormComponents.EditStudentLoadListBoxSearchAsync(this);
-            LabelSearchResult.Text = $"Result of search '{textBoxSearch.Text}'";
-        }
-
-        private async void listBoxSearch_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listBoxSearch.SelectedItem != null)
-            {
-                await _loadFormComponents.EditStudentLoadComponentsAsync(this);
-            }
-        }
-
         private async void buttonEdit_Click(object sender, EventArgs e)
         {
             try
@@ -68,6 +54,20 @@ namespace SystemSchool.Forms.StudentForms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            await _loadFormComponents.EditStudentLoadListBoxSearchAsync(this);
+            LabelSearchResult.Text = $"Result of search '{textBoxSearch.Text}'";
+        }
+
+        private async void listBoxSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxSearch.SelectedItem != null)
+            {
+                await _loadFormComponents.EditStudentLoadComponentsAsync(this);
             }
         }
 

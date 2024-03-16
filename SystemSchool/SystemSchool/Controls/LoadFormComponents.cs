@@ -29,6 +29,14 @@ namespace SystemSchool.Controls
             _dataAccess = dataAccess;
         }
 
+
+        public async Task RegistrationUserLoadComboBoxClass(RegistrationUserForm registrationUserForm)
+        {
+            IEnumerable<Group> groups = await _searchEntities.FindAllEntitiesAsync<Group>();
+            registrationUserForm.ComboBoxClass.Items.Clear();
+            registrationUserForm.ComboBoxClass.Items.AddRange(groups.Select(c => new DisplayItem<Group>(c, c.GroupName)).ToArray());
+        }
+
         public async Task EditUserLoadComponentsAsync(EditUserForm editUserForm)
         {
             EditUserLoadComboBoxClass(editUserForm);

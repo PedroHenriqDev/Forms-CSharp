@@ -273,7 +273,7 @@
         private System.Windows.Forms.PictureBox pictureBoxEdit;
         private System.Windows.Forms.PictureBox pictureBoxStudent;
         private System.Windows.Forms.PictureBox pictureBoxSchool;
-        private System.Windows.Forms.ComboBox ComboBoxClass;
+        public System.Windows.Forms.ComboBox ComboBoxClass;
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.Label LabelUsername;
         private System.Windows.Forms.Label LabelGroup;

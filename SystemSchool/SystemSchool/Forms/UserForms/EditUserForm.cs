@@ -19,7 +19,7 @@ namespace SystemSchool.Forms.UserForms
         public string Query => textBoxSearch.Text;
 
         public EditUserForm(
-            EditEntitiesService<User> editEntities, 
+            EditEntitiesService<User> editEntities,
             LoadFormComponents loadFormComponents)
         {
             _editEntities = editEntities;
@@ -39,12 +39,12 @@ namespace SystemSchool.Forms.UserForms
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch(Exception ex) 
+            catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        
+
         private async void textBoxSearch_KeyDown(object sender, KeyEventArgs e)
         {
             await _loadFormComponents.EditUserLoadListBoxSearchAsync(this);

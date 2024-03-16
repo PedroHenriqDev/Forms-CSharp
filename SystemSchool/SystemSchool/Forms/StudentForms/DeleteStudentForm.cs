@@ -24,17 +24,6 @@ namespace SystemSchool.Forms.StudentForms
             InitializeComponent();
         }
 
-        private async void StudentDeleteForm_Load(object sender, EventArgs e)
-        {
-            await _loadFormComponents.DeleteStudentLoadComboBoxClassroomsAsync(this);
-        }
-
-        private async void ComboBoxClassroom_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            await _loadFormComponents.DeleteStudentLoadListBoxByIndexAsync(this);
-        }
-  
-
         private async void buttonDelete_Click(object sender, EventArgs e)
         {
             try
@@ -47,6 +36,16 @@ namespace SystemSchool.Forms.StudentForms
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private async void StudentDeleteForm_Load(object sender, EventArgs e)
+        {
+            await _loadFormComponents.DeleteStudentLoadComboBoxClassroomsAsync(this);
+        }
+
+        private async void ComboBoxClassroom_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            await _loadFormComponents.DeleteStudentLoadListBoxByIndexAsync(this);
         }
 
         private void pictureBoxEdit_Click(object sender, EventArgs e)

@@ -33,16 +33,6 @@ namespace SystemSchool
             InitializeComponent();
         }
 
-        private async void StudentRegistrationForm_Load(object sender, EventArgs e)
-        {
-            await _loadFormComponents.RegistrationStudentLoadComboBoxCoursesAsync(this);
-        }
-
-        private async void ComboBoxCourse_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            await _loadFormComponents.RegistrationStudentLoadComboBoxClassroomAsync(this);
-        }
-
         private async void buttonCreate_Click(object sender, EventArgs e)
         {
             try
@@ -64,6 +54,16 @@ namespace SystemSchool
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private async void StudentRegistrationForm_Load(object sender, EventArgs e)
+        {
+            await _loadFormComponents.RegistrationStudentLoadComboBoxCoursesAsync(this);
+        }
+
+        private async void ComboBoxCourse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            await _loadFormComponents.RegistrationStudentLoadComboBoxClassroomAsync(this);
         }
 
         private void pictureBoxBack_Click(object sender, EventArgs e)
