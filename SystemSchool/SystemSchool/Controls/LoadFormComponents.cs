@@ -147,7 +147,6 @@ namespace SystemSchool.Controls
             await EditStudentLoadLabelStudentAsync(editStudentForm);
         }
 
-
         /// <summary>
         /// Loads the ListBoxSearch asynchronously in the EditStudentForm.
         /// </summary>
