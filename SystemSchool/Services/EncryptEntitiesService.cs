@@ -4,8 +4,16 @@ using System.Text;
 
 namespace Services
 {
+    /// <summary>
+    /// Provides methods for encrypting entities.
+    /// </summary>
     public class EncryptEntitiesService
     {
+        /// <summary>
+        /// Encrypts the specified password using SHA512 algorithm.
+        /// </summary>
+        /// <param name="password">The password to encrypt.</param>
+        /// <returns>The encrypted password.</returns>
         internal string EncryptPasswordSHA512(string password)
         {
             using (SHA512 sha512 = SHA512.Create())

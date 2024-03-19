@@ -36,7 +36,7 @@ namespace SystemSchool.Forms.CourseForms
             {
                 SelectedCourse.Value.Classrooms = (await _searchEntities.FindEntitiesByReferenceIdAsync<Classroom, Course>(SelectedCourse.Value)).ToList();
                 await _deleteEntities.DeleteStudentsInClassroomsAsync(SelectedCourse.Value.Classrooms);
-                await _deleteEntities.DeleteClassromsByCourseIdAsync(SelectedCourse.Value.Classrooms, SelectedCourse.Value.Id);
+                await _deleteEntities.DeleteClassroomsByCourseIdAsync(SelectedCourse.Value.Classrooms, SelectedCourse.Value.Id);
 
                 EntityQuery<Course> courseQuery = await _deleteEntities.DeleteEntityAsync(SelectedCourse.Value);
                 MessageBox.Show(courseQuery.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
