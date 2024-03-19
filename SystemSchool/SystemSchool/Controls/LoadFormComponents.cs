@@ -13,12 +13,21 @@ using SystemSchool.Helpers;
 
 namespace SystemSchool.Controls
 {
+    /// <summary>
+    /// Class responsible for loading components in various forms of the school system.
+    /// </summary>
     public class LoadFormComponents
     {
         private readonly SearchEntitiesService _searchEntities;
         private readonly FillEntitiesService _fillEntities;
         private readonly DataAccess _dataAccess;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LoadFormComponents"/> class.
+        /// </summary>
+        /// <param name="searchEntities">The service used for entity search.</param>
+        /// <param name="fillEntities">The service used for filling entities.</param>
+        /// <param name="dataAccess">The data access.</param>
         public LoadFormComponents(
             SearchEntitiesService searchEntities,
             FillEntitiesService fillEntities,
@@ -29,7 +38,10 @@ namespace SystemSchool.Controls
             _dataAccess = dataAccess;
         }
 
-
+        /// <summary>
+        /// Loads the available groups into a ComboBox in the registration user form.
+        /// </summary>
+        /// <param name="registrationUserForm">The registration user form.</param>
         public async Task RegistrationUserLoadComboBoxClass(RegistrationUserForm registrationUserForm)
         {
             IEnumerable<Group> groups = await _searchEntities.FindAllEntitiesAsync<Group>();
@@ -37,6 +49,10 @@ namespace SystemSchool.Controls
             registrationUserForm.ComboBoxClass.Items.AddRange(groups.Select(c => new DisplayItem<Group>(c, c.GroupName)).ToArray());
         }
 
+        /// <summary>
+        /// Loads the components required for editing a user asynchronously.
+        /// </summary>
+        /// <param name="editUserForm">The edit user form.</param>
         public async Task EditUserLoadComponentsAsync(EditUserForm editUserForm)
         {
             EditUserLoadComboBoxClass(editUserForm);
@@ -45,23 +61,39 @@ namespace SystemSchool.Controls
             await EditUserLoadComboBoxClassAsync(editUserForm);
         }
 
-        public void EditUserLoadComboBoxClass(EditUserForm editUserForm) 
+        /// <summary>
+        /// Loads the ComboBoxClass in the EditUserForm.
+        /// </summary>
+        /// <param name="editUserForm">The edit user form.</param>
+        public void EditUserLoadComboBoxClass(EditUserForm editUserForm)
         {
             DisplayItem<User> user = editUserForm.listBoxSearch.SelectedItem as DisplayItem<User>;
             editUserForm.ComboBoxClass.Text = user.Value.Group.GroupName;
         }
 
-        public void EditUserLoadTextBoxUsername(EditUserForm editUserForm) 
+        /// <summary>
+        /// Loads the TextBoxUsername in the EditUserForm.
+        /// </summary>
+        /// <param name="editUserForm">The edit user form.</param>
+        public void EditUserLoadTextBoxUsername(EditUserForm editUserForm)
         {
             editUserForm.textBoxUsername.Text = editUserForm.SelectedUser.Value.Username;
         }
 
-        public void EditUserLoadLabelUserShow(EditUserForm editUserForm) 
+        /// <summary>
+        /// Loads the LabelUserShow in the EditUserForm.
+        /// </summary>
+        /// <param name="editUserForm">The edit user form.</param>
+        public void EditUserLoadLabelUserShow(EditUserForm editUserForm)
         {
             editUserForm.LabelUserShow.ForeColor = Color.Black;
             editUserForm.LabelUserShow.Text = $"{editUserForm.SelectedUser.Value.Username} - {editUserForm.SelectedUser.Value.Group.GroupName}";
         }
 
+        /// <summary>
+        /// Loads the ComboBoxClass asynchronously in the EditUserForm.
+        /// </summary>
+        /// <param name="editUserForm">The edit user form.</param>
         public async Task EditUserLoadComboBoxClassAsync(EditUserForm editUserForm)
         {
             IEnumerable<Group> groups = await _searchEntities.FindAllEntitiesAsync<Group>();
@@ -69,6 +101,10 @@ namespace SystemSchool.Controls
             editUserForm.ComboBoxClass.Items.AddRange(groups.Select(c => new DisplayItem<Group>(c, c.GroupName.CutCompleteName())).ToArray());
         }
 
+        /// <summary>
+        /// Loads the ListBoxSearch asynchronously in the EditUserForm.
+        /// </summary>
+        /// <param name="editUserForm">The edit user form.</param>
         public async Task EditUserLoadListBoxSearchAsync(EditUserForm editUserForm)
         {
             IEnumerable<User> users = await _searchEntities.FindUsersByQueryAsync(editUserForm.Query);
@@ -78,6 +114,10 @@ namespace SystemSchool.Controls
             editUserForm.listBoxSearch.Items.AddRange(users.Select(c => new DisplayItem<User>(c, $"{c.Username.CutCompleteName()} - {c.Group.GroupName}")).ToArray());
         }
 
+        /// <summary>
+        /// Loads the class of the user asynchronously in the EditUserForm.
+        /// </summary>
+        /// <param name="editUserForm">The edit user form.</param>
         public async Task EditUserLoadClassInUserAsync(EditUserForm editUserForm)
         {
             IEnumerable<Group> groups = await _searchEntities.FindAllEntitiesAsync<Group>();
@@ -94,13 +134,23 @@ namespace SystemSchool.Controls
             }
         }
 
-        public async Task EditStudentLoadComponentsAsync(EditStudentForm editStudentForm) 
+        /// <summary>
+        /// Loads the components of the EditStudentForm asynchronously.
+        /// </summary>
+        /// <param name="editStudentForm">The EditStudentForm to load components into.</param>
+        public async Task EditStudentLoadComponentsAsync(EditStudentForm editStudentForm)
         {
             EditStudentLoadTextBoxStudentName(editStudentForm);
+
             await EditStudentLoadComboBoxClassroomAsync(editStudentForm);
+
             await EditStudentLoadLabelStudentAsync(editStudentForm);
         }
 
+
+        /// <summary>
+        /// Loads the ListBoxSearch asynchronously in the EditStudentForm.
+        /// </summary>
         public async Task EditStudentLoadListBoxSearchAsync(EditStudentForm editStudentForm)
         {
             IEnumerable<Student> students = await _searchEntities.FindStudentByQueryAsync(editStudentForm.textBoxSearch.Text);
@@ -113,11 +163,17 @@ namespace SystemSchool.Controls
             }
         }
 
+        /// <summary>
+        /// Loads the TextBoxStudentName in the EditStudentForm.
+        /// </summary>
         public void EditStudentLoadTextBoxStudentName(EditStudentForm editStudentForm)
         {
             editStudentForm.textBoxStudentName.Text = editStudentForm.SelectedStudent.Value.CompleteName;
         }
 
+        /// <summary>
+        /// Loads the LabelStudent asynchronously in the EditStudentForm.
+        /// </summary>
         public async Task EditStudentLoadLabelStudentAsync(EditStudentForm editStudentForm)
         {
             editStudentForm.LabelStudent.ForeColor = Color.Black;
@@ -126,6 +182,9 @@ namespace SystemSchool.Controls
             editStudentForm.LabelStudent.Text = $"{editStudentForm.SelectedStudent.Value.CompleteName} - {editStudentForm.SelectedStudent.Value.Classroom.Course.CourseName} - {editStudentForm.SelectedStudent.Value.Classroom.ClassroomName}";
         }
 
+        /// <summary>
+        /// Loads the classroom in the student asynchronously in the EditStudentForm.
+        /// </summary>
         public async Task EditStudentLoadClassroomInStudentAsync(EditStudentForm editStudentForm, Student student)
         {
             IEnumerable<Classroom> classrooms = await _searchEntities.FindAllEntitiesAsync<Classroom>();
@@ -140,6 +199,9 @@ namespace SystemSchool.Controls
             }
         }
 
+        /// <summary>
+        /// Loads the ComboBoxClassroom asynchronously in the EditStudentForm.
+        /// </summary>
         public async Task EditStudentLoadComboBoxClassroomAsync(EditStudentForm editStudentForm)
         {
             editStudentForm.ComboBoxClassroom.Text = editStudentForm.SelectedStudent.Value.Classroom.ClassroomName;
@@ -149,6 +211,9 @@ namespace SystemSchool.Controls
             editStudentForm.ComboBoxClassroom.Items.AddRange(classrooms.Select(c => new DisplayItem<Classroom>(c, $"{c.ClassroomName} - {c.Course.CourseName}")).ToArray());
         }
 
+        /// <summary>
+        /// Loads the ComboBoxLetter asynchronously in the RegistrationClassroomForm.
+        /// </summary>
         public async Task RegistrationClassroomLoadComboBoxLetterAsnyc(RegistrationClassroomForm registrationClassroomForm)
         {
             IEnumerable<char> availableLetters = await _searchEntities.FindLettersAvailableBySchoolYearAsync(registrationClassroomForm.SchoolYear);
@@ -159,18 +224,27 @@ namespace SystemSchool.Controls
             }
         }
 
+        /// <summary>
+        /// Loads the ComboBoxCourse asynchronously in the RegistrationClassroomForm.
+        /// </summary>
         public async Task RegistrationClassroomLoadComboBoxCourseAsync(RegistrationClassroomForm registrationClassroomForm)
         {
             IEnumerable<Course> courses = await _searchEntities.FindAllEntitiesAsync<Course>();
             registrationClassroomForm.ComboBoxCourse.Items.AddRange(courses.Select(c => new DisplayItem<Course>(c, c.CourseName)).ToArray());
         }
 
-        public async Task EditClassroomLoadComponentsAsync(EditClassroomForm editClassroomForm) 
+        /// <summary>
+        /// Loads the components in the EditClassroomForm asynchronously.
+        /// </summary>
+        public async Task EditClassroomLoadComponentsAsync(EditClassroomForm editClassroomForm)
         {
             await EditClassroomLoadComboBoxCourseAsync(editClassroomForm);
             EditClassroomLoadLabelClassroomShow(editClassroomForm);
         }
 
+        /// <summary>
+        /// Loads the ListBoxSearch in the EditClassroomForm asynchronously.
+        /// </summary>
         public async Task EditClassroomLoadListBoxSearchAsync(EditClassroomForm editClassroomForm)
         {
             IEnumerable<Classroom> classrooms = await _searchEntities.FindAllEntitiesAsync<Classroom>();
@@ -180,6 +254,9 @@ namespace SystemSchool.Controls
             editClassroomForm.listBoxSearch.Items.AddRange(classrooms.Select(c => new DisplayItem<Classroom>(c, $"{c.ClassroomName} - {c.Course.CourseName}")).ToArray());
         }
 
+        /// <summary>
+        /// Loads the ComboBoxCourse in the EditClassroomForm asynchronously.
+        /// </summary>
         public async Task EditClassroomLoadComboBoxCourseAsync(EditClassroomForm editClassroomForm)
         {
             IEnumerable<Course> courses = await _searchEntities.FindAllEntitiesAsync<Course>();
@@ -188,13 +265,17 @@ namespace SystemSchool.Controls
             editClassroomForm.ComboBoxCourse.Items.AddRange(courses.Select(c => new DisplayItem<Course>(c, c.CourseName)).ToArray());
         }
 
+        /// <summary>
+        /// Loads the LabelClassroomShow in the EditClassroomForm.
+        /// </summary>
         public void EditClassroomLoadLabelClassroomShow(EditClassroomForm editClassroomForm)
         {
             editClassroomForm.LabelClassroomShow.ForeColor = Color.Black;
             editClassroomForm.LabelClassroomShow.Text = $"{editClassroomForm.SelectedClassroom.Value.ClassroomName} - {editClassroomForm.SelectedClassroom.Value.Course.CourseName}";
         }
-
-
+        /// <summary>
+        /// Loads the ComboBoxCourse asynchronously in the DeleteClassroomForm.
+        /// </summary>
         public async Task DeleteClassroomLoadComboBoxCourseAsync(DeleteClassroomForm deleteClassroomForm)
         {
             IEnumerable<Course> courses = await _searchEntities.FindAllEntitiesAsync<Course>();
@@ -202,6 +283,9 @@ namespace SystemSchool.Controls
             deleteClassroomForm.ComboBoxCourse.Items.AddRange(courses.Select(c => new DisplayItem<Course>(c, c.CourseName)).ToArray());
         }
 
+        /// <summary>
+        /// Loads the ListBoxClassrooms in the DeleteClassroomForm asynchronously.
+        /// </summary>
         public async Task DeleteClassroomLoadListBoxClassroomsAsync(DeleteClassroomForm deleteClassroomForm)
         {
             IEnumerable<Classroom> classrooms = await _searchEntities.FindEntitiesByReferenceIdAsync<Classroom, Course>(deleteClassroomForm.SelectedCourse.Value);
@@ -213,12 +297,18 @@ namespace SystemSchool.Controls
             }
         }
 
+        /// <summary>
+        /// Loads the ComboBoxClassrooms asynchronously in the DeleteStudentForm.
+        /// </summary>
         public async Task DeleteStudentLoadComboBoxClassroomsAsync(DeleteStudentForm deleteStudentForm)
         {
             IEnumerable<Classroom> classrooms = await _searchEntities.FindAllEntitiesAsync<Classroom>();
             deleteStudentForm.ComboBoxClassroom.Items.AddRange(classrooms.Select(c => new DisplayItem<Classroom>(c, c.ClassroomName)).ToArray());
         }
 
+        /// <summary>
+        /// Loads the ListBoxStudents by index asynchronously in the DeleteStudentForm.
+        /// </summary>
         public async Task DeleteStudentLoadListBoxByIndexAsync(DeleteStudentForm deleteStudentForm)
         {
             IEnumerable<Student> students = await _searchEntities.FindEntitiesByReferenceIdAsync<Student, Classroom>(deleteStudentForm.SelectedClassroom.Value);
@@ -233,6 +323,9 @@ namespace SystemSchool.Controls
             }
         }
 
+        /// <summary>
+        /// Loads the ComboBoxClasses asynchronously in the DeleteUserForm.
+        /// </summary>
         public async Task DeleteUserLoadComboBoxClassAsync(DeleteUserForm deleteUserForm)
         {
             IEnumerable<Group> groups = await _searchEntities.FindAllEntitiesAsync<Group>();
@@ -240,6 +333,9 @@ namespace SystemSchool.Controls
             deleteUserForm.ComboBoxClasses.Items.AddRange(groups.Select(c => new DisplayItem<Group>(c, c.GroupName)).ToArray());
         }
 
+        /// <summary>
+        /// Loads the ListBoxUsers asynchronously in the DeleteUserForm.
+        /// </summary>
         public async Task DeleteUserLoadListBoxUsersAsync(DeleteUserForm deleteUserForm)
         {
             IEnumerable<User> users = await _searchEntities.FindEntitiesByReferenceIdAsync<User, Group>(deleteUserForm.SelectedClass.Value);
@@ -248,6 +344,9 @@ namespace SystemSchool.Controls
             deleteUserForm.listBoxUsers.Items.AddRange(users.Select(u => new DisplayItem<User>(u, u.Username)).ToArray());
         }
 
+        /// <summary>
+        /// Loads the ComboBoxClassroom asynchronously in the RegistrationStudentForm.
+        /// </summary>
         public async Task RegistrationStudentLoadComboBoxClassroomAsync(RegistrationStudentForm registrationStudentForm)
         {
             IEnumerable<Classroom> classrooms = await _searchEntities.FindEntitiesByReferenceIdAsync<Classroom, Course>(registrationStudentForm.SelectedCourse.Value);
@@ -255,12 +354,18 @@ namespace SystemSchool.Controls
             registrationStudentForm.ComboBoxClassroom.Items.AddRange(classrooms.Select(c => new DisplayItem<Classroom>(c, c.ClassroomName)).ToArray());
         }
 
+        /// <summary>
+        /// Loads the ComboBoxCourses asynchronously in the RegistrationStudentForm.
+        /// </summary>
         public async Task RegistrationStudentLoadComboBoxCoursesAsync(RegistrationStudentForm registrationStudentForm)
         {
             IEnumerable<Course> courses = await _searchEntities.FindAllEntitiesAsync<Course>();
             registrationStudentForm.ComboBoxCourse.Items.AddRange(courses.Select(c => new DisplayItem<Course>(c, c.CourseName)).ToArray());
         }
 
+        /// <summary>
+        /// Loads the ListBoxCourses asynchronously in the DeleteCourseForm.
+        /// </summary>
         public async Task DeleteCourseLoadListBoxCoursesAsync(DeleteCourseForm deleteCourseForm)
         {
             IEnumerable<Course> courses = await _searchEntities.FindAllEntitiesAsync<Course>();
