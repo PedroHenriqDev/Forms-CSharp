@@ -24,7 +24,7 @@ namespace SystemSchool.Forms.StatisticsForms
         /// <summary>
         /// Handles the Load event of the StatisticsForm control.
         /// </summary>
-        private async void StatisticsForm_Load(object sender, EventArgs e)
+        private void StatisticsForm_Load(object sender, EventArgs e)
         {
             // Automatically trigger the bar charts button click event when the form loads
             buttonBarCharts_Click(sender, e);
