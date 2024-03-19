@@ -25,7 +25,11 @@ namespace Services
         /// <param name="validationEntities">The validation service.</param>
         /// <param name="searchEntities">The search service.</param>
         /// <param name="encryptEntities">The encryption service.</param>
-        public CreateEntitiesService(ConnectionDb connectionDb, ValidationEntitiesService validationEntities, SearchEntitiesService searchEntities, EncryptEntitiesService encryptEntities)
+        public CreateEntitiesService(
+            ConnectionDb connectionDb, 
+            ValidationEntitiesService validationEntities, 
+            SearchEntitiesService searchEntities, 
+            EncryptEntitiesService encryptEntities)
         {
             _connectionDb = connectionDb ?? throw new ArgumentNullException(nameof(connectionDb));
             _validationEntities = validationEntities ?? throw new ArgumentNullException(nameof(validationEntities));
