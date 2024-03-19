@@ -48,11 +48,6 @@ namespace SystemSchool.Forms.CourseForms
             }
         }
 
-        private async void DeleteCourseForm_Load(object sender, EventArgs e)
-        {
-            await _loadFormComponents.DeleteCourseLoadListBoxCoursesAsync(this);
-        }
-
         private void pictureBoxBack_Click(object sender, EventArgs e)
         {
             this.Hide();

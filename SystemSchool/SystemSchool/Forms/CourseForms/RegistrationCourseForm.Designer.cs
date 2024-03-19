@@ -26,6 +26,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrationCourseForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBoxSchool = new System.Windows.Forms.PictureBox();
             this.pictureBoxDelete = new System.Windows.Forms.PictureBox();
@@ -173,9 +174,11 @@
             this.Controls.Add(this.textBoxCourseName);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegistrationCourseForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegistrationCourseForm";
+            this.Load += new System.EventHandler(this.RegistrationCourseForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSchool)).EndInit();

@@ -28,6 +28,7 @@ namespace SystemSchool
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.ButtonLogin = new System.Windows.Forms.Button();
             this.pictureBoxSchool = new System.Windows.Forms.PictureBox();
             this.TextPassword = new System.Windows.Forms.TextBox();
@@ -155,6 +156,7 @@ namespace SystemSchool
             this.Controls.Add(this.ButtonLogin);
             this.Font = new System.Drawing.Font("Malgun Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(416, 311);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

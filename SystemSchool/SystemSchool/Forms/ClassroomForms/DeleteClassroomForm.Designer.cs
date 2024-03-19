@@ -26,6 +26,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeleteClassroomForm));
             this.buttonDelete = new System.Windows.Forms.Button();
             this.listBoxClassrooms = new System.Windows.Forms.ListBox();
             this.LabelClassroom = new System.Windows.Forms.Label();
@@ -219,6 +220,7 @@
             this.Controls.Add(this.LabelClassroom);
             this.Controls.Add(this.pictureBoxDelete);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DeleteClassroomForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DeleteClassroomForm";

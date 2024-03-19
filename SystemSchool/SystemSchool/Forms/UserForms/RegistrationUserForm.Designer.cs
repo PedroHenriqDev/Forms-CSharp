@@ -26,6 +26,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrationUserForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.LabelEditStudent = new System.Windows.Forms.Label();
             this.LabelDeleteUser = new System.Windows.Forms.Label();
@@ -251,6 +252,7 @@
             this.Controls.Add(this.LabelPassword);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegistrationUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegistrationUserForm";

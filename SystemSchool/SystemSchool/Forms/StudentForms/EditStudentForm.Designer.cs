@@ -26,6 +26,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditStudentForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.LabelRegisterStudent = new System.Windows.Forms.Label();
             this.LabelDeleteStudent = new System.Windows.Forms.Label();
@@ -322,6 +323,7 @@
             this.Controls.Add(this.pictureBoxEdit);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EditStudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditStudentForm";

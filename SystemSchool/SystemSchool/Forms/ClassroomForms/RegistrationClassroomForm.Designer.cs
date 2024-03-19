@@ -26,6 +26,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrationClassroomForm));
             this.panel1 = new System.Windows.Forms.Panel();
             this.LabelPreview = new System.Windows.Forms.Label();
             this.pictureBoxSchool = new System.Windows.Forms.PictureBox();
@@ -322,6 +323,7 @@
             this.Controls.Add(this.LabelClassroomName);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegistrationClassroomForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegistrationClassroom";

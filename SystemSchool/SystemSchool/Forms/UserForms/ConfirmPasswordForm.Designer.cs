@@ -26,6 +26,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfirmPasswordForm));
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.LabelYourPassword = new System.Windows.Forms.Label();
             this.pictureBoxPassword = new System.Windows.Forms.PictureBox();
@@ -100,6 +101,7 @@
             this.Controls.Add(this.LabelYourPassword);
             this.Controls.Add(this.textBoxPassword);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConfirmPasswordForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ConfirmPasswordForm";

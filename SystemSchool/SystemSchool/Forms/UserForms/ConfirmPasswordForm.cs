@@ -73,6 +73,8 @@ namespace SystemSchool.Forms.PasswordForms
         private void pictureBoxClose_Click(object sender, EventArgs e)
         {
             this.Hide();
+            MainForm mainForm = new MainForm();
+            mainForm.ShowDialog();
         }
     }
 }

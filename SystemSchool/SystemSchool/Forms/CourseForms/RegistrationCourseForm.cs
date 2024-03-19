@@ -60,5 +60,10 @@ namespace SystemSchool.Forms.CourseForms
             var deleteForm = Program.Container.Resolve<DeleteCourseForm>();
             deleteForm.ShowDialog();
         }
+
+        private void RegistrationCourseForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
