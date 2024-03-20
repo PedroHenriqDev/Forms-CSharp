@@ -167,7 +167,7 @@
             this.LabelGroup.AutoSize = true;
             this.LabelGroup.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelGroup.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LabelGroup.Location = new System.Drawing.Point(582, 439);
+            this.LabelGroup.Location = new System.Drawing.Point(576, 461);
             this.LabelGroup.Name = "LabelGroup";
             this.LabelGroup.Size = new System.Drawing.Size(58, 21);
             this.LabelGroup.TabIndex = 18;
@@ -179,7 +179,7 @@
             this.LabelPassword.AutoSize = true;
             this.LabelPassword.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelPassword.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LabelPassword.Location = new System.Drawing.Point(571, 292);
+            this.LabelPassword.Location = new System.Drawing.Point(562, 316);
             this.LabelPassword.Name = "LabelPassword";
             this.LabelPassword.Size = new System.Drawing.Size(82, 21);
             this.LabelPassword.TabIndex = 17;
@@ -203,7 +203,7 @@
             this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreate.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCreate.ForeColor = System.Drawing.Color.Green;
-            this.buttonCreate.Location = new System.Drawing.Point(541, 575);
+            this.buttonCreate.Location = new System.Drawing.Point(546, 584);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(121, 35);
             this.buttonCreate.TabIndex = 24;
@@ -217,7 +217,7 @@
             this.textBoxPassword.BackColor = System.Drawing.Color.White;
             this.textBoxPassword.Font = new System.Drawing.Font("Malgun Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassword.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.textBoxPassword.Location = new System.Drawing.Point(433, 329);
+            this.textBoxPassword.Location = new System.Drawing.Point(433, 340);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(346, 27);
             this.textBoxPassword.TabIndex = 25;

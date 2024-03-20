@@ -368,6 +368,7 @@ namespace SystemSchool
             // 
             // pictureBoxClose
             // 
+            this.pictureBoxClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxClose.Image = global::SystemSchool.Properties.Resources.icons8_close_48__2_;
             this.pictureBoxClose.Location = new System.Drawing.Point(389, 19);
             this.pictureBoxClose.Name = "pictureBoxClose";

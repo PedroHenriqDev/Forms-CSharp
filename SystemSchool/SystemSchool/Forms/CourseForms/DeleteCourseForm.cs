@@ -30,6 +30,11 @@ namespace SystemSchool.Forms.CourseForms
             InitializeComponent();
         }
 
+        private async void DeleteCourseForm_Load(object sender, EventArgs e)
+        {
+            await _loadFormComponents.DeleteCourseLoadListBoxCoursesAsync(this);
+        }
+
         private async void buttonDelete_Click(object sender, EventArgs e)
         {
             try
